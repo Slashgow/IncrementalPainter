@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c7e0315349e0fd94490ceea14310f608
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/05 Atlas Overlay.unity
+  uploadId: 763294

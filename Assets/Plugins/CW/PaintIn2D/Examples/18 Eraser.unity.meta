@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f5a3e17d6e8682e41a2fc7209b7ba204
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/18 Eraser.unity
+  uploadId: 763294

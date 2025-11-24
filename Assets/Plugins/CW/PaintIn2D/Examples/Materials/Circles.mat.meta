@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c70f1ca5160c95d44bcca188a1ea9d70
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/Materials/Circles.mat
+  uploadId: 763294

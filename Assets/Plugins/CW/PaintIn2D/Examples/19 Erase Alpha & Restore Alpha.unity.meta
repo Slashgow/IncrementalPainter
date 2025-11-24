@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 55abf165fcbd681478a40464cba26608
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/19 Erase Alpha & Restore Alpha.unity
+  uploadId: 763294

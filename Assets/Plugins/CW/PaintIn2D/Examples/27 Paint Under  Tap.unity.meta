@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ddaa6a92fc2330a46948a5939af13db2
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/27 Paint Under  Tap.unity
+  uploadId: 763294

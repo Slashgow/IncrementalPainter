@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 435fdcb19da64c94aa79f5fb2840cbdd
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/17 Straight Lines.unity
+  uploadId: 763294

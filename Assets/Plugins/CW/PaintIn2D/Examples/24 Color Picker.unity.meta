@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 95f05891b7884bf4a869f345252e0f74
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/24 Color Picker.unity
+  uploadId: 763294

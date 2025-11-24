@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3ba87fa6127efea4f95f9b3866f9baec
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/Textures/Clone Texture.renderTexture
+  uploadId: 763294

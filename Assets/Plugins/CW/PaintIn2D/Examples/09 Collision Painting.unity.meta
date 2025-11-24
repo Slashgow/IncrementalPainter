@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 82de9dcbbf017a847972606d036783f4
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/09 Collision Painting.unity
+  uploadId: 763294

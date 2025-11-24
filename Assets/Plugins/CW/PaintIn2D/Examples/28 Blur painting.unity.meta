@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b1aea5fe70fbd44418ad1215ee354320
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/28 Blur painting.unity
+  uploadId: 763294

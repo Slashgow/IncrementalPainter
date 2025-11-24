@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6b882762866ee594ea5879c8244d913d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/Materials/Splats.mat
+  uploadId: 763294

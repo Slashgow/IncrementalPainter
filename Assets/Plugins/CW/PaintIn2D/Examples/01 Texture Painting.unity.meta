@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2dff34359cf11e94d807d095442a754b
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/01 Texture Painting.unity
+  uploadId: 763294

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 76dc61b73d01c5f4aadb12e4a8ce64a2
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/26 Paint Under.unity
+  uploadId: 763294

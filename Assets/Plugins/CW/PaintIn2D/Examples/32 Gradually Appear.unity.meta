@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 63561d13dadd90340a2b24b072c1ca8c
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/32 Gradually Appear.unity
+  uploadId: 763294

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a702e53796152ae4b9e4bbf6841cc17d, type: 3}
+  m_Name: Test Skill
+  m_EditorClassIdentifier: 
+  skillID: test_skill_0
+  skillName: test skill 0
+  description: this is the description
+  icon: {fileID: 21300000, guid: ed01547ae2acb504fb7e9de2ebc309a5, type: 3}
+  skillPointCost: 1
+  currencyCost: 0
+  requiredSkills: []
+  requiredPlayerLevel: 0
+  effectType: 0
+  effectValue: 0
+  effectTarget: 
+  lockedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  unlockedColor: {r: 0, g: 1, b: 0, a: 1}
+  availableColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}

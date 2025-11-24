@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: ced2eef7b690f0e4eba33071d2897bde
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/Scripts/CwTapToReadColor.cs
+  uploadId: 763294

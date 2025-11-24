@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: cfdecbfa7fd2331459a7718754f87014
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/13 Save Load.unity
+  uploadId: 763294

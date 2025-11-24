@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a1af3ede719864e4c9890187700caa00
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/Paint Logo.unity
+  uploadId: 763294

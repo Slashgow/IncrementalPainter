@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bac2f8a45a2ff634fa6b619182c2102b
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/21 Stencil Mask.unity
+  uploadId: 763294

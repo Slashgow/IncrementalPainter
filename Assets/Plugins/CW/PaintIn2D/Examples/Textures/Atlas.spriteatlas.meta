@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 01993987b2fd5684391cb2d001d47cc4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 4343727234628468602
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270105
+  packageName: Paint in 2D
+  packageVersion: 1.1.7
+  assetPath: Assets/Plugins/CW/PaintIn2D/Examples/Textures/Atlas.spriteatlas
+  uploadId: 763294
