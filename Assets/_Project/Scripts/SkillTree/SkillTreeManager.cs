@@ -1,9 +1,10 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillTreeManager : MonoBehaviour
+public class SkillTreeManager : MonoBehaviour 
 {
     [SerializeField] private inkolorgames.Logger logger;
+    [SerializeField] private SimpleDamageor autoClickerDamageor;
 
     [Header("Player Resources")]
     public int availableSkillPoints = 10;
@@ -12,90 +13,127 @@ public class SkillTreeManager : MonoBehaviour
     [Header("Skill Nodes")]
     public List<SkillNode> allSkillNodes;
 
-    private HashSet<string> unlockedSkills = new HashSet<string>();
-    private Dictionary<string, float> activeEffects = new Dictionary<string, float>();
+    private Dictionary<string, ISkillLevelData> leveledSkills = new();
+
+    private void Awake()
+    {
+        InitializeSkills();
+    }
+
+    private void InitializeSkills()
+    {
+        leveledSkills[autoClickerDamageor.DamageSkillDataPerLevel.SkillID] = autoClickerDamageor.DamageSkillDataPerLevel;
+        leveledSkills[autoClickerDamageor.CriticalDamageSkillDataPerLevel.SkillID] = autoClickerDamageor.CriticalDamageSkillDataPerLevel;
+        autoClickerDamageor.DamageSkillDataPerLevel.Initialize();
+        autoClickerDamageor.CriticalDamageSkillDataPerLevel.Initialize();
+    }
 
     void Start()
     {
         RefreshAllNodes();
     }
 
-    public SkillNode FindNodeBySkillData(SkillData skillData)
+    public SkillNode FindNodeBySkillData(SkillDataBase skillData)
     {
         foreach (var node in allSkillNodes)
         {
-            if (node != null && node.SkillData == skillData)
+            if (node != null && node.SkillDataBase == skillData)
+                return node;
+        }
+        return null;
+    }
+    public SkillNode FindNodeBySkillDataAndLevel(SkillDataBase skillData, int level)
+    {
+        foreach (var node in allSkillNodes)
+        {
+            if (node != null && node.SkillDataBase == skillData && node.TargetLevel == level)
                 return node;
         }
         return null;
     }
 
-
-    public bool CanUnlockSkill(SkillData skill)
+    public int GetSkillLevel(string skillID)
     {
-        if (unlockedSkills.Contains(skill.SkillID))
-            return false;
+        if (leveledSkills.TryGetValue(skillID, out var skillLevelData))
+            return skillLevelData.CurrentLevel;
+        return 0;
+    }
 
-        if (availableSkillPoints < skill.SkillPointCost)
-            return false;
-
-        if (playerCurrency < skill.CurrencyCost)
-            return false;
-
-        if (skill.RequiredSkills != null)
+    public bool CanLevelUpToLevel(SkillDataBase skillData, int targetLevel)
+    {
+        if (!leveledSkills.TryGetValue(skillData.SkillID, out var skillLevelData))
         {
-            foreach (var requiredSkill in skill.RequiredSkills)
+            logger.Log($"Skill not initialized: {skillData.SkillName}", this);
+            return false;
+        }
+
+        if (skillLevelData.CurrentLevel >= targetLevel)
+            return false;
+
+        if (skillLevelData.CurrentLevel < targetLevel - 1)
+            return false;
+
+        if (!skillLevelData.CanLevelUp())
+            return false;
+
+        var levelReq = skillData.GetRequirementsForLevel(targetLevel);
+        if (levelReq == null)
+        {
+            if (availableSkillPoints < 1)
+                return false;
+        }
+        else
+        {
+            if (levelReq.RequiredSkills != null)
             {
-                if (!unlockedSkills.Contains(requiredSkill.SkillID))
-                    return false;
+                foreach (var requiredSkill in levelReq.RequiredSkills)
+                {
+                    if (!IsSkillUnlocked(requiredSkill.SkillID))
+                        return false;
+                }
             }
+
+            if (availableSkillPoints < levelReq.SkillPointCost)
+                return false;
+
+            if (playerCurrency < levelReq.CurrencyCost)
+                return false;
         }
 
         return true;
     }
 
-    public void TryUnlockSkill(SkillData skill)
+    public void TryLevelUpSkillToLevel(SkillDataBase skillData, int targetLevel)
     {
-        if (!CanUnlockSkill(skill))
+        if (!leveledSkills.TryGetValue(skillData.SkillID, out var skillLevelData))
+            return;
+
+        if (!CanLevelUpToLevel(skillData, targetLevel))
         {
-            logger.Log($"Cannot unlock {skill.SkillName}: Requirements not met", this);
+            logger.Log($"Cannot level up {skillData.SkillName} to level {targetLevel}: Requirements not met", this);
             return;
         }
 
-        availableSkillPoints -= skill.SkillPointCost;
-        playerCurrency -= skill.CurrencyCost;
+        var levelRequirement = skillData.GetRequirementsForLevel(targetLevel);
+        if (levelRequirement != null)
+        {
+            availableSkillPoints -= levelRequirement.SkillPointCost;
+            playerCurrency -= levelRequirement.CurrencyCost;
+        }
+        else
+        {
+            availableSkillPoints -= 1; // Default cost
+        }
 
-        unlockedSkills.Add(skill.SkillID);
-        ApplySkillEffect(skill);
+        skillLevelData.LevelUp();
 
         RefreshAllNodes();
 
-        logger.Log($"Unlocked skill: {skill.SkillName}", this);
+        logger.Log($"Leveled up {skillData.SkillName} → Level {skillLevelData.CurrentLevel} (Value: {skillLevelData.GetCurrentLevelData():F2})", this);
     }
 
-    void ApplySkillEffect(SkillData skill)
-    {
-        string key = $"{skill.EffectTarget}_{skill.EffectType}";
 
-        if (!activeEffects.ContainsKey(key))
-            activeEffects[key] = 0f;
-
-        switch (skill.EffectType)
-        {
-            case SkillEffectType.MultiplyValue:
-            case SkillEffectType.AddFlat:
-                activeEffects[key] += skill.EffectValue;
-                break;
-        }
-    }
-
-    public float GetEffectValue(string effectTarget, SkillEffectType effectType)
-    {
-        string key = $"{effectTarget}_{effectType}";
-        return activeEffects.ContainsKey(key) ? activeEffects[key] : 0f;
-    }
-
-    public bool IsSkillUnlocked(string skillID) => unlockedSkills.Contains(skillID);
+    public bool IsSkillUnlocked(string skillID) => leveledSkills[skillID].IsUnlocked;
 
     void RefreshAllNodes()
     {
@@ -106,48 +144,15 @@ public class SkillTreeManager : MonoBehaviour
         }
     }
 
-   // // ============================================
-   // // SAVE/LOAD SYSTEM
-   // // ============================================
-   // void SaveProgress()
-   // {
-   //     PlayerPrefs.SetInt("SkillPoints", availableSkillPoints);
-   //     PlayerPrefs.SetString("PlayerCurrency", playerCurrency.ToString());
-   //
-   //     string unlockedSkillsData = string.Join(",", unlockedSkills);
-   //     PlayerPrefs.SetString("UnlockedSkills", unlockedSkillsData);
-   //
-   //     PlayerPrefs.Save();
-   // }
-   //
-   // void LoadProgress()
-   // {
-   //     availableSkillPoints = PlayerPrefs.GetInt("SkillPoints", 10);
-   //
-   //     string currencyStr = PlayerPrefs.GetString("PlayerCurrency", "1000");
-   //     playerCurrency = long.Parse(currencyStr);
-   //
-   //     string unlockedSkillsData = PlayerPrefs.GetString("UnlockedSkills", "");
-   //     if (!string.IsNullOrEmpty(unlockedSkillsData))
-   //     {
-   //         unlockedSkills = new HashSet<string>(unlockedSkillsData.Split(','));
-   //
-   //         // Reapply all skill effects
-   //         foreach (var node in allSkillNodes)
-   //         {
-   //             if (unlockedSkills.Contains(node.skillData.skillID))
-   //             {
-   //                 ApplySkillEffect(node.skillData);
-   //             }
-   //         }
-   //     }
-   // }
-
     public void ResetSkillTree()
     {
-        unlockedSkills.Clear();
-        activeEffects.Clear();
+        foreach (var skill in leveledSkills.Values)
+        {
+            skill.Initialize();
+        }
+ 
         availableSkillPoints = 10;
+        playerCurrency = 1000000;
         RefreshAllNodes();
     }
 

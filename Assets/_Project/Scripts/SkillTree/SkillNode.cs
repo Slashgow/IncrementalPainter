@@ -6,12 +6,18 @@ using UnityEngine.UI;
 public class SkillNode : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private SkillData skillData;
-    public SkillData SkillData => skillData;
+    [SerializeField] private SkillDataBase skillDataBase;
+    public SkillDataBase SkillDataBase => skillDataBase;
+
+    [Header("Level Configuration")]
+    [SerializeField, Range(0, 10)] private int targetLevel = 1;
+    public int TargetLevel => targetLevel;
+
     [SerializeField] private Image iconImage;
     [SerializeField] private Image backgroundImage;
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI costText;
+    [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private Button button;
 
     [Header("Connection Lines")]
@@ -28,22 +34,33 @@ public class SkillNode : MonoBehaviour
         Unlocked
     }
 
-    void Start()
+    private void Awake()
     {
         treeManager = GetComponentInParent<SkillTreeManager>();
         button.onClick.AddListener(OnSkillClicked);
+  
+    }
+    private void Start()
+    {
         Initialize();
     }
 
     public void Initialize()
     {
         if (iconImage) 
-            iconImage.sprite = skillData.Icon;
+            iconImage.sprite = skillDataBase.Icon;
         if (nameText) 
-            nameText.text = skillData.SkillName;
-        if (costText) 
-            costText.text = $"Cost: {skillData.SkillPointCost} SP";
+            nameText.text = skillDataBase.SkillName;
+        if (levelText)
+            levelText.text = $"Level {targetLevel}";
 
+        var levelReq = skillDataBase.GetRequirementsForLevel(targetLevel);
+        if (costText && levelReq != null)
+        {
+            costText.text = $"Cost: {levelReq.SkillPointCost} SP";
+            if (levelReq.CurrencyCost > 0)
+                costText.text += $"\n{levelReq.CurrencyCost} Gold";
+        }
         UpdateVisuals();
     }
 
@@ -51,13 +68,13 @@ public class SkillNode : MonoBehaviour
     {
         if (treeManager != null)
         {
-            treeManager.TryUnlockSkill(skillData);
+            treeManager.TryLevelUpSkillToLevel(skillDataBase, targetLevel);
         }
     }
 
     public void UpdateVisuals()
     {
-        if (skillData == null) 
+        if (skillDataBase == null) 
             return;
 
         currentState = DetermineState();
@@ -66,21 +83,21 @@ public class SkillNode : MonoBehaviour
         {
             case SkillState.Locked:
                 if (backgroundImage) 
-                    backgroundImage.color = skillData.LockedColor;
+                    backgroundImage.color = skillDataBase.LockedColor;
                 if (button) 
                     button.interactable = false;
                 break;
 
             case SkillState.Available:
                 if (backgroundImage) 
-                    backgroundImage.color = skillData.AvailableColor;
+                    backgroundImage.color = skillDataBase.AvailableColor;
                 if (button) 
                     button.interactable = true;
                 break;
 
             case SkillState.Unlocked:
                 if (backgroundImage) 
-                    backgroundImage.color = skillData.UnlockedColor;
+                    backgroundImage.color = skillDataBase.UnlockedColor;
                 if (button) 
                     button.interactable = false;
                 break;
@@ -91,10 +108,12 @@ public class SkillNode : MonoBehaviour
 
     SkillState DetermineState()
     {
-        if (treeManager.IsSkillUnlocked(skillData.SkillID))
+        int currentLevel = treeManager.GetSkillLevel(skillDataBase.SkillID);
+
+        if (currentLevel >= targetLevel)
             return SkillState.Unlocked;
 
-        if (treeManager.CanUnlockSkill(skillData))
+        if (treeManager.CanLevelUpToLevel(skillDataBase, targetLevel))
             return SkillState.Available;
 
         return SkillState.Locked;
@@ -106,7 +125,7 @@ public class SkillNode : MonoBehaviour
         {
             if (line != null)
             {
-                Color lineColor = currentState == SkillState.Unlocked ? skillData.UnlockedColor : skillData.LockedColor;
+                Color lineColor = currentState == SkillState.Unlocked ? skillDataBase.UnlockedColor : skillDataBase.LockedColor;
                 lineColor.a = 0.5f;
                 line.startColor = lineColor;
                 line.endColor = lineColor;
@@ -117,7 +136,7 @@ public class SkillNode : MonoBehaviour
 #if UNITY_EDITOR
     public void CreateConnectionLine(SkillNode targetNode)
     {
-        GameObject lineObj = new GameObject($"Line_{skillData.SkillName}_to_{targetNode.skillData.SkillName}");
+        GameObject lineObj = new GameObject($"Line_{skillDataBase.SkillName}_to_{targetNode.skillDataBase.SkillName}");
         lineObj.transform.SetParent(transform.parent);
 
         LineRenderer line = lineObj.AddComponent<LineRenderer>();
@@ -136,12 +155,6 @@ public class SkillNode : MonoBehaviour
     [ContextMenu("Create Connections to Required Skills")]
     public void CreateConnectionsToRequiredSkills()
     {
-        if (skillData == null || skillData.RequiredSkills == null || skillData.RequiredSkills.Count == 0)
-        {
-            Debug.Log($"{skillData?.SkillName ?? "Skill"} has no required skills");
-            return;
-        }
-
         ClearConnectionLines();
 
         if (treeManager == null)
@@ -153,16 +166,47 @@ public class SkillNode : MonoBehaviour
             return;
         }
 
-        foreach (var requiredSkill in skillData.RequiredSkills)
+        if (targetLevel > skillDataBase.StartingLevel)
         {
-            if (requiredSkill != null)
+            SkillNode previousLevelNode = treeManager.FindNodeBySkillDataAndLevel(skillDataBase, targetLevel - 1);
+            if (previousLevelNode != null)
             {
-                SkillNode requiredNode = treeManager.FindNodeBySkillData(requiredSkill);
-                if (requiredNode != null)
-                    CreateConnectionLine(requiredNode);
-                else
-                    Debug.LogWarning($"Could not find node for required skill: {requiredSkill.SkillName}");
+                CreateConnectionLine(previousLevelNode);
+                Debug.Log($"Connected {skillDataBase.SkillName} Level {targetLevel} to Level {targetLevel - 1}");
             }
+            else
+            {
+                Debug.LogWarning($"Could not find previous level node: {skillDataBase.SkillName} Level {targetLevel - 1}");
+            }
+        }
+
+        // Connect to required skills for this level
+        var levelReq = skillDataBase?.GetRequirementsForLevel(targetLevel);
+
+        if (levelReq != null && levelReq.RequiredSkills != null && levelReq.RequiredSkills.Count > 0)
+        {
+            foreach (var requiredSkill in levelReq.RequiredSkills)
+            {
+                if (requiredSkill != null)
+                {
+                    // Find any node with this skill (preferably the highest level)
+                    SkillNode requiredNode = treeManager.FindNodeBySkillData(requiredSkill);
+                    if (requiredNode != null)
+                    {
+                        CreateConnectionLine(requiredNode);
+                        Debug.Log($"Connected {skillDataBase.SkillName} Level {targetLevel} to required skill: {requiredSkill.SkillName}");
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"Could not find node for required skill: {requiredSkill.SkillName}");
+                    }
+                }
+            }
+        }
+
+        if (connectionLines.Count == 0)
+        {
+            Debug.Log($"{skillDataBase?.SkillName ?? "Skill"} Level {targetLevel} has no connections to create");
         }
     }
 

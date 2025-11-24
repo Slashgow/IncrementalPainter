@@ -1,20 +1,28 @@
 using UnityEngine;
 
+
 public class SimpleDamageor : MonoBehaviour, IDamageor
 {
     [Header("Références")]
     [SerializeField] private AutoClicker autoClicker;
 
     [Header("Paramètres de dégâts")]
-    [SerializeField] private float damage = 1f;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> damageSkillDataPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> criticalDamageSkillDataPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> DamageSkillDataPerLevel => damageSkillDataPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> CriticalDamageSkillDataPerLevel => criticalDamageSkillDataPerLevel;
+
     [SerializeField] private float damageRadius = 0.1f;
     [SerializeField] private LayerMask damageableLayers = ~0;
     [SerializeField] private float rayDistance = 100f;
-    public float Damage => damage;
+    public float Damage => damageSkillDataPerLevel.GetCurrentLevelData();
+    public float CriticalDamage => criticalDamageSkillDataPerLevel.GetCurrentLevelData();
     public float DamageRadius => damageRadius;
 
     private void OnEnable()
     {
+        damageSkillDataPerLevel.Initialize();
+
         if (autoClicker != null)
             autoClicker.OnClick += HandleClick;
     }
@@ -41,7 +49,7 @@ public class SimpleDamageor : MonoBehaviour, IDamageor
             var damageable = collider.GetComponentInParent<IDamageable>();
             if (damageable != null)
             {
-                damageable.TakeDamage(damage);
+                damageable.TakeDamage(Damage);
             }
         }
     }
