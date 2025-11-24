@@ -7,5 +7,6 @@ public interface IDamageable
     float MaxHealth { get; }
     void TakeDamage(float amount);
 
-    event Action<float> OnDamage;
+    event Action<float> OnTakeDamage;
+    event Action<Vector3> OnDie;
 }

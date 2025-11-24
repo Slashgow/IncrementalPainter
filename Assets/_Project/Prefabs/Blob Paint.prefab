@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 4851496448578494296}
   - component: {fileID: 5813030077171290011}
   - component: {fileID: 3519371518567919796}
+  - component: {fileID: 9031172547328476400}
+  - component: {fileID: 213876596640617962}
+  - component: {fileID: 8169414735138754520}
   m_Layer: 0
   m_Name: Blob Paint
   m_TagString: Untagged
@@ -149,3 +152,63 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &9031172547328476400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798080866972570822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a07d9a19e95063648a6f78122fe0cf83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  destroyOnDeath: 1
+  OnTakeDamageUnityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 213876596640617962}
+        m_TargetAssemblyTypeName: inkolorgames.effects.EffectApplier, inkolorgames.inkolortools
+        m_MethodName: DoEffects
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &213876596640617962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798080866972570822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64df80c7d3d6b44fb2de900c5cd716c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects:
+  - {fileID: 8169414735138754520}
+--- !u!114 &8169414735138754520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798080866972570822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35dd3c360fcfb04bb6184f1715b34fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  endColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+  timeToReachEndColor: 0.25
+  shouldGoBackToOriginColor: 1
+  easing: 7

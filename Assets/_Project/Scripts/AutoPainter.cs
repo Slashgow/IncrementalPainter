@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityTimer;
 
 
+
 public class AutoPainter : MonoBehaviour
 {
     [SerializeField] private inkolorgames.Logger logger;
