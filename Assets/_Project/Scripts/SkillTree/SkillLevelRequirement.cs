@@ -10,9 +10,6 @@ public class SkillLevelRequirement
     [SerializeField] private List<SkillDataBase> requiredSkills;
     public List<SkillDataBase> RequiredSkills => requiredSkills;
 
-    [SerializeField] private int skillPointCost = 1;
-    public int SkillPointCost => skillPointCost;
-
-    [SerializeField] private long currencyCost = 0;
-    public long CurrencyCost => currencyCost;
+    [SerializeField] private int currencyCost = 0;
+    public int CurrencyCost => currencyCost;
 }

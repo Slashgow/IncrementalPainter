@@ -8,6 +8,9 @@ public class SimpleDamageable : MonoBehaviour, IDamageable
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private bool destroyOnDeath = false;
 
+    [Header("Currency")]
+    [SerializeField] private int cost = 10;
+
     private float currentHealth;
     private bool isDead;
     public float CurrentHealth => Mathf.Clamp(currentHealth, 0f, maxHealth);

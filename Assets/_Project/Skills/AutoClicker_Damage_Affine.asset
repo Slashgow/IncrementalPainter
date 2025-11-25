@@ -21,16 +21,14 @@ MonoBehaviour:
   levelRequirements:
   - level: 1
     requiredSkills: []
-    skillPointCost: 1
     currencyCost: 0
   - level: 2
     requiredSkills:
     - {fileID: 11400000, guid: ef4f9ccd03daba24397609ded8d51a7b, type: 2}
-    skillPointCost: 3
-    currencyCost: 0
+    currencyCost: 10
   lockedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   unlockedColor: {r: 0, g: 1, b: 0, a: 1}
   availableColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   effectValue:
     a: 1
-    b: 0
+    b: 1

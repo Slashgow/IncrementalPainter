@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9031172547328476400}
   - component: {fileID: 213876596640617962}
   - component: {fileID: 8169414735138754520}
+  - component: {fileID: 9222135517614945112}
   m_Layer: 0
   m_Name: Blob Paint
   m_TagString: Untagged
@@ -166,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   destroyOnDeath: 1
+  cost: 10
   OnTakeDamageUnityEvent:
     m_PersistentCalls:
       m_Calls:
@@ -212,3 +214,16 @@ MonoBehaviour:
   timeToReachEndColor: 0.25
   shouldGoBackToOriginColor: 1
   easing: 7
+--- !u!114 &9222135517614945112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798080866972570822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04c8a663872f464d958210805a295bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 10

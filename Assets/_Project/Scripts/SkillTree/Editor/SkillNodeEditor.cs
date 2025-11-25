@@ -23,8 +23,6 @@ public class SkillNodeEditor : Editor
                 EditorGUILayout.BeginVertical(EditorStyles.helpBox);
                 EditorGUILayout.LabelField($"Level {skillNode.TargetLevel} Requirements:", EditorStyles.boldLabel);
 
-                // Show costs
-                EditorGUILayout.LabelField($"Skill Points: {levelReq.SkillPointCost}");
                 if (levelReq.CurrencyCost > 0)
                     EditorGUILayout.LabelField($"Currency: {levelReq.CurrencyCost}");
 

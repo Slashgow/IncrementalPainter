@@ -57,7 +57,6 @@ public class SkillNode : MonoBehaviour
         var levelReq = skillDataBase.GetRequirementsForLevel(targetLevel);
         if (costText && levelReq != null)
         {
-            costText.text = $"Cost: {levelReq.SkillPointCost} SP";
             if (levelReq.CurrencyCost > 0)
                 costText.text += $"\n{levelReq.CurrencyCost} Gold";
         }

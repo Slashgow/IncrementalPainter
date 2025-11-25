@@ -76,27 +76,24 @@ public class SkillTreeManager : MonoBehaviour
         if (!skillLevelData.CanLevelUp())
             return false;
 
-        var levelReq = skillData.GetRequirementsForLevel(targetLevel);
-        if (levelReq == null)
+        var levelRequirement = skillData.GetRequirementsForLevel(targetLevel);
+        if (levelRequirement == null)
         {
             if (availableSkillPoints < 1)
                 return false;
         }
         else
         {
-            if (levelReq.RequiredSkills != null)
+            if (levelRequirement.RequiredSkills != null)
             {
-                foreach (var requiredSkill in levelReq.RequiredSkills)
+                foreach (var requiredSkill in levelRequirement.RequiredSkills)
                 {
                     if (!IsSkillUnlocked(requiredSkill.SkillID))
                         return false;
                 }
             }
 
-            if (availableSkillPoints < levelReq.SkillPointCost)
-                return false;
-
-            if (playerCurrency < levelReq.CurrencyCost)
+            if (!CurrencyManager.Instance.CanAfford(levelRequirement.CurrencyCost))
                 return false;
         }
 
@@ -116,14 +113,7 @@ public class SkillTreeManager : MonoBehaviour
 
         var levelRequirement = skillData.GetRequirementsForLevel(targetLevel);
         if (levelRequirement != null)
-        {
-            availableSkillPoints -= levelRequirement.SkillPointCost;
-            playerCurrency -= levelRequirement.CurrencyCost;
-        }
-        else
-        {
-            availableSkillPoints -= 1; // Default cost
-        }
+            CurrencyManager.Instance.AddCurrency(-levelRequirement.CurrencyCost);
 
         skillLevelData.LevelUp();
 
