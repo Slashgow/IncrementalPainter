@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5813030077171290011}
   - component: {fileID: 3519371518567919796}
   - component: {fileID: 9031172547328476400}
+  - component: {fileID: 5512736815637105741}
   - component: {fileID: 213876596640617962}
   - component: {fileID: 8169414735138754520}
   - component: {fileID: 9222135517614945112}
@@ -165,9 +166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07d9a19e95063648a6f78122fe0cf83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorable: {fileID: 5512736815637105741}
   maxHealth: 3
   destroyOnDeath: 1
-  cost: 10
   OnTakeDamageUnityEvent:
     m_PersistentCalls:
       m_Calls:
@@ -183,6 +184,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5512736815637105741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798080866972570822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ffaa5e0d35057040bd5aed9b398f539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 4851496448578494296}
+  color: {r: 0.8431373, g: 0.8352942, b: 0.24705884, a: 1}
 --- !u!114 &213876596640617962
 MonoBehaviour:
   m_ObjectHideFlags: 0

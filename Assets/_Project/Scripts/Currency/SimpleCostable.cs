@@ -16,5 +16,5 @@ public class SimpleCostable : MonoBehaviour, ICostable
     {
         SimpleDamageable.OnAnyDamageableDie -= SimpleDamageable_OnAnyDamageableDie;
     }
-    private void SimpleDamageable_OnAnyDamageableDie(Vector3 worldPosition) => OnAnyCostableAddCurrency?.Invoke(Cost);
+    private void SimpleDamageable_OnAnyDamageableDie(Vector3 worldPosition, Color color) => OnAnyCostableAddCurrency?.Invoke(Cost);
 }
