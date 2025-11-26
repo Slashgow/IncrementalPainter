@@ -24,12 +24,4 @@ public abstract class SkillDataBase : ScriptableObject
     public List<SkillLevelRequirement> LevelRequirements => levelRequirements;
     public abstract float GetEffectValueAtLevel(int level);
     public SkillLevelRequirement GetRequirementsForLevel(int level) => levelRequirements.Find(req => req.Level == level);
-
-    [Header("Visual")]
-    [SerializeField] private Color lockedColor = Color.gray;
-    public Color LockedColor => lockedColor;
-    [SerializeField] private Color unlockedColor = Color.green;
-    public Color UnlockedColor => unlockedColor;
-    [SerializeField] private Color availableColor = Color.yellow;
-    public Color AvailableColor => availableColor;
 }

@@ -8,16 +8,19 @@ public class SimpleDamageor : MonoBehaviour, IDamageor
 
     [Header("Paramètres de dégâts")]
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> damageSkillDataPerLevel;
-    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> criticalDamageSkillDataPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> criticalDamageMultiplierSkillDataPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> criticalHitLuckSkillDataPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> damageRadiusSkillDataPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> DamageSkillDataPerLevel => damageSkillDataPerLevel;
-    public SkillDataPerLevelOfType<FunctionAffine> CriticalDamageSkillDataPerLevel => criticalDamageSkillDataPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> CriticalDamageMultiplierSkillDataPerLevel => criticalDamageMultiplierSkillDataPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> CriticalHitLuckSkillDataPerLevel => criticalHitLuckSkillDataPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> DamageRadiusSkillDataPerLevel => damageRadiusSkillDataPerLevel;
 
-    [SerializeField] private float damageRadius = 0.1f;
     [SerializeField] private LayerMask damageableLayers = ~0;
-    [SerializeField] private float rayDistance = 100f;
     public float Damage => damageSkillDataPerLevel.GetCurrentLevelData();
-    public float CriticalDamage => criticalDamageSkillDataPerLevel.GetCurrentLevelData();
-    public float DamageRadius => damageRadius;
+    public float CriticalDamageMultiplier => criticalDamageMultiplierSkillDataPerLevel.GetCurrentLevelData();
+    public float CriticalHitLuck => criticalHitLuckSkillDataPerLevel.GetCurrentLevelData();
+    public float DamageRadius => damageRadiusSkillDataPerLevel.GetCurrentLevelData();
 
     private void OnEnable()
     {
@@ -43,14 +46,20 @@ public class SimpleDamageor : MonoBehaviour, IDamageor
     private void TryDamageFromWorldPoint(Vector3 worldPos)
     {
         Vector2 worldPosition2D = new Vector2(worldPos.x, worldPos.y);
-        Collider2D[] colliders2D = Physics2D.OverlapCircleAll(worldPosition2D, damageRadius, damageableLayers.value);
+        Collider2D[] colliders2D = Physics2D.OverlapCircleAll(worldPosition2D, DamageRadius, damageableLayers.value);
         foreach (var collider in colliders2D)
         {
             var damageable = collider.GetComponentInParent<IDamageable>();
             if (damageable != null)
             {
+                float damageAmount = CalculateDamage(out bool isCritical);
                 damageable.TakeDamage(Damage);
             }
         }
+    }
+    private float CalculateDamage(out bool isCritical)
+    {
+        isCritical = LuckUtility.RollLuck(CriticalHitLuck);
+        return isCritical ? Damage * CriticalDamageMultiplier : Damage;
     }
 }

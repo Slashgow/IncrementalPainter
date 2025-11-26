@@ -19,11 +19,13 @@ public class AutoClickerVisual : MonoBehaviour
         MatchAutoClickerRadius();
         autoClicker.OnAutoClickStarted += HandleAutoClickStarted;
         autoClicker.OnAutoClickFinished += HandleAutoClickFinished;
+        damageor.DamageRadiusSkillDataPerLevel.OnLevelUp += MatchAutoClickerRadius;
     }
     private void OnDestroy()
     {
         autoClicker.OnAutoClickStarted -= HandleAutoClickStarted;
         autoClicker.OnAutoClickFinished -= HandleAutoClickFinished;
+        damageor.DamageRadiusSkillDataPerLevel.OnLevelUp -= MatchAutoClickerRadius;
 
         alphaTween?.Kill();
     }

@@ -4,12 +4,12 @@ using UnityEngine.Events;
 
 public class SimpleDamageable : MonoBehaviour, IDamageable
 {
+    [Header("Color")]
+    [SerializeField] private SimpleColorable colorable;
+
     [Header("Health")]
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private bool destroyOnDeath = false;
-
-    [Header("Currency")]
-    [SerializeField] private int cost = 10;
 
     private float currentHealth;
     private bool isDead;
@@ -19,7 +19,7 @@ public class SimpleDamageable : MonoBehaviour, IDamageable
     public UnityEvent OnTakeDamageUnityEvent;
     public event Action<float> OnTakeDamage;
     public event Action<Vector3> OnDie;
-    public static event Action<Vector3> OnAnyDamageableDie;
+    public static event Action<Vector3, Color> OnAnyDamageableDie;
 
     private void OnEnable()
     {
@@ -51,7 +51,7 @@ public class SimpleDamageable : MonoBehaviour, IDamageable
         isDead = true;
 
         OnDie?.Invoke(transform.position);
-        OnAnyDamageableDie?.Invoke(transform.position);
+        OnAnyDamageableDie?.Invoke(transform.position, colorable.Color);
 
         if (destroyOnDeath)
             Destroy(gameObject);

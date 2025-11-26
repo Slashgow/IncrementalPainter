@@ -5,6 +5,8 @@ public class SkillTreeManager : MonoBehaviour
 {
     [SerializeField] private inkolorgames.Logger logger;
     [SerializeField] private SimpleDamageor autoClickerDamageor;
+    [SerializeField] private PaintStateManager paintStateManager;
+    [SerializeField] private AutoClicker autoClicker;
 
     [Header("Player Resources")]
     public int availableSkillPoints = 10;
@@ -12,6 +14,22 @@ public class SkillTreeManager : MonoBehaviour
 
     [Header("Skill Nodes")]
     public List<SkillNode> allSkillNodes;
+
+    [Header("Visual")]
+    [SerializeField] private Color lockedColor = Color.gray;
+    [SerializeField] private Color lockedColorDarker = Color.gray;
+    public Color LockedColor => lockedColor;
+    public Color LockedColorDarker => lockedColorDarker;
+
+    [SerializeField] private Color unlockedColor = Color.green;
+    [SerializeField] private Color unlockedColorDarker = Color.green;
+    public Color UnlockedColor => unlockedColor;
+    public Color UnlockedColorDarker => unlockedColorDarker;
+
+    [SerializeField] private Color availableColor = Color.yellow;
+    [SerializeField] private Color availableColorDarker = Color.yellow;
+    public Color AvailableColor => availableColor;
+    public Color AvailableColorDarker => availableColorDarker;
 
     private Dictionary<string, ISkillLevelData> leveledSkills = new();
 
@@ -23,9 +41,22 @@ public class SkillTreeManager : MonoBehaviour
     private void InitializeSkills()
     {
         leveledSkills[autoClickerDamageor.DamageSkillDataPerLevel.SkillID] = autoClickerDamageor.DamageSkillDataPerLevel;
-        leveledSkills[autoClickerDamageor.CriticalDamageSkillDataPerLevel.SkillID] = autoClickerDamageor.CriticalDamageSkillDataPerLevel;
+        leveledSkills[autoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel.SkillID] = autoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel;
+        leveledSkills[autoClickerDamageor.CriticalHitLuckSkillDataPerLevel.SkillID] = autoClickerDamageor.CriticalHitLuckSkillDataPerLevel;
+        leveledSkills[autoClickerDamageor.DamageRadiusSkillDataPerLevel.SkillID] = autoClickerDamageor.DamageRadiusSkillDataPerLevel;
+        leveledSkills[paintStateManager.TimeOfPaintStatePerLevel.SkillID] = paintStateManager.TimeOfPaintStatePerLevel;
+        leveledSkills[paintStateManager.ChanceOfIncreasingTimerPerLevel.SkillID] = paintStateManager.ChanceOfIncreasingTimerPerLevel;
+        leveledSkills[paintStateManager.TimeToAddOnIncreasePerLevel.SkillID] = paintStateManager.TimeToAddOnIncreasePerLevel;
+        leveledSkills[autoClicker.ClickTimerIntervalPerLevel.SkillID] = autoClicker.ClickTimerIntervalPerLevel;
+
         autoClickerDamageor.DamageSkillDataPerLevel.Initialize();
-        autoClickerDamageor.CriticalDamageSkillDataPerLevel.Initialize();
+        autoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
+        autoClickerDamageor.CriticalHitLuckSkillDataPerLevel.Initialize();
+        autoClickerDamageor.DamageRadiusSkillDataPerLevel.Initialize();
+        paintStateManager.TimeOfPaintStatePerLevel.Initialize();
+        paintStateManager.ChanceOfIncreasingTimerPerLevel.Initialize();
+        paintStateManager.TimeToAddOnIncreasePerLevel.Initialize();
+        autoClicker.ClickTimerIntervalPerLevel.Initialize();
     }
 
     void Start()

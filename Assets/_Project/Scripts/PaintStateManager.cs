@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class PaintStateManager : MonoSingleton<PaintStateManager>
 {
+    [SerializeField] private inkolorgames.Logger logger;
+
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> timeOfPaintStatePerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> TimeOfPaintStatePerLevel => timeOfPaintStatePerLevel;
+
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfIncreasingTimerPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> ChanceOfIncreasingTimerPerLevel => chanceOfIncreasingTimerPerLevel;
+
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> timeToAddOnIncreasePerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> TimeToAddOnIncreasePerLevel => timeToAddOnIncreasePerLevel;
 
     private Countdown countDownPaintState;
     public Countdown CountdownPaintState => countDownPaintState;
@@ -15,11 +23,13 @@ public class PaintStateManager : MonoSingleton<PaintStateManager>
     {
         base.Awake();
         GameManager.OnStartGameState += HandleStartGameState;
+        SimpleDamageable.OnAnyDamageableDie += SimpleDamageable_OnAnyDamageableDie;
     }
 
     private void OnDestroy()
     {
-        if(GameManager.HasInstance)
+        SimpleDamageable.OnAnyDamageableDie -= SimpleDamageable_OnAnyDamageableDie;
+        if (GameManager.HasInstance)
             GameManager.OnStartGameState -= HandleStartGameState;
     }
     private void HandleStartGameState(GameManager.GameState state)
@@ -35,5 +45,17 @@ public class PaintStateManager : MonoSingleton<PaintStateManager>
     public void SwitchStateToDaySummary()
     {
         GameManager.Instance.SwitchState(GameManager.GameState.DAY_SUMMARY);
+    }
+
+    private void SimpleDamageable_OnAnyDamageableDie(Vector3 worldPosition, Color color) => TryIncreasingTimer();
+    private void TryIncreasingTimer()
+    {
+        if (countDownPaintState == null)
+            return;
+
+        if (LuckUtility.RollLuck(chanceOfIncreasingTimerPerLevel.GetCurrentLevelData()))
+        {
+            countDownPaintState.AddTime(timeToAddOnIncreasePerLevel.GetCurrentLevelData());
+        }
     }
 }

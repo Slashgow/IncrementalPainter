@@ -6,8 +6,11 @@ public class AutoClicker : MonoBehaviour
 {
     [SerializeField] private Camera targetCamera;
     [SerializeField] private inkolorgames.Logger logger;
-    [SerializeField, Range(0f,3f)] private float clickTimerInterval = 0.1f;
-    public float ClickTimerInterval => clickTimerInterval;
+
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> clickTimerIntervalPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> ClickTimerIntervalPerLevel => clickTimerIntervalPerLevel;
+    public float ClickTimerInterval => clickTimerIntervalPerLevel.GetCurrentLevelData();
+
     [SerializeField] private bool useRealTime = false;
     public bool UseRealTime => useRealTime;
 
@@ -15,6 +18,11 @@ public class AutoClicker : MonoBehaviour
     public event Action OnAutoClickStarted;
     public event Action OnAutoClickFinished;
     private Timer clickTimer;
+
+    private void Awake()
+    {
+        clickTimerIntervalPerLevel.OnLevelUp += HandleLevelUp;
+    }
 
     private void Start()
     {
@@ -24,12 +32,22 @@ public class AutoClicker : MonoBehaviour
     private void OnDestroy()
     {
         StopAutoClicking();
+        clickTimerIntervalPerLevel.OnLevelUp -= HandleLevelUp;
+    }
+
+    private void HandleLevelUp()
+    {
+        if (clickTimer != null && !clickTimer.isDone)
+        {
+            StopAutoClicking();
+            StartAutoClicking();
+        }
     }
 
     public void StartAutoClicking()
     {
         clickTimer?.Cancel();
-        clickTimer = Timer.Register(clickTimerInterval, onComplete: SimulateClick, isLooped: true, useRealTime: useRealTime);
+        clickTimer = Timer.Register(ClickTimerInterval, onComplete: SimulateClick, isLooped: true, useRealTime: useRealTime);
         OnAutoClickStarted?.Invoke();
     }
 

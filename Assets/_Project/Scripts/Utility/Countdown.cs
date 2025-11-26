@@ -17,6 +17,7 @@ public class Countdown
     private Timer tickTimer;
     private float elapsedTime;
     private Action onCompleteCallback;
+    private MonoBehaviour attachedMonoBehaviour;
 
     public Countdown(float duration, float tickInterval = 1f, Action onCompleteCallback = null)
     {
@@ -41,16 +42,53 @@ public class Countdown
         IsPaused = false;
         elapsedTime = 0f;
         TimeRemaining = TotalDuration;
+        attachedMonoBehaviour = autoAttachTo;
 
         if (autoAttachTo != null)
-            mainTimer = autoAttachTo.AttachTimer(TotalDuration,onComplete: HandleComplete, onUpdate: UpdateTimeRemaining);
+            mainTimer = autoAttachTo.AttachTimer(TotalDuration, onComplete: HandleComplete, onUpdate: UpdateTimeRemaining);
         else
-            mainTimer = Timer.Register(TotalDuration,onComplete: HandleComplete, onUpdate: UpdateTimeRemaining);
+            mainTimer = Timer.Register(TotalDuration, onComplete: HandleComplete, onUpdate: UpdateTimeRemaining);
 
         if (autoAttachTo != null)
-            tickTimer = autoAttachTo.AttachTimer(TickInterval,onComplete: HandleTick,isLooped: true);
+            tickTimer = autoAttachTo.AttachTimer(TickInterval, onComplete: HandleTick, isLooped: true);
         else
-            tickTimer = Timer.Register(TickInterval,onComplete: HandleTick,isLooped: true);
+            tickTimer = Timer.Register(TickInterval, onComplete: HandleTick, isLooped: true);
+    }
+
+    public void AddTime(float additionalTime)
+    {
+        if (!IsRunning)
+        {
+            Debug.LogWarning("Cannot add time - countdown is not running!");
+            return;
+        }
+
+        if (additionalTime <= 0)
+        {
+            Debug.LogWarning("Additional time must be positive!");
+            return;
+        }
+
+        // Update the total duration
+        TotalDuration += additionalTime;
+        TimeRemaining += additionalTime;
+
+        // Store the current elapsed time before canceling
+        float currentElapsed = elapsedTime;
+
+        // Cancel and restart the main timer with the new duration
+        bool wasPaused = IsPaused;
+        float newDuration = TimeRemaining;
+
+        Timer.Cancel(mainTimer);
+
+        if (attachedMonoBehaviour != null)
+            mainTimer = attachedMonoBehaviour.AttachTimer(newDuration, onComplete: HandleComplete, onUpdate: (secondsElapsed) => UpdateTimeRemainingWithOffset(secondsElapsed, currentElapsed));
+        else
+            mainTimer = Timer.Register(newDuration, onComplete: HandleComplete, onUpdate: (secondsElapsed) => UpdateTimeRemainingWithOffset(secondsElapsed, currentElapsed));
+
+        if (wasPaused)
+            mainTimer.Pause();
     }
 
     public void Pause()
@@ -104,7 +142,11 @@ public class Countdown
             Timer.Cancel(tickTimer);
 
             bool wasPaused = IsPaused;
-            tickTimer = Timer.Register(TickInterval,onComplete: HandleTick,isLooped: true);
+
+            if (attachedMonoBehaviour != null)
+                tickTimer = attachedMonoBehaviour.AttachTimer(TickInterval, onComplete: HandleTick, isLooped: true);
+            else
+                tickTimer = Timer.Register(TickInterval, onComplete: HandleTick, isLooped: true);
 
             if (wasPaused)
                 tickTimer.Pause();
@@ -117,6 +159,12 @@ public class Countdown
     {
         elapsedTime = secondsElapsed;
         TimeRemaining = TotalDuration - secondsElapsed;
+    }
+
+    private void UpdateTimeRemainingWithOffset(float secondsElapsed, float offset)
+    {
+        elapsedTime = offset + secondsElapsed;
+        TimeRemaining = TotalDuration - elapsedTime;
     }
 
     private void HandleTick() => OnCountdownTick?.Invoke(TimeRemaining);

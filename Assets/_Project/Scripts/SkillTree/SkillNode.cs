@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SkillNode : MonoBehaviour
+public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("References")]
     [SerializeField] private SkillDataBase skillDataBase;
@@ -15,17 +15,18 @@ public class SkillNode : MonoBehaviour
 
     [SerializeField] private Image iconImage;
     [SerializeField] private Image backgroundImage;
-    [SerializeField] private TextMeshProUGUI nameText;
-    [SerializeField] private TextMeshProUGUI costText;
-    [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private Button button;
+    [SerializeField] private SkillNodeDetail skillNodeDetail;
 
     [Header("Connection Lines")]
     [SerializeField] private List<LineRenderer> connectionLines;
     public List<LineRenderer> ConnectionLines => connectionLines;
 
     private SkillTreeManager treeManager;
+    public SkillTreeManager TreeManager => treeManager;
+
     private SkillState currentState;
+    public SkillState CurrentState => currentState;
 
     public enum SkillState
     {
@@ -44,22 +45,14 @@ public class SkillNode : MonoBehaviour
     {
         Initialize();
     }
+    public void OnPointerEnter(PointerEventData eventData) => skillNodeDetail.gameObject.SetActive(true);
+    public void OnPointerExit(PointerEventData eventData) => skillNodeDetail.gameObject.SetActive(false);
 
     public void Initialize()
     {
         if (iconImage) 
             iconImage.sprite = skillDataBase.Icon;
-        if (nameText) 
-            nameText.text = skillDataBase.SkillName;
-        if (levelText)
-            levelText.text = $"Level {targetLevel}";
 
-        var levelReq = skillDataBase.GetRequirementsForLevel(targetLevel);
-        if (costText && levelReq != null)
-        {
-            if (levelReq.CurrencyCost > 0)
-                costText.text += $"\n{levelReq.CurrencyCost} Gold";
-        }
         UpdateVisuals();
     }
 
@@ -82,30 +75,31 @@ public class SkillNode : MonoBehaviour
         {
             case SkillState.Locked:
                 if (backgroundImage) 
-                    backgroundImage.color = skillDataBase.LockedColor;
+                    backgroundImage.color = treeManager.LockedColor;
                 if (button) 
                     button.interactable = false;
                 break;
 
             case SkillState.Available:
                 if (backgroundImage) 
-                    backgroundImage.color = skillDataBase.AvailableColor;
+                    backgroundImage.color = treeManager.AvailableColor;
                 if (button) 
                     button.interactable = true;
                 break;
 
             case SkillState.Unlocked:
                 if (backgroundImage) 
-                    backgroundImage.color = skillDataBase.UnlockedColor;
+                    backgroundImage.color = treeManager.UnlockedColor;
                 if (button) 
                     button.interactable = false;
                 break;
         }
 
+        skillNodeDetail.UpdateVisual();
         UpdateConnectionLines();
     }
 
-    SkillState DetermineState()
+    private SkillState DetermineState()
     {
         int currentLevel = treeManager.GetSkillLevel(skillDataBase.SkillID);
 
@@ -124,8 +118,7 @@ public class SkillNode : MonoBehaviour
         {
             if (line != null)
             {
-                Color lineColor = currentState == SkillState.Unlocked ? skillDataBase.UnlockedColor : skillDataBase.LockedColor;
-                lineColor.a = 0.5f;
+                Color lineColor = currentState == SkillState.Unlocked ? treeManager.UnlockedColorDarker : treeManager.LockedColorDarker;
                 line.startColor = lineColor;
                 line.endColor = lineColor;
             }
@@ -219,5 +212,6 @@ public class SkillNode : MonoBehaviour
         }
         connectionLines.Clear();
     }
+
 #endif
 }
