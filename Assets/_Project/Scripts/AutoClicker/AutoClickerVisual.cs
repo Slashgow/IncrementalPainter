@@ -9,7 +9,7 @@ public class AutoClickerVisual : MonoBehaviour
     [SerializeField] private SimpleDamageor damageor;
 
     [SerializeField, Range(0f, 1f)] private float endScaleBonus;
-    [SerializeField] private Ease ease;
+    [SerializeField] private AnimationCurve curve;
 
     private Tween scaleTween;
     private float baseRadiusSpriteCircle;
@@ -17,12 +17,14 @@ public class AutoClickerVisual : MonoBehaviour
     private void Awake()
     {
         MatchAutoClickerRadius();
+        autoClicker.OnClick += HandleClick;
         autoClicker.OnAutoClickStarted += HandleAutoClickStarted;
         autoClicker.OnAutoClickFinished += HandleAutoClickFinished;
         damageor.DamageRadiusSkillDataPerLevel.OnLevelUp += MatchAutoClickerRadius;
     }
     private void OnDestroy()
     {
+        autoClicker.OnClick -= HandleClick;
         autoClicker.OnAutoClickStarted -= HandleAutoClickStarted;
         autoClicker.OnAutoClickFinished -= HandleAutoClickFinished;
         damageor.DamageRadiusSkillDataPerLevel.OnLevelUp -= MatchAutoClickerRadius;
@@ -33,15 +35,17 @@ public class AutoClickerVisual : MonoBehaviour
     private void HandleAutoClickFinished() => scaleTween?.Kill();
     private void HandleAutoClickStarted()
     {
-        scaleTween?.Kill();
-
-        scaleTween = this.transform.DOScale(-endScaleBonus, autoClicker.ClickTimerInterval * 0.5f)
-            .SetEase(ease)
-            .SetLoops(-1, LoopType.Yoyo)
-            .SetRelative(true)
-            .SetUpdate(autoClicker.UseRealTime);
     }
 
+    private void HandleClick(Vector3 position)
+    {
+        scaleTween?.Kill();
+        scaleTween = this.transform.DOScale(-endScaleBonus, autoClicker.ClickTimerInterval)
+            .SetEase(curve)
+            .SetRelative(true)
+            .SetUpdate(autoClicker.UseRealTime)
+            .SetRecyclable(true);
+    }
     private void MatchAutoClickerRadius()
     {
         baseRadiusSpriteCircle = circleVisualCollider.bounds.size.x * 0.5f;

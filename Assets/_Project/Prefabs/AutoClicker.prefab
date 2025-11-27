@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1721848700406742428}
   - component: {fileID: 2020888545691585024}
   - component: {fileID: 7481424112164422760}
+  - component: {fileID: 8718529933243821730}
   m_Layer: 0
   m_Name: AutoClicker
   m_TagString: Untagged
@@ -81,6 +82,21 @@ MonoBehaviour:
   damageableLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+  OnAttackOnce:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8718529933243821730}
+        m_TargetAssemblyTypeName: SFXRandomEffect, Assembly-CSharp
+        m_MethodName: DoEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4604253230976657234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,8 +112,49 @@ MonoBehaviour:
   circleVisualCollider: {fileID: 2020888545691585024}
   autoClicker: {fileID: 4199983495212388051}
   damageor: {fileID: 8811257036007215974}
-  endScaleBonus: 0.2
-  ease: 18
+  endScaleBonus: 0.4
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -0.083320834
+      outSlope: -0.083320834
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.26314664
+    - serializedVersion: 3
+      time: 0.15326269
+      value: 0.8999956
+      inSlope: 0.60123914
+      outSlope: 0.60123914
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.36796284
+      outWeight: 0.09290662
+    - serializedVersion: 3
+      time: 0.8498865
+      value: 0.90184927
+      inSlope: -0.42869556
+      outSlope: -0.42869556
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.08907733
+      outWeight: 0.37377083
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &9029286090175681032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,6 +307,28 @@ MonoBehaviour:
   showLogs: 0
   prefix: AutoClicker
   prefixColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &8718529933243821730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882197496587690495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5eda5c5002d44f43b2f2ddcf6544eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  audioClips:
+  - {fileID: 8300000, guid: 0af42544d0896b8419549693670495d5, type: 3}
+  - {fileID: 8300000, guid: b1cf0dc7e0c5a654780849101602adc9, type: 3}
+  - {fileID: 8300000, guid: 3c099d0884c9ec5469561853b80d7e66, type: 3}
+  - {fileID: 8300000, guid: a6a3188a3408da14780b0544bb49f5ee, type: 3}
+  - {fileID: 8300000, guid: cdd85414f26f83a40b4b09fa3935e44f, type: 3}
+  - {fileID: 8300000, guid: c6b16792de387544897f611ed9b96e4f, type: 3}
+  - {fileID: 8300000, guid: 2bf334d87702349479d03272f07b8d5d, type: 3}
+  luckPercentage: 70
 --- !u!1 &2482893864687272415
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,7 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doEffectOnEnable: 1
-  rotationDuration: 1
+  rotationDuration: 6
   ease: 4
   rotationAxis: {x: 0, y: 0, z: 1}
   startAngle: 0

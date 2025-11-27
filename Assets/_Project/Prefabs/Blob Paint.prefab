@@ -12,11 +12,12 @@ GameObject:
   - component: {fileID: 4851496448578494296}
   - component: {fileID: 5813030077171290011}
   - component: {fileID: 3519371518567919796}
+  - component: {fileID: 9222135517614945112}
   - component: {fileID: 9031172547328476400}
   - component: {fileID: 5512736815637105741}
   - component: {fileID: 213876596640617962}
   - component: {fileID: 8169414735138754520}
-  - component: {fileID: 9222135517614945112}
+  - component: {fileID: 964161919123267957}
   m_Layer: 0
   m_Name: Blob Paint
   m_TagString: Untagged
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -154,6 +155,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &9222135517614945112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798080866972570822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04c8a663872f464d958210805a295bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 10
 --- !u!114 &9031172547328476400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effects:
   - {fileID: 8169414735138754520}
+  - {fileID: 964161919123267957}
 --- !u!114 &8169414735138754520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,8 +243,8 @@ MonoBehaviour:
   endColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
   timeToReachEndColor: 0.25
   shouldGoBackToOriginColor: 1
-  easing: 7
---- !u!114 &9222135517614945112
+  easing: 18
+--- !u!114 &964161919123267957
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,7 +253,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 798080866972570822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d04c8a663872f464d958210805a295bf, type: 3}
+  m_Script: {fileID: 11500000, guid: fc1ec93447fa0c14795a962f9bcae572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 10
+  doEffectOnEnable: 0
+  rotationDuration: 0.15
+  ease: 18
+  rotationAxis: {x: 0, y: 0, z: 1}
+  startAngle: 0
+  endAngle: 30
+  rotateMode: 0
+  loopCount: 2
+  loopType: 1
+  useRealTime: 1
+  isRelative: 0

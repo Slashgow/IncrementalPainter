@@ -1,0 +1,889 @@
+fileFormatVersion: 2
+guid: 54161b0d0b56ca04390675ee4f794f8d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1312731569831349898
+    second: Illustration_sans_titre_0
+  - first:
+      213: -5142840990626629552
+    second: Illustration_sans_titre_1
+  - first:
+      213: -6950192332035175229
+    second: Illustration_sans_titre_2
+  - first:
+      213: 8504883195135373499
+    second: Illustration_sans_titre_3
+  - first:
+      213: -2533790215428652826
+    second: Illustration_sans_titre_4
+  - first:
+      213: 2878311640646176475
+    second: Illustration_sans_titre_5
+  - first:
+      213: -1816258370696954518
+    second: Illustration_sans_titre_6
+  - first:
+      213: 4060402244154174337
+    second: Illustration_sans_titre_7
+  - first:
+      213: 588077041375584540
+    second: Illustration_sans_titre_8
+  - first:
+      213: 6249357973937882955
+    second: Illustration_sans_titre_9
+  - first:
+      213: -6697931948106762249
+    second: Illustration_sans_titre_10
+  - first:
+      213: -5744341766783566546
+    second: Illustration_sans_titre_11
+  - first:
+      213: -2749735400817034237
+    second: Illustration_sans_titre_12
+  - first:
+      213: -3352477365715897687
+    second: Illustration_sans_titre_13
+  - first:
+      213: 9002409159872286387
+    second: Illustration_sans_titre_14
+  - first:
+      213: 6929363905913647262
+    second: Illustration_sans_titre_15
+  - first:
+      213: 3063985426934657069
+    second: Illustration_sans_titre_16
+  - first:
+      213: -6974347483247387274
+    second: Illustration_sans_titre_17
+  - first:
+      213: 2214586099135057753
+    second: Illustration_sans_titre_18
+  - first:
+      213: 1243409811840974364
+    second: Illustration_sans_titre_19
+  - first:
+      213: -8206370903196355538
+    second: Illustration_sans_titre_20
+  - first:
+      213: 4231019911625366157
+    second: Illustration_sans_titre_21
+  - first:
+      213: 994106041302364213
+    second: Illustration_sans_titre_22
+  - first:
+      213: 3124121332673710723
+    second: Illustration_sans_titre_23
+  - first:
+      213: -4906180492717167043
+    second: Illustration_sans_titre_24
+  - first:
+      213: 8369352876799320073
+    second: Illustration_sans_titre_25
+  - first:
+      213: 398926616413711213
+    second: Illustration_sans_titre_26
+  - first:
+      213: -822775886976412727
+    second: Illustration_sans_titre_27
+  - first:
+      213: 1577917054451762271
+    second: Illustration_sans_titre_28
+  - first:
+      213: 6518043332869276950
+    second: Illustration_sans_titre_29
+  - first:
+      213: -3794487989582187755
+    second: Illustration_sans_titre_30
+  - first:
+      213: -3988421247640707120
+    second: Illustration_sans_titre_31
+  - first:
+      213: 1279622617709825667
+    second: Illustration_sans_titre_32
+  - first:
+      213: -8006346646994501549
+    second: Illustration_sans_titre_33
+  - first:
+      213: -4805248040880443847
+    second: Illustration_sans_titre_34
+  - first:
+      213: -7270042501503425841
+    second: Illustration_sans_titre_35
+  - first:
+      213: -6974241938177938456
+    second: Illustration_sans_titre_36
+  - first:
+      213: 6588611532436031891
+    second: Illustration_sans_titre_37
+  - first:
+      213: -7709721917841613116
+    second: Illustration_sans_titre_38
+  - first:
+      213: -6973122632962346139
+    second: Illustration_sans_titre_39
+  - first:
+      213: -8294084752264254499
+    second: Illustration_sans_titre_40
+  - first:
+      213: -880012555727531625
+    second: Illustration_sans_titre_41
+  - first:
+      213: -7498333480661349430
+    second: Illustration_sans_titre_42
+  - first:
+      213: 6273184431484125702
+    second: Illustration_sans_titre_43
+  - first:
+      213: 9204879935896996493
+    second: Illustration_sans_titre_44
+  - first:
+      213: 6347934622502947673
+    second: Illustration_sans_titre_45
+  - first:
+      213: -917077917559364908
+    second: Illustration_sans_titre_46
+  - first:
+      213: -6186730546963750661
+    second: Illustration_sans_titre_47
+  - first:
+      213: 2388480668247374249
+    second: Illustration_sans_titre_48
+  - first:
+      213: 1418867137543374905
+    second: Illustration_sans_titre_49
+  - first:
+      213: 8174367407708671901
+    second: Illustration_sans_titre_50
+  - first:
+      213: -3591195388104108998
+    second: Illustration_sans_titre_51
+  - first:
+      213: 7546908607856637490
+    second: Illustration_sans_titre_52
+  - first:
+      213: -8718098128981975206
+    second: Illustration_sans_titre_53
+  - first:
+      213: 8579531486875269476
+    second: Illustration_sans_titre_54
+  - first:
+      213: 8574435409105679187
+    second: Illustration_sans_titre_55
+  - first:
+      213: -586928928322418067
+    second: Illustration_sans_titre_56
+  - first:
+      213: -2675622220791309774
+    second: Illustration_sans_titre_57
+  - first:
+      213: 7039535666532856141
+    second: Illustration_sans_titre_58
+  - first:
+      213: 8158075827998787152
+    second: Illustration_sans_titre_59
+  - first:
+      213: 3808401259645690125
+    second: Illustration_sans_titre_60
+  - first:
+      213: -4819562533344429215
+    second: Illustration_sans_titre_61
+  - first:
+      213: 8368738958397716196
+    second: Illustration_sans_titre_62
+  - first:
+      213: 6553343971346308659
+    second: Illustration_sans_titre_63
+  - first:
+      213: 1180552453906313249
+    second: Illustration_sans_titre_64
+  - first:
+      213: -3372892971893553358
+    second: Illustration_sans_titre_65
+  - first:
+      213: 4161555758551382948
+    second: Illustration_sans_titre_66
+  - first:
+      213: -2351615836740252173
+    second: Illustration_sans_titre_67
+  - first:
+      213: -2236244812409944638
+    second: Illustration_sans_titre_68
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Skill Tree Icons_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 679befe944cb86540881a68b9c8af20a
+      internalID: 908539523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill Tree Icons_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 914d255c6f8d1bf4dbca7879b4b50516
+      internalID: -2019744791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill Tree Icons_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f62e812334c434a4fbbe13dd8266591f
+      internalID: -1985484165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill Tree Icons_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d41d0863b96061645936cf4f8673a65d
+      internalID: 1617806523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill Tree Icons_4
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63791c3d2c621b84786b4047d02dda84
+      internalID: -667311422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill Tree Icons_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: added10f992031b428c17952e404c796
+      internalID: -400878489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill Tree Icons_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b647f8d5bc1ed784c8d6edf14e3ead21
+      internalID: -961572452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill Tree Icons_7
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41a5b1775db86fa4396e4eb318f7da0a
+      internalID: 1688671159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill Tree Icons_8
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 114020c3ec2247147a8ee20dc828c808
+      internalID: 897238428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill Tree Icons_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5a881016384621458a082bb3dd3cb77
+      internalID: -352676605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill Tree Icons_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75cb24e4efd3e2e4d8268e095b1c81d1
+      internalID: -2029299239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill Tree Icons_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c823b30f11a43c4f9851185e7cf947d
+      internalID: 875915727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill Tree Icons_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7b55615172c14342b9fe7ca3ac26b78
+      internalID: 499790950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill Tree Icons_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40c369d041378eb449654d5540236285
+      internalID: 714951328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: auto_click_s
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 042c84999e166bc439bf71dc67849aea
+      internalID: 1700154552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: auto_click_damage
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d2785a6ead27cf408689d3f0b6b64ca
+      internalID: 877757211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: auto_click_critical_damage_multiplier
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b56b907882217741a3b2528e091e31f
+      internalID: 1288722167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: auto_click_radius
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f41d00021174e204bb48d33e31b969c0
+      internalID: 648042766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: auto_click_critical_damage_radius
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05c377b76f277da49953431109f04d48
+      internalID: 520524763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chance_spawn_blob_on_kill
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7b6c93eb69783748961264718f9a5d9
+      internalID: 1929674541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splatter_scale
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cfd05cf5b50394438174cebedff9c46
+      internalID: 805146920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chance_increase_timer_kill_blob
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3853d115b2aab9848a7b77f975a7e51e
+      internalID: 309367283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_paint
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c2aaade1c4b693468b5bdc8843fc949
+      internalID: 1912104575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: time_to_add_per_level
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11c3da3c08e6f854eb391aeae38a9f16
+      internalID: 1862581221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6b21b1b8d8af986409dda701ba6ad061
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Skill Tree Icons_0: 908539523
+      Skill Tree Icons_1: -2019744791
+      Skill Tree Icons_10: -2029299239
+      Skill Tree Icons_11: 875915727
+      Skill Tree Icons_12: 499790950
+      Skill Tree Icons_13: 714951328
+      Skill Tree Icons_2: -1985484165
+      Skill Tree Icons_3: 1617806523
+      Skill Tree Icons_4: -667311422
+      Skill Tree Icons_5: -400878489
+      Skill Tree Icons_6: -961572452
+      Skill Tree Icons_7: 1688671159
+      Skill Tree Icons_8: 897238428
+      Skill Tree Icons_9: -352676605
+      auto_click_critical_damage_multiplier: 1288722167
+      auto_click_critical_damage_radius: 520524763
+      auto_click_damage: 877757211
+      auto_click_radius: 648042766
+      auto_click_s: 1700154552
+      chance_increase_timer_kill_blob: 309367283
+      chance_spawn_blob_on_kill: 1929674541
+      splatter_scale: 805146920
+      time_to_add_per_level: 1862581221
+      timer_paint: 1912104575
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

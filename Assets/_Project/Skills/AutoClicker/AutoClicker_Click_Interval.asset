@@ -24,4 +24,4 @@ MonoBehaviour:
     currencyCost: 0
   effectValue:
     a: -0.25
-    b: 1.5
+    b: 0.33

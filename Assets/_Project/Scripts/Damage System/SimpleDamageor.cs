@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class SimpleDamageor : MonoBehaviour, IDamageor
@@ -21,6 +23,9 @@ public class SimpleDamageor : MonoBehaviour, IDamageor
     public float CriticalDamageMultiplier => criticalDamageMultiplierSkillDataPerLevel.GetCurrentLevelData();
     public float CriticalHitLuck => criticalHitLuckSkillDataPerLevel.GetCurrentLevelData();
     public float DamageRadius => damageRadiusSkillDataPerLevel.GetCurrentLevelData();
+
+    public UnityEvent OnAttackOnce; 
+    public static event Action<float, Vector3, bool> OnAnyDamageorAttack;
 
     private void OnEnable()
     {
@@ -47,15 +52,20 @@ public class SimpleDamageor : MonoBehaviour, IDamageor
     {
         Vector2 worldPosition2D = new Vector2(worldPos.x, worldPos.y);
         Collider2D[] colliders2D = Physics2D.OverlapCircleAll(worldPosition2D, DamageRadius, damageableLayers.value);
+        bool anyDamageDealt = false;
         foreach (var collider in colliders2D)
         {
             var damageable = collider.GetComponentInParent<IDamageable>();
             if (damageable != null)
             {
+                anyDamageDealt = true;
                 float damageAmount = CalculateDamage(out bool isCritical);
                 damageable.TakeDamage(Damage);
+                OnAnyDamageorAttack?.Invoke(damageAmount, collider.transform.position, isCritical);
             }
         }
+        if(anyDamageDealt)
+            OnAttackOnce?.Invoke();
     }
     private float CalculateDamage(out bool isCritical)
     {

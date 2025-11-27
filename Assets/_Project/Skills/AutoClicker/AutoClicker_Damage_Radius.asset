@@ -23,5 +23,5 @@ MonoBehaviour:
     requiredSkills: []
     currencyCost: 0
   effectValue:
-    a: 1
-    b: 0.5
+    a: 0.3
+    b: 1
