@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 
 public abstract class SkillDataBase : ScriptableObject
 {
@@ -8,8 +9,8 @@ public abstract class SkillDataBase : ScriptableObject
     public string SkillID => skillID;
     [SerializeField] private string skillName;
     public string SkillName => skillName;
-    [TextArea, SerializeField] private string description;
-    public string Description => description;
+    [SerializeField] private LocalizedString description;
+    public LocalizedString Description => description;
     [SerializeField] private Sprite icon;
     public Sprite Icon => icon;
 

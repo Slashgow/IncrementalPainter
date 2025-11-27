@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Upgrades Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Upgrades
+  m_TableCollectionNameGuidString: c2cb2738a056b164bb9bace0f5b339ba
+  m_Entries:
+  - m_Id: 98543464448
+    m_Key: UPGRADE_AUTOCLICK_TIME_INTERVAL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 193947103232
+    m_Key: UPGRADE_AUTOCLICK_DAMAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 240373854208
+    m_Key: UPGRADE_AUTOCLICK_CRITICAL_DAMAGE_MULTIPLIER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 282161704960
+    m_Key: UPGRADE_AUTOCLICK_CRITICAL_DAMAGE_LUCK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318731841536
+    m_Key: UPGRADE_AUTOCLICK_RADIUS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 348192632832
+    m_Key: UPGRADE_TIME_PAINTING
+    m_Metadata:
+      m_Items: []
+  - m_Id: 402454343680
+    m_Key: UPGRADE_INCREASE_TIMER_ON_KILL_LUCK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 521182507008
+    m_Key: UPGRADE_TIME_ADDED_INCREASE_TIMER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 637951930368
+    m_Key: UPGRADE_SPAWN_BLOB_ON_KILL_LUCK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 717941501952
+    m_Key: UPGRADE_SPLATTER_SCALE
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6966959293450420500
+  references:
+    version: 2
+    RefIds:
+    - rid: 6966959293450420500
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1764264622496

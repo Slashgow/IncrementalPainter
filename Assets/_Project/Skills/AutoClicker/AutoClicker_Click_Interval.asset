@@ -14,14 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillID: AutoClicker_Click_Interval
   skillName: AutoClicker_Click_Interval
-  description: AutoClicker_Click_Interval
-  icon: {fileID: 21300000, guid: 1ecb23597042f8742886b3372252a5fb, type: 3}
+  description:
+    m_TableReference:
+      m_TableCollectionName: GUID:c2cb2738a056b164bb9bace0f5b339ba
+    m_TableEntryReference:
+      m_KeyId: 98543464448
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  icon: {fileID: 1700154552, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
   startingLevel: 0
-  maxLevel: 4
+  maxLevel: 5
   levelRequirements:
   - level: 1
-    requiredSkills: []
-    currencyCost: 0
+    requiredSkills:
+    - {fileID: 11400000, guid: 3c6ba10d598d3ad4c8c5101338365328, type: 2}
+    currencyCost: 10
+  - level: 2
+    requiredSkills:
+    - {fileID: 11400000, guid: 3c6ba10d598d3ad4c8c5101338365328, type: 2}
+    currencyCost: 20
   effectValue:
-    a: -0.25
-    b: 0.33
+    a: -0.23
+    b: 1.65
+  references:
+    version: 2
+    RefIds: []

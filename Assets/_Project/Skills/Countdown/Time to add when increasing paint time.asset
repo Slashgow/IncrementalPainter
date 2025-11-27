@@ -14,11 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillID: Timer_Time_Add_Increase
   skillName: Timer_Time_Add_Increase
-  description: Time to add when increasing the timer
-  icon: {fileID: 21300000, guid: 1ecb23597042f8742886b3372252a5fb, type: 3}
+  description:
+    m_TableReference:
+      m_TableCollectionName: GUID:c2cb2738a056b164bb9bace0f5b339ba
+    m_TableEntryReference:
+      m_KeyId: 521182507008
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  icon: {fileID: 1862581221, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
   startingLevel: 0
-  maxLevel: 10
-  levelRequirements: []
+  maxLevel: 5
+  levelRequirements:
+  - level: 1
+    requiredSkills:
+    - {fileID: 11400000, guid: bf6e118703275964fb908b0af96e99c0, type: 2}
+    currencyCost: 10
+  - level: 2
+    requiredSkills:
+    - {fileID: 11400000, guid: bf6e118703275964fb908b0af96e99c0, type: 2}
+    currencyCost: 20
   effectValue:
     a: 1
     b: 3
+  references:
+    version: 2
+    RefIds: []

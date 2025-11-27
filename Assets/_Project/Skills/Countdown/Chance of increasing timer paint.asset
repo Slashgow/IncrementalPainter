@@ -14,11 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillID: Timer_Luck_Increase
   skillName: Timer_Luck_Increase
-  description: chance of increasing the timer
-  icon: {fileID: 21300000, guid: 1ecb23597042f8742886b3372252a5fb, type: 3}
+  description:
+    m_TableReference:
+      m_TableCollectionName: GUID:c2cb2738a056b164bb9bace0f5b339ba
+    m_TableEntryReference:
+      m_KeyId: 402454343680
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  icon: {fileID: 309367283, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
   startingLevel: 0
-  maxLevel: 10
-  levelRequirements: []
+  maxLevel: 5
+  levelRequirements:
+  - level: 1
+    requiredSkills:
+    - {fileID: 11400000, guid: 7b5d46610a9ddbe4f8bd68b01a0231fb, type: 2}
+    currencyCost: 10
+  - level: 2
+    requiredSkills:
+    - {fileID: 11400000, guid: 7b5d46610a9ddbe4f8bd68b01a0231fb, type: 2}
+    currencyCost: 20
   effectValue:
     a: 10
-    b: 50
+    b: 0
+  references:
+    version: 2
+    RefIds: []

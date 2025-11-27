@@ -14,14 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillID: AutoClicker_Damage_Radius
   skillName: AutoClicker_Damage_Radius
-  description: AutoClicker Damage
-  icon: {fileID: 21300000, guid: 1ecb23597042f8742886b3372252a5fb, type: 3}
+  description:
+    m_TableReference:
+      m_TableCollectionName: GUID:c2cb2738a056b164bb9bace0f5b339ba
+    m_TableEntryReference:
+      m_KeyId: 318731841536
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  icon: {fileID: 648042766, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
   startingLevel: 0
-  maxLevel: 10
+  maxLevel: 5
   levelRequirements:
   - level: 1
-    requiredSkills: []
-    currencyCost: 0
+    requiredSkills:
+    - {fileID: 11400000, guid: 3c6ba10d598d3ad4c8c5101338365328, type: 2}
+    currencyCost: 10
+  - level: 2
+    requiredSkills:
+    - {fileID: 11400000, guid: 3c6ba10d598d3ad4c8c5101338365328, type: 2}
+    currencyCost: 10
   effectValue:
-    a: 0.3
+    a: 0.25
     b: 1
+  references:
+    version: 2
+    RefIds: []

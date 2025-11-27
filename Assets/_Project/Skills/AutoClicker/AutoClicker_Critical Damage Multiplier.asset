@@ -14,14 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillID: AutoClicker_Critical_Damage_Multiplier
   skillName: AutoClicker_Critical_Damage_Affine
-  description: Autoclicker Critical Damage Bonus
-  icon: {fileID: 21300000, guid: 8f76d18ea76264345bd9867bdc0f6ef7, type: 3}
+  description:
+    m_TableReference:
+      m_TableCollectionName: GUID:c2cb2738a056b164bb9bace0f5b339ba
+    m_TableEntryReference:
+      m_KeyId: 240373854208
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  icon: {fileID: 1288722167, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
   startingLevel: 0
-  maxLevel: 10
+  maxLevel: 5
   levelRequirements:
   - level: 1
-    requiredSkills: []
+    requiredSkills:
+    - {fileID: 11400000, guid: 1604633f8a5cb034e87660ca5b39c2e7, type: 2}
     currencyCost: 10
+  - level: 2
+    requiredSkills:
+    - {fileID: 11400000, guid: 7b5d46610a9ddbe4f8bd68b01a0231fb, type: 2}
+    currencyCost: 20
   effectValue:
     a: 0.25
-    b: 2
+    b: 1.5
+  references:
+    version: 2
+    RefIds: []

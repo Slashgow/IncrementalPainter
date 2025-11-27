@@ -38,7 +38,7 @@ public class SkillNodeDetail : MonoBehaviour
         UpdateCurrentColor();
 
         if (descriptionText)
-            descriptionText.text = skillNode.SkillDataBase.Description;
+            descriptionText.text = skillNode.SkillDataBase.Description.GetLocalizedString();
         if (statValueDescriptionText)
             statValueDescriptionText.text = $"<color=#{currentHexaColor}>{skillNode.SkillDataBase.GetEffectValueAtLevel(skillNode.TargetLevel - 1)}</color> -> " +
                 $"<color=#{currentHexaColor}>{skillNode.SkillDataBase.GetEffectValueAtLevel(skillNode.TargetLevel)}</color>";
