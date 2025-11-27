@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class AutoClickerVisual : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Collider2D circleVisualCollider;
     [SerializeField] private AutoClicker autoClicker;
     [SerializeField] private SimpleDamageor damageor;
 
-    [SerializeField, Range(0f, 1f)] private float endAlpha;
+    [SerializeField, Range(0f, 1f)] private float endScaleBonus;
     [SerializeField] private Ease ease;
 
-    private Tween alphaTween;
+    private Tween scaleTween;
     private float baseRadiusSpriteCircle;
 
     private void Awake()
@@ -27,23 +27,24 @@ public class AutoClickerVisual : MonoBehaviour
         autoClicker.OnAutoClickFinished -= HandleAutoClickFinished;
         damageor.DamageRadiusSkillDataPerLevel.OnLevelUp -= MatchAutoClickerRadius;
 
-        alphaTween?.Kill();
+        scaleTween?.Kill();
     }
 
-    private void HandleAutoClickFinished() => alphaTween?.Kill();
+    private void HandleAutoClickFinished() => scaleTween?.Kill();
     private void HandleAutoClickStarted()
     {
-        alphaTween?.Kill();
+        scaleTween?.Kill();
 
-        alphaTween = this.spriteRenderer.DOFade(endAlpha, autoClicker.ClickTimerInterval * 0.5f)
+        scaleTween = this.transform.DOScale(-endScaleBonus, autoClicker.ClickTimerInterval * 0.5f)
             .SetEase(ease)
             .SetLoops(-1, LoopType.Yoyo)
+            .SetRelative(true)
             .SetUpdate(autoClicker.UseRealTime);
     }
 
     private void MatchAutoClickerRadius()
     {
-        baseRadiusSpriteCircle = spriteRenderer.bounds.size.x * 0.5f;
+        baseRadiusSpriteCircle = circleVisualCollider.bounds.size.x * 0.5f;
         this.transform.localScale = Vector3.one * (damageor.DamageRadius) / baseRadiusSpriteCircle;
     }
 }
