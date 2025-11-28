@@ -24,17 +24,20 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   icon: {fileID: 877757211, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
+  costFunction:
+    a: 10
+    b: 2
   startingLevel: 0
   maxLevel: 5
   levelRequirements:
   - level: 1
     requiredSkills: []
-    currencyCost: 0
   - level: 2
     requiredSkills:
-    - {fileID: 11400000, guid: b57d95ae9b45fe74dba77d0acf4b2987, type: 2}
-    - {fileID: 11400000, guid: 82d28b684a6199b41a746ce6c582cf8c, type: 2}
-    currencyCost: 10
+    - skillData: {fileID: 11400000, guid: b57d95ae9b45fe74dba77d0acf4b2987, type: 2}
+      requiredLevel: 1
+    - skillData: {fileID: 11400000, guid: 82d28b684a6199b41a746ce6c582cf8c, type: 2}
+      requiredLevel: 1
   effectValue:
     a: 1
     b: 1

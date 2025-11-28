@@ -46,7 +46,7 @@ public class SkillNodeDetail : MonoBehaviour
         var levelReq = skillNode.SkillDataBase.GetRequirementsForLevel(skillNode.TargetLevel);
         if (costText && levelReq != null)
         {
-            costText.text = $"<color=#{currentHexaColor}>{levelReq.CurrencyCost} $</color>";
+            costText.text = $"<color=#{currentHexaColor}>{skillNode.SkillDataBase.GetCostForLevel(skillNode.TargetLevel)} $</color>";
         }
 
         backgroundImage.color = currentColorBackground;

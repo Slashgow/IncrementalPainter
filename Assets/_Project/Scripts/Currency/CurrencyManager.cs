@@ -44,6 +44,7 @@ public class CurrencyManager : MonoSingleton<CurrencyManager>
 
         if (amount > 0)
         {
+            logger.Log($"Gained {amount} currency. Total: {currentCurrency}", this);
             OnCurrencyGained?.Invoke(amount, currentCurrency);
         }
         else

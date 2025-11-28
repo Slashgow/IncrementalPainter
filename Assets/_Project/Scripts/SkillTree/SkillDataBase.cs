@@ -14,6 +14,10 @@ public abstract class SkillDataBase : ScriptableObject
     [SerializeField] private Sprite icon;
     public Sprite Icon => icon;
 
+    [Header("Currency Cost Configuration")]
+    [SerializeField] private FunctionPower costFunction;
+    public FunctionPower CostFunction => costFunction;
+
     [Header("Level Configuration")]
     [SerializeField, Range(0, 10)] private int startingLevel = 0;
     public int StartingLevel => startingLevel;
@@ -25,4 +29,5 @@ public abstract class SkillDataBase : ScriptableObject
     public List<SkillLevelRequirement> LevelRequirements => levelRequirements;
     public abstract float GetEffectValueAtLevel(int level);
     public SkillLevelRequirement GetRequirementsForLevel(int level) => levelRequirements.Find(req => req.Level == level);
+    public int GetCostForLevel(int level) => Mathf.RoundToInt(costFunction.Evaluate(level));
 }

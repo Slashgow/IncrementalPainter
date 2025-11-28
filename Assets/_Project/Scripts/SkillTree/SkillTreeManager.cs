@@ -8,10 +8,6 @@ public class SkillTreeManager : MonoBehaviour
     [SerializeField] private PaintStateManager paintStateManager;
     [SerializeField] private AutoClicker autoClicker;
 
-    [Header("Player Resources")]
-    public int availableSkillPoints = 10;
-    public long playerCurrency = 1000;
-
     [Header("Skill Nodes")]
     public List<SkillNode> allSkillNodes;
 
@@ -36,6 +32,21 @@ public class SkillTreeManager : MonoBehaviour
     private void Awake()
     {
         InitializeSkills();
+
+        GameManager.OnStartGameState += GameManager_OnStartGameState;
+    }
+
+    private void OnDestroy()
+    {
+        if(GameManager.HasInstance)
+            GameManager.OnStartGameState -= GameManager_OnStartGameState;
+    }
+    private void GameManager_OnStartGameState(GameManager.GameState gameState)
+    {
+        if(gameState != GameManager.GameState.UPGRADE)
+            return;
+
+        RefreshAllNodes();
     }
 
     private void InitializeSkills()
@@ -108,26 +119,27 @@ public class SkillTreeManager : MonoBehaviour
             return false;
 
         var levelRequirement = skillData.GetRequirementsForLevel(targetLevel);
-        if (levelRequirement == null)
+       
+        if (levelRequirement.RequiredSkills != null)
         {
-            if (availableSkillPoints < 1)
-                return false;
-        }
-        else
-        {
-            if (levelRequirement.RequiredSkills != null)
+            foreach (var requiredSkillWithLevel in levelRequirement.RequiredSkills)
             {
-                foreach (var requiredSkill in levelRequirement.RequiredSkills)
+                if (requiredSkillWithLevel.SkillData == null)
+                    continue;
+
+                int currentLevel = GetSkillLevel(requiredSkillWithLevel.SkillData.SkillID);
+                if (currentLevel < requiredSkillWithLevel.RequiredLevel)
                 {
-                    if (!IsSkillUnlocked(requiredSkill.SkillID))
-                        return false;
+                    logger.Log($"Cannot level up {skillData.SkillName}: Requires {requiredSkillWithLevel.SkillData.SkillName} Level {requiredSkillWithLevel.RequiredLevel} (currently {currentLevel})", this);
+                    return false;
                 }
             }
-
-            if (!CurrencyManager.Instance.CanAfford(levelRequirement.CurrencyCost))
-                return false;
         }
 
+        int cost = skillData.GetCostForLevel(targetLevel);
+        if (!CurrencyManager.Instance.CanAfford(cost))
+            return false;
+        
         return true;
     }
 
@@ -142,15 +154,14 @@ public class SkillTreeManager : MonoBehaviour
             return;
         }
 
-        var levelRequirement = skillData.GetRequirementsForLevel(targetLevel);
-        if (levelRequirement != null)
-            CurrencyManager.Instance.AddCurrency(-levelRequirement.CurrencyCost);
+        int cost = skillData.GetCostForLevel(targetLevel);
+        CurrencyManager.Instance.AddCurrency(-cost);
 
         skillLevelData.LevelUp();
 
         RefreshAllNodes();
 
-        logger.Log($"Leveled up {skillData.SkillName} → Level {skillLevelData.CurrentLevel} (Value: {skillLevelData.GetCurrentLevelData():F2})", this);
+        logger.Log($"Leveled up {skillData.SkillName} → Level {skillLevelData.CurrentLevel} (Value: {skillLevelData.GetCurrentLevelData():F2}) [Cost: {cost}]", this);
     }
 
 
@@ -171,9 +182,6 @@ public class SkillTreeManager : MonoBehaviour
         {
             skill.Initialize();
         }
- 
-        availableSkillPoints = 10;
-        playerCurrency = 1000000;
         RefreshAllNodes();
     }
 

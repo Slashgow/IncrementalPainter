@@ -3,18 +3,20 @@ using UnityEngine;
 
 public class SimpleCostable : MonoBehaviour, ICostable
 {
+    [SerializeField] private SimpleDamageable simpleDamageable;
+
     [SerializeField, Range(0,100)] private int cost;
     public int Cost => cost;
     public static event Action<int> OnAnyCostableAddCurrency;
 
     private void Awake()
     {
-        SimpleDamageable.OnAnyDamageableDie += SimpleDamageable_OnAnyDamageableDie;
+        simpleDamageable.OnDie += SimpleDamageable_OnDie;
     }
 
     private void OnDestroy()
     {
-        SimpleDamageable.OnAnyDamageableDie -= SimpleDamageable_OnAnyDamageableDie;
+        simpleDamageable.OnDie -= SimpleDamageable_OnDie;
     }
-    private void SimpleDamageable_OnAnyDamageableDie(Vector3 worldPosition, Color color) => OnAnyCostableAddCurrency?.Invoke(Cost);
+    private void SimpleDamageable_OnDie(Vector3 worldPosition) => OnAnyCostableAddCurrency?.Invoke(Cost);
 }

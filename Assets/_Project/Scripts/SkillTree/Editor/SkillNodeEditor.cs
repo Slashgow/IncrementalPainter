@@ -23,8 +23,8 @@ public class SkillNodeEditor : Editor
                 EditorGUILayout.BeginVertical(EditorStyles.helpBox);
                 EditorGUILayout.LabelField($"Level {skillNode.TargetLevel} Requirements:", EditorStyles.boldLabel);
 
-                if (levelReq.CurrencyCost > 0)
-                    EditorGUILayout.LabelField($"Currency: {levelReq.CurrencyCost}");
+                if (skillNode.SkillDataBase.GetCostForLevel(skillNode.TargetLevel) > 0)
+                    EditorGUILayout.LabelField($"Currency: {skillNode.SkillDataBase.GetCostForLevel(skillNode.TargetLevel)}");
 
                 // Show required skills
                 int requiredCount = levelReq.RequiredSkills?.Count ?? 0;
@@ -36,7 +36,7 @@ public class SkillNodeEditor : Editor
                     foreach (var reqSkill in levelReq.RequiredSkills)
                     {
                         if (reqSkill != null)
-                            EditorGUILayout.LabelField($"• {reqSkill.SkillName}");
+                            EditorGUILayout.LabelField($"• {reqSkill.SkillData.SkillName}");
                     }
                     EditorGUI.indentLevel--;
                 }
