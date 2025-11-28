@@ -21,7 +21,7 @@
       "dependencies": {
         "com.unity.modules.ui": "1.0.0"
       },
-      "hash": "0ed152e0ad9a8806a92fc62655dc7bd9fa152ca6"
+      "hash": "4dd43340ab3072313fb505ed9375cac7e4e7cd11"
     },
     "com.unity.2d.animation": {
       "version": "10.2.2",

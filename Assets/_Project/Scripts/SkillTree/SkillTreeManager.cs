@@ -4,12 +4,24 @@ using UnityEngine;
 public class SkillTreeManager : MonoBehaviour 
 {
     [SerializeField] private inkolorgames.Logger logger;
+    [SerializeField] private Camera mainCamera;
+    public Vector3 GetScreenPosition(Vector3 worldPosition) => mainCamera.WorldToScreenPoint(worldPosition);
+
     [SerializeField] private SimpleDamageor autoClickerDamageor;
     [SerializeField] private PaintStateManager paintStateManager;
     [SerializeField] private AutoClicker autoClicker;
 
     [Header("Skill Nodes")]
     public List<SkillNode> allSkillNodes;
+
+    [Header("Detail UI")]
+    [SerializeField] private SkillNodeDetail detailPrefab;
+    public SkillNodeDetail DetailPrefab => detailPrefab;
+    [SerializeField] private Transform detailCanvas;
+    public Transform DetailCanvas => detailCanvas;
+
+    [SerializeField] private Vector2 detailOffset = new Vector2(0f, -10f);
+    public Vector2 DetailOffset => detailOffset;
 
     [Header("Visual")]
     [SerializeField] private Color lockedColor = Color.gray;

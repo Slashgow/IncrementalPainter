@@ -16,7 +16,6 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [SerializeField] private Image iconImage;
     [SerializeField] private Image backgroundImage;
     [SerializeField] private Button button;
-    [SerializeField] private SkillNodeDetail skillNodeDetail;
 
     [Header("Connection Lines")]
     [SerializeField] private List<LineRenderer> connectionLines;
@@ -27,6 +26,8 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     private SkillState currentState;
     public SkillState CurrentState => currentState;
+
+    private SkillNodeDetail activeDetailInstance;
 
     public enum SkillState
     {
@@ -45,8 +46,26 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         Initialize();
     }
-    public void OnPointerEnter(PointerEventData eventData) => skillNodeDetail.gameObject.SetActive(true);
-    public void OnPointerExit(PointerEventData eventData) => skillNodeDetail.gameObject.SetActive(false);
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (treeManager.DetailPrefab != null && treeManager.DetailCanvas != null)
+        {
+            activeDetailInstance = Instantiate(treeManager.DetailPrefab, 
+                (Vector2)treeManager.GetScreenPosition(this.transform.position) + treeManager.DetailOffset, 
+                Quaternion.identity, 
+                treeManager.DetailCanvas);
+            activeDetailInstance.Initialize(this);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (activeDetailInstance != null)
+        {
+            Destroy(activeDetailInstance.gameObject);
+            activeDetailInstance = null;
+        }
+    }
 
     public void Initialize()
     {
@@ -95,7 +114,6 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
                 break;
         }
 
-        skillNodeDetail.UpdateVisual();
         UpdateConnectionLines();
     }
 

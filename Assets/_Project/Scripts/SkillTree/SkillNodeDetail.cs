@@ -4,13 +4,13 @@ using UnityEngine.UI;
 
 public class SkillNodeDetail : MonoBehaviour
 {
-    [SerializeField] private SkillNode skillNode;
-
     [SerializeField] private Image backgroundImage;
     [SerializeField] private Image backgroundTitleImage;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI costText;
     [SerializeField] private TextMeshProUGUI statValueDescriptionText;
+
+    private SkillNode skillNode;
 
     private string valueHexaColorLocked;
     private string valueHexaColorAvailable;
@@ -20,12 +20,11 @@ public class SkillNodeDetail : MonoBehaviour
     private Color currentColorBackground;
     private Color currentColorBackgroundDarker;
 
-    private void Start()
+
+    public void Initialize(SkillNode node)
     {
-        Initialize();
-    }
-    public void Initialize()
-    {
+        skillNode = node;
+
         valueHexaColorAvailable = ColorUtility.ToHtmlStringRGB(skillNode.TreeManager.AvailableColorDarker);
         valueHexaUnlocked = ColorUtility.ToHtmlStringRGB(skillNode.TreeManager.UnlockedColorDarker);
         valueHexaColorLocked = ColorUtility.ToHtmlStringRGB(skillNode.TreeManager.LockedColorDarker);

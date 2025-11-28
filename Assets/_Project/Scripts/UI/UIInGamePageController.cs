@@ -1,6 +1,6 @@
 ﻿using System;
 using UnityEngine;
-public class UIMainPageController : UIPageController
+public class UIInGamePageController : UIPageController
 {
     [SerializeField] private UIPage paintStatePage, upgradeStatePage, dayResumePage;
 
@@ -37,3 +37,4 @@ public class UIMainPageController : UIPageController
         }
     }
 }
+ 

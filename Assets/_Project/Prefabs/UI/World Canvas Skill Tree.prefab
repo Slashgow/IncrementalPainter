@@ -1321,6 +1321,8 @@ MonoBehaviour:
   - {fileID: 5004480192749272339}
   - {fileID: 5998438979584975326}
   - {fileID: 195588532375577652}
+  detailPrefab: {fileID: 7721927385872348188, guid: 1a0e3d5a70956364ea885d17d2143431, type: 3}
+  detailCanvas: {fileID: 0}
   lockedColor: {r: 0.6392157, g: 0.6392157, b: 0.6392157, a: 1}
   lockedColorDarker: {r: 0.29803923, g: 0.3019608, b: 0.30980393, a: 1}
   unlockedColor: {r: 0.68235296, g: 0.827451, b: 0.3529412, a: 1}
@@ -4880,6 +4882,14 @@ PrefabInstance:
     - target: {fileID: 6739706608164289842, guid: cfefe021381094e46a746307b3febc6c, type: 3}
       propertyPath: m_Name
       value: Skill Node Damage
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589477114549941551, guid: cfefe021381094e46a746307b3febc6c, type: 3}
+      propertyPath: m_Name
+      value: Skill Node Details
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589477114549941551, guid: cfefe021381094e46a746307b3febc6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7986043459631872983, guid: cfefe021381094e46a746307b3febc6c, type: 3}
       propertyPath: skillDataBase
