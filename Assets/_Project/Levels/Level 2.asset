@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af3685ce9d4b744fbd17f00e55a45f5, type: 3}
+  m_Name: Level 2
+  m_EditorClassIdentifier: 
+  levelTitle: "LA libert\xE9 guidant le peuple"
+  levelAuthor: "Eug\xE8ne Delacroix"
+  levelDate: 1780
+  artMovement: 0
+  levelDrawing: {fileID: 21300000, guid: 4304d007a7d8e634c8abded5cf47e241, type: 3}
+  levelPrefab: {fileID: 0}

@@ -1,0 +1,11 @@
+﻿public enum ArtMovement
+{
+    RENAISSANCE,
+    ROMANTICISM,
+    IMPRESSIONISM,
+    BAROQUE,
+    CUBISM,
+    SURREALISM,
+    REALISM,
+    CLASSICISM
+}
