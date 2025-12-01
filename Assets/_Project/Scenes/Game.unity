@@ -892,7 +892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counters:
-  - {fileID: 1999629664}
+  - {fileID: 0}
   inverse: 0
   decimalPlaces: 0
   format: '{PERCENT}'
@@ -995,11 +995,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &666469144 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 6662261457041319011, guid: d0f35dbbdf2a867499184b36e8f44b8a, type: 3}
-  m_PrefabInstance: {fileID: 2813736121009212391}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &765440602
 GameObject:
   m_ObjectHideFlags: 0
@@ -2798,17 +2793,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1999629664 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1222711409810060025, guid: d0f35dbbdf2a867499184b36e8f44b8a, type: 3}
-  m_PrefabInstance: {fileID: 2813736121009212391}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93669d9f171d43e40a38bc8a881b901b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &403908332445077178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2999,63 +2983,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8a32c7c04eb1f249ac236735eff4ba9, type: 3}
---- !u!1001 &2813736121009212391
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 623909872397918200, guid: d0f35dbbdf2a867499184b36e8f44b8a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 623909872397918200, guid: d0f35dbbdf2a867499184b36e8f44b8a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 623909872397918200, guid: d0f35dbbdf2a867499184b36e8f44b8a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 623909872397918200, guid: d0f35dbbdf2a867499184b36e8f44b8a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 623909872397918200, guid: d0f35dbbdf2a867499184b36e8f44b8a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 623909872397918200, guid: d0f35dbbdf2a867499184b36e8f44b8a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 623909872397918200, guid: d0f35dbbdf2a867499184b36e8f44b8a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 623909872397918200, guid: d0f35dbbdf2a867499184b36e8f44b8a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 623909872397918200, guid: d0f35dbbdf2a867499184b36e8f44b8a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 623909872397918200, guid: d0f35dbbdf2a867499184b36e8f44b8a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6587097264052769181, guid: d0f35dbbdf2a867499184b36e8f44b8a, type: 3}
-      propertyPath: m_Name
-      value: Level Manager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d0f35dbbdf2a867499184b36e8f44b8a, type: 3}
 --- !u!1001 &3549089720627338139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3111,7 +3038,7 @@ PrefabInstance:
     - target: {fileID: 8320128552981738484, guid: 0ff0507c966bc28499f9ca95f2fadab7, type: 3}
       propertyPath: spriteRenderer
       value: 
-      objectReference: {fileID: 666469144}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3621,7 +3548,7 @@ PrefabInstance:
     - target: {fileID: 8624949069824076733, guid: 080f04b432aa0934298598ca36d3e86d, type: 3}
       propertyPath: colorChangeCounter
       value: 
-      objectReference: {fileID: 1999629664}
+      objectReference: {fileID: 0}
     - target: {fileID: 8947630978407107418, guid: 080f04b432aa0934298598ca36d3e86d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3784,4 +3711,3 @@ SceneRoots:
   - {fileID: 1434425234}
   - {fileID: 1073158831303744712}
   - {fileID: 595230175}
-  - {fileID: 2813736121009212391}

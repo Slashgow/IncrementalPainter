@@ -1,23 +1,31 @@
 ﻿using inkolorgames;
 using UnityEngine;
-
 public class LevelManager : PersistentMonoSingleton<LevelManager>
 {
-    [SerializeField] private Level defaultLevel;
-    [SerializeField] private Level[] sortedLevels;
+    [SerializeField] private LevelData defaultLevel;
+    [SerializeField] private LevelData[] sortedLevelsData;
+    public Bounds FrameBounds => currentLevel.FrameCollider.bounds;
 
-    [SerializeField] private SpriteRenderer frameRenderer;
+    public LevelData CurrentLevelData { get; set; }
+    public LevelData[] SortedLevelsData => sortedLevelsData;
 
-    public SpriteRenderer FrameRenderer => frameRenderer;
-    public Bounds FrameBounds => frameRenderer.bounds;
-
-    public Level CurrentLevel { get; set; }
-    public Level[] SortedLevels => sortedLevels;
+    public Level CurrentLevel => currentLevel;
+    private Level currentLevel;
 
     protected override void Awake()
     {
         base.Awake();
-        CurrentLevel = defaultLevel;
+        CurrentLevelData = defaultLevel;
+    }
+
+    public void LoadCurrentLevel()
+    {
+        currentLevel = null;
+        this.transform.DestroyAllChildren();
+
+        GameObject levelGOInstance = Instantiate(CurrentLevelData.LevelPrefab, Vector3.zero, Quaternion.identity, this.transform);
+        currentLevel = levelGOInstance.GetComponent<Level>();
+        currentLevel.Initialize(CurrentLevelData);
     }
 
 }

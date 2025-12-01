@@ -12,7 +12,6 @@ public class RandomMovement : MonoBehaviour, ILevelContainable
 
     private void OnEnable()
     {
-        spriteBounds = LevelManager.Instance.FrameBounds;
         PickNewDirection();
     }
 
@@ -32,6 +31,8 @@ public class RandomMovement : MonoBehaviour, ILevelContainable
 
     private void MoveObject()
     {
+        spriteBounds = LevelManager.Instance.FrameBounds;
+
         Vector3 newPosition = transform.position + currentDirection * moveSpeed * Time.deltaTime;
 
         newPosition.x = Mathf.Clamp(newPosition.x, spriteBounds.min.x, spriteBounds.max.x);

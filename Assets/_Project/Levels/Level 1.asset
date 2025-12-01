@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5af3685ce9d4b744fbd17f00e55a45f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 2548ba85b01887e4a935903037baf7cd, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
   levelTitle: Mona Lisa
   levelAuthor: Leonard de Vinci
-  levelDate: 1680
+  levelDate: 1785
   artMovement: 0
   levelDrawing: {fileID: 21300000, guid: 525d5d2566bd7ad4b8bc4dd4e1f1e703, type: 3}
-  levelPrefab: {fileID: 0}
+  levelPrefab: {fileID: 8944416080909895153, guid: 0f581ce3d86c73b4daf268d9f305cea7, type: 3}

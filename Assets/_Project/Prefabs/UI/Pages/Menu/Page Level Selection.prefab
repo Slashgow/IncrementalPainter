@@ -167,6 +167,7 @@ MonoBehaviour:
   textCurrentLevelArtMovement: {fileID: 3985466110532002571}
   contentParent: {fileID: 3274210425872191078}
   uiLevelPrefab: {fileID: 137137882036057232, guid: 76d4a07ed772a2a4cbd7edcb84627f4a, type: 3}
+  playButton: {fileID: 2745008730737645777}
 --- !u!1 &1348714403597858274
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,6 +780,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f95f398e65453f443a3e473af7278eb0, type: 3}
+--- !u!114 &2745008730737645777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2733687144379264175, guid: f95f398e65453f443a3e473af7278eb0, type: 3}
+  m_PrefabInstance: {fileID: 281539971430593662}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5529417558928658549 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5716287171811451915, guid: f95f398e65453f443a3e473af7278eb0, type: 3}

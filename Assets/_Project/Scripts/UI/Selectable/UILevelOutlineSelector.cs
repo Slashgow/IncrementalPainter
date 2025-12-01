@@ -1,3 +1,3 @@
-﻿public class UILevelOutlineSelector : UIOutlineSelector<Level>
+﻿public class UILevelOutlineSelector : UIOutlineSelector<LevelData>
 {
 }

@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UILevelManager : MonoBehaviour
 {
@@ -9,19 +10,34 @@ public class UILevelManager : MonoBehaviour
 
     [SerializeField] private Transform contentParent;
     [SerializeField] private GameObject uiLevelPrefab;
+    [SerializeField] private Button playButton;
 
     private void Start()
     {
+        playButton.onClick.AddListener(LoadGameScene);
         InitializeLevelCards();
-        UpdateCurrentLevelDisplay();
+        UpdateCurrentLevelDisplay(LevelManager.Instance.CurrentLevelData);
         SubscribeToLevelSelections();
     }
+    private void OnDestroy()
+    {
+        playButton.onClick.RemoveListener(LoadGameScene);
+
+        UILevel[] uiLevels = contentParent.GetComponentsInChildren<UILevel>();
+
+        foreach (UILevel uiLevel in uiLevels)
+        {
+            uiLevel.OnSelectEvent -= OnLevelSelected;
+        }
+    }
+
+    private void LoadGameScene() => SceneLoader.Instance.LoadNextSceneAsync();
 
     private void InitializeLevelCards()
     {
-        Level[] levels = LevelManager.Instance.SortedLevels;
+        LevelData[] levels = LevelManager.Instance.SortedLevelsData;
 
-        foreach (Level level in levels)
+        foreach (LevelData level in levels)
         {
             GameObject uiLevelGOInstance = Instantiate(uiLevelPrefab, contentParent);
             UILevel uiLevelInstance = uiLevelGOInstance.GetComponent<UILevel>();
@@ -43,30 +59,18 @@ public class UILevelManager : MonoBehaviour
         }
     }
 
-    private void OnLevelSelected(Level level)
+    private void OnLevelSelected(LevelData level)
     {
-        UpdateCurrentLevelDisplay();
+        UpdateCurrentLevelDisplay(level);
     }
 
-    private void UpdateCurrentLevelDisplay()
+    private void UpdateCurrentLevelDisplay(LevelData currentLevel)
     {
-        Level currentLevel = LevelManager.Instance.CurrentLevel;
-
         if (currentLevel == null) 
             return;
 
         textCurrentLevelTitle.text = currentLevel.LevelTitle;
         textCurrentLevelAuthor.text = $"{currentLevel.LevelAuthor} - {currentLevel.LevelDate}";
         textCurrentLevelArtMovement.text = currentLevel.ArtMovement.ToString();
-    }
-
-    private void OnDestroy()
-    {
-        UILevel[] uiLevels = contentParent.GetComponentsInChildren<UILevel>();
-
-        foreach (UILevel uiLevel in uiLevels)
-        {
-            uiLevel.OnSelectEvent -= OnLevelSelected;
-        }
     }
 }

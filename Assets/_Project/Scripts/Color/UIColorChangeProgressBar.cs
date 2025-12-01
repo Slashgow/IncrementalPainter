@@ -5,15 +5,19 @@ using UnityEngine.UI;
 public class UIColorChangeProgressBar : MonoBehaviour
 {
     [SerializeField] private Image progressBarImage;
-    [SerializeField] private CwChangeCounter colorChangeCounter;
+
+    private CwChangeCounter counter;
+
     private void Start()
     {
-        colorChangeCounter.OnUpdated += ColorChangeCounter_OnUpdated;
+        counter = LevelManager.Instance.CurrentLevel.ColorChangeCounter;
+        counter.OnUpdated += ColorChangeCounter_OnUpdated;
     }
     private void OnDestroy()
     {
-        colorChangeCounter.OnUpdated -= ColorChangeCounter_OnUpdated;
+        if(counter != null)
+            counter.OnUpdated -= ColorChangeCounter_OnUpdated;
     }
 
-    private void ColorChangeCounter_OnUpdated() => progressBarImage.fillAmount = colorChangeCounter.Ratio;
+    private void ColorChangeCounter_OnUpdated() => progressBarImage.fillAmount = counter.Ratio;
 }

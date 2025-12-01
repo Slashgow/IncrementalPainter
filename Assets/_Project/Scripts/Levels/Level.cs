@@ -1,19 +1,23 @@
-﻿using NaughtyAttributes;
+﻿using PaintCore;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Level", menuName = "InkolorGames/Level")]
-public class Level : ScriptableObject
+public class Level : MonoBehaviour
 {
-    [SerializeField] private string levelTitle;
-    [SerializeField] private string levelAuthor;
-    [SerializeField] private string levelDate;
-    [SerializeField] private ArtMovement artMovement;
-    [SerializeField, ShowAssetPreview(128, 128)] private Sprite levelDrawing;
-    [SerializeField] private GameObject levelPrefab;
+    [SerializeField] private Collider2D frameCollider;
+    [SerializeField] private SpriteRenderer frameRenderer;
+    [SerializeField] private SpriteRenderer drawingRenderer;
+    [SerializeField] private CwChangeCounter colorChangeCounter;
 
-    public string LevelTitle => levelTitle;
-    public string LevelAuthor => levelAuthor;
-    public string LevelDate => levelDate;
-    public ArtMovement ArtMovement => artMovement;
-    public Sprite LevelDrawing => levelDrawing;
+    private LevelData levelData;
+
+    public SpriteRenderer FrameRenderer => frameRenderer;
+    public Collider2D FrameCollider => frameCollider;
+    public CwChangeCounter ColorChangeCounter => colorChangeCounter;
+
+    public void Initialize(LevelData levelData)
+    {
+        this.levelData = levelData;
+
+        drawingRenderer.sprite = levelData.LevelDrawing;
+    }
 }

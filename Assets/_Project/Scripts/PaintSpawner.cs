@@ -12,17 +12,17 @@ public class PaintSpawner : MonoBehaviour
     [SerializeField] private float zOffset = 0f;
     [SerializeField] private Transform spawnParent;
     [SerializeField] private bool useRealTime = false;
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    
+    private SpriteRenderer spriteRenderer;
 
     private Timer spawnTimer;
     private int spawnedCount = 0;
 
     void Start()
     {
-        if (spriteRenderer.sprite == null)
+        if (spriteRenderer == null)
         {
-            Debug.LogError("SpriteSpawner: No sprite assigned to SpriteRenderer!");
-            return;
+            spriteRenderer = LevelManager.Instance.CurrentLevel.FrameRenderer;
         }
 
         if (autoStart)

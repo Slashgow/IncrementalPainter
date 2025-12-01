@@ -3,28 +3,28 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UILevel : MonoBehaviour, IUISelectable<Level>
+public class UILevel : MonoBehaviour, IUISelectable<LevelData>
 {
     [SerializeField] private TextMeshProUGUI textTitle;
     [SerializeField] private TextMeshProUGUI textAuthor;
     [SerializeField] private Image levelDrawing;
 
-    private Level levelData;
-    public event Action<Level> OnSelectEvent;
+    private LevelData levelData;
+    public event Action<LevelData> OnSelectEvent;
 
-    public void Initialize(Level level)
+    public void Initialize(LevelData level)
     {
         levelData = level;
         UpdateLevelInfo();
     }
 
-    public void OnSelect(Level data)
+    public void OnSelect(LevelData data)
     {
+        LevelManager.Instance.CurrentLevelData = data;
         OnSelectEvent?.Invoke(data);
-        LevelManager.Instance.CurrentLevel = data;
     }
 
-    public Level GetSelectableData() => levelData;
+    public LevelData GetSelectableData() => levelData;
 
     private void UpdateLevelInfo()
     {

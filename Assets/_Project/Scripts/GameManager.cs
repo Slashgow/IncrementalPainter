@@ -19,6 +19,12 @@ public class GameManager : MonoSingleton<GameManager>
     public static event Action<GameState> OnStartGameState;
     public static event Action<GameState> OnEndGameState;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        LevelManager.Instance.LoadCurrentLevel();
+    }
+
     private void Start()
     {
         SwitchState(startingGameState);
