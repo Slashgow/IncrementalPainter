@@ -10,12 +10,14 @@ public class LevelSaveData
     public float completionRatio;
     public string author;
     public string title;
+    public bool isUnlocked;
 
-    public LevelSaveData(bool isDone, float completionRatio, string author, string title)
+    public LevelSaveData(bool isDone, float completionRatio, string author, string title, bool isUnlocked = false)
     {
         this.isDone = isDone;
         this.completionRatio = completionRatio;
         this.author = author;
         this.title = title;
+        this.isUnlocked = isUnlocked;
     }
 }

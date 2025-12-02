@@ -20,7 +20,7 @@ public class UILevel : MonoBehaviour, IUISelectable<LevelData>
 
     public void OnSelect(LevelData data)
     {
-        LevelManager.Instance.CurrentLevelData = data;
+        LevelManager.Instance.SetCurrentLevel(data);
         OnSelectEvent?.Invoke(data);
     }
 

@@ -35,16 +35,16 @@ public class UILevelManager : MonoBehaviour
 
     private void InitializeLevelCards()
     {
-        LevelData[] levels = LevelManager.Instance.SortedLevelsData;
+        var levels = LevelManager.Instance.UnlockableSortedLevels;
 
-        foreach (LevelData level in levels)
+        foreach (var level in levels)
         {
             GameObject uiLevelGOInstance = Instantiate(uiLevelPrefab, contentParent);
             UILevel uiLevelInstance = uiLevelGOInstance.GetComponent<UILevel>();
 
             if (uiLevelInstance != null)
             {
-                uiLevelInstance.Initialize(level);
+                uiLevelInstance.Initialize(level.LevelData);
             }
         }
     }

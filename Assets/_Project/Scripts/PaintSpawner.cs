@@ -22,7 +22,7 @@ public class PaintSpawner : MonoBehaviour
     {
         if (spriteRenderer == null)
         {
-            spriteRenderer = LevelManager.Instance.CurrentLevel.FrameRenderer;
+            spriteRenderer = LevelManager.Instance.CurrentLevelInstance.FrameRenderer;
         }
 
         if (autoStart)

@@ -13,7 +13,7 @@ public class UIColorChangeProgressBar : MonoBehaviour
 
     private void Start()
     {
-        counter = LevelManager.Instance.CurrentLevel.ColorChangeCounter;
+        counter = LevelManager.Instance.CurrentLevelInstance.ColorChangeCounter;
         counter.OnUpdated += ColorChangeCounter_OnUpdated;
         GameManager.OnStartGameState += GameManager_OnStartGameState;
     }
