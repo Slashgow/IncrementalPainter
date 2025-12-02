@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CW.Common;
+using UnityEngine;
+using UnityEngine.Events;
 
 namespace PaintCore
 {
@@ -818,7 +818,7 @@ namespace PaintCore
 		{
 			if (activated == true && string.IsNullOrEmpty(saveName) == false)
 			{
-				CwCommon.SaveBytes(saveName, GetPngData());
+				CwCommon.SaveBytes(saveName, SaveUtility.SavePath.SaveFolderSprites, GetPngData());
 			}
 		}
 
@@ -834,7 +834,7 @@ namespace PaintCore
 		{
 			if (activated == true)
 			{
-				LoadFromData(CwCommon.LoadBytes(saveName));
+				LoadFromData(CwCommon.LoadBytes(saveName, SaveUtility.SavePath.SaveFolderSprites));
 			}
 		}
 
@@ -882,13 +882,13 @@ namespace PaintCore
 		[ContextMenu("Clear Save")]
 		public void ClearSave()
 		{
-			CwCommon.ClearSave(saveName);
+			CwCommon.ClearSave(saveName, SaveUtility.SavePath.SaveFolderSprites);
 		}
 
 		/// <summary>This will clear save data with the specified save name.</summary>
 		public static void ClearSave(string saveName)
 		{
-			CwCommon.ClearSave(saveName);
+			CwCommon.ClearSave(saveName, SaveUtility.SavePath.SaveFolderSprites);
 		}
 
 		/// <summary>If the current slot has a texture, this allows you to copy the width and height from it.</summary>

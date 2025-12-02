@@ -122,6 +122,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2745952188584246967}
   - component: {fileID: 8624949069824076733}
+  - component: {fileID: 2202148609553366578}
+  - component: {fileID: 2815545027259302586}
   m_Layer: 5
   m_Name: Canvas Completion Bar
   m_TagString: Untagged
@@ -164,7 +166,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progressBarImage: {fileID: 5113750127432364973}
-  colorChangeCounter: {fileID: 0}
+  OnStartDaySummary:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2202148609553366578}
+        m_TargetAssemblyTypeName: ImageFillAmountEffect, Assembly-CSharp
+        m_MethodName: DoEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2202148609553366578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914608790248626318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 586a8a0efff023f4286f45c48592fb38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  image: {fileID: 5113750127432364973}
+  duration: 1.2
+  ease: 7
+  OnUpdate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2815545027259302586}
+        m_TargetAssemblyTypeName: SFXPitchShiftingEffect, Assembly-CSharp
+        m_MethodName: DoEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2815545027259302586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914608790248626318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5773f6aa65ab1e1418a2bcb21dfa991f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  minPitch: 1
+  maxPitch: 2
+  pitchIncrement: 0.1
+  pitchResetDelay: 0.5
+  delayBetweenCalls: 0.05
+  audioClip: {fileID: 8300000, guid: 17d9302663ac4a54ea9ad16bc0944a19, type: 3}
 --- !u!1 &982291074313517614
 GameObject:
   m_ObjectHideFlags: 0

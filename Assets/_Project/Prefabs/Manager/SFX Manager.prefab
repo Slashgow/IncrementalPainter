@@ -438,3 +438,5 @@ MonoBehaviour:
   - {fileID: 5867193541813869429}
   - {fileID: 8839748578734285321}
   - {fileID: 5169252206337251731}
+  hoverAudioClip: {fileID: 8300000, guid: 55e673d7343896744a986dbf29688c5c, type: 3}
+  clickAudioClick: {fileID: 8300000, guid: b5bd601289ee1ea47b68b5b31ef992cb, type: 3}

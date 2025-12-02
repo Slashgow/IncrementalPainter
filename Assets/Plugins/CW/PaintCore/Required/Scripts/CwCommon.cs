@@ -1,6 +1,8 @@
-using UnityEngine;
 using System.Collections.Generic;
+using System.IO;
 using CW.Common;
+using UnityEditor.Overlays;
+using UnityEngine;
 
 namespace PaintCore
 {
@@ -378,9 +380,15 @@ namespace PaintCore
 			return newTexture;
 		}
 
-		/// <summary>This method allows you to save a byte array to PlayerPrefs, and is used by the texture saving system.
-		/// If you want to save to files instead then just modify this.</summary>
-		public static void SaveBytes(string saveName, byte[] data, bool save = true)
+        [System.Serializable]
+        private class ByteDataWrapper
+        {
+            public string data;
+        }
+
+        /// <summary>This method allows you to save a byte array to PlayerPrefs, and is used by the texture saving system.
+        /// If you want to save to files instead then just modify this.</summary>
+        public static void SaveBytes(string saveName, string savePath, byte[] data, bool save = true)
 		{
 			var base64 = default(string);
 
@@ -389,49 +397,53 @@ namespace PaintCore
 				base64 = System.Convert.ToBase64String(data);
 			}
 
-			PlayerPrefs.SetString(saveName, base64);
+            string fullPath = Path.Combine(savePath, saveName + ".json");
 
-			if (save == true)
-			{
-				PlayerPrefs.Save();
-			}
-		}
+            var saveData = new ByteDataWrapper { data = base64 };
+            string json = JsonUtility.ToJson(saveData);
 
-		/// <summary>This method allows you to load a byte array from PlayerPrefs, and is used by the texture loading system.
-		/// If you want to save to files instead then just modify this.</summary>
-		public static byte[] LoadBytes(string saveName)
+            File.WriteAllText(fullPath, json);
+        }
+
+        /// <summary>This method allows you to load a byte array from JSON file, and is used by the texture loading system.</summary>
+        public static byte[] LoadBytes(string saveName, string savePath)
 		{
-			var base64 = PlayerPrefs.GetString(saveName);
+            string fullPath = Path.Combine(savePath, saveName + ".json");
 
-			if (string.IsNullOrEmpty(base64) == false)
-			{
-				return System.Convert.FromBase64String(base64);
-			}
+            if (File.Exists(fullPath))
+            {
+                string json = File.ReadAllText(fullPath);
+                var saveData = JsonUtility.FromJson<ByteDataWrapper>(json);
 
-			return null;
-		}
+                if (string.IsNullOrEmpty(saveData.data) == false)
+                {
+                    return System.Convert.FromBase64String(saveData.data);
+                }
+            }
 
-		/// <summary>This method tells if you if there exists save data at the specified save name.</summary>
-		public static bool SaveExists(string saveName)
-		{
-			return PlayerPrefs.HasKey(saveName);
-		}
+            return null;
+        }
 
-		/// <summary>This method allows you to clear save data at the specified save name.</summary>
-		public static void ClearSave(string saveName, bool save = true)
-		{
-			if (PlayerPrefs.HasKey(saveName) == true)
-			{
-				PlayerPrefs.DeleteKey(saveName);
+        /// <summary>This method tells you if there exists save data at the specified save name.</summary>
+        public static bool SaveExists(string saveName, string savePath)
+        {
+            string fullPath = Path.Combine(savePath, saveName + ".json");
+            return File.Exists(fullPath);
+        }
 
-				if (save == true)
-				{
-					PlayerPrefs.Save();
-				}
-			}
-		}
 
-		public static Vector3 GetPosition(Vector3 position, Vector3 endPosition)
+        /// <summary>This method allows you to clear save data at the specified save name.</summary>
+        public static void ClearSave(string saveName, string savePath, bool save = true)
+        {
+            string fullPath = Path.Combine(savePath, saveName + ".json");
+
+            if (File.Exists(fullPath))
+            {
+                File.Delete(fullPath);
+            }
+        }
+
+        public static Vector3 GetPosition(Vector3 position, Vector3 endPosition)
 		{
 			return (position + endPosition) / 2.0f;
 		}

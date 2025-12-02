@@ -27,5 +27,4 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
         currentLevel = levelGOInstance.GetComponent<Level>();
         currentLevel.Initialize(CurrentLevelData);
     }
-
 }

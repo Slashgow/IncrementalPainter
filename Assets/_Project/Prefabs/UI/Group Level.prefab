@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3433997974187508988}
   - component: {fileID: 4601473198727487949}
   - component: {fileID: 1121244867301086438}
+  - component: {fileID: 983823950879398689}
+  - component: {fileID: 2312180632446319344}
   m_Layer: 5
   m_Name: Group Level
   m_TagString: Untagged
@@ -133,6 +135,34 @@ MonoBehaviour:
   _cornerSegments: 3
   _mappingBias: 0.5
   _fillCenter: 0
+--- !u!114 &983823950879398689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137137882036057232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82dc2d1848c8de24099465476a01b6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2312180632446319344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137137882036057232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d0631175ebc42441a153cce8a13c657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endScale: 1.1
+  duration: 0.2
+  easing: 10
+  useSelectableInteractability: 0
 --- !u!1 &4133204515218540386
 GameObject:
   m_ObjectHideFlags: 0

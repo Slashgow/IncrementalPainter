@@ -1,10 +1,8 @@
 {
-    "name": "PaintCore",
-    "rootNamespace": "",
+    "name": "SaveUtility",
+    "rootNamespace": "SaveUtility",
     "references": [
-        "Unity.InputSystem",
-        "CW.Common",
-        "SaveUtility"
+        "GUID:319f69c3a66020a4baed572929a71854"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

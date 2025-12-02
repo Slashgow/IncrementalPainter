@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5877982004228756842}
   - component: {fileID: 2589004619184074851}
   - component: {fileID: 3445558512890503011}
+  - component: {fileID: 4071860670528792482}
+  - component: {fileID: 2746740983791170104}
   m_Layer: 5
   m_Name: Tab
   m_TagString: Untagged
@@ -96,6 +98,34 @@ MonoBehaviour:
   onTabDeselected:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4071860670528792482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2485497401357345407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d0631175ebc42441a153cce8a13c657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endScale: 1.1
+  duration: 0.2
+  easing: 10
+  useSelectableInteractability: 0
+--- !u!114 &2746740983791170104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2485497401357345407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82dc2d1848c8de24099465476a01b6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2535486279047754734
 PrefabInstance:
   m_ObjectHideFlags: 0

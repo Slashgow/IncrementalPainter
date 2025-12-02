@@ -1905,6 +1905,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7892196030520435831, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
+      propertyPath: showLogs
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7898805040134912237, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3586,6 +3590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Currency Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 4841755690507387189, guid: 3ed91321e2a4a6a46a84069b243d1101, type: 3}
+      propertyPath: showLogs
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6649829353219504684, guid: 3ed91321e2a4a6a46a84069b243d1101, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3682,6 +3690,10 @@ PrefabInstance:
     - target: {fileID: 6592534168785150550, guid: fc30d85d66e0498459e4e6778faf42c1, type: 3}
       propertyPath: m_Name
       value: Game Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875349924473547396, guid: fc30d85d66e0498459e4e6778faf42c1, type: 3}
+      propertyPath: showLogs
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
