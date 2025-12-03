@@ -8,13 +8,6 @@ public class MinimumCompletionRatioCondition : UnlockCondition
     [SerializeField] private string requiredLevelTitle;
     [SerializeField] private float minimumRatio;
 
-    public MinimumCompletionRatioCondition(string author, string title, float ratio)
-    {
-        requiredLevelAuthor = author;
-        requiredLevelTitle = title;
-        minimumRatio = ratio;
-    }
-
     public override bool IsMet()
     {
         LevelSaveData saveData = GameSaveManager.Instance.LoadLevelData(requiredLevelAuthor, requiredLevelTitle);

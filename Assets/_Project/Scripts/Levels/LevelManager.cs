@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using inkolorgames;
 using UnityEngine;
 public class LevelManager : PersistentMonoSingleton<LevelManager>
@@ -16,10 +17,18 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
     public UnlockableLevel CurrentUnlockableLevel => currentUnlockableLevel;
     public LevelData CurrentLevelData => currentUnlockableLevel.LevelData;
 
+    public static event Action OnEndLevel;
+
     protected override void Awake()
     {
         base.Awake();
+       
         SetCurrentLevel(defaultLevel);
+    }
+
+    private void Start()
+    {
+        TryUnlockLevels();
     }
 
     public void SetCurrentLevel(LevelData levelData)
@@ -35,5 +44,22 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
         GameObject levelGOInstance = Instantiate(CurrentLevelData.LevelPrefab, Vector3.zero, Quaternion.identity, this.transform);
         currentLevelInstance = levelGOInstance.GetComponent<Level>();
         currentLevelInstance.Initialize(CurrentLevelData);
+
+        currentLevelInstance.OnEndLevel -= CurrentLevelInstance_OnEndLevel;
+        currentLevelInstance.OnEndLevel += CurrentLevelInstance_OnEndLevel;
+    }
+
+    private void CurrentLevelInstance_OnEndLevel()
+    {
+        OnEndLevel?.Invoke();
+        TryUnlockLevels();
+    }
+
+    private void TryUnlockLevels()
+    {
+        foreach (var unlockableLevel in unlockableSortedLevels)
+        {
+            unlockableLevel.CheckUnlockCondition();
+        }
     }
 }

@@ -7,12 +7,6 @@ public class CompletePreviousLevelCondition : UnlockCondition
     [SerializeField] private string requiredLevelAuthor;
     [SerializeField] private string requiredLevelTitle;
 
-    public CompletePreviousLevelCondition(string author, string title)
-    {
-        requiredLevelAuthor = author;
-        requiredLevelTitle = title;
-    }
-
     public override bool IsMet()
     {
         LevelSaveData saveData = GameSaveManager.Instance.LoadLevelData(requiredLevelAuthor, requiredLevelTitle);

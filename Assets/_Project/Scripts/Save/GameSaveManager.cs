@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using inkolorgames;
 using Newtonsoft.Json;
 using SaveUtility;
@@ -9,6 +10,8 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
     [SerializeField] private inkolorgames.Logger logger;
 
     private GameSaveData gameSaveData;
+
+    public Dictionary<string, LevelSaveData> GetAllLevelSaves() => gameSaveData.levels;
 
     protected override void Awake()
     {

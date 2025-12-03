@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2466644461214317739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1623257377970485385}
+  - component: {fileID: 7200141919807011505}
+  m_Layer: 0
+  m_Name: complete 1 level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1623257377970485385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2466644461214317739}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 623909872397918200}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7200141919807011505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2466644461214317739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af93bdbcd1c473f49a0d580438531a79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredCompletedLevels: 1
 --- !u!1 &6587097264052769181
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,6 +77,8 @@ Transform:
   m_Children:
   - {fileID: 2371854377436450164}
   - {fileID: 3818680118330074719}
+  - {fileID: 2067892554468794268}
+  - {fileID: 1623257377970485385}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2869507754375129991
@@ -48,9 +95,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultLevel: {fileID: 11400000, guid: 86fce4b65d45868428db4499ba673069, type: 2}
   unlockableSortedLevels:
-  - levelData: {fileID: 0}
+  - levelData: {fileID: 11400000, guid: 86fce4b65d45868428db4499ba673069, type: 2}
     unlockConditions:
-    - {fileID: 0}
+    - {fileID: 2430276174761575609}
+  - levelData: {fileID: 11400000, guid: bb8d1afe9d670174ea1ba625215eb77f, type: 2}
+    unlockConditions:
+    - {fileID: 3731951117819498348}
+  - levelData: {fileID: 11400000, guid: 0414937677068004490a3a0aebe465dd, type: 2}
+    unlockConditions:
+    - {fileID: 7200141919807011505}
 --- !u!1 &6870794502928728425
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,8 +113,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3818680118330074719}
+  - component: {fileID: 2430276174761575609}
   m_Layer: 0
-  m_Name: unlock condition
+  m_Name: always unlock condition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,6 +136,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 623909872397918200}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2430276174761575609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6870794502928728425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7988fbf4e1c9e154fa4c4f5b5fa917c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8929130667481315337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2067892554468794268}
+  - component: {fileID: 3731951117819498348}
+  m_Layer: 0
+  m_Name: complete leonard de vinci
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2067892554468794268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8929130667481315337}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 623909872397918200}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3731951117819498348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8929130667481315337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8121427c4a95e42a97122ac00bd1cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredLevelAuthor: Leonard de Vinci
+  requiredLevelTitle: Mona Lisa
 --- !u!1001 &6562784888128688940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -92,7 +204,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5468570172593660373, guid: 0f581ce3d86c73b4daf268d9f305cea7, type: 3}
       propertyPath: cooldown
-      value: -3833.0789
+      value: -3870.8914
       objectReference: {fileID: 0}
     - target: {fileID: 8933231709956628056, guid: 0f581ce3d86c73b4daf268d9f305cea7, type: 3}
       propertyPath: m_LocalPosition.x
