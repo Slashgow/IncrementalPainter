@@ -10,13 +10,11 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
     [SerializeField] private inkolorgames.Logger logger;
 
     private GameSaveData gameSaveData;
-
     public Dictionary<string, LevelSaveData> GetAllLevelSaves() => gameSaveData.levels;
 
     protected override void Awake()
     {
         base.Awake();
-
         LoadGameData();
     }
 
@@ -34,7 +32,6 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
             gameSaveData = new GameSaveData();
         }
     }
-
 
     private void SaveGameData()
     {
@@ -85,6 +82,15 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
         gameSaveData.levels.Remove(SavePath.GetLevelID(author, title));
         SaveGameData();
     }
+
+    public void SaveSkillTree(SkillTreeSaveData skillTreeData)
+    {
+        gameSaveData.skillTree = skillTreeData;
+        SaveGameData();
+        logger.Log("Skill tree saved", this);
+    }
+
+    public SkillTreeSaveData LoadSkillTree() => gameSaveData.skillTree ?? new SkillTreeSaveData();
 
     public void ClearAllSaves()
     {

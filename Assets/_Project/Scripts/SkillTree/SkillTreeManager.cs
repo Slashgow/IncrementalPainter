@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillTreeManager : MonoBehaviour 
+public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSaveData> 
 {
     [SerializeField] private inkolorgames.Logger logger;
     [SerializeField] private Camera mainCamera;
@@ -44,7 +44,8 @@ public class SkillTreeManager : MonoBehaviour
     private void Awake()
     {
         InitializeSkills();
-
+        SkillTreeSaveData  skillTreeSaveData = Load();
+        ApplyLoadedData(skillTreeSaveData);
         GameManager.OnStartGameState += GameManager_OnStartGameState;
     }
 
@@ -172,10 +173,9 @@ public class SkillTreeManager : MonoBehaviour
         skillLevelData.LevelUp();
 
         RefreshAllNodes();
-
         logger.Log($"Leveled up {skillData.SkillName} → Level {skillLevelData.CurrentLevel} (Value: {skillLevelData.GetCurrentLevelData():F2}) [Cost: {cost}]", this);
+        Save();
     }
-
 
     public bool IsSkillUnlocked(string skillID) => leveledSkills[skillID].IsUnlocked;
 
@@ -196,6 +196,38 @@ public class SkillTreeManager : MonoBehaviour
         }
         RefreshAllNodes();
     }
+
+    public void Save()
+    {
+        var saveData = new SkillTreeSaveData(leveledSkills);
+        GameSaveManager.Instance.SaveSkillTree(saveData);
+    }
+
+    public SkillTreeSaveData Load()
+    {
+        return GameSaveManager.Instance.LoadSkillTree();
+    }
+
+    private void ApplyLoadedData(SkillTreeSaveData saveData)
+    {
+        if (saveData == null || saveData.skillLevels == null)
+            return;
+
+        foreach (var kvp in saveData.skillLevels)
+        {
+            if (leveledSkills.TryGetValue(kvp.Key, out var skillData))
+            {
+                for (int i = skillData.CurrentLevel; i < kvp.Value; i++)
+                {
+                    if (skillData.CanLevelUp())
+                        skillData.LevelUp();
+                }
+            }
+        }
+
+        RefreshAllNodes();
+    }
+
 
 #if UNITY_EDITOR
     [ContextMenu("Create All Connection Lines")]

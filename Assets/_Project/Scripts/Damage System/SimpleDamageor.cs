@@ -29,8 +29,6 @@ public class SimpleDamageor : MonoBehaviour, IDamageor
 
     private void OnEnable()
     {
-        damageSkillDataPerLevel.Initialize();
-
         if (autoClicker != null)
             autoClicker.OnClick += HandleClick;
     }
