@@ -44,7 +44,7 @@ public class UILevelManager : MonoBehaviour
 
             if (uiLevelInstance != null)
             {
-                uiLevelInstance.Initialize(level.LevelData);
+                uiLevelInstance.Initialize(level);
             }
         }
     }
