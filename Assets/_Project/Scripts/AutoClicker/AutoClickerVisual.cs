@@ -6,7 +6,7 @@ public class AutoClickerVisual : MonoBehaviour
 {
     [SerializeField] private Collider2D circleVisualCollider;
     [SerializeField] private AutoClicker autoClicker;
-    [SerializeField] private SimpleDamageor damageor;
+    [SerializeField] private AutoClickerDamageor damageor;
 
     [SerializeField, Range(0f, 1f)] private float endScaleBonus;
     [SerializeField] private AnimationCurve curve;
@@ -16,6 +16,8 @@ public class AutoClickerVisual : MonoBehaviour
 
     private void Awake()
     {
+        baseRadiusSpriteCircle = circleVisualCollider.bounds.size.x * 0.5f;
+
         MatchAutoClickerRadius();
         autoClicker.OnClick += HandleClick;
         autoClicker.OnAutoClickStarted += HandleAutoClickStarted;
@@ -46,9 +48,5 @@ public class AutoClickerVisual : MonoBehaviour
             .SetUpdate(autoClicker.UseRealTime)
             .SetRecyclable(true);
     }
-    private void MatchAutoClickerRadius()
-    {
-        baseRadiusSpriteCircle = circleVisualCollider.bounds.size.x * 0.5f;
-        this.transform.localScale = Vector3.one * (damageor.DamageRadius) / baseRadiusSpriteCircle;
-    }
+    private void MatchAutoClickerRadius() => this.transform.localScale = Vector3.one * (damageor.DamageRadius) / baseRadiusSpriteCircle;
 }

@@ -7,9 +7,13 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
     [SerializeField] private Camera mainCamera;
     public Vector3 GetScreenPosition(Vector3 worldPosition) => mainCamera.WorldToScreenPoint(worldPosition);
 
-    [SerializeField] private SimpleDamageor autoClickerDamageor;
+    [SerializeField] private AutoClickerDamageor autoClickerDamageor;
     [SerializeField] private PaintStateManager paintStateManager;
     [SerializeField] private AutoClicker autoClicker;
+    [SerializeField] private PaintSpawner paintSpawner;
+    [SerializeField] private DeathPainter deathPainter;
+    [SerializeField] private BombDamageor bombDamageor;
+    [SerializeField] private BombStunner bombStunner;
 
     [Header("Skill Nodes")]
     public List<SkillNode> allSkillNodes;
@@ -72,6 +76,16 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[paintStateManager.ChanceOfIncreasingTimerPerLevel.SkillID] = paintStateManager.ChanceOfIncreasingTimerPerLevel;
         leveledSkills[paintStateManager.TimeToAddOnIncreasePerLevel.SkillID] = paintStateManager.TimeToAddOnIncreasePerLevel;
         leveledSkills[autoClicker.ClickTimerIntervalPerLevel.SkillID] = autoClicker.ClickTimerIntervalPerLevel;
+        leveledSkills[paintSpawner.ChanceOfSpawningWhenKillingPerLevel.SkillID] = paintSpawner.ChanceOfSpawningWhenKillingPerLevel;
+        leveledSkills[deathPainter.SplatterScalePerLevel.SkillID] = deathPainter.SplatterScalePerLevel;
+        leveledSkills[bombDamageor.DamageSkillDataPerLevel.SkillID] = bombDamageor.DamageSkillDataPerLevel;
+        leveledSkills[bombDamageor.CriticalDamageMultiplierSkillDataPerLevel.SkillID] = bombDamageor.CriticalDamageMultiplierSkillDataPerLevel;
+        leveledSkills[bombDamageor.CriticalHitLuckSkillDataPerLevel.SkillID] = bombDamageor.CriticalHitLuckSkillDataPerLevel;
+        leveledSkills[bombDamageor.DamageRadiusSkillDataPerLevel.SkillID] = bombDamageor.DamageRadiusSkillDataPerLevel;
+        leveledSkills[bombDamageor.LuckToProcOnKillPerLevel.SkillID] = bombDamageor.LuckToProcOnKillPerLevel;
+        leveledSkills[bombStunner.StunDurationSkillDataPerLevel.SkillID] = bombStunner.StunDurationSkillDataPerLevel;
+        leveledSkills[bombStunner.StunRadiusSkillDataPerLevel.SkillID] = bombStunner.StunRadiusSkillDataPerLevel;
+        leveledSkills[bombStunner.LuckToProcOnKillPerLevel.SkillID] = bombStunner.LuckToProcOnKillPerLevel;
 
         autoClickerDamageor.DamageSkillDataPerLevel.Initialize();
         autoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
@@ -81,6 +95,16 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         paintStateManager.ChanceOfIncreasingTimerPerLevel.Initialize();
         paintStateManager.TimeToAddOnIncreasePerLevel.Initialize();
         autoClicker.ClickTimerIntervalPerLevel.Initialize();
+        paintSpawner.ChanceOfSpawningWhenKillingPerLevel.Initialize();
+        deathPainter.SplatterScalePerLevel.Initialize();
+        bombDamageor.DamageSkillDataPerLevel.Initialize();
+        bombDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
+        bombDamageor.CriticalHitLuckSkillDataPerLevel.Initialize();
+        bombDamageor.DamageRadiusSkillDataPerLevel.Initialize();
+        bombDamageor.LuckToProcOnKillPerLevel.Initialize();
+        bombStunner.StunDurationSkillDataPerLevel.Initialize();
+        bombStunner.StunRadiusSkillDataPerLevel.Initialize();
+        bombStunner.LuckToProcOnKillPerLevel.Initialize();
     }
 
     void Start()

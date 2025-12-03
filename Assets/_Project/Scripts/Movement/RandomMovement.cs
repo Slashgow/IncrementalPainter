@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RandomMovement : MonoBehaviour, ILevelContainable
+public class RandomMovement : MonoBehaviour, ILevelContainable, IMovable
 {
     [Header("Movement Settings")]
     [SerializeField, Range(0f,20f)] private float moveSpeed = 2f;
@@ -9,15 +9,18 @@ public class RandomMovement : MonoBehaviour, ILevelContainable
     private Vector3 currentDirection;
     private float timeSinceLastDirectionChange;
     private Bounds spriteBounds;
-
+    private bool canMove;
     private void OnEnable()
     {
+        StartMovement();
         PickNewDirection();
     }
 
-
     private void Update()
     {
+        if (!canMove)
+            return;
+
         timeSinceLastDirectionChange += Time.deltaTime;
 
         if (timeSinceLastDirectionChange >= changeDirectionInterval)
@@ -47,4 +50,6 @@ public class RandomMovement : MonoBehaviour, ILevelContainable
     }
 
     public void ReverseDirection() => currentDirection = -currentDirection;
+    public void StartMovement() => canMove = true;
+    public void StopMovement() => canMove = false;
 }

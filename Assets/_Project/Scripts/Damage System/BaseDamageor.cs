@@ -2,12 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-
-public class SimpleDamageor : MonoBehaviour, IDamageor
+public abstract class BaseDamageor : MonoBehaviour, IDamageor
 {
-    [Header("Références")]
-    [SerializeField] private AutoClicker autoClicker;
-
     [Header("Paramètres de dégâts")]
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> damageSkillDataPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> criticalDamageMultiplierSkillDataPerLevel;
@@ -24,22 +20,8 @@ public class SimpleDamageor : MonoBehaviour, IDamageor
     public float CriticalHitLuck => criticalHitLuckSkillDataPerLevel.GetCurrentLevelData();
     public float DamageRadius => damageRadiusSkillDataPerLevel.GetCurrentLevelData();
 
-    public UnityEvent OnAttackOnce; 
+    public UnityEvent OnAttackOnce;
     public static event Action<float, Vector3, bool> OnAnyDamageorAttack;
-
-    private void OnEnable()
-    {
-        if (autoClicker != null)
-            autoClicker.OnClick += HandleClick;
-    }
-
-    private void OnDisable()
-    {
-        if (autoClicker != null)
-            autoClicker.OnClick -= HandleClick;
-    }
-
-    private void HandleClick(Vector3 clickPosition) => TryDamage(clickPosition);
 
     public void TryDamage(Vector3 clickPosition)
     {
@@ -62,7 +44,7 @@ public class SimpleDamageor : MonoBehaviour, IDamageor
                 OnAnyDamageorAttack?.Invoke(damageAmount, collider.transform.position, isCritical);
             }
         }
-        if(anyDamageDealt)
+        if (anyDamageDealt)
             OnAttackOnce?.Invoke();
     }
     private float CalculateDamage(out bool isCritical)

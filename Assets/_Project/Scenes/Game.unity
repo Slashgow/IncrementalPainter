@@ -1190,9 +1190,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 597247660}
     - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
+      propertyPath: deathPainter
+      value: 
+      objectReference: {fileID: 1434425232}
+    - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
       propertyPath: detailCanvas
       value: 
       objectReference: {fileID: 1728386143}
+    - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
+      propertyPath: paintSpawner
+      value: 
+      objectReference: {fileID: 3549089720627338140}
     - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
       propertyPath: paintStateManager
       value: 
@@ -2451,6 +2459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e3c9f9bc793924183ae41e40241e73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splatterScalePerLevel:
+    skillData: {fileID: 0}
   paintDecal: {fileID: 1434425233}
 --- !u!114 &1434425233
 MonoBehaviour:
@@ -2494,7 +2504,6 @@ MonoBehaviour:
     modifiers:
     - rid: 6966959186766463029
     - rid: 6966959186766463030
-    - rid: 6966959186766463031
   decalTextures:
   - {fileID: 2800000, guid: f0b6bfb49739f0c41a3874c8b157cd98, type: 3}
   - {fileID: 2800000, guid: da1633b492c024e4a898045bae73b396, type: 3}
@@ -2559,15 +2568,6 @@ MonoBehaviour:
         min: -180
         max: 180
         blend: 0
-    - rid: 6966959186766463031
-      type: {class: CwModifyScaleRandom, ns: PaintCore, asm: PaintCore}
-      data:
-        preview: 1
-        unique: 1
-        min: {x: 10, y: 10, z: 10}
-        max: {x: 15, y: 15, z: 15}
-        blend: 0
-        uniform: 0
 --- !u!4 &1434425234
 Transform:
   m_ObjectHideFlags: 0
@@ -3048,6 +3048,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ff0507c966bc28499f9ca95f2fadab7, type: 3}
+--- !u!114 &3549089720627338140 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8320128552981738484, guid: 0ff0507c966bc28499f9ca95f2fadab7, type: 3}
+  m_PrefabInstance: {fileID: 3549089720627338139}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8230cd6483d5d0749b216600c818e274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4106163103143959585
 PrefabInstance:
   m_ObjectHideFlags: 0

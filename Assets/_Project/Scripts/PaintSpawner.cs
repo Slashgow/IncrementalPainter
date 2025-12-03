@@ -1,9 +1,14 @@
+using System;
 using inkolorgames;
 using UnityEngine;
 using UnityTimer;
 
 public class PaintSpawner : MonoBehaviour
 {
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningWhenKillingPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningWhenKillingPerLevel => chanceOfSpawningWhenKillingPerLevel;
+    public float ChanceOfSpawnOnKill => chanceOfSpawningWhenKillingPerLevel.GetCurrentLevelData();
+
     [Header("Spawn Settings")]
     [SerializeField] private PoolingSystem pool;
     [SerializeField] private float spawnInterval = 1f;
@@ -18,6 +23,11 @@ public class PaintSpawner : MonoBehaviour
     private Timer spawnTimer;
     private int spawnedCount = 0;
 
+    private void Awake()
+    {
+        SimpleDamageable.OnAnyDamageableDie += SimpleDamageable_OnAnyDamageableDie;
+    }
+
     void Start()
     {
         if (spriteRenderer == null)
@@ -29,7 +39,11 @@ public class PaintSpawner : MonoBehaviour
             StartSpawning();
     }
 
-    private void OnDestroy() => StopSpawning();
+    private void OnDestroy()
+    {
+        SimpleDamageable.OnAnyDamageableDie -= SimpleDamageable_OnAnyDamageableDie;
+        StopSpawning();
+    }
 
     public void StartSpawning()
     {
@@ -51,6 +65,13 @@ public class PaintSpawner : MonoBehaviour
         spawnPosition.z += zOffset;
         GameObject spawned = pool.GetPrefabFromPool(spawnPosition, spawnParent, false);
         spawnedCount++;
+    }
+
+    private void SimpleDamageable_OnAnyDamageableDie(Vector3 arg1, Color arg2) => TrySpawn();
+    private void TrySpawn()
+    {
+        if(LuckUtility.RollLuck(ChanceOfSpawnOnKill))
+            SpawnObject();
     }
 
     void OnDrawGizmosSelected()
