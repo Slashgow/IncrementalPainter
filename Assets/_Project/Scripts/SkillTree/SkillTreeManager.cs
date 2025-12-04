@@ -78,17 +78,22 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[paintStateManager.TimeToAddOnIncreasePerLevel.SkillID] = paintStateManager.TimeToAddOnIncreasePerLevel;
         leveledSkills[autoClicker.ClickTimerIntervalPerLevel.SkillID] = autoClicker.ClickTimerIntervalPerLevel;
         leveledSkills[paintSpawner.ChanceOfSpawningWhenKillingPerLevel.SkillID] = paintSpawner.ChanceOfSpawningWhenKillingPerLevel;
+        leveledSkills[paintSpawner.ChanceOfSpawningBombPaintPerLevel.SkillID] = paintSpawner.ChanceOfSpawningBombPaintPerLevel;
+        leveledSkills[paintSpawner.ChanceOfSpawningFreezePaintPerLevel.SkillID] = paintSpawner.ChanceOfSpawningFreezePaintPerLevel;
+        leveledSkills[paintSpawner.ChanceOfSpawningBrushSwipePaintPerLevel.SkillID] = paintSpawner.ChanceOfSpawningBrushSwipePaintPerLevel;
         leveledSkills[deathPainter.SplatterScalePerLevel.SkillID] = deathPainter.SplatterScalePerLevel;
         leveledSkills[bombDamageor.DamageSkillDataPerLevel.SkillID] = bombDamageor.DamageSkillDataPerLevel;
         leveledSkills[bombDamageor.CriticalDamageMultiplierSkillDataPerLevel.SkillID] = bombDamageor.CriticalDamageMultiplierSkillDataPerLevel;
         leveledSkills[bombDamageor.CriticalHitLuckSkillDataPerLevel.SkillID] = bombDamageor.CriticalHitLuckSkillDataPerLevel;
         leveledSkills[bombDamageor.DamageRadiusSkillDataPerLevel.SkillID] = bombDamageor.DamageRadiusSkillDataPerLevel;
-        leveledSkills[bombDamageor.LuckToProcOnKillPerLevel.SkillID] = bombDamageor.LuckToProcOnKillPerLevel;
         leveledSkills[bombStunner.StunDurationSkillDataPerLevel.SkillID] = bombStunner.StunDurationSkillDataPerLevel;
         leveledSkills[bombStunner.StunRadiusSkillDataPerLevel.SkillID] = bombStunner.StunRadiusSkillDataPerLevel;
-        leveledSkills[bombStunner.LuckToProcOnKillPerLevel.SkillID] = bombStunner.LuckToProcOnKillPerLevel;
+        leveledSkills[brushSwipeDamageor.DamageSkillDataPerLevel.SkillID] = brushSwipeDamageor.DamageSkillDataPerLevel;
+        leveledSkills[brushSwipeDamageor.CriticalDamageMultiplierSkillDataPerLevel.SkillID] = brushSwipeDamageor.CriticalDamageMultiplierSkillDataPerLevel;
+        leveledSkills[brushSwipeDamageor.CriticalHitLuckSkillDataPerLevel.SkillID] = brushSwipeDamageor.CriticalHitLuckSkillDataPerLevel;
+        leveledSkills[brushSwipeDamageor.DamageWidthPerLevel.SkillID] = brushSwipeDamageor.DamageWidthPerLevel;
+        leveledSkills[brushSwipeDamageor.SwipeLengthPerLevel.SkillID] = brushSwipeDamageor.SwipeLengthPerLevel;
     
-
         autoClickerDamageor.DamageSkillDataPerLevel.Initialize();
         autoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
         autoClickerDamageor.CriticalHitLuckSkillDataPerLevel.Initialize();
@@ -98,15 +103,21 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         paintStateManager.TimeToAddOnIncreasePerLevel.Initialize();
         autoClicker.ClickTimerIntervalPerLevel.Initialize();
         paintSpawner.ChanceOfSpawningWhenKillingPerLevel.Initialize();
+        paintSpawner.ChanceOfSpawningBombPaintPerLevel.Initialize();
+        paintSpawner.ChanceOfSpawningFreezePaintPerLevel.Initialize();
+        paintSpawner.ChanceOfSpawningBrushSwipePaintPerLevel.Initialize();
         deathPainter.SplatterScalePerLevel.Initialize();
         bombDamageor.DamageSkillDataPerLevel.Initialize();
         bombDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
         bombDamageor.CriticalHitLuckSkillDataPerLevel.Initialize();
         bombDamageor.DamageRadiusSkillDataPerLevel.Initialize();
-        bombDamageor.LuckToProcOnKillPerLevel.Initialize();
         bombStunner.StunDurationSkillDataPerLevel.Initialize();
         bombStunner.StunRadiusSkillDataPerLevel.Initialize();
-        bombStunner.LuckToProcOnKillPerLevel.Initialize();
+        brushSwipeDamageor.DamageSkillDataPerLevel.Initialize();
+        brushSwipeDamageor.CriticalHitLuckSkillDataPerLevel.Initialize();
+        brushSwipeDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
+        brushSwipeDamageor.DamageWidthPerLevel.Initialize();
+        brushSwipeDamageor.SwipeLengthPerLevel.Initialize();
     }
 
     void Start()

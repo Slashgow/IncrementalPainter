@@ -46,6 +46,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8230cd6483d5d0749b216600c818e274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chanceOfSpawningWhenKillingPerLevel:
+    skillData: {fileID: 11400000, guid: af63347a65b1dfc49aa899eda8e0aa6f, type: 2}
+  chanceOfSpawningBombPaintPerLevel:
+    skillData: {fileID: 11400000, guid: cfd1ac9012ba4844c8fa8ee6717048a3, type: 2}
+  chanceOfSpawningFreezePaintPerLevel:
+    skillData: {fileID: 11400000, guid: 63779a04f72e40c439ca587909201bb8, type: 2}
+  chanceOfSpawningBrushSwipePaintPerLevel:
+    skillData: {fileID: 11400000, guid: c2a105c658090c140acd3aac8ff7e428, type: 2}
   pool: {fileID: 7085179760342262382}
   spawnInterval: 0.5
   autoStart: 1
@@ -53,7 +61,6 @@ MonoBehaviour:
   zOffset: 0
   spawnParent: {fileID: 1039041530853263093}
   useRealTime: 0
-  spriteRenderer: {fileID: 0}
 --- !u!114 &7085179760342262382
 MonoBehaviour:
   m_ObjectHideFlags: 0

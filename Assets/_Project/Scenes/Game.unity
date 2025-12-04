@@ -1027,9 +1027,9 @@ MonoBehaviour:
   damageSkillDataPerLevel:
     skillData: {fileID: 11400000, guid: 550ef977018a25a4eb8d8eee844f2739, type: 2}
   criticalDamageMultiplierSkillDataPerLevel:
-    skillData: {fileID: 0}
+    skillData: {fileID: 11400000, guid: 6851fc53c5f210347932fb3200efe873, type: 2}
   criticalHitLuckSkillDataPerLevel:
-    skillData: {fileID: 0}
+    skillData: {fileID: 11400000, guid: f8b6ed9ca9a8e8b479fe853497c57977, type: 2}
   damageRadiusSkillDataPerLevel:
     skillData: {fileID: 0}
   damageableLayers:
@@ -1049,8 +1049,6 @@ MonoBehaviour:
     visualWidth: 0.5
     brushColor: {r: 1, g: 0.14084476, b: 0, a: 1}
     pathResolution: 20
-  luckToProcOnKillPerLevel:
-    skillData: {fileID: 11400000, guid: c2a105c658090c140acd3aac8ff7e428, type: 2}
   swipeLengthPerLevel:
     skillData: {fileID: 11400000, guid: c426ab1a0ed9ded4fa2ee02ad9b4bcf9, type: 2}
   swipeDurationPerLevel:
@@ -1290,6 +1288,10 @@ PrefabInstance:
       propertyPath: paintStateManager
       value: 
       objectReference: {fileID: 1159152996}
+    - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
+      propertyPath: brushSwipeDamageor
+      value: 
+      objectReference: {fileID: 698057021}
     - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
       propertyPath: autoClickerDamageor
       value: 
@@ -2847,8 +2849,6 @@ MonoBehaviour:
   OnAttackOnce:
     m_PersistentCalls:
       m_Calls: []
-  luckToProcOnKillPerLevel:
-    skillData: {fileID: 11400000, guid: cfd1ac9012ba4844c8fa8ee6717048a3, type: 2}
 --- !u!4 &1562959402
 Transform:
   m_ObjectHideFlags: 0
@@ -2981,8 +2981,6 @@ MonoBehaviour:
   OnStunAppliedOnce:
     m_PersistentCalls:
       m_Calls: []
-  luckToProcOnKillPerLevel:
-    skillData: {fileID: 11400000, guid: 63779a04f72e40c439ca587909201bb8, type: 2}
 --- !u!4 &1988011186
 Transform:
   m_ObjectHideFlags: 0
@@ -3244,10 +3242,6 @@ PrefabInstance:
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 8320128552981738484, guid: 0ff0507c966bc28499f9ca95f2fadab7, type: 3}
-      propertyPath: chanceOfSpawningWhenKillingPerLevel.skillData
-      value: 
-      objectReference: {fileID: 11400000, guid: af63347a65b1dfc49aa899eda8e0aa6f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

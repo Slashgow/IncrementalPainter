@@ -2,16 +2,8 @@
 
 public class BombStunner : BaseStunner
 {
-    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> luckToProcOnKillPerLevel;
-    public SkillDataPerLevelOfType<FunctionAffine> LuckToProcOnKillPerLevel => luckToProcOnKillPerLevel;
-    public float LuckToProcOnKill => luckToProcOnKillPerLevel.GetCurrentLevelData();
+    private void OnEnable() => PaintBlob.OnAnyPaintFreezerDie += PaintBlob_OnAnyPaintFreezerDie;
+    private void OnDisable() => PaintBlob.OnAnyPaintFreezerDie -= PaintBlob_OnAnyPaintFreezerDie;
 
-    private void OnEnable() => SimpleDamageable.OnAnyDamageableDie += SimpleDamageable_OnAnyDamageableDie;
-    private void OnDisable() => SimpleDamageable.OnAnyDamageableDie -= SimpleDamageable_OnAnyDamageableDie;
-
-    private void SimpleDamageable_OnAnyDamageableDie(Vector3 deathWorldPosition, Color color)
-    {
-        if (LuckUtility.RollLuck(LuckToProcOnKill))
-            TryStun(deathWorldPosition);
-    }
+    private void PaintBlob_OnAnyPaintFreezerDie(Vector3 deathWorldPosition) => TryStun(deathWorldPosition);
 }

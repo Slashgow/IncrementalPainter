@@ -1,4 +1,3 @@
-using System;
 using inkolorgames;
 using UnityEngine;
 using UnityTimer;
@@ -6,8 +5,17 @@ using UnityTimer;
 public class PaintSpawner : MonoBehaviour
 {
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningWhenKillingPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningBombPaintPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningFreezePaintPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningBrushSwipePaintPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningWhenKillingPerLevel => chanceOfSpawningWhenKillingPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningBombPaintPerLevel => chanceOfSpawningBombPaintPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningFreezePaintPerLevel => chanceOfSpawningFreezePaintPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningBrushSwipePaintPerLevel => chanceOfSpawningBrushSwipePaintPerLevel;
     public float ChanceOfSpawnOnKill => chanceOfSpawningWhenKillingPerLevel.GetCurrentLevelData();
+    public float ChanceOfSpawningBombPaint => chanceOfSpawningBombPaintPerLevel.GetCurrentLevelData();
+    public float ChanceOfSpawningFreezePaint => chanceOfSpawningFreezePaintPerLevel.GetCurrentLevelData();
+    public float ChanceOfSpawningBrushSwipePaint => chanceOfSpawningBrushSwipePaintPerLevel.GetCurrentLevelData();
 
     [Header("Spawn Settings")]
     [SerializeField] private PoolingSystem pool;
@@ -63,7 +71,14 @@ public class PaintSpawner : MonoBehaviour
 
         Vector3 spawnPosition = SpriteUtility.GetRandomPositionInSprite(spriteRenderer.transform, spriteRenderer);
         spawnPosition.z += zOffset;
+
+        PaintType paintType = GetWeightedPaintType();
         GameObject spawned = pool.GetPrefabFromPool(spawnPosition, spawnParent, false);
+
+        PaintBlob paintBlob = spawned.GetComponent<PaintBlob>();
+        if (paintBlob != null)
+            paintBlob.Initialize(paintType);
+
         spawnedCount++;
     }
 
@@ -72,6 +87,30 @@ public class PaintSpawner : MonoBehaviour
     {
         if(LuckUtility.RollLuck(ChanceOfSpawnOnKill))
             SpawnObject();
+    }
+
+    private PaintType GetWeightedPaintType()
+    {
+        float totalSpecialWeight = ChanceOfSpawningBombPaint + ChanceOfSpawningFreezePaint + ChanceOfSpawningBrushSwipePaint;
+
+        if (totalSpecialWeight <= 0f)
+            return PaintType.Normal;
+
+        if (!LuckUtility.RollLuck(totalSpecialWeight))
+            return PaintType.Normal;
+
+        float roll = UnityEngine.Random.Range(0f, totalSpecialWeight);
+        float cumulativeWeight = 0f;
+
+        cumulativeWeight += ChanceOfSpawningBombPaint;
+        if (roll < cumulativeWeight)
+            return PaintType.BombPaint;
+
+        cumulativeWeight += ChanceOfSpawningFreezePaint;
+        if (roll < cumulativeWeight)
+            return PaintType.Freeze;
+
+        return PaintType.BrushSwipe;
     }
 
     void OnDrawGizmosSelected()
