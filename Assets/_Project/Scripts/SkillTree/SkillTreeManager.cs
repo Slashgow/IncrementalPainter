@@ -14,6 +14,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
     [SerializeField] private DeathPainter deathPainter;
     [SerializeField] private BombDamageor bombDamageor;
     [SerializeField] private BombStunner bombStunner;
+    [SerializeField] private BrushSwipeDamageor brushSwipeDamageor;
 
     [Header("Skill Nodes")]
     public List<SkillNode> allSkillNodes;
@@ -86,6 +87,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[bombStunner.StunDurationSkillDataPerLevel.SkillID] = bombStunner.StunDurationSkillDataPerLevel;
         leveledSkills[bombStunner.StunRadiusSkillDataPerLevel.SkillID] = bombStunner.StunRadiusSkillDataPerLevel;
         leveledSkills[bombStunner.LuckToProcOnKillPerLevel.SkillID] = bombStunner.LuckToProcOnKillPerLevel;
+    
 
         autoClickerDamageor.DamageSkillDataPerLevel.Initialize();
         autoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();

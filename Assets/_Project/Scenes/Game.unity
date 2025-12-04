@@ -995,6 +995,83 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &698057020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 698057022}
+  - component: {fileID: 698057021}
+  m_Layer: 0
+  m_Name: Brush Swiper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &698057021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698057020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a95a58cb3f7402346bf41c7439486f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 550ef977018a25a4eb8d8eee844f2739, type: 2}
+  criticalDamageMultiplierSkillDataPerLevel:
+    skillData: {fileID: 0}
+  criticalHitLuckSkillDataPerLevel:
+    skillData: {fileID: 0}
+  damageRadiusSkillDataPerLevel:
+    skillData: {fileID: 0}
+  damageableLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  OnAttackOnce:
+    m_PersistentCalls:
+      m_Calls: []
+  brushSwipePrefab: {fileID: 3438279952648721775, guid: 70e27e313cb2af545836beb65cd78ca4, type: 3}
+  swipeData:
+    swipeLength: 5
+    curvature: 0.5
+    curvatureVariation: 0.2
+    duration: 1
+    damageWidth: 1
+    damageCheckInterval: 0.05
+    visualWidth: 0.5
+    brushColor: {r: 1, g: 0.14084476, b: 0, a: 1}
+    pathResolution: 20
+  luckToProcOnKillPerLevel:
+    skillData: {fileID: 11400000, guid: c2a105c658090c140acd3aac8ff7e428, type: 2}
+  swipeLengthPerLevel:
+    skillData: {fileID: 11400000, guid: c426ab1a0ed9ded4fa2ee02ad9b4bcf9, type: 2}
+  swipeDurationPerLevel:
+    skillData: {fileID: 11400000, guid: c66033ccdb090a14bb5383f31c4d526f, type: 2}
+  damageWidthPerLevel:
+    skillData: {fileID: 11400000, guid: ea2859df8f1c92a4da36f917faa56946, type: 2}
+--- !u!4 &698057022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698057020}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &765440602
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,6 +1266,14 @@ PrefabInstance:
       propertyPath: autoClicker
       value: 
       objectReference: {fileID: 597247660}
+    - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
+      propertyPath: bombStunner
+      value: 
+      objectReference: {fileID: 1988011185}
+    - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
+      propertyPath: bombDamageor
+      value: 
+      objectReference: {fileID: 1562959401}
     - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
       propertyPath: deathPainter
       value: 
@@ -2460,7 +2545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splatterScalePerLevel:
-    skillData: {fileID: 0}
+    skillData: {fileID: 11400000, guid: 5e224ad3a10f96648bde8677b3e0fb75, type: 2}
   paintDecal: {fileID: 1434425233}
 --- !u!114 &1434425233
 MonoBehaviour:
@@ -2719,6 +2804,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1492879004}
   m_CullTransparentMesh: 1
+--- !u!1 &1562959400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1562959402}
+  - component: {fileID: 1562959401}
+  m_Layer: 0
+  m_Name: Paint Bomb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1562959401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562959400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da58cde9ba42edd47b8f848e28f1f254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 080f88b6e97a140408e4fd8c3261c727, type: 2}
+  criticalDamageMultiplierSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 80db2abbd5f7eb54897b2c12fabe236f, type: 2}
+  criticalHitLuckSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 092aeaea57f44a34eaf2381d9d561226, type: 2}
+  damageRadiusSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: b1c1578cbdf3d2747bacda5fdf1b50c2, type: 2}
+  damageableLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  OnAttackOnce:
+    m_PersistentCalls:
+      m_Calls: []
+  luckToProcOnKillPerLevel:
+    skillData: {fileID: 11400000, guid: cfd1ac9012ba4844c8fa8ee6717048a3, type: 2}
+--- !u!4 &1562959402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562959400}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1711873770
 GameObject:
   m_ObjectHideFlags: 0
@@ -2789,6 +2934,62 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974870282}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1988011184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1988011186}
+  - component: {fileID: 1988011185}
+  m_Layer: 0
+  m_Name: Paint Freezer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1988011185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988011184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45488b48df0a32f48b8b5499cf8249c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunDurationSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: b6a197887673f434ead65cda2179cf58, type: 2}
+  stunRadiusSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 10fbcb024ecf6b04bb72da71a66ca110, type: 2}
+  stunnableLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  OnStunAppliedOnce:
+    m_PersistentCalls:
+      m_Calls: []
+  luckToProcOnKillPerLevel:
+    skillData: {fileID: 11400000, guid: 63779a04f72e40c439ca587909201bb8, type: 2}
+--- !u!4 &1988011186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988011184}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -3043,6 +3244,10 @@ PrefabInstance:
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8320128552981738484, guid: 0ff0507c966bc28499f9ca95f2fadab7, type: 3}
+      propertyPath: chanceOfSpawningWhenKillingPerLevel.skillData
+      value: 
+      objectReference: {fileID: 11400000, guid: af63347a65b1dfc49aa899eda8e0aa6f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3733,4 +3938,7 @@ SceneRoots:
   - {fileID: 1711873771}
   - {fileID: 1434425234}
   - {fileID: 1073158831303744712}
+  - {fileID: 698057022}
+  - {fileID: 1562959402}
+  - {fileID: 1988011186}
   - {fileID: 595230175}

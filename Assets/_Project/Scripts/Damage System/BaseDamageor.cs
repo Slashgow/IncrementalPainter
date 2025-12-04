@@ -14,7 +14,7 @@ public abstract class BaseDamageor : MonoBehaviour, IDamageor
     public SkillDataPerLevelOfType<FunctionAffine> CriticalHitLuckSkillDataPerLevel => criticalHitLuckSkillDataPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> DamageRadiusSkillDataPerLevel => damageRadiusSkillDataPerLevel;
 
-    [SerializeField] private LayerMask damageableLayers = ~0;
+    [SerializeField] protected LayerMask damageableLayers = ~0;
     public float Damage => damageSkillDataPerLevel.GetCurrentLevelData();
     public float CriticalDamageMultiplier => criticalDamageMultiplierSkillDataPerLevel.GetCurrentLevelData();
     public float CriticalHitLuck => criticalHitLuckSkillDataPerLevel.GetCurrentLevelData();

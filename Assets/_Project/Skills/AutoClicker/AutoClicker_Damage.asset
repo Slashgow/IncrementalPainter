@@ -38,6 +38,32 @@ MonoBehaviour:
       requiredLevel: 1
     - skillData: {fileID: 11400000, guid: 82d28b684a6199b41a746ce6c582cf8c, type: 2}
       requiredLevel: 1
+    - skillData: {fileID: 11400000, guid: 1604633f8a5cb034e87660ca5b39c2e7, type: 2}
+      requiredLevel: 1
+  - level: 3
+    requiredSkills:
+    - skillData: {fileID: 11400000, guid: b57d95ae9b45fe74dba77d0acf4b2987, type: 2}
+      requiredLevel: 2
+    - skillData: {fileID: 11400000, guid: 82d28b684a6199b41a746ce6c582cf8c, type: 2}
+      requiredLevel: 2
+    - skillData: {fileID: 11400000, guid: 1604633f8a5cb034e87660ca5b39c2e7, type: 2}
+      requiredLevel: 2
+  - level: 4
+    requiredSkills:
+    - skillData: {fileID: 11400000, guid: b57d95ae9b45fe74dba77d0acf4b2987, type: 2}
+      requiredLevel: 3
+    - skillData: {fileID: 11400000, guid: 82d28b684a6199b41a746ce6c582cf8c, type: 2}
+      requiredLevel: 3
+    - skillData: {fileID: 11400000, guid: 1604633f8a5cb034e87660ca5b39c2e7, type: 2}
+      requiredLevel: 3
+  - level: 5
+    requiredSkills:
+    - skillData: {fileID: 11400000, guid: b57d95ae9b45fe74dba77d0acf4b2987, type: 2}
+      requiredLevel: 4
+    - skillData: {fileID: 11400000, guid: 82d28b684a6199b41a746ce6c582cf8c, type: 2}
+      requiredLevel: 4
+    - skillData: {fileID: 11400000, guid: 1604633f8a5cb034e87660ca5b39c2e7, type: 2}
+      requiredLevel: 4
   effectValue:
     a: 1
     b: 1

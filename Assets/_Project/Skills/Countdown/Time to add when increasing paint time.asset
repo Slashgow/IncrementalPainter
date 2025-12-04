@@ -38,6 +38,18 @@ MonoBehaviour:
     requiredSkills:
     - skillData: {fileID: 11400000, guid: bf6e118703275964fb908b0af96e99c0, type: 2}
       requiredLevel: 2
+  - level: 3
+    requiredSkills:
+    - skillData: {fileID: 11400000, guid: bf6e118703275964fb908b0af96e99c0, type: 2}
+      requiredLevel: 3
+  - level: 4
+    requiredSkills:
+    - skillData: {fileID: 11400000, guid: bf6e118703275964fb908b0af96e99c0, type: 2}
+      requiredLevel: 4
+  - level: 5
+    requiredSkills:
+    - skillData: {fileID: 11400000, guid: bf6e118703275964fb908b0af96e99c0, type: 2}
+      requiredLevel: 5
   effectValue:
     a: 1
     b: 3

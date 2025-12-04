@@ -17,8 +17,8 @@ public class DamageTextSpawner : MonoBehaviour
     [SerializeField] private Color normalHitColor = Color.white;
     [SerializeField] private Color criticalHitColor = Color.yellow;
 
-    private void OnEnable() => AutoClickerDamageor.OnAnyDamageorAttack += HandleDamageorAttack;
-    private void OnDisable() => AutoClickerDamageor.OnAnyDamageorAttack -= HandleDamageorAttack;
+    private void OnEnable() => BaseDamageor.OnAnyDamageorAttack += HandleDamageorAttack;
+    private void OnDisable() => BaseDamageor.OnAnyDamageorAttack -= HandleDamageorAttack;
     private void HandleDamageorAttack(float damageAmount, Vector3 worldPosition, bool isCritical) => SpawnDamageText(damageAmount, worldPosition, isCritical);
     private void SpawnDamageText(float damageAmount, Vector3 worldPosition, bool isCritical)
     {
