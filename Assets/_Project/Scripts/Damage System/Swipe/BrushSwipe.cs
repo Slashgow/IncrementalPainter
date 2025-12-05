@@ -90,6 +90,8 @@ public class BrushSwipe : MonoBehaviour
     {
         Vector3 currentPosition = Helper.CalculateBezierPoint(currentProgress, startPoint, endPoint, controlPoint);
 
+        Painter.Instance.PaintAt(currentPosition, data.brushColor);
+
         Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(currentPosition.x, currentPosition.y),data.damageWidth / 2f,damageableLayers);
 
         foreach (var collider in colliders)

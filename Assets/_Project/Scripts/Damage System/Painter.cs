@@ -1,8 +1,9 @@
+using inkolorgames;
 using PaintIn2D;
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public class DeathPainter : MonoBehaviour
+public class Painter : MonoSingleton<Painter>
 {
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> splatterScalePerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> SplatterScalePerLevel => splatterScalePerLevel;
@@ -23,7 +24,7 @@ public class DeathPainter : MonoBehaviour
     private void UpdateSplatterScale() => paintDecal.Scale = SplatterScale;
     private void SplatterScalePerLevel_OnLevelUp() => UpdateSplatterScale();
     private void HandleOnDie(Vector3 worldPos, Color color) => PaintAt(worldPos, color);
-    private void PaintAt(Vector3 worldPos, Color color)
+    public void PaintAt(Vector3 worldPos, Color color)
     {
         paintDecal.Color = color;
         paintDecal.HandleHitPoint(false, 0, 1f, Random.Range(int.MinValue, int.MaxValue), worldPos, Quaternion.identity);

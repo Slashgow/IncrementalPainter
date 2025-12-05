@@ -18,6 +18,7 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
     public LevelData CurrentLevelData => currentUnlockableLevel.LevelData;
 
     public static event Action OnEndLevel;
+    public static event Action<Level> OnStartLevel;
 
     protected override void Awake()
     {
@@ -44,6 +45,7 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
         GameObject levelGOInstance = Instantiate(CurrentLevelData.LevelPrefab, Vector3.zero, Quaternion.identity, this.transform);
         currentLevelInstance = levelGOInstance.GetComponent<Level>();
         currentLevelInstance.Initialize(CurrentLevelData);
+        OnStartLevel?.Invoke(currentLevelInstance);
 
         currentLevelInstance.OnEndLevel -= CurrentLevelInstance_OnEndLevel;
         currentLevelInstance.OnEndLevel += CurrentLevelInstance_OnEndLevel;

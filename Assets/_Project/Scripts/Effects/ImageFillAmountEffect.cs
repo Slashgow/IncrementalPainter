@@ -10,6 +10,7 @@ public class ImageFillAmountEffect : Effect
     [SerializeField] private Image image;
     [SerializeField, Range(0f, 2f)] private float duration = 1f;
     [SerializeField] private Ease ease = Ease.InOutQuad;
+    [SerializeField] private bool useRealTime = true;
 
     private Tween fillTween;
     public UnityEvent OnUpdate;
@@ -19,7 +20,7 @@ public class ImageFillAmountEffect : Effect
         fillTween?.Kill();
         float endValue = image.fillAmount;  
         image.fillAmount = 0f;
-        fillTween = image.DOFillAmount(endValue, duration).SetEase(ease).OnUpdate(() => OnUpdate?.Invoke());
+        fillTween = image.DOFillAmount(endValue, duration).SetUpdate(useRealTime).SetEase(ease).OnUpdate(() => OnUpdate?.Invoke());
     }
     private void OnDestroy() => fillTween?.Kill();
 }

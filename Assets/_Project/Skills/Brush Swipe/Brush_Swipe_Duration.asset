@@ -52,7 +52,7 @@ MonoBehaviour:
       requiredLevel: 5
   effectValue:
     a: 0
-    b: 0.5
+    b: 0.2
   references:
     version: 2
     RefIds: []

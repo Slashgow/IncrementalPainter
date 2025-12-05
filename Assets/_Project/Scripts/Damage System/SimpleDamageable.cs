@@ -18,7 +18,7 @@ public class SimpleDamageable : MonoBehaviour, IDamageable
 
     public UnityEvent OnTakeDamageUnityEvent;
     public event Action<float> OnTakeDamage;
-    public event Action<Vector3> OnDie;
+    public event Action<Vector3, Color> OnDie;
     public static event Action<Vector3, Color> OnAnyDamageableDie;
 
     private void OnEnable()
@@ -50,7 +50,7 @@ public class SimpleDamageable : MonoBehaviour, IDamageable
 
         isDead = true;
 
-        OnDie?.Invoke(transform.position);
+        OnDie?.Invoke(transform.position, colorable.Color);
         OnAnyDamageableDie?.Invoke(transform.position, colorable.Color);
 
         if (destroyOnDeath)

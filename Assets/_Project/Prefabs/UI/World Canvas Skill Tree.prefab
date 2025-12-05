@@ -1305,6 +1305,12 @@ MonoBehaviour:
   autoClickerDamageor: {fileID: 0}
   paintStateManager: {fileID: 0}
   autoClicker: {fileID: 0}
+  paintSpawner: {fileID: 0}
+  deathPainter: {fileID: 0}
+  bombDamageor: {fileID: 0}
+  bombStunner: {fileID: 0}
+  brushSwipeDamageor: {fileID: 0}
+  currencyManager: {fileID: 0}
   allSkillNodes:
   - {fileID: 296690059080495454}
   - {fileID: 1545419217589032824}
@@ -1325,12 +1331,15 @@ MonoBehaviour:
   detailPrefab: {fileID: 7721927385872348188, guid: 1a0e3d5a70956364ea885d17d2143431, type: 3}
   detailCanvas: {fileID: 0}
   detailOffset: {x: 0, y: -330}
-  lockedColor: {r: 0.6392157, g: 0.6392157, b: 0.6392157, a: 1}
-  lockedColorDarker: {r: 0.29803923, g: 0.3019608, b: 0.30980393, a: 1}
-  unlockedColor: {r: 0.68235296, g: 0.827451, b: 0.3529412, a: 1}
-  unlockedColorDarker: {r: 0.047058824, g: 0.54509807, b: 0.34901962, a: 1}
-  availableColor: {r: 0.94509804, g: 0.59607846, b: 0.67058825, a: 1}
-  availableColorDarker: {r: 0.9137255, g: 0.25490198, b: 0.38039216, a: 1}
+  skillTreeVisualData:
+    lockedColor: {r: 0.6392157, g: 0.6392157, b: 0.6392157, a: 1}
+    lockedColorDarker: {r: 0.29803923, g: 0.3019608, b: 0.30980393, a: 1}
+    unlockedColor: {r: 0.68235296, g: 0.82745105, b: 0.3529412, a: 1}
+    unlockedColorDarker: {r: 0.29411766, g: 0.5254902, b: 0.27450982, a: 1}
+    availableColor: {r: 0.9450981, g: 0.59607846, b: 0.67058825, a: 1}
+    availableColorDarker: {r: 0.73333335, g: 0.14117648, b: 0.227451, a: 1}
+    backgroundSpriteLocked: {fileID: 21300000, guid: 03d7cc313500f374da5e2d74d93ebd63, type: 3}
+    backgroundSpriteUnlocked: {fileID: 21300000, guid: 68c45644f9029dd40958756b17804eb9, type: 3}
 --- !u!114 &7892196030520435831
 MonoBehaviour:
   m_ObjectHideFlags: 0

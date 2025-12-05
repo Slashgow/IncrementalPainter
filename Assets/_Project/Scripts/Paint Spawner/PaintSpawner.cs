@@ -4,14 +4,23 @@ using UnityTimer;
 
 public class PaintSpawner : MonoBehaviour
 {
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> initialCountPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> spawnTimeIntervalPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> maxSpawnCountPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningWhenKillingPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningBombPaintPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningFreezePaintPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningBrushSwipePaintPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> InitialCountPerLevel => initialCountPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> SpawnTimeIntervalPerLevel => spawnTimeIntervalPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> MaxSpawnCountPerLevel => maxSpawnCountPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningWhenKillingPerLevel => chanceOfSpawningWhenKillingPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningBombPaintPerLevel => chanceOfSpawningBombPaintPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningFreezePaintPerLevel => chanceOfSpawningFreezePaintPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningBrushSwipePaintPerLevel => chanceOfSpawningBrushSwipePaintPerLevel;
+    public int InitialCount => Mathf.FloorToInt(initialCountPerLevel.GetCurrentLevelData());
+    public float SpawnTimeInterval => spawnTimeIntervalPerLevel.GetCurrentLevelData();
+    public int MaxSpawnCount => Mathf.FloorToInt(maxSpawnCountPerLevel.GetCurrentLevelData());
     public float ChanceOfSpawnOnKill => chanceOfSpawningWhenKillingPerLevel.GetCurrentLevelData();
     public float ChanceOfSpawningBombPaint => chanceOfSpawningBombPaintPerLevel.GetCurrentLevelData();
     public float ChanceOfSpawningFreezePaint => chanceOfSpawningFreezePaintPerLevel.GetCurrentLevelData();
@@ -19,9 +28,7 @@ public class PaintSpawner : MonoBehaviour
 
     [Header("Spawn Settings")]
     [SerializeField] private PoolingSystem pool;
-    [SerializeField] private float spawnInterval = 1f;
     [SerializeField] private bool autoStart = true;
-    [SerializeField] private int maxSpawnCount = -1;
     [SerializeField] private float zOffset = 0f;
     [SerializeField] private Transform spawnParent;
     [SerializeField] private bool useRealTime = false;
@@ -55,15 +62,20 @@ public class PaintSpawner : MonoBehaviour
 
     public void StartSpawning()
     {
+        for (int i = 0; i < InitialCount; i++)
+        {
+            SpawnObject();
+        }
+
         spawnTimer?.Cancel();
-        spawnTimer = Timer.Register(spawnInterval, onComplete:SpawnObject, isLooped: true, useRealTime: useRealTime);
+        spawnTimer = Timer.Register(SpawnTimeInterval, onComplete:SpawnObject, isLooped: true, useRealTime: useRealTime);
     }
 
     public void StopSpawning() => spawnTimer?.Cancel();
 
     public void SpawnObject()
     {
-        if (maxSpawnCount >= 0 && spawnedCount >= maxSpawnCount)
+        if (MaxSpawnCount >= 0 && spawnedCount >= MaxSpawnCount)
         {
             StopSpawning();
             return;
@@ -82,7 +94,12 @@ public class PaintSpawner : MonoBehaviour
         spawnedCount++;
     }
 
-    private void SimpleDamageable_OnAnyDamageableDie(Vector3 arg1, Color arg2) => TrySpawn();
+    private void SimpleDamageable_OnAnyDamageableDie(Vector3 arg1, Color arg2)
+    {
+        spawnedCount--;
+        TrySpawn();
+    }
+
     private void TrySpawn()
     {
         if(LuckUtility.RollLuck(ChanceOfSpawnOnKill))

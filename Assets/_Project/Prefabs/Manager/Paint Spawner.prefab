@@ -46,6 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8230cd6483d5d0749b216600c818e274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialCountPerLevel:
+    skillData: {fileID: 11400000, guid: ed62c62e577d2c24da9bb7c892737742, type: 2}
+  spawnTimeIntervalPerLevel:
+    skillData: {fileID: 11400000, guid: 11f9b509fd611314c9e500377b18bbe7, type: 2}
+  maxSpawnCountPerLevel:
+    skillData: {fileID: 11400000, guid: e31a75f61c9f54f488f49164a3ca665b, type: 2}
   chanceOfSpawningWhenKillingPerLevel:
     skillData: {fileID: 11400000, guid: af63347a65b1dfc49aa899eda8e0aa6f, type: 2}
   chanceOfSpawningBombPaintPerLevel:
@@ -55,9 +61,7 @@ MonoBehaviour:
   chanceOfSpawningBrushSwipePaintPerLevel:
     skillData: {fileID: 11400000, guid: c2a105c658090c140acd3aac8ff7e428, type: 2}
   pool: {fileID: 7085179760342262382}
-  spawnInterval: 0.5
   autoStart: 1
-  maxSpawnCount: 100
   zOffset: 0
   spawnParent: {fileID: 1039041530853263093}
   useRealTime: 0

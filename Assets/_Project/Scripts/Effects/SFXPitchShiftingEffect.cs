@@ -23,16 +23,16 @@ public class SFXPitchShiftingEffect : Effect
 
     private void PlaySFXWithPitchShift()
     {
-        if (Mathf.Abs(Time.time - previousTime) < delayBetweenCalls)
+        if (Mathf.Abs(Time.unscaledTime - previousTime) < delayBetweenCalls)
             return;
 
-        previousTime = Time.time;
+        previousTime = Time.unscaledTime;
         pitchResetTimer?.Cancel();
 
         currentPitch = Mathf.Min(currentPitch + pitchIncrement, maxPitch);
         SFXManager.Instance.PlayAudioClipWithPitch(audioClip, currentPitch);
 
-        pitchResetTimer = Timer.Register(pitchResetDelay, onComplete: () => currentPitch = minPitch);
+        pitchResetTimer = Timer.Register(pitchResetDelay, onComplete: () => currentPitch = minPitch, useRealTime: true);
     }
     private void OnDestroy() => pitchResetTimer?.Cancel();
 }

@@ -25,9 +25,9 @@ public class SkillNodeDetail : MonoBehaviour
     {
         skillNode = node;
 
-        valueHexaColorAvailable = ColorUtility.ToHtmlStringRGB(skillNode.TreeManager.AvailableColorDarker);
-        valueHexaUnlocked = ColorUtility.ToHtmlStringRGB(skillNode.TreeManager.UnlockedColorDarker);
-        valueHexaColorLocked = ColorUtility.ToHtmlStringRGB(skillNode.TreeManager.LockedColorDarker);
+        valueHexaColorAvailable = ColorUtility.ToHtmlStringRGB(skillNode.TreeManager.SkillTreeVisualData.AvailableColorDarker);
+        valueHexaUnlocked = ColorUtility.ToHtmlStringRGB(skillNode.TreeManager.SkillTreeVisualData.UnlockedColorDarker);
+        valueHexaColorLocked = ColorUtility.ToHtmlStringRGB(skillNode.TreeManager.SkillTreeVisualData.LockedColorDarker);
 
         UpdateVisual();
     }
@@ -58,18 +58,18 @@ public class SkillNodeDetail : MonoBehaviour
         {
             case SkillNode.SkillState.Locked:
                 currentHexaColor = valueHexaColorLocked;
-                currentColorBackground = skillNode.TreeManager.LockedColor;
-                currentColorBackgroundDarker = skillNode.TreeManager.LockedColorDarker;
+                currentColorBackground = skillNode.TreeManager.SkillTreeVisualData.LockedColor;
+                currentColorBackgroundDarker = skillNode.TreeManager.SkillTreeVisualData.LockedColorDarker;
                 break;
             case SkillNode.SkillState.Available:
                 currentHexaColor = valueHexaColorAvailable;
-                currentColorBackground = skillNode.TreeManager.AvailableColor;
-                currentColorBackgroundDarker = skillNode.TreeManager.AvailableColorDarker;
+                currentColorBackground = skillNode.TreeManager.SkillTreeVisualData.AvailableColor;
+                currentColorBackgroundDarker = skillNode.TreeManager.SkillTreeVisualData.AvailableColorDarker;
                 break;
             case SkillNode.SkillState.Unlocked:
                 currentHexaColor = valueHexaUnlocked;
-                currentColorBackground = skillNode.TreeManager.UnlockedColor;
-                currentColorBackgroundDarker = skillNode.TreeManager.UnlockedColorDarker;
+                currentColorBackground = skillNode.TreeManager.SkillTreeVisualData.UnlockedColor;
+                currentColorBackgroundDarker = skillNode.TreeManager.SkillTreeVisualData.UnlockedColorDarker;
                 break;
             default:
                 break;

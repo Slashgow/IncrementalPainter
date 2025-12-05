@@ -14,7 +14,7 @@ namespace PaintCore
 
 		/// <summary>This allows you to specify the counters that will be used.
 		/// Zero = All active and enabled counters in the scene.</summary>
-		public List<CwChangeCounter> Counters { get { if (counters == null) counters = new List<CwChangeCounter>(); return counters; } } [SerializeField] private List<CwChangeCounter> counters;
+		public List<CwChangeCounter> Counters { get { if (counters == null) counters = new List<CwChangeCounter>(); return counters; } } [SerializeField] protected List<CwChangeCounter> counters;
 
 		/// <summary>Inverse the <b>Count</b> and <b>Percent</b> values?</summary>
 		public bool Inverse { set { inverse = value; } get { return inverse; } } [SerializeField] private bool inverse;
@@ -30,7 +30,7 @@ namespace PaintCore
 
 		/// <summary>The color count will be output via this event.</summary>
 		public StringEvent OnString { get { if (onString == null) onString = new StringEvent(); return onString; } } [SerializeField] private StringEvent onString;
-
+		public float Percent { get; private set; }
 		protected virtual void Update()
 		{
 			var finalCounters = counters.Count > 0 ? counters : null;
@@ -43,11 +43,11 @@ namespace PaintCore
 			}
 
 			var final   = format;
-			var percent = CwCommon.RatioToPercentage(CwHelper.Divide(count, total), decimalPlaces);
+            Percent = CwCommon.RatioToPercentage(CwHelper.Divide(count, total), decimalPlaces);
 
 			final = final.Replace("{TOTAL}", total.ToString());
 			final = final.Replace("{COUNT}", count.ToString());
-			final = final.Replace("{PERCENT}", percent.ToString());
+			final = final.Replace("{PERCENT}", Percent.ToString());
 
 			if (onString != null)
 			{

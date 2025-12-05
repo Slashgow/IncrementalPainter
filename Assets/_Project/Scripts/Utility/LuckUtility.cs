@@ -33,4 +33,6 @@ public static class LuckUtility
 
         return success;
     }
+
+    public static float GetRandomFloatMinMax(float minValue, float maxValue) => Random.Range(minValue, maxValue);
 }

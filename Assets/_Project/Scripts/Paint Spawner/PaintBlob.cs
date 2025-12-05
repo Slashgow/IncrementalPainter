@@ -11,7 +11,7 @@ public class PaintBlob : MonoBehaviour
 
     public static event Action<Vector3> OnAnyPaintBombDie;
     public static event Action<Vector3> OnAnyPaintFreezerDie;
-    public static event Action<Vector3> OnAnyPaintBrushSwipeDie;
+    public static event Action<Vector3, Color> OnAnyPaintBrushSwipeDie;
 
     public void Initialize(PaintType paintType)
     {
@@ -28,7 +28,7 @@ public class PaintBlob : MonoBehaviour
 
     private void OnDisable() => damageable.OnDie -= Damageable_OnDie;
 
-    private void Damageable_OnDie(Vector3 deathWorldPosition)
+    private void Damageable_OnDie(Vector3 deathWorldPosition, Color color)
     {
         switch (paintType)
         {
@@ -41,7 +41,7 @@ public class PaintBlob : MonoBehaviour
                 OnAnyPaintFreezerDie?.Invoke(deathWorldPosition);
                 break;
             case PaintType.BrushSwipe:
-                OnAnyPaintBrushSwipeDie?.Invoke(deathWorldPosition);
+                OnAnyPaintBrushSwipeDie?.Invoke(deathWorldPosition, color);
                 break;
         }
     }

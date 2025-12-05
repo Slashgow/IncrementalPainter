@@ -7,10 +7,14 @@ public class CurrencyManager : MonoSingleton<CurrencyManager>
     [SerializeField] private inkolorgames.Logger logger;
 
     [Header("Currency Settings")]
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> currencyMultiplierPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> CurrencyMultiplierPerLevel => currencyMultiplierPerLevel;
+
     [SerializeField] private int startingCurrency = 0;
 
     private int currentCurrency;
     public int CurrentCurrency => currentCurrency;
+    public int CurrencyMultiplier => Mathf.FloorToInt(currencyMultiplierPerLevel.GetCurrentLevelData());
 
     public event Action<int> OnCurrencyChanged;
     public event Action<int, int> OnCurrencyGained;
@@ -38,7 +42,7 @@ public class CurrencyManager : MonoSingleton<CurrencyManager>
             return;
 
         int oldCurrency = currentCurrency;
-        currentCurrency += amount;
+        currentCurrency += amount * CurrencyMultiplier;
 
         OnCurrencyChanged?.Invoke(currentCurrency);
 

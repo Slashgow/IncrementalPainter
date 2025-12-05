@@ -8,5 +8,5 @@ public interface IDamageable
     void TakeDamage(float amount);
 
     event Action<float> OnTakeDamage;
-    event Action<Vector3> OnDie;
+    event Action<Vector3, Color> OnDie;
 }

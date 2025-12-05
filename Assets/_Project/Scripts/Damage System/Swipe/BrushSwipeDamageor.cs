@@ -8,22 +8,19 @@ public class BrushSwipeDamageor : BaseDamageor
 
     [Header("Skill Data")]
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> swipeLengthPerLevel;
-    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> swipeDurationPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> damageWidthPerLevel;
 
     public SkillDataPerLevelOfType<FunctionAffine> SwipeLengthPerLevel => swipeLengthPerLevel;
-    public SkillDataPerLevelOfType<FunctionAffine> SwipeDurationPerLevel => swipeDurationPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> DamageWidthPerLevel => damageWidthPerLevel;
 
     public float SwipeLength => swipeLengthPerLevel.GetCurrentLevelData();
-    public float SwipeDuration => swipeDurationPerLevel.GetCurrentLevelData();
     public float DamageWidth => damageWidthPerLevel.GetCurrentLevelData();
 
     private void OnEnable() => PaintBlob.OnAnyPaintBrushSwipeDie += PaintBlob_OnAnyPaintBrushSwipeDie;
     private void OnDisable() => PaintBlob.OnAnyPaintBrushSwipeDie -= PaintBlob_OnAnyPaintBrushSwipeDie;
-    private void PaintBlob_OnAnyPaintBrushSwipeDie(Vector3 deathWorldPosition) => SpawnBrushSwipe(deathWorldPosition);
+    private void PaintBlob_OnAnyPaintBrushSwipeDie(Vector3 deathWorldPosition, Color color) => SpawnBrushSwipe(deathWorldPosition, color);
 
-    private void SpawnBrushSwipe(Vector3 origin)
+    private void SpawnBrushSwipe(Vector3 origin, Color color)
     {
         if (brushSwipePrefab == null)
         {
@@ -38,15 +35,17 @@ public class BrushSwipeDamageor : BaseDamageor
             swipeLength = SwipeLength,
             curvature = swipeData.curvature,
             curvatureVariation = swipeData.curvatureVariation,
-            duration = SwipeDuration,
+            duration = swipeData.duration,
             damageWidth = DamageWidth,
             damageCheckInterval = swipeData.damageCheckInterval,
             visualWidth = swipeData.visualWidth,
-            brushColor = swipeData.brushColor,
+            brushColor = color,
             pathResolution = swipeData.pathResolution
         };
 
         BrushSwipe swipe = Instantiate(brushSwipePrefab, origin, Quaternion.identity);
         swipe.Initialize(origin, randomDirection, currentSwipeData, Damage, damageableLayers);
+
+        OnAttackOnce?.Invoke();
     }
 }

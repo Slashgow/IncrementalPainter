@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2020888545691585024}
   - component: {fileID: 7481424112164422760}
   - component: {fileID: 8718529933243821730}
+  - component: {fileID: 1876364179585836509}
   m_Layer: 0
   m_Name: AutoClicker
   m_TagString: Untagged
@@ -70,7 +71,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a8ce8b968764d4a944053bb1ab8bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoClicker: {fileID: 4199983495212388051}
   damageSkillDataPerLevel:
     skillData: {fileID: 11400000, guid: 3c6ba10d598d3ad4c8c5101338365328, type: 2}
   criticalDamageMultiplierSkillDataPerLevel:
@@ -97,6 +97,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  autoClicker: {fileID: 4199983495212388051}
 --- !u!114 &4604253230976657234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,6 +330,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c6b16792de387544897f611ed9b96e4f, type: 3}
   - {fileID: 8300000, guid: 2bf334d87702349479d03272f07b8d5d, type: 3}
   luckPercentage: 70
+--- !u!114 &1876364179585836509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882197496587690495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449e39ab49c20a6418f3fafa02ad5595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1721848700406742428}
 --- !u!1 &2482893864687272415
 GameObject:
   m_ObjectHideFlags: 0

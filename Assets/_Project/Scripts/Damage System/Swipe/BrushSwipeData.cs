@@ -5,6 +5,7 @@ public class BrushSwipeData
 {
     [Header("Path Configuration")]
     [Tooltip("Total length of the swipe in world units")]
+    [HideInInspector]
     public float swipeLength = 5f;
 
     [Tooltip("How much the path curves (0 = straight, 1 = very curved)")]
@@ -21,6 +22,7 @@ public class BrushSwipeData
 
     [Header("Damage")]
     [Tooltip("Width of the damage area along the swipe")]
+    [HideInInspector]
     public float damageWidth = 1f;
 
     [Tooltip("How often to check for damage along the path (in seconds)")]
@@ -31,6 +33,7 @@ public class BrushSwipeData
     public float visualWidth = 0.5f;
 
     [Tooltip("Color of the brush stroke")]
+    [HideInInspector]
     public Color brushColor = Color.white;
 
     [Tooltip("Number of segments to use when drawing the curve")]

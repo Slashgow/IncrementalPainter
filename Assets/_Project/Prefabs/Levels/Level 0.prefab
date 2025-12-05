@@ -493,7 +493,7 @@ MonoBehaviour:
   readAtStart: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 7729110937390697375}
-  cooldown: -3826.2917
+  cooldown: -3842.2866
   maskMesh: {fileID: 0}
   maskSubmesh: 0
   maskTexture: {fileID: 0}
@@ -742,6 +742,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8933231709956628056}
   - component: {fileID: 1411807109367371168}
+  - component: {fileID: 1120519318142985437}
+  - component: {fileID: 4028855872597269062}
   m_Layer: 0
   m_Name: Level 0
   m_TagString: Untagged
@@ -782,3 +784,48 @@ MonoBehaviour:
   frameRenderer: {fileID: 578334937340142797}
   drawingRenderer: {fileID: 533299881063692111}
   colorChangeCounter: {fileID: 5468570172593660373}
+--- !u!114 &1120519318142985437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944416080909895153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d7d3fa802f90f74f92672d8d7edf9d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  changeCounter: {fileID: 5468570172593660373}
+  upgradeColor: {r: 0.09019608, g: 0.30980393, b: 0.5529412, a: 1}
+  upgradeIntensity: 0.6
+  lerpColor: 0
+  startColor: {r: 0, g: 0, b: 0, a: 1}
+  endColor: {r: 0, g: 0, b: 0, a: 1}
+  shouldGoBackToOriginColor: 0
+  lerpIntensity: 1
+  startIntensity: 0.5
+  endIntensity: 0
+  lerpSmoothness: 0
+  startSmoothness: 0
+  endSmoothness: 0.5
+  disableVignetteOnComplete: 0
+--- !u!114 &4028855872597269062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944416080909895153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d73661e782b2c4a8158a6101e72ff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  changeCounter: {fileID: 5468570172593660373}
+  lerpSaturation: 1
+  minSaturation: -100
+  maxSaturation: 0
+  disableOnComplete: 0

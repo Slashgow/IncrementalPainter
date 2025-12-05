@@ -94,21 +94,23 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         {
             case SkillState.Locked:
                 if (backgroundImage) 
-                    backgroundImage.color = treeManager.LockedColor;
+                    backgroundImage.sprite = treeManager.SkillTreeVisualData.BackgroundSpriteLocked;
+                    backgroundImage.color = treeManager.SkillTreeVisualData.LockedColor;
                 if (button) 
                     button.interactable = false;
                 break;
 
             case SkillState.Available:
                 if (backgroundImage) 
-                    backgroundImage.color = treeManager.AvailableColor;
+                    backgroundImage.color = treeManager.SkillTreeVisualData.AvailableColor;
                 if (button) 
                     button.interactable = true;
                 break;
 
             case SkillState.Unlocked:
-                if (backgroundImage) 
-                    backgroundImage.color = treeManager.UnlockedColor;
+                if (backgroundImage)
+                    backgroundImage.sprite = treeManager.SkillTreeVisualData.BackgroundSpriteUnlocked;
+                backgroundImage.color = treeManager.SkillTreeVisualData.UnlockedColor;
                 if (button) 
                     button.interactable = false;
                 break;
@@ -136,7 +138,8 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         {
             if (line != null)
             {
-                Color lineColor = currentState == SkillState.Unlocked ? treeManager.UnlockedColorDarker : treeManager.LockedColorDarker;
+                Color lineColor = currentState == SkillState.Unlocked ? treeManager.SkillTreeVisualData.UnlockedColorDarker : 
+                    treeManager.SkillTreeVisualData.LockedColorDarker;
                 line.startColor = lineColor;
                 line.endColor = lineColor;
             }

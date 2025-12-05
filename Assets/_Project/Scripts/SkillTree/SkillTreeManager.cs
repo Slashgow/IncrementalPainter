@@ -11,10 +11,11 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
     [SerializeField] private PaintStateManager paintStateManager;
     [SerializeField] private AutoClicker autoClicker;
     [SerializeField] private PaintSpawner paintSpawner;
-    [SerializeField] private DeathPainter deathPainter;
+    [SerializeField] private Painter deathPainter;
     [SerializeField] private BombDamageor bombDamageor;
     [SerializeField] private BombStunner bombStunner;
     [SerializeField] private BrushSwipeDamageor brushSwipeDamageor;
+    [SerializeField] private CurrencyManager currencyManager;
 
     [Header("Skill Nodes")]
     public List<SkillNode> allSkillNodes;
@@ -28,21 +29,8 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
     [SerializeField] private Vector2 detailOffset = new Vector2(0f, -10f);
     public Vector2 DetailOffset => detailOffset;
 
-    [Header("Visual")]
-    [SerializeField] private Color lockedColor = Color.gray;
-    [SerializeField] private Color lockedColorDarker = Color.gray;
-    public Color LockedColor => lockedColor;
-    public Color LockedColorDarker => lockedColorDarker;
-
-    [SerializeField] private Color unlockedColor = Color.green;
-    [SerializeField] private Color unlockedColorDarker = Color.green;
-    public Color UnlockedColor => unlockedColor;
-    public Color UnlockedColorDarker => unlockedColorDarker;
-
-    [SerializeField] private Color availableColor = Color.yellow;
-    [SerializeField] private Color availableColorDarker = Color.yellow;
-    public Color AvailableColor => availableColor;
-    public Color AvailableColorDarker => availableColorDarker;
+    [SerializeField] private SkillTreeVisualData skillTreeVisualData;
+    public SkillTreeVisualData SkillTreeVisualData => skillTreeVisualData;
 
     private Dictionary<string, ISkillLevelData> leveledSkills = new();
 
@@ -81,6 +69,9 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[paintSpawner.ChanceOfSpawningBombPaintPerLevel.SkillID] = paintSpawner.ChanceOfSpawningBombPaintPerLevel;
         leveledSkills[paintSpawner.ChanceOfSpawningFreezePaintPerLevel.SkillID] = paintSpawner.ChanceOfSpawningFreezePaintPerLevel;
         leveledSkills[paintSpawner.ChanceOfSpawningBrushSwipePaintPerLevel.SkillID] = paintSpawner.ChanceOfSpawningBrushSwipePaintPerLevel;
+        leveledSkills[paintSpawner.SpawnTimeIntervalPerLevel.SkillID] = paintSpawner.SpawnTimeIntervalPerLevel;
+        leveledSkills[paintSpawner.MaxSpawnCountPerLevel.SkillID] = paintSpawner.MaxSpawnCountPerLevel;
+        leveledSkills[paintSpawner.InitialCountPerLevel.SkillID] = paintSpawner.InitialCountPerLevel;
         leveledSkills[deathPainter.SplatterScalePerLevel.SkillID] = deathPainter.SplatterScalePerLevel;
         leveledSkills[bombDamageor.DamageSkillDataPerLevel.SkillID] = bombDamageor.DamageSkillDataPerLevel;
         leveledSkills[bombDamageor.CriticalDamageMultiplierSkillDataPerLevel.SkillID] = bombDamageor.CriticalDamageMultiplierSkillDataPerLevel;
@@ -93,6 +84,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[brushSwipeDamageor.CriticalHitLuckSkillDataPerLevel.SkillID] = brushSwipeDamageor.CriticalHitLuckSkillDataPerLevel;
         leveledSkills[brushSwipeDamageor.DamageWidthPerLevel.SkillID] = brushSwipeDamageor.DamageWidthPerLevel;
         leveledSkills[brushSwipeDamageor.SwipeLengthPerLevel.SkillID] = brushSwipeDamageor.SwipeLengthPerLevel;
+        leveledSkills[currencyManager.CurrencyMultiplierPerLevel.SkillID] = currencyManager.CurrencyMultiplierPerLevel;
     
         autoClickerDamageor.DamageSkillDataPerLevel.Initialize();
         autoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
@@ -106,6 +98,9 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         paintSpawner.ChanceOfSpawningBombPaintPerLevel.Initialize();
         paintSpawner.ChanceOfSpawningFreezePaintPerLevel.Initialize();
         paintSpawner.ChanceOfSpawningBrushSwipePaintPerLevel.Initialize();
+        paintSpawner.SpawnTimeIntervalPerLevel.Initialize();
+        paintSpawner.MaxSpawnCountPerLevel.Initialize();
+        paintSpawner.InitialCountPerLevel.Initialize();
         deathPainter.SplatterScalePerLevel.Initialize();
         bombDamageor.DamageSkillDataPerLevel.Initialize();
         bombDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
@@ -118,6 +113,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         brushSwipeDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
         brushSwipeDamageor.DamageWidthPerLevel.Initialize();
         brushSwipeDamageor.SwipeLengthPerLevel.Initialize();
+        currencyManager.CurrencyMultiplierPerLevel.Initialize();
     }
 
     void Start()

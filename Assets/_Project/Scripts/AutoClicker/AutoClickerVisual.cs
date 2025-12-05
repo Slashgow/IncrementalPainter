@@ -48,5 +48,9 @@ public class AutoClickerVisual : MonoBehaviour
             .SetUpdate(autoClicker.UseRealTime)
             .SetRecyclable(true);
     }
-    private void MatchAutoClickerRadius() => this.transform.localScale = Vector3.one * (damageor.DamageRadius) / baseRadiusSpriteCircle;
+    private void MatchAutoClickerRadius()
+    {
+        scaleTween?.Kill();
+        this.transform.localScale = Vector3.one * (damageor.DamageRadius) / baseRadiusSpriteCircle;
+    }
 }
