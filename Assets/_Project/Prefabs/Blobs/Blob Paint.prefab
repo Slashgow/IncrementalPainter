@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4737093201181522113}
   - component: {fileID: 4948805918078150863}
   - component: {fileID: 9026611392134758459}
+  - component: {fileID: 8852713612483524975}
   m_Layer: 0
   m_Name: Blob Paint
   m_TagString: Untagged
@@ -323,6 +324,52 @@ MonoBehaviour:
   showLogs: 1
   prefix: Blob
   prefixColor: {r: 0, g: 1, b: 0.96936965, a: 1}
+--- !u!114 &8852713612483524975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798080866972570822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b6339a7becee774b857ec16acadaf39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnetResistance: 0
+  canBeMagneted: 1
+  smoothMovement: 1
+  smoothSpeed: 10
+  OnMagnetEnteredUnityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5813030077171290011}
+        m_TargetAssemblyTypeName: RandomMovement, Assembly-CSharp
+        m_MethodName: StopMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnMagnetExitedUnityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5813030077171290011}
+        m_TargetAssemblyTypeName: RandomMovement, Assembly-CSharp
+        m_MethodName: StartMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3073227398867624966
 GameObject:
   m_ObjectHideFlags: 0

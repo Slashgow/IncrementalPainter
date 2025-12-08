@@ -16,6 +16,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
     [SerializeField] private BombStunner bombStunner;
     [SerializeField] private BrushSwipeDamageor brushSwipeDamageor;
     [SerializeField] private CurrencyManager currencyManager;
+    [SerializeField] private MagneterManager magneterManager;
 
     [Header("Skill Nodes")]
     public List<SkillNode> allSkillNodes;
@@ -85,6 +86,10 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[brushSwipeDamageor.DamageWidthPerLevel.SkillID] = brushSwipeDamageor.DamageWidthPerLevel;
         leveledSkills[brushSwipeDamageor.SwipeLengthPerLevel.SkillID] = brushSwipeDamageor.SwipeLengthPerLevel;
         leveledSkills[currencyManager.CurrencyMultiplierPerLevel.SkillID] = currencyManager.CurrencyMultiplierPerLevel;
+        leveledSkills[magneterManager.AttractionForcePerLevel.SkillID] = magneterManager.AttractionForcePerLevel;
+        leveledSkills[magneterManager.AttractionRadiusPerLevel.SkillID] = magneterManager.AttractionRadiusPerLevel;
+        leveledSkills[magneterManager.OrbitRadiusPerLevel.SkillID] = magneterManager.OrbitRadiusPerLevel;
+        leveledSkills[magneterManager.OrbitSpeedPerLevel.SkillID] = magneterManager.OrbitSpeedPerLevel;
     
         autoClickerDamageor.DamageSkillDataPerLevel.Initialize();
         autoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
@@ -114,6 +119,10 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         brushSwipeDamageor.DamageWidthPerLevel.Initialize();
         brushSwipeDamageor.SwipeLengthPerLevel.Initialize();
         currencyManager.CurrencyMultiplierPerLevel.Initialize();
+        magneterManager.AttractionForcePerLevel.Initialize();
+        magneterManager.AttractionRadiusPerLevel.Initialize();
+        magneterManager.OrbitSpeedPerLevel.Initialize();
+        magneterManager.OrbitRadiusPerLevel.Initialize();
     }
 
     void Start()

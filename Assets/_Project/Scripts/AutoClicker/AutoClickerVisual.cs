@@ -17,6 +17,7 @@ public class AutoClickerVisual : MonoBehaviour
     private void Awake()
     {
         baseRadiusSpriteCircle = circleVisualCollider.bounds.size.x * 0.5f;
+        circleVisualCollider.enabled = false;
 
         MatchAutoClickerRadius();
         autoClicker.OnClick += HandleClick;

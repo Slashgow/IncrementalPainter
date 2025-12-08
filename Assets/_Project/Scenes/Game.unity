@@ -484,6 +484,7 @@ GameObject:
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
   - component: {fileID: 519420035}
+  - component: {fileID: 519420036}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -672,6 +673,22 @@ MonoBehaviour:
   _limitMagnitude: 0
   _positionalMagnitudeLimit: 10
   _rotationalMagnitudeLimit: 3
+--- !u!114 &519420036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 64
+  m_MaxRayIntersections: 0
 --- !u!1 &528465060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1029,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &632468014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 632468016}
+  - component: {fileID: 632468015}
+  m_Layer: 0
+  m_Name: Magneter Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &632468015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632468014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca006c6114fc7134d9ded3fb9551e3c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attractionForcePerLevel:
+    skillData: {fileID: 11400000, guid: d8e30239cc0eca84bbe5d5d72a49a4a3, type: 2}
+  attractionRadiusPerLevel:
+    skillData: {fileID: 11400000, guid: f5b11ca1ea1aa4c4eb437d9f35693d2d, type: 2}
+  orbitRadiusPerLevel:
+    skillData: {fileID: 11400000, guid: 722cc1aa9330aab4bb8bd3ff375baaf4, type: 2}
+  orbitSpeedPerLevel:
+    skillData: {fileID: 11400000, guid: d9e0c723305bc494b8e904dc1719abbf, type: 2}
+  magneterPrefab: {fileID: 2443222575868159765, guid: f898623c2f6d4c6429a88c26941173a1, type: 3}
+  magneterCountPerLevel:
+    skillData: {fileID: 11400000, guid: 17183909470d2de4982603f33b8d6929, type: 2}
+  magneterParent: {fileID: 632468016}
+--- !u!4 &632468016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632468014}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &698057020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,6 +1407,10 @@ PrefabInstance:
       propertyPath: currencyManager
       value: 
       objectReference: {fileID: 7312152692750170003}
+    - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
+      propertyPath: magneterManager
+      value: 
+      objectReference: {fileID: 632468015}
     - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
       propertyPath: paintStateManager
       value: 
@@ -4216,6 +4293,7 @@ SceneRoots:
   - {fileID: 9021783346933190648}
   - {fileID: 7312152692750170002}
   - {fileID: 3549089720627338139}
+  - {fileID: 632468016}
   - {fileID: 435185974}
   - {fileID: 825538550}
   - {fileID: 278320981}
