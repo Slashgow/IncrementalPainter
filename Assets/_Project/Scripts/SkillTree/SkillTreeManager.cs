@@ -17,6 +17,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
     [SerializeField] private BrushSwipeDamageor brushSwipeDamageor;
     [SerializeField] private CurrencyManager currencyManager;
     [SerializeField] private MagneterManager magneterManager;
+    [SerializeField] private Splitter splitter;
 
     [Header("Skill Nodes")]
     public List<SkillNode> allSkillNodes;
@@ -70,6 +71,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[paintSpawner.ChanceOfSpawningBombPaintPerLevel.SkillID] = paintSpawner.ChanceOfSpawningBombPaintPerLevel;
         leveledSkills[paintSpawner.ChanceOfSpawningFreezePaintPerLevel.SkillID] = paintSpawner.ChanceOfSpawningFreezePaintPerLevel;
         leveledSkills[paintSpawner.ChanceOfSpawningBrushSwipePaintPerLevel.SkillID] = paintSpawner.ChanceOfSpawningBrushSwipePaintPerLevel;
+        leveledSkills[paintSpawner.ChanceOfSpawningSplitPerLevel.SkillID] = paintSpawner.ChanceOfSpawningSplitPerLevel;
         leveledSkills[paintSpawner.SpawnTimeIntervalPerLevel.SkillID] = paintSpawner.SpawnTimeIntervalPerLevel;
         leveledSkills[paintSpawner.MaxSpawnCountPerLevel.SkillID] = paintSpawner.MaxSpawnCountPerLevel;
         leveledSkills[paintSpawner.InitialCountPerLevel.SkillID] = paintSpawner.InitialCountPerLevel;
@@ -90,6 +92,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[magneterManager.AttractionRadiusPerLevel.SkillID] = magneterManager.AttractionRadiusPerLevel;
         leveledSkills[magneterManager.OrbitRadiusPerLevel.SkillID] = magneterManager.OrbitRadiusPerLevel;
         leveledSkills[magneterManager.OrbitSpeedPerLevel.SkillID] = magneterManager.OrbitSpeedPerLevel;
+        leveledSkills[splitter.SplitCountPerLevel.SkillID] = splitter.SplitCountPerLevel;
     
         autoClickerDamageor.DamageSkillDataPerLevel.Initialize();
         autoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
@@ -103,6 +106,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         paintSpawner.ChanceOfSpawningBombPaintPerLevel.Initialize();
         paintSpawner.ChanceOfSpawningFreezePaintPerLevel.Initialize();
         paintSpawner.ChanceOfSpawningBrushSwipePaintPerLevel.Initialize();
+        paintSpawner.ChanceOfSpawningSplitPerLevel.Initialize();
         paintSpawner.SpawnTimeIntervalPerLevel.Initialize();
         paintSpawner.MaxSpawnCountPerLevel.Initialize();
         paintSpawner.InitialCountPerLevel.Initialize();
@@ -123,6 +127,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         magneterManager.AttractionRadiusPerLevel.Initialize();
         magneterManager.OrbitSpeedPerLevel.Initialize();
         magneterManager.OrbitRadiusPerLevel.Initialize();
+        splitter.SplitCountPerLevel.Initialize();
     }
 
     void Start()

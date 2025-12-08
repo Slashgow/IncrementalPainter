@@ -1,4 +1,5 @@
 using System;
+using inkolorgames;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,7 +11,9 @@ public class SimpleDamageable : MonoBehaviour, IDamageable
     [Header("Health")]
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private bool destroyOnDeath = false;
+    [SerializeField] private bool returnToPoolOnDeath = true;
 
+    private PoolingSystem pool;
     private float currentHealth;
     private bool isDead;
     public float CurrentHealth => Mathf.Clamp(currentHealth, 0f, maxHealth);
@@ -27,6 +30,8 @@ public class SimpleDamageable : MonoBehaviour, IDamageable
         isDead = false;
     }
 
+    public void InitializePool(PoolingSystem pool) => this.pool = pool;
+
     public void TakeDamage(float amount)
     {
         if (amount <= 0f || isDead || currentHealth <= 0f)
@@ -39,11 +44,11 @@ public class SimpleDamageable : MonoBehaviour, IDamageable
 
         if (currentHealth <= 0f && !isDead)
         {
-            OnKilled();
+            Die();
         }
     }
 
-    private void OnKilled()
+    public void Die()
     {
         if (isDead) 
             return;
@@ -55,5 +60,7 @@ public class SimpleDamageable : MonoBehaviour, IDamageable
 
         if (destroyOnDeath)
             Destroy(gameObject);
+        else if(returnToPoolOnDeath)
+            pool.AddToPool(gameObject);
     }
 }

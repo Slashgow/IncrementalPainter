@@ -4,14 +4,17 @@ using UnityEngine;
 public class PaintBlob : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer blobSpecificitySpriteRenderer;
-    [SerializeField] private Sprite bombSprite, freezerSprite, brushSwipeSprite;
+    [SerializeField] private Sprite bombSprite, freezerSprite, brushSwipeSprite, splitSprite;
 
     private IDamageable damageable;
+    private ISplittable splittable;
+
     private PaintType paintType;
 
     public static event Action<Vector3> OnAnyPaintBombDie;
     public static event Action<Vector3> OnAnyPaintFreezerDie;
     public static event Action<Vector3, Color> OnAnyPaintBrushSwipeDie;
+    public static event Action<Vector3, ISplittable> OnAnyPaintBlobSplitDie;
 
     public void Initialize(PaintType paintType)
     {
@@ -22,6 +25,7 @@ public class PaintBlob : MonoBehaviour
 
     private void OnEnable()
     {
+        splittable = GetComponent<ISplittable>();
         damageable = GetComponent<IDamageable>();
         damageable.OnDie += Damageable_OnDie;
     }
@@ -42,6 +46,9 @@ public class PaintBlob : MonoBehaviour
                 break;
             case PaintType.BrushSwipe:
                 OnAnyPaintBrushSwipeDie?.Invoke(deathWorldPosition, color);
+                break;
+            case PaintType.Split:
+                OnAnyPaintBlobSplitDie?.Invoke(deathWorldPosition, splittable);
                 break;
         }
     }
@@ -64,6 +71,10 @@ public class PaintBlob : MonoBehaviour
             case PaintType.BrushSwipe:
                 blobSpecificitySpriteRenderer.gameObject.SetActive(true);
                 blobSpecificitySpriteRenderer.sprite = brushSwipeSprite;
+                break;
+            case PaintType.Split:
+                blobSpecificitySpriteRenderer.gameObject.SetActive(true);
+                blobSpecificitySpriteRenderer.sprite = splitSprite;
                 break;
         }
     }

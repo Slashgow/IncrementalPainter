@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 4948805918078150863}
   - component: {fileID: 9026611392134758459}
   - component: {fileID: 8852713612483524975}
+  - component: {fileID: 3603678385722602507}
   m_Layer: 0
   m_Name: Blob Paint
   m_TagString: Untagged
@@ -188,7 +189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorable: {fileID: 5512736815637105741}
   maxHealth: 3
-  destroyOnDeath: 1
+  destroyOnDeath: 0
+  returnToPoolOnDeath: 1
   OnTakeDamageUnityEvent:
     m_PersistentCalls:
       m_Calls:
@@ -289,6 +291,7 @@ MonoBehaviour:
   bombSprite: {fileID: 588512332, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
   freezerSprite: {fileID: 499790950, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
   brushSwipeSprite: {fileID: 875915727, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
+  splitSprite: {fileID: 21300000, guid: 84d3bfc13a038914e990f0bbc80dad32, type: 3}
 --- !u!114 &4948805918078150863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,6 +373,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3603678385722602507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798080866972570822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf7fcbdb8d9fda04c9daebf7c7b127fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSplitGenerations: 2
+  minSpawnRadius: 0
+  maxSpawnRadius: 1
+  canSplit: 1
+  scaleMultiplier: 0.7
+  OnSplitUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3073227398867624966
 GameObject:
   m_ObjectHideFlags: 0

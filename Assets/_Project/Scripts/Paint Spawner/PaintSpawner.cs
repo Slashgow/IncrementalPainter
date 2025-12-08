@@ -2,7 +2,7 @@ using inkolorgames;
 using UnityEngine;
 using UnityTimer;
 
-public class PaintSpawner : MonoBehaviour
+public class PaintSpawner : MonoSingleton<PaintSpawner>
 {
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> initialCountPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> spawnTimeIntervalPerLevel;
@@ -11,6 +11,7 @@ public class PaintSpawner : MonoBehaviour
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningBombPaintPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningFreezePaintPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningBrushSwipePaintPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningSplitPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> InitialCountPerLevel => initialCountPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> SpawnTimeIntervalPerLevel => spawnTimeIntervalPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> MaxSpawnCountPerLevel => maxSpawnCountPerLevel;
@@ -18,6 +19,7 @@ public class PaintSpawner : MonoBehaviour
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningBombPaintPerLevel => chanceOfSpawningBombPaintPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningFreezePaintPerLevel => chanceOfSpawningFreezePaintPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningBrushSwipePaintPerLevel => chanceOfSpawningBrushSwipePaintPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningSplitPerLevel => chanceOfSpawningSplitPerLevel;
     public int InitialCount => Mathf.FloorToInt(initialCountPerLevel.GetCurrentLevelData());
     public float SpawnTimeInterval => spawnTimeIntervalPerLevel.GetCurrentLevelData();
     public int MaxSpawnCount => Mathf.FloorToInt(maxSpawnCountPerLevel.GetCurrentLevelData());
@@ -25,6 +27,7 @@ public class PaintSpawner : MonoBehaviour
     public float ChanceOfSpawningBombPaint => chanceOfSpawningBombPaintPerLevel.GetCurrentLevelData();
     public float ChanceOfSpawningFreezePaint => chanceOfSpawningFreezePaintPerLevel.GetCurrentLevelData();
     public float ChanceOfSpawningBrushSwipePaint => chanceOfSpawningBrushSwipePaintPerLevel.GetCurrentLevelData();
+    public float ChanceOfSpawningSplitPaint => chanceOfSpawningSplitPerLevel.GetCurrentLevelData();
 
     [Header("Spawn Settings")]
     [SerializeField] private PoolingSystem pool;
@@ -38,8 +41,9 @@ public class PaintSpawner : MonoBehaviour
     private Timer spawnTimer;
     private int spawnedCount = 0;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         SimpleDamageable.OnAnyDamageableDie += SimpleDamageable_OnAnyDamageableDie;
     }
 
@@ -85,13 +89,34 @@ public class PaintSpawner : MonoBehaviour
         spawnPosition.z += zOffset;
 
         PaintType paintType = GetWeightedPaintType();
-        GameObject spawned = pool.GetPrefabFromPool(spawnPosition, spawnParent, false);
 
-        PaintBlob paintBlob = spawned.GetComponent<PaintBlob>();
-        if (paintBlob != null)
+        SpawnPaintBlob(spawnPosition, paintType);
+    }
+
+    public GameObject SpawnPaintBlob(Vector3 position, PaintType paintType, int splitGeneration = 0, float? customScale = null)
+    {
+        GameObject spawned = pool.GetPrefabFromPool(position, spawnParent, false);
+
+        if (spawned.TryGetComponent<SimpleDamageable>(out var damageable))
+            damageable.InitializePool(pool);
+
+        if (spawned.TryGetComponent<PaintBlob>(out var paintBlob))
             paintBlob.Initialize(paintType);
 
+        if (spawned.TryGetComponent<SimpleSplittable>(out var splittable))
+        {
+            splittable.SetGeneration(splitGeneration);
+            float scale = customScale ?? transform.localScale.x; 
+            if (customScale == null && splitGeneration > 0)
+            {
+                float baseScale = 1f;
+                scale = SplitUtility.CalculateSplitScale(baseScale, splitGeneration, splittable.ScaleMultiplier);
+            }
+            spawned.transform.localScale = Vector3.one * scale;
+        }
+
         spawnedCount++;
+        return spawned;
     }
 
     private void SimpleDamageable_OnAnyDamageableDie(Vector3 arg1, Color arg2)
@@ -108,7 +133,7 @@ public class PaintSpawner : MonoBehaviour
 
     private PaintType GetWeightedPaintType()
     {
-        float totalSpecialWeight = ChanceOfSpawningBombPaint + ChanceOfSpawningFreezePaint + ChanceOfSpawningBrushSwipePaint;
+        float totalSpecialWeight = ChanceOfSpawningBombPaint + ChanceOfSpawningFreezePaint + ChanceOfSpawningBrushSwipePaint + ChanceOfSpawningSplitPaint;
 
         if (totalSpecialWeight <= 0f)
             return PaintType.Normal;
@@ -127,7 +152,11 @@ public class PaintSpawner : MonoBehaviour
         if (roll < cumulativeWeight)
             return PaintType.Freeze;
 
-        return PaintType.BrushSwipe;
+        cumulativeWeight += ChanceOfSpawningBrushSwipePaint;
+        if (roll < cumulativeWeight)
+            return PaintType.BrushSwipe;
+
+        return PaintType.Split;
     }
 
     void OnDrawGizmosSelected()
