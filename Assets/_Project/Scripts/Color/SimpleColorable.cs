@@ -4,11 +4,13 @@ public class SimpleColorable : MonoBehaviour, IColorable
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
 
-    [SerializeField] private Color color;
+    private Color color;
     public Color Color => color;
 
     private void OnEnable()
     {
+        color = PaintColorManager.Instance.GetRandomColor();
+
         spriteRenderer.color = color;
     }
 }
