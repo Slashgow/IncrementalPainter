@@ -5,9 +5,11 @@ public class SimpleCostable : MonoBehaviour, ICostable
 {
     [SerializeField] private SimpleDamageable simpleDamageable;
 
-    [SerializeField, Range(0,100)] private int cost;
+    private int cost;
     public int Cost => cost;
     public static event Action<int> OnAnyCostableAddCurrency;
+
+    public void Initalize(int cost) => this.cost = cost;
 
     private void Awake()
     {

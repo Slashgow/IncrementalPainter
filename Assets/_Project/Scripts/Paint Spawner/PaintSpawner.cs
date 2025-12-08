@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using inkolorgames;
 using UnityEngine;
 using UnityTimer;
@@ -31,6 +33,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
 
     [Header("Spawn Settings")]
     [SerializeField] private PoolingSystem pool;
+    [SerializeField] private EnemyData[] enemyDatas;
     [SerializeField] private bool autoStart = true;
     [SerializeField] private float zOffset = 0f;
     [SerializeField] private Transform spawnParent;
@@ -40,6 +43,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
 
     private Timer spawnTimer;
     private int spawnedCount = 0;
+    private bool isSpawning;
 
     protected override void Awake()
     {
@@ -55,7 +59,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
         }
 
         if (autoStart)
-            StartSpawning();
+            InitializeSpawning();
     }
 
     private void OnDestroy()
@@ -64,18 +68,28 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
         StopSpawning();
     }
 
-    public void StartSpawning()
+    public void InitializeSpawning()
     {
         for (int i = 0; i < InitialCount; i++)
         {
             SpawnObject();
         }
 
-        spawnTimer?.Cancel();
-        spawnTimer = Timer.Register(SpawnTimeInterval, onComplete:SpawnObject, isLooped: true, useRealTime: useRealTime);
+        StartSpawning();
     }
 
-    public void StopSpawning() => spawnTimer?.Cancel();
+    private void StartSpawning()
+    {
+        isSpawning = true;
+        spawnTimer?.Cancel();
+        spawnTimer = Timer.Register(SpawnTimeInterval, onComplete: SpawnObject, isLooped: true, useRealTime: useRealTime);
+    }
+
+    public void StopSpawning()
+    {
+        isSpawning = false;
+        spawnTimer?.Cancel();
+    }
 
     public void SpawnObject()
     {
@@ -89,16 +103,24 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
         spawnPosition.z += zOffset;
 
         PaintType paintType = GetWeightedPaintType();
-
         SpawnPaintBlob(spawnPosition, paintType);
     }
 
+  
+
     public GameObject SpawnPaintBlob(Vector3 position, PaintType paintType, int splitGeneration = 0, float? customScale = null)
     {
+        EnemyData enemyData = ChooseEnemyData(1, 5);
+
         GameObject spawned = pool.GetPrefabFromPool(position, spawnParent, false);
 
+        spawned.transform.localScale = Vector3.one * enemyData.Scale;
+
+        if(spawned.TryGetComponent<SimpleCostable>(out var costable))
+            costable.Initalize(enemyData.Cost);
+
         if (spawned.TryGetComponent<SimpleDamageable>(out var damageable))
-            damageable.InitializePool(pool);
+            damageable.Initialize(pool, enemyData.MaxHealth);
 
         if (spawned.TryGetComponent<PaintBlob>(out var paintBlob))
             paintBlob.Initialize(paintType);
@@ -106,7 +128,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
         if (spawned.TryGetComponent<SimpleSplittable>(out var splittable))
         {
             splittable.SetGeneration(splitGeneration);
-            float scale = customScale ?? transform.localScale.x; 
+            float scale = customScale ?? spawned.transform.localScale.x; 
             if (customScale == null && splitGeneration > 0)
             {
                 float baseScale = 1f;
@@ -119,9 +141,13 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
         return spawned;
     }
 
-    private void SimpleDamageable_OnAnyDamageableDie(Vector3 arg1, Color arg2)
+    private void SimpleDamageable_OnAnyDamageableDie(Vector3 arg1, Color arg2, float scale)
     {
         spawnedCount--;
+
+        if (!isSpawning && spawnedCount < MaxSpawnCount)
+            StartSpawning();
+
         TrySpawn();
     }
 
@@ -157,6 +183,30 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
             return PaintType.BrushSwipe;
 
         return PaintType.Split;
+    }
+
+    public EnemyData ChooseEnemyData(int upgrades, int level)
+    {
+        float totalWeight = 0f;
+        float[] weights = new float[enemyDatas.Length];
+
+        for (int i = 0; i < enemyDatas.Length; i++)
+        {
+            weights[i] = enemyDatas[i].BaseWeigth *
+                         Mathf.Pow(upgrades, enemyDatas[i].UpgradeWeightExponent) *
+                         Mathf.Pow(level, enemyDatas[i].LevelWeightExponent);
+            totalWeight += weights[i];
+        }
+
+        float roll = UnityEngine.Random.value * totalWeight;
+        for (int i = 0; i < enemyDatas.Length; i++)
+        {
+            if (roll < weights[i])
+                return enemyDatas[i];
+
+            roll -= weights[i];
+        }
+        return enemyDatas[0];
     }
 
     void OnDrawGizmosSelected()

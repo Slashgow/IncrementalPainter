@@ -14,16 +14,14 @@ public class Painter : MonoSingleton<Painter>
 
     private void OnEnable() => SimpleDamageable.OnAnyDamageableDie += HandleOnDie;
     private void OnDisable() => SimpleDamageable.OnAnyDamageableDie -= HandleOnDie;
-    private void OnDestroy() => splatterScalePerLevel.OnLevelUp -= SplatterScalePerLevel_OnLevelUp;
-    private void Start()
+
+    private void UpdateSplatterScale(float enemyScale) => paintDecal.Scale = SplatterScale * enemyScale;
+    private void HandleOnDie(Vector3 worldPos, Color color, float scale)
     {
-        UpdateSplatterScale();
-        splatterScalePerLevel.OnLevelUp += SplatterScalePerLevel_OnLevelUp;
+        UpdateSplatterScale(scale);
+        PaintAt(worldPos, color);
     }
 
-    private void UpdateSplatterScale() => paintDecal.Scale = SplatterScale;
-    private void SplatterScalePerLevel_OnLevelUp() => UpdateSplatterScale();
-    private void HandleOnDie(Vector3 worldPos, Color color) => PaintAt(worldPos, color);
     public void PaintAt(Vector3 worldPos, Color color)
     {
         paintDecal.Color = color;

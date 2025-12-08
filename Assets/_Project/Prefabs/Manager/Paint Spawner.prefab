@@ -63,6 +63,35 @@ MonoBehaviour:
   chanceOfSpawningSplitPerLevel:
     skillData: {fileID: 11400000, guid: c82d4c41928966747a4ca3e6004a2cf5, type: 2}
   pool: {fileID: 7085179760342262382}
+  enemyDatas:
+  - difficulty: 0
+    maxHealth: 3
+    cost: 5
+    scale: 0.5
+    baseWeigth: 20
+    upgradeWeightExponent: 0
+    levelWeightExponent: 0
+  - difficulty: 1
+    maxHealth: 6
+    cost: 10
+    scale: 0.75
+    baseWeigth: 1
+    upgradeWeightExponent: 1
+    levelWeightExponent: 0.5
+  - difficulty: 2
+    maxHealth: 9
+    cost: 15
+    scale: 1
+    baseWeigth: 1
+    upgradeWeightExponent: 2
+    levelWeightExponent: 1
+  - difficulty: 3
+    maxHealth: 12
+    cost: 20
+    scale: 1.5
+    baseWeigth: 1
+    upgradeWeightExponent: 3
+    levelWeightExponent: 2
   autoStart: 1
   zOffset: 0
   spawnParent: {fileID: 1039041530853263093}

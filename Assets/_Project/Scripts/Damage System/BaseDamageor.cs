@@ -40,8 +40,8 @@ public abstract class BaseDamageor : MonoBehaviour, IDamageor
             {
                 anyDamageDealt = true;
                 float damageAmount = CalculateDamage(out bool isCritical);
-                damageable.TakeDamage(Damage);
                 OnAnyDamageorAttack?.Invoke(damageAmount, collider.transform.position, isCritical);
+                damageable.TakeDamage(Damage);
             }
         }
         if (anyDamageDealt)
