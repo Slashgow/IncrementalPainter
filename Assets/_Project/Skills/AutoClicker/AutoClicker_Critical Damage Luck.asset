@@ -26,7 +26,7 @@ MonoBehaviour:
   icon: {fileID: 520524763, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
   costFunction:
     a: 10
-    b: 2
+    b: 4
   startingLevel: 0
   maxLevel: 5
   levelRequirements:

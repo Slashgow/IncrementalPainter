@@ -19,43 +19,147 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 98543464448
-    m_Localized: Time between each click.
+    m_Localized: Time between each click
     m_Metadata:
       m_Items: []
   - m_Id: 193947103232
-    m_Localized: Circle damage.
+    m_Localized: Circle damage
     m_Metadata:
       m_Items: []
   - m_Id: 240373854208
-    m_Localized: Circle critical damage multiplier.
+    m_Localized: Circle critical damage multiplier
     m_Metadata:
       m_Items: []
   - m_Id: 282161704960
-    m_Localized: Chance of dealing a critical hit with the circle.
+    m_Localized: Chance of dealing a critical hit with the circle
     m_Metadata:
       m_Items: []
   - m_Id: 318731841536
-    m_Localized: Circle radius.
+    m_Localized: Circle radius
     m_Metadata:
       m_Items: []
   - m_Id: 348192632832
-    m_Localized: Painting session time.
+    m_Localized: Painting session time
     m_Metadata:
       m_Items: []
   - m_Id: 402454343680
-    m_Localized: Chance of increasing timer when killing a blob of paint.
+    m_Localized: Chance of increasing timer when killing a blob of paint
     m_Metadata:
       m_Items: []
   - m_Id: 521182507008
-    m_Localized: Time added when increasing timer.
+    m_Localized: Time added when increasing timer
     m_Metadata:
       m_Items: []
   - m_Id: 637951930368
-    m_Localized: Chance of spawning a blob of paint when killing one.
+    m_Localized: Chance of spawning a blob of paint when killing one
     m_Metadata:
       m_Items: []
   - m_Id: 717941501952
-    m_Localized: Paint splatter scale.
+    m_Localized: Paint splatter scale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4266451869757440
+    m_Localized: Chance of spawning "Brush Swipe"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4266951881125888
+    m_Localized: Brush Swipe damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4267105271017472
+    m_Localized: Brush Swipe Critical Chance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4267305414815744
+    m_Localized: Brush Swipe Critical Damage Multiplier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4267485631475712
+    m_Localized: Brush Swipe Length
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4267566917087232
+    m_Localized: Brush Swipe Width
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4268236617412608
+    m_Localized: Currency Multiplier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4268426464194560
+    m_Localized: Currency Bonus when completing a level.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4269650047528960
+    m_Localized: Number of Magnet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4269749586751488
+    m_Localized: Magnet Attraction Force
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4269892289556480
+    m_Localized: Magnet Attraction Radius
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4270018353557504
+    m_Localized: Orbital speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4270229067001856
+    m_Localized: Orbital Radius
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4270826814042112
+    m_Localized: Chance of spawning "Paint Bomb"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4271007735345152
+    m_Localized: Paint Bomb Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4271123544272896
+    m_Localized: Paint Bomb Critical Chance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4271266532290560
+    m_Localized: Paint Bomb Critical Damage Multiplier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4271524846891008
+    m_Localized: Paint Bomb Radius
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4271879898918912
+    m_Localized: Chance of spawning "Freezer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4272184363446272
+    m_Localized: Freeze Duration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4272230026833920
+    m_Localized: Freezer Radius
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4272939937951744
+    m_Localized: Number of paint drops at the start of a level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4273120494350336
+    m_Localized: Maximum number of paint drops
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4273151985184768
+    m_Localized: Paint drops spawn rate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4273827070996480
+    m_Localized: Chance of spawning "Splitter"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4273876861579264
+    m_Localized: Split count
     m_Metadata:
       m_Items: []
   references:

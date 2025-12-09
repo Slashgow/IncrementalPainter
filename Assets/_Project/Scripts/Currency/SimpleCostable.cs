@@ -1,15 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-public class SimpleCostable : MonoBehaviour, ICostable
+public class SimpleCostable : BaseCostable
 {
     [SerializeField] private SimpleDamageable simpleDamageable;
 
-    private int cost;
-    public int Cost => cost;
-    public static event Action<int> OnAnyCostableAddCurrency;
-
-    public void Initalize(int cost) => this.cost = cost;
+    public static event Action<Vector3, int> OnSimpleCostableDie;
 
     private void Awake()
     {
@@ -20,5 +16,5 @@ public class SimpleCostable : MonoBehaviour, ICostable
     {
         simpleDamageable.OnDie -= SimpleDamageable_OnDie;
     }
-    private void SimpleDamageable_OnDie(Vector3 worldPosition, Color color) => OnAnyCostableAddCurrency?.Invoke(Cost);
+    private void SimpleDamageable_OnDie(Vector3 worldPosition, Color color) => OnSimpleCostableDie?.Invoke(worldPosition, Cost);
 }

@@ -16,19 +16,19 @@ MonoBehaviour:
   skillName: Time Interval Between Spawn
   description:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:c2cb2738a056b164bb9bace0f5b339ba
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 4273151985184768
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  icon: {fileID: 1929674541, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
+  icon: {fileID: 1511643844, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
   costFunction:
-    a: 0
-    b: 0
+    a: 10
+    b: 4
   startingLevel: 0
-  maxLevel: 10
+  maxLevel: 5
   levelRequirements:
   - level: 1
     requiredSkills:
@@ -49,10 +49,10 @@ MonoBehaviour:
   - level: 5
     requiredSkills:
     - skillData: {fileID: 11400000, guid: af63347a65b1dfc49aa899eda8e0aa6f, type: 2}
-      requiredLevel: 10
+      requiredLevel: 5
   effectValue:
     a: -0.1
-    b: 0.8
+    b: 1
   references:
     version: 2
     RefIds: []

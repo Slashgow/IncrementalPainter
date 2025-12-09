@@ -19,45 +19,149 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 98543464448
-    m_Localized: Temps entre chaque clic.
+    m_Localized: Temps entre chaque clic
     m_Metadata:
       m_Items: []
   - m_Id: 193947103232
-    m_Localized: "D\xE9g\xE2t du cercle."
+    m_Localized: "D\xE9g\xE2t du cercle"
     m_Metadata:
       m_Items: []
   - m_Id: 240373854208
-    m_Localized: "Multiplicateur de d\xE9g\xE2ts critiques du cercle."
+    m_Localized: "Multiplicateur de d\xE9g\xE2ts critiques du cercle"
     m_Metadata:
       m_Items: []
   - m_Id: 282161704960
-    m_Localized: Chance de faire un coup critique avec le cercle.
+    m_Localized: Chance de faire un coup critique avec le cercle
     m_Metadata:
       m_Items: []
   - m_Id: 318731841536
-    m_Localized: Rayon du cercle.
+    m_Localized: Rayon du cercle
     m_Metadata:
       m_Items: []
   - m_Id: 348192632832
-    m_Localized: Temps de session de peinture.
+    m_Localized: Temps de session de peinture
     m_Metadata:
       m_Items: []
   - m_Id: 402454343680
     m_Localized: "Chance d'augmenter le chronom\xE8tre lorsqu'une goutte de peinture
-      est d\xE9truite."
+      est d\xE9truite"
     m_Metadata:
       m_Items: []
   - m_Id: 521182507008
-    m_Localized: "Temps ajout\xE9 lors de l'augmentation du chronom\xE8tre."
+    m_Localized: "Temps ajout\xE9 lors de l'augmentation du chronom\xE8tre"
     m_Metadata:
       m_Items: []
   - m_Id: 637951930368
     m_Localized: "Chance de faire appara\xEEtre une goutte de peinture lorsqu'une
-      autre est d\xE9truite."
+      autre est d\xE9truite"
     m_Metadata:
       m_Items: []
   - m_Id: 717941501952
-    m_Localized: "Taille des \xE9claboussures de peinture."
+    m_Localized: "Taille des \xE9claboussures de peinture"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4266451869757440
+    m_Localized: "Chance de faire appara\xEEtre \"Coup de Pinceau\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4266951881125888
+    m_Localized: "D\xE9g\xE2t du Coup de Pinceau"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4267105271017472
+    m_Localized: Chance de faire un coup critique avec le Coup de Pinceau
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4267305414815744
+    m_Localized: "Multiplicateur de d\xE9g\xE2ts critiques du Coup de Pinceau"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4267485631475712
+    m_Localized: Longueur du Coup de Pinceau
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4267566917087232
+    m_Localized: Largeur du Coup de Pinceau
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4268236617412608
+    m_Localized: "Multiplicateur mon\xE9taire"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4268426464194560
+    m_Localized: Bonus d'argent en fin de niveau
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4269650047528960
+    m_Localized: Nombre d'aimants
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4269749586751488
+    m_Localized: Force d'attraction de l'aimant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4269892289556480
+    m_Localized: Rayon d'attraction de l'aimant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4270018353557504
+    m_Localized: Vitesse orbitale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4270229067001856
+    m_Localized: Rayon orbital
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4270826814042112
+    m_Localized: "Chance de faire appara\xEEtre \"Bombe de peinture\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4271007735345152
+    m_Localized: "D\xE9g\xE2t de la Bombe de Peinture"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4271123544272896
+    m_Localized: Chance de faire un coup critique avec la Bombe de Peinture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4271266532290560
+    m_Localized: "Multiplicateur de d\xE9g\xE2ts critiques de la Bombe de Peinture"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4271524846891008
+    m_Localized: Rayon de la Bombe de Peinture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4271879898918912
+    m_Localized: "Chance de faire appara\xEEtre \"Immobilseur\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4272184363446272
+    m_Localized: "Dur\xE9e de l'immobilisation"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4272230026833920
+    m_Localized: Rayon de l'immobiliseur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4272939937951744
+    m_Localized: "Nombre de goutte de peinture au d\xE9but d'un niveau"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4273120494350336
+    m_Localized: Nombre de goutte de peinture maximum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4273151985184768
+    m_Localized: Taux d'apparition des gouttes de peinture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4273827070996480
+    m_Localized: "Chance de faire appara\xEEtre \"Diviseur\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4273876861579264
+    m_Localized: Nombre de divisions
     m_Metadata:
       m_Items: []
   references:

@@ -26,7 +26,7 @@ MonoBehaviour:
   icon: {fileID: 1700154552, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
   costFunction:
     a: 10
-    b: 2
+    b: 4
   startingLevel: 0
   maxLevel: 5
   levelRequirements:
@@ -51,8 +51,8 @@ MonoBehaviour:
     - skillData: {fileID: 11400000, guid: 3c6ba10d598d3ad4c8c5101338365328, type: 2}
       requiredLevel: 5
   effectValue:
-    a: -0.23
-    b: 1.65
+    a: -0.25
+    b: 1.5
   references:
     version: 2
     RefIds: []

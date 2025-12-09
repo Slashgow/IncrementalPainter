@@ -627,13 +627,13 @@ MonoBehaviour:
   skillTreeCameraTransform: {fileID: 765440603}
   paintStateZoom: 10
   upgradeStateZoom: 20
-  dragMoveSpeed: 5
-  keyMoveSpeed: 5
+  dragMoveSpeed: 7
+  keyMoveSpeed: 100
   zoomSpeed: 2
-  minZoom: 10
-  maxZoom: 30
+  minZoom: 5
+  maxZoom: 50
   smoothTime: 0.1
-  minBounds: {x: -200, y: -25}
+  minBounds: {x: -300, y: -200}
   maxBounds: {x: -100, y: 100}
   recenterDuration: 0.5
   recenterEasing: 4
@@ -1148,7 +1148,7 @@ MonoBehaviour:
     curvatureVariation: 0.2
     duration: 0.3
     damageWidth: 1
-    damageCheckInterval: 0.05
+    damageCheckInterval: 0.02
     visualWidth: 0.5
     brushColor: {r: 0, g: 0, b: 0, a: 1}
     pathResolution: 20
@@ -1214,7 +1214,7 @@ Transform:
   m_GameObject: {fileID: 765440602}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -108.1, y: -0.1, z: -10}
+  m_LocalPosition: {x: -168.09999, y: -0.1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1231,6 +1231,7 @@ GameObject:
   - component: {fileID: 825538550}
   - component: {fileID: 825538549}
   - component: {fileID: 825538548}
+  - component: {fileID: 825538551}
   m_Layer: 0
   m_Name: Damage Text Spawner
   m_TagString: Untagged
@@ -1287,6 +1288,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &825538551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825538547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96dadeb060ada1e49b62a1063d1dc709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolingSystem: {fileID: 825538548}
+  targetCamera: {fileID: 519420031}
+  damageTextParent: {fileID: 528465061}
+  offset: {x: 0, y: 0}
+  useRandomOffset: 1
+  randomOffsetRange: {x: 3, y: 3}
+  normalHitColor: {r: 0.68235296, g: 0.82745105, b: 0.3529412, a: 1}
+  criticalHitColor: {r: 0.29411766, g: 0.5254902, b: 0.27450982, a: 1}
+  criticalMinLimit: 25
 --- !u!1001 &907292362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1379,6 +1401,10 @@ PrefabInstance:
       propertyPath: splitter
       value: 
       objectReference: {fileID: 1563423798}
+    - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
+      propertyPath: vacuumer
+      value: 
+      objectReference: {fileID: 1399858616}
     - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
       propertyPath: mainCamera
       value: 
@@ -2381,7 +2407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9099695879215031324, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -109.65
+      value: -169.65
       objectReference: {fileID: 0}
     - target: {fileID: 9099695879215031324, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2704,6 +2730,17 @@ MonoBehaviour:
         max: {x: 15, y: 15, z: 15}
         blend: 0
         uniform: 0
+--- !u!114 &1399858616 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 591057765626317120, guid: b8a32c7c04eb1f249ac236735eff4ba9, type: 3}
+  m_PrefabInstance: {fileID: 1073158831303744712}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2571dbc546015b044a69db77891ab266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1434425231
 GameObject:
   m_ObjectHideFlags: 0
@@ -4306,14 +4343,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8838977638634027209, guid: 3ed91321e2a4a6a46a84069b243d1101, type: 3}
-      propertyPath: startingCurrency
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8838977638634027209, guid: 3ed91321e2a4a6a46a84069b243d1101, type: 3}
-      propertyPath: currencyMultiplierPerLevel.skillData
-      value: 
-      objectReference: {fileID: 11400000, guid: 664dd0e616d8e3a4195c25e528d1605a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4408,7 +4437,6 @@ SceneRoots:
   - {fileID: 3549089720627338139}
   - {fileID: 952131917}
   - {fileID: 632468016}
-  - {fileID: 1563423799}
   - {fileID: 435185974}
   - {fileID: 825538550}
   - {fileID: 278320981}
@@ -4420,5 +4448,6 @@ SceneRoots:
   - {fileID: 698057022}
   - {fileID: 1562959402}
   - {fileID: 1988011186}
+  - {fileID: 1563423799}
   - {fileID: 595230175}
   - {fileID: 2145213590}

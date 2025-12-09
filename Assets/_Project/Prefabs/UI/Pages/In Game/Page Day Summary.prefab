@@ -230,7 +230,8 @@ MonoBehaviour:
   pitchIncrement: 0.1
   pitchResetDelay: 0.5
   delayBetweenCalls: 0.05
-  audioClip: {fileID: 8300000, guid: 17d9302663ac4a54ea9ad16bc0944a19, type: 3}
+  audioClips:
+  - {fileID: 8300000, guid: 17d9302663ac4a54ea9ad16bc0944a19, type: 3}
 --- !u!1 &982291074313517614
 GameObject:
   m_ObjectHideFlags: 0

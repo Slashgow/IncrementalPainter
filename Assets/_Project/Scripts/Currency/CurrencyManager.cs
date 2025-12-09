@@ -1,10 +1,12 @@
 ﻿using System;
 using inkolorgames;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CurrencyManager : MonoSingleton<CurrencyManager>
 {
     [SerializeField] private inkolorgames.Logger logger;
+    [SerializeField] private PoolingSystem currencyPool;
 
     [Header("Currency Settings")]
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> currencyMultiplierPerLevel;
@@ -18,7 +20,9 @@ public class CurrencyManager : MonoSingleton<CurrencyManager>
 
     public event Action<int> OnCurrencyChanged;
     public event Action<int, int> OnCurrencyGained;
-    public event Action<int, int> OnCurrencySpent; 
+    public event Action<int, int> OnCurrencySpent;
+
+    public UnityEvent OnCurrencyGainedUnity;
 
     protected override void Awake()
     {
@@ -28,13 +32,24 @@ public class CurrencyManager : MonoSingleton<CurrencyManager>
 
     private void OnEnable()
     {
-        SimpleCostable.OnAnyCostableAddCurrency += AddCurrency;
+        CurrencyHolder.OnPickUpCurrency += OnPickUpCurrency;
+        SimpleCostable.OnSimpleCostableDie += SpawnCurrencyHolder;
     }
 
     private void OnDisable()
     {
-        SimpleCostable.OnAnyCostableAddCurrency -= AddCurrency;
+        CurrencyHolder.OnPickUpCurrency -= OnPickUpCurrency;
+        SimpleCostable.OnSimpleCostableDie -= SpawnCurrencyHolder;
     }
+
+    public void SpawnCurrencyHolder(Vector3 deathWorldPosition, int cost)
+    {
+        GameObject currencyGOInstance = currencyPool.GetPrefabFromPool();
+        currencyGOInstance.GetComponent<CurrencyHolder>().Initalize(cost, currencyPool, deathWorldPosition);
+        currencyGOInstance.transform.position = deathWorldPosition;
+    }
+
+    private void OnPickUpCurrency(int amount, Vector3 worldPosition) => AddCurrency(amount);
 
     public void AddCurrency(int amount)
     {
@@ -50,6 +65,7 @@ public class CurrencyManager : MonoSingleton<CurrencyManager>
         {
             logger.Log($"Gained {amount} currency. Total: {currentCurrency}", this);
             OnCurrencyGained?.Invoke(amount, currentCurrency);
+            OnCurrencyGainedUnity?.Invoke();
         }
         else
         {

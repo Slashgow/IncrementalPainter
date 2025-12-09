@@ -44,10 +44,12 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
     private Timer spawnTimer;
     private int spawnedCount = 0;
     private bool isSpawning;
+    private bool isInitialized;
 
     protected override void Awake()
     {
         base.Awake();
+        isInitialized = false;
         SimpleDamageable.OnAnyDamageableDie += SimpleDamageable_OnAnyDamageableDie;
     }
 
@@ -58,18 +60,25 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
             spriteRenderer = LevelManager.Instance.CurrentLevelInstance.FrameRenderer;
         }
 
-        if (autoStart)
+        PaintStateManager.OnStartPaintState += PaintStateManager_OnStartPaintState;
+
+        if (autoStart && !isInitialized)
             InitializeSpawning();
     }
 
     private void OnDestroy()
     {
+        if(PaintStateManager.HasInstance)
+            PaintStateManager.OnStartPaintState -= PaintStateManager_OnStartPaintState;
+
         SimpleDamageable.OnAnyDamageableDie -= SimpleDamageable_OnAnyDamageableDie;
         StopSpawning();
     }
+    private void PaintStateManager_OnStartPaintState() => InitializeSpawning();
 
     public void InitializeSpawning()
     {
+        isInitialized = true;
         for (int i = 0; i < InitialCount; i++)
         {
             SpawnObject();
@@ -110,14 +119,14 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
 
     public GameObject SpawnPaintBlob(Vector3 position, PaintType paintType, int splitGeneration = 0, float? customScale = null)
     {
-        EnemyData enemyData = ChooseEnemyData(1, 5);
+        EnemyData enemyData = ChooseEnemyData(0, 0);
 
         GameObject spawned = pool.GetPrefabFromPool(position, spawnParent, false);
 
         spawned.transform.localScale = Vector3.one * enemyData.Scale;
 
         if(spawned.TryGetComponent<SimpleCostable>(out var costable))
-            costable.Initalize(enemyData.Cost);
+            costable.Initalize(splitGeneration == 0 ? enemyData.Cost : Mathf.FloorToInt(enemyData.Cost * 0.5f / splitGeneration));
 
         if (spawned.TryGetComponent<SimpleDamageable>(out var damageable))
             damageable.Initialize(pool, enemyData.MaxHealth);

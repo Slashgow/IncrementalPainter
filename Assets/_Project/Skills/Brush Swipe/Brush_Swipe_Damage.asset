@@ -18,7 +18,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:c2cb2738a056b164bb9bace0f5b339ba
     m_TableEntryReference:
-      m_KeyId: 193947103232
+      m_KeyId: 4266951881125888
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -26,7 +26,7 @@ MonoBehaviour:
   icon: {fileID: -1589527631, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
   costFunction:
     a: 10
-    b: 2
+    b: 4
   startingLevel: 0
   maxLevel: 5
   levelRequirements:
@@ -52,7 +52,7 @@ MonoBehaviour:
       requiredLevel: 5
   effectValue:
     a: 1
-    b: 1
+    b: 3
   references:
     version: 2
     RefIds: []

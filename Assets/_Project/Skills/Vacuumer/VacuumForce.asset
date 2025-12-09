@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33731296d6af78e4d974e1768760d497, type: 3}
-  m_Name: PaintBomb_Click_Luck To Proc
+  m_Name: VacuumForce
   m_EditorClassIdentifier: 
-  skillID: PaintBomb_Luck_to_Proc
-  skillName: PaintBomb_Luck_to_Proc
+  skillID: Vacuum_Force
+  skillName: Vacuum_Force
   description:
     m_TableReference:
-      m_TableCollectionName: GUID:c2cb2738a056b164bb9bace0f5b339ba
+      m_TableCollectionName: 
     m_TableEntryReference:
-      m_KeyId: 98543464448
+      m_KeyId: 0
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  icon: {fileID: 588512332, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
+  icon: {fileID: 0}
   costFunction:
     a: 10
-    b: 2
+    b: 4
   startingLevel: 0
   maxLevel: 5
   levelRequirements:
@@ -34,9 +34,17 @@ MonoBehaviour:
     requiredSkills:
     - skillData: {fileID: 11400000, guid: 3c6ba10d598d3ad4c8c5101338365328, type: 2}
       requiredLevel: 1
+  - level: 2
+    requiredSkills: []
+  - level: 3
+    requiredSkills: []
+  - level: 4
+    requiredSkills: []
+  - level: 5
+    requiredSkills: []
   effectValue:
-    a: 10
-    b: 50
+    a: 0
+    b: 2
   references:
     version: 2
     RefIds: []

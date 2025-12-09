@@ -65,29 +65,29 @@ MonoBehaviour:
   pool: {fileID: 7085179760342262382}
   enemyDatas:
   - difficulty: 0
-    maxHealth: 3
-    cost: 5
+    maxHealth: 9
+    cost: 10
     scale: 0.5
     baseWeigth: 20
     upgradeWeightExponent: 0
     levelWeightExponent: 0
   - difficulty: 1
-    maxHealth: 6
-    cost: 10
+    maxHealth: 13
+    cost: 20
     scale: 0.75
     baseWeigth: 1
     upgradeWeightExponent: 1
     levelWeightExponent: 0.5
   - difficulty: 2
-    maxHealth: 9
-    cost: 15
+    maxHealth: 17
+    cost: 30
     scale: 1
     baseWeigth: 1
     upgradeWeightExponent: 2
     levelWeightExponent: 1
   - difficulty: 3
-    maxHealth: 12
-    cost: 20
+    maxHealth: 20
+    cost: 40
     scale: 1.5
     baseWeigth: 1
     upgradeWeightExponent: 3

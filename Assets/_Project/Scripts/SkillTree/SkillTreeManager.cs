@@ -18,6 +18,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
     [SerializeField] private CurrencyManager currencyManager;
     [SerializeField] private MagneterManager magneterManager;
     [SerializeField] private Splitter splitter;
+    [SerializeField] private Vacuumer vacuumer;
 
     [Header("Skill Nodes")]
     public List<SkillNode> allSkillNodes;
@@ -92,7 +93,10 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[magneterManager.AttractionRadiusPerLevel.SkillID] = magneterManager.AttractionRadiusPerLevel;
         leveledSkills[magneterManager.OrbitRadiusPerLevel.SkillID] = magneterManager.OrbitRadiusPerLevel;
         leveledSkills[magneterManager.OrbitSpeedPerLevel.SkillID] = magneterManager.OrbitSpeedPerLevel;
+        leveledSkills[magneterManager.MagneterCountPerLevel.SkillID] = magneterManager.MagneterCountPerLevel;
         leveledSkills[splitter.SplitCountPerLevel.SkillID] = splitter.SplitCountPerLevel;
+        leveledSkills[vacuumer.VacuumForcePerLevel.SkillID] = vacuumer.VacuumForcePerLevel;
+        leveledSkills[vacuumer.VacuumRangePerLevel.SkillID] = vacuumer.VacuumRangePerLevel;
     
         autoClickerDamageor.DamageSkillDataPerLevel.Initialize();
         autoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
@@ -127,7 +131,10 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         magneterManager.AttractionRadiusPerLevel.Initialize();
         magneterManager.OrbitSpeedPerLevel.Initialize();
         magneterManager.OrbitRadiusPerLevel.Initialize();
+        magneterManager.MagneterCountPerLevel.Initialize();
         splitter.SplitCountPerLevel.Initialize();
+        vacuumer.VacuumForcePerLevel.Initialize();
+        vacuumer.VacuumRangePerLevel.Initialize();
     }
 
     void Start()

@@ -55,6 +55,110 @@ MonoBehaviour:
     m_Key: UPGRADE_SPLATTER_SCALE
     m_Metadata:
       m_Items: []
+  - m_Id: 4266451869757440
+    m_Key: UPGRADE_BRUSH_SWIPE_CHANCE_SPAWN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4266951881125888
+    m_Key: UPGRADE_BRUSH_SWIPE_DAMAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4267105271017472
+    m_Key: UPGRADE_BRUSH_SWIPE_CRITICAL_LUCK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4267305414815744
+    m_Key: UPGRADE_BRUSH_SWIPE_CRITICAL_MULTIPLIER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4267485631475712
+    m_Key: UPGRADE_BRUSH_SWIPE_LENGTH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4267566917087232
+    m_Key: UPGRADE_BRUSH_SWIPE_WIDTH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4268236617412608
+    m_Key: UPGRADE_CURRENCY_MULTIPLIER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4268426464194560
+    m_Key: UPGRADE_CURRENCY_BONUS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4269650047528960
+    m_Key: UPGRADE_MAGNETER_COUNT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4269749586751488
+    m_Key: UPGRADE_MAGNETER_ATTRACTION_FORCE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4269892289556480
+    m_Key: UPGRADE_MAGNETER_ATTRACTION_RADIUS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4270018353557504
+    m_Key: UPGRADE_MAGNETER_ORBIT_SPEED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4270229067001856
+    m_Key: UPGRADE_MAGNETER_ORBIT_RADIUS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4270826814042112
+    m_Key: UPGRADE_BOMB_CHANCE_SPAWN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4271007735345152
+    m_Key: UPGRADE_BOMB_DAMAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4271123544272896
+    m_Key: UPGRADE_BOMB_CRITICAL_CHANCE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4271266532290560
+    m_Key: UPGRADE_BOMB_CRITICAL_MULTIPLIER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4271524846891008
+    m_Key: UPGRADE_BOMB_RADIUS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4271879898918912
+    m_Key: UPGRADE_FREEZER_CHANCE_SPAWN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4272184363446272
+    m_Key: UPGRADE_FREEZER_DURATION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4272230026833920
+    m_Key: UPGRADE_FREEZER_RADIUS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4272939937951744
+    m_Key: UPGRADE_SPAWNER_INITIAL_COUNT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4273120494350336
+    m_Key: UPGRADE_SPAWNER_MAX_COUNT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4273151985184768
+    m_Key: UPGRADE_SPAWNER_SPAWN_RATE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4273827070996480
+    m_Key: UPGRADE_SPLITTER_CHANCE_SPAWN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4273876861579264
+    m_Key: UPGRADE_SPLITTER_SPLIT_COUNT
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -26,9 +26,9 @@ MonoBehaviour:
   icon: {fileID: 1912104575, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
   costFunction:
     a: 10
-    b: 1.7
+    b: 4
   startingLevel: 0
-  maxLevel: 10
+  maxLevel: 5
   levelRequirements:
   - level: 1
     requiredSkills:
@@ -38,36 +38,20 @@ MonoBehaviour:
     requiredSkills:
     - skillData: {fileID: 11400000, guid: f2b8289bdf97c77489d0681cc7b6d8cb, type: 2}
       requiredLevel: 1
-    - skillData: {fileID: 11400000, guid: af63347a65b1dfc49aa899eda8e0aa6f, type: 2}
-      requiredLevel: 1
-    - skillData: {fileID: 11400000, guid: 5e224ad3a10f96648bde8677b3e0fb75, type: 2}
-      requiredLevel: 1
   - level: 3
     requiredSkills:
     - skillData: {fileID: 11400000, guid: f2b8289bdf97c77489d0681cc7b6d8cb, type: 2}
-      requiredLevel: 2
-    - skillData: {fileID: 11400000, guid: af63347a65b1dfc49aa899eda8e0aa6f, type: 2}
-      requiredLevel: 2
-    - skillData: {fileID: 11400000, guid: 5e224ad3a10f96648bde8677b3e0fb75, type: 2}
       requiredLevel: 2
   - level: 4
     requiredSkills:
     - skillData: {fileID: 11400000, guid: f2b8289bdf97c77489d0681cc7b6d8cb, type: 2}
       requiredLevel: 3
-    - skillData: {fileID: 11400000, guid: af63347a65b1dfc49aa899eda8e0aa6f, type: 2}
-      requiredLevel: 3
-    - skillData: {fileID: 11400000, guid: 5e224ad3a10f96648bde8677b3e0fb75, type: 2}
-      requiredLevel: 3
   - level: 5
     requiredSkills:
     - skillData: {fileID: 11400000, guid: f2b8289bdf97c77489d0681cc7b6d8cb, type: 2}
       requiredLevel: 4
-    - skillData: {fileID: 11400000, guid: af63347a65b1dfc49aa899eda8e0aa6f, type: 2}
-      requiredLevel: 4
-    - skillData: {fileID: 11400000, guid: 5e224ad3a10f96648bde8677b3e0fb75, type: 2}
-      requiredLevel: 4
   effectValue:
-    a: 1
+    a: 5
     b: 15
   references:
     version: 2

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6649829353219504684}
   - component: {fileID: 8838977638634027209}
   - component: {fileID: 4841755690507387189}
+  - component: {fileID: 780075697683014041}
+  - component: {fileID: 6136215535721006617}
   m_Layer: 0
   m_Name: Currency Manager
   m_TagString: Untagged
@@ -46,7 +48,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logger: {fileID: 4841755690507387189}
+  currencyPool: {fileID: 780075697683014041}
+  currencyMultiplierPerLevel:
+    skillData: {fileID: 11400000, guid: 664dd0e616d8e3a4195c25e528d1605a, type: 2}
   startingCurrency: 0
+  OnCurrencyGainedUnity:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6136215535721006617}
+        m_TargetAssemblyTypeName: SFXPitchShiftingEffect, Assembly-CSharp
+        m_MethodName: DoEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4841755690507387189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,3 +82,82 @@ MonoBehaviour:
   showLogs: 1
   prefix: Currency Manager
   prefixColor: {r: 0.78318036, g: 1, b: 0, a: 1}
+--- !u!114 &780075697683014041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472988289842447002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6869d1947bdee49a545215e6121ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 2807968163413007823, guid: 1a9aa786ac474b14bab4c39b19eba03d, type: 3}
+  growPoolSize: 10
+--- !u!114 &6136215535721006617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472988289842447002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5773f6aa65ab1e1418a2bcb21dfa991f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  minPitch: 0.7
+  maxPitch: 1.3
+  pitchIncrement: 0.1
+  pitchResetDelay: 0.3
+  delayBetweenCalls: 0.2
+  audioClips:
+  - {fileID: 8300000, guid: fcd3d2deb607b6c45922473a0f017dc8, type: 3}
+  - {fileID: 8300000, guid: 48324e440db21964580754c6adaf1dd8, type: 3}
+  - {fileID: 8300000, guid: 2c5c168ecfe3d5c4683a89de40e3c2a6, type: 3}
+  - {fileID: 8300000, guid: b214db2c35b1a874eaaf026b53fc673c, type: 3}
+  - {fileID: 8300000, guid: 44bb13a2da0dba347894e60a4ec84590, type: 3}
+  - {fileID: 8300000, guid: cb55e5d2908db0d4ca103e4e10f0eeb4, type: 3}
+  - {fileID: 8300000, guid: 99dc39fb631790344817c06b4493cae6, type: 3}
+  - {fileID: 8300000, guid: 9270406c74a872d4ca4491a7706725f2, type: 3}
+  - {fileID: 8300000, guid: 4792831020ce5e849a6d8b69abcebc3c, type: 3}
+  - {fileID: 8300000, guid: fe631312795b9ac4fa3a5ff72788e5fb, type: 3}
+  - {fileID: 8300000, guid: 22cc24ccd61c7cf4d931a7f5a9703505, type: 3}
+  - {fileID: 8300000, guid: 174058377c0335548b1d527fc4e87d46, type: 3}
+  - {fileID: 8300000, guid: 16c6b2cd2ce1d38468b20d74114eeb6b, type: 3}
+  - {fileID: 8300000, guid: 13a21fd405c4d684ebb8b961eb1179a4, type: 3}
+  - {fileID: 8300000, guid: dfc4721312a2a9140bd61376ecf2c01d, type: 3}
+  - {fileID: 8300000, guid: d4c80a580d33a6a4fa952cd8c194e9ad, type: 3}
+  - {fileID: 8300000, guid: d1dd1d857baaee347bebbddb0d8cc929, type: 3}
+  - {fileID: 8300000, guid: 105ecfd9a8d241345b4e622aba881629, type: 3}
+  - {fileID: 8300000, guid: 651ee82b9f4613746ad0deec7235e54d, type: 3}
+  - {fileID: 8300000, guid: 39c136ebfe41c1e4592e08aa6aeb1d15, type: 3}
+  - {fileID: 8300000, guid: a885498da040af04bbb7dec0cd075142, type: 3}
+  - {fileID: 8300000, guid: 21c55025ea915864f9d6bc43f7529bdd, type: 3}
+  - {fileID: 8300000, guid: 152f780d952d7244c9b1e0989b84e1fe, type: 3}
+  - {fileID: 8300000, guid: b32bba39a3e277943908524950b1bf21, type: 3}
+  - {fileID: 8300000, guid: 97afda79a01dca74f80536e09c02e3f3, type: 3}
+  - {fileID: 8300000, guid: ac9a6ea13dcab644487dfd0988ffbeb3, type: 3}
+  - {fileID: 8300000, guid: dfa781afb2763ff468b4b2c34d6b7a60, type: 3}
+  - {fileID: 8300000, guid: 0ce4c06169dbda24d8b7d61713ebfc1a, type: 3}
+  - {fileID: 8300000, guid: 98555a31a6d8c7546b46c914c2c86105, type: 3}
+  - {fileID: 8300000, guid: 5e8a1fb8509ec16489472e24c5879d52, type: 3}
+  - {fileID: 8300000, guid: b985716727e279642af63a6f6e690553, type: 3}
+  - {fileID: 8300000, guid: a538b3574dc62b34caf77e5be835eeda, type: 3}
+  - {fileID: 8300000, guid: 1d66663482bc52643ac1c50cb1d0df2e, type: 3}
+  - {fileID: 8300000, guid: 36724bc17b2bb9e4191dbcf1c7037522, type: 3}
+  - {fileID: 8300000, guid: 906cc8cd7fefab945ab23d5fa5bc09f4, type: 3}
+  - {fileID: 8300000, guid: 2eece99aca304964e98d3ec95439b0f5, type: 3}
+  - {fileID: 8300000, guid: 36e63c7ef3473454d8ebdfb1b94e9c0f, type: 3}
+  - {fileID: 8300000, guid: cb73374a758b0b246b8f8611b8d48168, type: 3}
+  - {fileID: 8300000, guid: 771e8ea91ecabc64c892b40ebce846bf, type: 3}
+  - {fileID: 8300000, guid: ed7b6dbd3d5937f419aa2f7736ac54ca, type: 3}
+  - {fileID: 8300000, guid: f01fd28f0aa755a47ace99ad80296ed1, type: 3}
+  - {fileID: 8300000, guid: ee8009c4d26e0164cbc366c3aacc233a, type: 3}
+  - {fileID: 8300000, guid: 565e492aeb425c748b2c54e6e70f7233, type: 3}
+  - {fileID: 8300000, guid: 721c66dad2ef9b14c8f06480d3d886fa, type: 3}
+  - {fileID: 8300000, guid: 10c23ab5a03ac2547ae3f138385c9f1b, type: 3}
+  - {fileID: 8300000, guid: 1cad9282233086a4190f6b2e044a4122, type: 3}

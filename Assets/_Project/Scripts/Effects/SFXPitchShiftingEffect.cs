@@ -1,4 +1,5 @@
-﻿using inkolorgames.effects;
+﻿using System.Collections.Generic;
+using inkolorgames.effects;
 using UnityEngine;
 using UnityTimer;
 
@@ -12,7 +13,7 @@ public class SFXPitchShiftingEffect : Effect
     [SerializeField, Range(0f, 0.5f)] private float delayBetweenCalls = 0.2f;
 
     [Header("Audio")]
-    [SerializeField] private AudioClip audioClip;
+    [SerializeField] private List<AudioClip> audioClips;
 
     private float currentPitch = 1f;
     private Timer pitchResetTimer;
@@ -30,7 +31,7 @@ public class SFXPitchShiftingEffect : Effect
         pitchResetTimer?.Cancel();
 
         currentPitch = Mathf.Min(currentPitch + pitchIncrement, maxPitch);
-        SFXManager.Instance.PlayAudioClipWithPitch(audioClip, currentPitch);
+        SFXManager.Instance.PlayAudioClipWithPitch(audioClips[Random.Range(0, audioClips.Count)], currentPitch);
 
         pitchResetTimer = Timer.Register(pitchResetDelay, onComplete: () => currentPitch = minPitch, useRealTime: true);
     }

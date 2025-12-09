@@ -20,22 +20,22 @@ public class DamageText : MonoBehaviour
     private PoolingSystem poolingSystem;
     private Sequence animationSequence;
 
-    public void Initialize(float damageAmount, Color textColor, PoolingSystem pool)
+    public void Initialize(float damageAmount, Color textColor, PoolingSystem pool, string textAfterAmount = "")
     {
         poolingSystem = pool;
 
-        textComponent.text = Mathf.RoundToInt(damageAmount).ToString();
+        textComponent.text = $"{Mathf.RoundToInt(damageAmount)} {textAfterAmount}";
         textComponent.color = textColor;
         transform.localScale = Vector3.one;
 
         PlayAnimation(false);
     }
 
-    public void InitializeCritical(float damageAmount, Color textColor, PoolingSystem pool)
+    public void InitializeCritical(float damageAmount, Color textColor, PoolingSystem pool, string textAfterAmount = "")
     {
         poolingSystem = pool;
 
-        textComponent.text = Mathf.RoundToInt(damageAmount).ToString();
+        textComponent.text = $"{Mathf.RoundToInt(damageAmount)} {textAfterAmount}";
         textComponent.color = textColor;
 
         transform.localScale = Vector3.one * criticalScaleMultiplier;

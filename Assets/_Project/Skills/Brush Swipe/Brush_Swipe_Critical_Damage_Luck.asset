@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33731296d6af78e4d974e1768760d497, type: 3}
   m_Name: Brush_Swipe_Critical_Damage_Luck
   m_EditorClassIdentifier: 
-  skillID: BrushSwipe_Damage
-  skillName: BrushSwipe_Damage
+  skillID: BrushSwipe_Damage_Luck
+  skillName: BrushSwipe_Damage_Luck
   description:
     m_TableReference:
       m_TableCollectionName: GUID:c2cb2738a056b164bb9bace0f5b339ba
     m_TableEntryReference:
-      m_KeyId: 193947103232
+      m_KeyId: 4267105271017472
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -26,33 +26,33 @@ MonoBehaviour:
   icon: {fileID: 1626859147, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
   costFunction:
     a: 10
-    b: 2
+    b: 4
   startingLevel: 0
   maxLevel: 5
   levelRequirements:
   - level: 1
     requiredSkills:
-    - skillData: {fileID: 11400000, guid: c2a105c658090c140acd3aac8ff7e428, type: 2}
+    - skillData: {fileID: 11400000, guid: 550ef977018a25a4eb8d8eee844f2739, type: 2}
       requiredLevel: 1
   - level: 2
     requiredSkills:
-    - skillData: {fileID: 11400000, guid: c2a105c658090c140acd3aac8ff7e428, type: 2}
+    - skillData: {fileID: 11400000, guid: 550ef977018a25a4eb8d8eee844f2739, type: 2}
       requiredLevel: 2
   - level: 3
     requiredSkills:
-    - skillData: {fileID: 11400000, guid: c2a105c658090c140acd3aac8ff7e428, type: 2}
+    - skillData: {fileID: 11400000, guid: 550ef977018a25a4eb8d8eee844f2739, type: 2}
       requiredLevel: 3
   - level: 4
     requiredSkills:
-    - skillData: {fileID: 11400000, guid: c2a105c658090c140acd3aac8ff7e428, type: 2}
+    - skillData: {fileID: 11400000, guid: 550ef977018a25a4eb8d8eee844f2739, type: 2}
       requiredLevel: 4
   - level: 5
     requiredSkills:
-    - skillData: {fileID: 11400000, guid: c2a105c658090c140acd3aac8ff7e428, type: 2}
+    - skillData: {fileID: 11400000, guid: 550ef977018a25a4eb8d8eee844f2739, type: 2}
       requiredLevel: 5
   effectValue:
-    a: 1
-    b: 1
+    a: 10
+    b: 0
   references:
     version: 2
     RefIds: []

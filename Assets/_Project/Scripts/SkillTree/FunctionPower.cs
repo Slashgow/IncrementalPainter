@@ -5,7 +5,7 @@ using UnityEngine;
 public struct FunctionPower : IFunction
 {
     [Tooltip("f(x) = a*(b^x)")]
-    [SerializeField, Range(-10f, 10f)] private float a;
+    [SerializeField, Range(-10f, 100f)] private float a;
     public float A => a;
     [SerializeField, Range(0f, 10f)] private float b;
     public float B => b;
