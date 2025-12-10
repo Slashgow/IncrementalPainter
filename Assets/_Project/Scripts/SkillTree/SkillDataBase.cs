@@ -30,4 +30,5 @@ public abstract class SkillDataBase : ScriptableObject
     public abstract float GetEffectValueAtLevel(int level);
     public SkillLevelRequirement GetRequirementsForLevel(int level) => levelRequirements.Find(req => req.Level == level);
     public int GetCostForLevel(int level) => Mathf.RoundToInt(costFunction.Evaluate(level));
+    public int GetSkillPointCostForLevel(int level) => GetRequirementsForLevel(level).SkillPointCost;
 }

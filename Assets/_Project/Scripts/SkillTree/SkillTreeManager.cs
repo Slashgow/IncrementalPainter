@@ -209,7 +209,11 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         int cost = skillData.GetCostForLevel(targetLevel);
         if (!CurrencyManager.Instance.CanAfford(cost))
             return false;
-        
+
+        int skillPointCost = skillData.GetSkillPointCostForLevel(targetLevel);
+        if (skillPointCost > 0 && !SkillPointManager.Instance.CanAfford(skillPointCost))
+            return false;
+
         return true;
     }
 
@@ -227,12 +231,22 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         int cost = skillData.GetCostForLevel(targetLevel);
         CurrencyManager.Instance.AddCurrency(-cost);
 
+        int skillPointCost = skillData.GetSkillPointCostForLevel(targetLevel);
+        if (skillPointCost > 0)
+            SkillPointManager.Instance.TrySpendSkillPoints(skillPointCost);
+
         skillLevelData.LevelUp();
         totalUpgradesBought++;
 
         RefreshAllNodes();
-        logger.Log($"Leveled up {skillData.SkillName} → Level {skillLevelData.CurrentLevel} (Value: {skillLevelData.GetCurrentLevelData():F2}) [Cost: {cost}] \n" +
-            $"total Upgrades bought : {totalUpgradesBought}", this);
+
+        string costLog = $"[Cost: {cost} currency";
+        if (skillPointCost > 0)
+            costLog += $", {skillPointCost} SP";
+        costLog += "]";
+
+        logger.Log($"Leveled up {skillData.SkillName} → Level {skillLevelData.CurrentLevel} (Value: {skillLevelData.GetCurrentLevelData():F2}) " +
+            $"{costLog}\nTotal Upgrades bought: {totalUpgradesBought}", this);
         Save();
     }
 
@@ -272,6 +286,8 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
     {
         if (saveData == null || saveData.skillLevels == null)
             return;
+
+        totalUpgradesBought = 0;
 
         foreach (var kvp in saveData.skillLevels)
         {

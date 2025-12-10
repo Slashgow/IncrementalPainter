@@ -41,7 +41,7 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
     }
 
     public void SaveLevelData(bool isDone, float completionPercentage, string author, string title, bool isUnlocked = false, 
-        int daysToComplete = 0, LevelRank bestRank = LevelRank.None)
+        int daysToComplete = 0, LevelRank bestRank = LevelRank.None, bool hasClaimedReward = false)
     {
         gameSaveData.levels.TryGetValue(SavePath.GetLevelID(author, title), out LevelSaveData existingEntry);
 
@@ -53,12 +53,13 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
             existingEntry.isUnlocked = isUnlocked;
             existingEntry.daysToComplete = daysToComplete;
             existingEntry.bestRank = bestRank;
+            existingEntry.hasClaimedReward = hasClaimedReward;
         }
         else
         {
             logger.Log($"Saving unexisting {SavePath.GetLevelID(author, title)}", this);
             gameSaveData.levels.Add(SavePath.GetLevelID(author, title), 
-                new LevelSaveData(isDone, completionPercentage, author, title, isUnlocked, daysToComplete, bestRank));
+                new LevelSaveData(isDone, completionPercentage, author, title, isUnlocked, daysToComplete, bestRank, hasClaimedReward));
         }
 
         SaveGameData();
@@ -94,7 +95,14 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
     }
 
     public SkillTreeSaveData LoadSkillTree() => gameSaveData.skillTree ?? new SkillTreeSaveData();
+    public void SaveSkillPoints(int skillPoints)
+    {
+        gameSaveData.skillPoints = skillPoints;
+        SaveGameData();
+        logger.Log($"Saved {skillPoints} skill points", this);
+    }
 
+    public int LoadSkillPoints() => gameSaveData.skillPoints;
     public void ClearAllSaves()
     {
         gameSaveData = new GameSaveData();

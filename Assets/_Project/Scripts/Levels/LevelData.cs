@@ -12,8 +12,11 @@ public class LevelData : ScriptableObject
     [SerializeField] private GameObject levelPrefab;
 
     [Header("Ranking System")]
-    public LevelRankThresholds rankThresholds = new LevelRankThresholds();
+    [SerializeField] private LevelRankThresholds rankThresholds = new LevelRankThresholds();
+    [SerializeField] private RankRewardData rankRewards = new RankRewardData();
     public LevelRank GetRankForDays(int days) => rankThresholds.GetRankForDays(days);
+    public int GetSkillPointReward(LevelRank rank) => rankRewards.GetSkillPointReward(rank);
+    public int GetCurrencyReward(LevelRank rank) => rankRewards.GetCurrencyReward(rank);
 
     public string LevelTitle => levelTitle;
     public string LevelAuthor => levelAuthor;

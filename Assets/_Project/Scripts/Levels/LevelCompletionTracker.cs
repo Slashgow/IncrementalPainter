@@ -65,8 +65,12 @@ public class LevelCompletionTracker : MonoBehaviour
 
         if (shouldUpdateRank)
         {
+            LevelRank previousBestRank = saveData.bestRank;
+
             saveData.daysToComplete = finalDays;
             saveData.bestRank = newRank;
+
+            AwardRankRewardDifference(previousBestRank, newRank);
             logger.Log($"NEW BEST! Level '{currentLevelData.LevelTitle}' completed in {finalDays} days. Rank: {newRank.GetDisplayName()}", this);
         }
         else
@@ -96,6 +100,39 @@ public class LevelCompletionTracker : MonoBehaviour
             return LevelRank.None;
 
         return currentLevelData.GetRankForDays(Mathf.Max(1, daysElapsed));
+    }
+    private void AwardRankRewardDifference(LevelRank previousRank, LevelRank newRank)
+    {
+        if (currentLevelData == null)
+            return;
+
+        int newRankSkillPoints = currentLevelData.GetSkillPointReward(newRank);
+        int previousRankSkillPoints = currentLevelData.GetSkillPointReward(previousRank);
+        int skillPointDifference = newRankSkillPoints - previousRankSkillPoints;
+
+        if (skillPointDifference > 0)
+        {
+            SkillPointManager.Instance.AddSkillPoints(skillPointDifference);
+
+            if (previousRank == LevelRank.None)
+                logger.Log($"Awarded {skillPointDifference} skill points for {newRank.GetDisplayName()} rank!", this);
+            else
+                logger.Log($"Awarded {skillPointDifference} skill points for improving from {previousRank.GetDisplayName()} to {newRank.GetDisplayName()} rank! (Total from this level: {newRankSkillPoints})", this);
+        }
+
+        int newRankCurrency = currentLevelData.GetCurrencyReward(newRank);
+        int previousRankCurrency = currentLevelData.GetCurrencyReward(previousRank);
+        int currencyDifference = newRankCurrency - previousRankCurrency;
+
+        if (currencyDifference > 0)
+        {
+            CurrencyManager.Instance.AddCurrency(currencyDifference);
+
+            if (previousRank == LevelRank.None)
+                logger.Log($"Awarded {currencyDifference} bonus currency for {newRank.GetDisplayName()} rank!", this);
+            else
+                logger.Log($"Awarded {currencyDifference} bonus currency for improving rank! (Total from this level: {newRankCurrency})", this);
+        }
     }
 
 }
