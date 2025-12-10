@@ -40,7 +40,8 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
         File.WriteAllText(fullPath, json);
     }
 
-    public void SaveLevelData(bool isDone, float completionPercentage, string author, string title, bool isUnlocked = false)
+    public void SaveLevelData(bool isDone, float completionPercentage, string author, string title, bool isUnlocked = false, 
+        int daysToComplete = 0, LevelRank bestRank = LevelRank.None)
     {
         gameSaveData.levels.TryGetValue(SavePath.GetLevelID(author, title), out LevelSaveData existingEntry);
 
@@ -50,12 +51,14 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
             existingEntry.isDone = isDone;
             existingEntry.completionRatio = completionPercentage;
             existingEntry.isUnlocked = isUnlocked;
+            existingEntry.daysToComplete = daysToComplete;
+            existingEntry.bestRank = bestRank;
         }
         else
         {
             logger.Log($"Saving unexisting {SavePath.GetLevelID(author, title)}", this);
             gameSaveData.levels.Add(SavePath.GetLevelID(author, title), 
-                new LevelSaveData(isDone, completionPercentage, author, title, isUnlocked));
+                new LevelSaveData(isDone, completionPercentage, author, title, isUnlocked, daysToComplete, bestRank));
         }
 
         SaveGameData();

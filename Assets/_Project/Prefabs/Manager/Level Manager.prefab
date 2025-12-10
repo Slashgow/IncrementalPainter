@@ -55,6 +55,8 @@ GameObject:
   m_Component:
   - component: {fileID: 623909872397918200}
   - component: {fileID: 2869507754375129991}
+  - component: {fileID: 1037331632690210968}
+  - component: {fileID: 4751924089947127750}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -92,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1acdd8e2432e4438ff45e3e4edffeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  completionTracker: {fileID: 1037331632690210968}
   defaultLevel: {fileID: 11400000, guid: 86fce4b65d45868428db4499ba673069, type: 2}
   unlockableSortedLevels:
   - levelData: {fileID: 11400000, guid: 86fce4b65d45868428db4499ba673069, type: 2}
@@ -103,6 +106,34 @@ MonoBehaviour:
   - levelData: {fileID: 11400000, guid: 0414937677068004490a3a0aebe465dd, type: 2}
     unlockConditions:
     - {fileID: 7200141919807011505}
+--- !u!114 &1037331632690210968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6587097264052769181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d8f6c7c7b742ba488728f6dfa289ef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logger: {fileID: 4751924089947127750}
+--- !u!114 &4751924089947127750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6587097264052769181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca978659736ab349b473f6f3aa6bb1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showLogs: 1
+  prefix: Level Manager
+  prefixColor: {r: 1, g: 0.43602625, b: 0, a: 1}
 --- !u!1 &6870794502928728425
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,6 +37,9 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
 
     private Dictionary<string, ISkillLevelData> leveledSkills = new();
 
+    private static int totalUpgradesBought = 0;
+    public static int TotalUpgradesBought => totalUpgradesBought;
+
     private void Awake()
     {
         InitializeSkills();
@@ -225,9 +228,11 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         CurrencyManager.Instance.AddCurrency(-cost);
 
         skillLevelData.LevelUp();
+        totalUpgradesBought++;
 
         RefreshAllNodes();
-        logger.Log($"Leveled up {skillData.SkillName} → Level {skillLevelData.CurrentLevel} (Value: {skillLevelData.GetCurrentLevelData():F2}) [Cost: {cost}]", this);
+        logger.Log($"Leveled up {skillData.SkillName} → Level {skillLevelData.CurrentLevel} (Value: {skillLevelData.GetCurrentLevelData():F2}) [Cost: {cost}] \n" +
+            $"total Upgrades bought : {totalUpgradesBought}", this);
         Save();
     }
 
@@ -248,6 +253,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         {
             skill.Initialize();
         }
+        totalUpgradesBought = 0;
         RefreshAllNodes();
     }
 
@@ -277,6 +283,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
                         skillData.LevelUp();
                 }
             }
+            totalUpgradesBought += kvp.Value;
         }
 
         RefreshAllNodes();

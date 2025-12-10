@@ -57,7 +57,7 @@ public class CurrencyManager : MonoSingleton<CurrencyManager>
             return;
 
         int oldCurrency = currentCurrency;
-        currentCurrency += amount * CurrencyMultiplier;
+        currentCurrency += amount;
 
         OnCurrencyChanged?.Invoke(currentCurrency);
 

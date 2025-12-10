@@ -33,7 +33,7 @@ public class CurrencyHolder : BaseCostable
 
     private void Vacuumable_OnVacuumCollected(IVacuumer obj)
     {
-        OnPickUpCurrency?.Invoke(Cost, this.transform.position);
+        OnPickUpCurrency?.Invoke(Cost * CurrencyManager.Instance.CurrencyMultiplier, this.transform.position);
         pool.AddToPool(this.gameObject);
     }
 }

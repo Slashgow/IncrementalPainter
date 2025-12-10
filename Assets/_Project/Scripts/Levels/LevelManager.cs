@@ -4,6 +4,8 @@ using inkolorgames;
 using UnityEngine;
 public class LevelManager : PersistentMonoSingleton<LevelManager>
 {
+    [SerializeField] private LevelCompletionTracker completionTracker;
+
     [SerializeField] private LevelData defaultLevel;
 
     [SerializeField] private UnlockableLevel[] unlockableSortedLevels;
@@ -12,6 +14,8 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
 
     private Level currentLevelInstance;
     public Level CurrentLevelInstance => currentLevelInstance;
+
+    public static int CurrentLevelIndex { get; private set; } = -1;
 
     private UnlockableLevel currentUnlockableLevel;
     public UnlockableLevel CurrentUnlockableLevel => currentUnlockableLevel;
@@ -35,6 +39,7 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
     public void SetCurrentLevel(LevelData levelData)
     {
         currentUnlockableLevel = unlockableSortedLevels.FirstOrDefault(level => level.LevelData == levelData);
+        CurrentLevelIndex = currentUnlockableLevel != null ? Array.IndexOf(unlockableSortedLevels, currentUnlockableLevel) : -1;
     }
 
     public void LoadCurrentLevel()
@@ -45,6 +50,9 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
         GameObject levelGOInstance = Instantiate(CurrentLevelData.LevelPrefab, Vector3.zero, Quaternion.identity, this.transform);
         currentLevelInstance = levelGOInstance.GetComponent<Level>();
         currentLevelInstance.Initialize(CurrentLevelData);
+
+        completionTracker.StartTracking(CurrentLevelData);
+
         OnStartLevel?.Invoke(currentLevelInstance);
 
         currentLevelInstance.OnEndLevel -= CurrentLevelInstance_OnEndLevel;
@@ -53,6 +61,7 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
 
     private void CurrentLevelInstance_OnEndLevel()
     {
+        completionTracker.StopTrackingAndSaveRank(true);
         OnEndLevel?.Invoke();
         TryUnlockLevels();
     }
@@ -64,4 +73,14 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
             unlockableLevel.CheckUnlockCondition();
         }
     }
+    public LevelRank GetCurrentLevelBestRank()
+    {
+        if (CurrentLevelData == null)
+            return LevelRank.None;
+
+        LevelSaveData saveData = GameSaveManager.Instance.LoadLevelData(CurrentLevelData.LevelAuthor, CurrentLevelData.LevelTitle);
+        return saveData?.bestRank ?? LevelRank.None;
+    }
+    public int GetCurrentLevelDaysElapsed() => completionTracker.GetDaysElapsed();
+    public LevelRank GetCurrentProjectedRank() => completionTracker.GetCurrentProjectedRank();
 }

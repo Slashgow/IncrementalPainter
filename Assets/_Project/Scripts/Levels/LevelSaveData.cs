@@ -11,13 +11,30 @@ public class LevelSaveData
     public string author;
     public string title;
     public bool isUnlocked;
+    public int daysToComplete;
+    public LevelRank bestRank;
 
-    public LevelSaveData(bool isDone, float completionRatio, string author, string title, bool isUnlocked = false)
+    public LevelSaveData(bool isDone, float completionRatio, string author, string title,
+                         bool isUnlocked = false, int daysToComplete = 0, LevelRank bestRank = LevelRank.None)
     {
         this.isDone = isDone;
         this.completionRatio = completionRatio;
         this.author = author;
         this.title = title;
         this.isUnlocked = isUnlocked;
+        this.daysToComplete = daysToComplete;
+        this.bestRank = bestRank;
+    }
+
+    public void UpdateRank(int newDaysToComplete, LevelRankThresholds thresholds)
+    {
+        if (newDaysToComplete <= 0)
+            return;
+
+        daysToComplete = newDaysToComplete;
+        LevelRank newRank = thresholds.GetRankForDays(newDaysToComplete);
+
+        if (newRank > bestRank)
+            bestRank = newRank;
     }
 }

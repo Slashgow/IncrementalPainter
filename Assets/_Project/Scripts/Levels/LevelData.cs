@@ -11,6 +11,10 @@ public class LevelData : ScriptableObject
     [SerializeField, ShowAssetPreview(128, 128)] private Sprite levelDrawing;
     [SerializeField] private GameObject levelPrefab;
 
+    [Header("Ranking System")]
+    public LevelRankThresholds rankThresholds = new LevelRankThresholds();
+    public LevelRank GetRankForDays(int days) => rankThresholds.GetRankForDays(days);
+
     public string LevelTitle => levelTitle;
     public string LevelAuthor => levelAuthor;
     public string LevelDate => levelDate;

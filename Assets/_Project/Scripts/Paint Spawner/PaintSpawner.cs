@@ -119,7 +119,8 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
 
     public GameObject SpawnPaintBlob(Vector3 position, PaintType paintType, int splitGeneration = 0, float? customScale = null)
     {
-        EnemyData enemyData = ChooseEnemyData(0, 0);
+        EnemyData enemyData = ChooseEnemyData(SkillTreeManager.TotalUpgradesBought, LevelManager.CurrentLevelIndex);
+        //Debug.Log($"Choose Ennemy {enemyData.Difficulty.ToString()}");
 
         GameObject spawned = pool.GetPrefabFromPool(position, spawnParent, false);
 

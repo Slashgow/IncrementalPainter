@@ -24,6 +24,7 @@ public class PaintStateManager : MonoSingleton<PaintStateManager>
         base.Awake();
         GameManager.OnStartGameState += HandleStartGameState;
         SimpleDamageable.OnAnyDamageableDie += SimpleDamageable_OnAnyDamageableDie;
+        LevelManager.OnEndLevel += LevelManager_OnEndLevel;
     }
 
     private void OnDestroy()
@@ -31,6 +32,9 @@ public class PaintStateManager : MonoSingleton<PaintStateManager>
         SimpleDamageable.OnAnyDamageableDie -= SimpleDamageable_OnAnyDamageableDie;
         if (GameManager.HasInstance)
             GameManager.OnStartGameState -= HandleStartGameState;
+
+        if(LevelManager.HasInstance)
+            LevelManager.OnEndLevel -= LevelManager_OnEndLevel;
     }
     private void HandleStartGameState(GameManager.GameState state)
     {
@@ -42,8 +46,14 @@ public class PaintStateManager : MonoSingleton<PaintStateManager>
         OnStartPaintState?.Invoke();
     }
 
+    private void LevelManager_OnEndLevel()
+    {
+        SwitchStateToDaySummary();
+    }
+
     public void SwitchStateToDaySummary()
     {
+        countDownPaintState.Cancel();
         GameManager.Instance.SwitchState(GameManager.GameState.DAY_SUMMARY);
     }
 
