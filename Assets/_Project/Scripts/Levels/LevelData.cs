@@ -15,6 +15,7 @@ public class LevelData : ScriptableObject
     [SerializeField] private LevelRankThresholds rankThresholds = new LevelRankThresholds();
     [SerializeField] private RankRewardData rankRewards = new RankRewardData();
     public LevelRank GetRankForDays(int days) => rankThresholds.GetRankForDays(days);
+    public int GetDaysRequiredForRank(LevelRank rank) => rankThresholds.GetDaysRequiredForRank(rank);
     public int GetSkillPointReward(LevelRank rank) => rankRewards.GetSkillPointReward(rank);
     public int GetCurrencyReward(LevelRank rank) => rankRewards.GetCurrencyReward(rank);
 

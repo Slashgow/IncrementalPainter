@@ -2,7 +2,7 @@ using System;
 using inkolorgames;
 using UnityEngine;
 
-public class SkillPointManager : MonoSingleton<SkillPointManager>
+public class SkillPointManager : MonoSingleton<SkillPointManager>, ISavable, ILoadable<int>
 {
     [SerializeField] private inkolorgames.Logger logger;
 
@@ -16,7 +16,7 @@ public class SkillPointManager : MonoSingleton<SkillPointManager>
     protected override void Awake()
     {
         base.Awake();
-        LoadSkillPoints();
+        currentSkillPoints = Load();
     }
 
     public void AddSkillPoints(int amount)
@@ -33,13 +33,13 @@ public class SkillPointManager : MonoSingleton<SkillPointManager>
         {
             logger.Log($"Gained {amount} skill points. Total: {currentSkillPoints}", this);
             OnSkillPointsGained?.Invoke(amount, currentSkillPoints);
-            SaveSkillPoints();
+            Save();
         }
         else
         {
             logger.Log($"Spent {Mathf.Abs(amount)} skill points. Total: {currentSkillPoints}", this);
             OnSkillPointsSpent?.Invoke(Mathf.Abs(amount), currentSkillPoints);
-            SaveSkillPoints();
+            Save();
         }
     }
 
@@ -63,21 +63,13 @@ public class SkillPointManager : MonoSingleton<SkillPointManager>
 
     public bool CanAfford(int amount) => currentSkillPoints >= amount;
 
-    private void SaveSkillPoints()
-    {
-        GameSaveManager.Instance.SaveSkillPoints(currentSkillPoints);
-    }
-
-    private void LoadSkillPoints()
-    {
-        currentSkillPoints = GameSaveManager.Instance.LoadSkillPoints();
-        logger.Log($"Loaded {currentSkillPoints} skill points", this);
-    }
+    public void Save() => GameSaveManager.Instance.SaveSkillPoints(currentSkillPoints);
+    public int Load() => GameSaveManager.Instance.LoadSkillPoints();
 
     public void ResetSkillPoints()
     {
         currentSkillPoints = 0;
-        SaveSkillPoints();
+        Save();
         OnSkillPointsChanged?.Invoke(currentSkillPoints);
     }
 }

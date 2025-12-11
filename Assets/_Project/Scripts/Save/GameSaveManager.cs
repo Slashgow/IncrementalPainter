@@ -103,6 +103,15 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
     }
 
     public int LoadSkillPoints() => gameSaveData.skillPoints;
+
+    public void SaveCurrency(int currency)
+    {
+        gameSaveData.currency = currency;
+        SaveGameData();
+        logger.Log($"Saved {currency} currency", this);
+    }
+
+    public int LoadCurrency() => gameSaveData.currency;
     public void ClearAllSaves()
     {
         gameSaveData = new GameSaveData();

@@ -67,28 +67,28 @@ MonoBehaviour:
   - difficulty: 0
     maxHealth: 9
     cost: 10
-    scale: 0.5
+    scale: 0.2
     baseWeigth: 20
     upgradeWeightExponent: 0
     levelWeightExponent: 0
   - difficulty: 1
     maxHealth: 13
     cost: 20
-    scale: 0.75
+    scale: 0.4
     baseWeigth: 1
     upgradeWeightExponent: 1
     levelWeightExponent: 0.5
   - difficulty: 2
     maxHealth: 17
     cost: 30
-    scale: 1
+    scale: 0.6
     baseWeigth: 1
     upgradeWeightExponent: 2
     levelWeightExponent: 1
   - difficulty: 3
     maxHealth: 20
     cost: 40
-    scale: 1.5
+    scale: 0.8
     baseWeigth: 1
     upgradeWeightExponent: 3
     levelWeightExponent: 2

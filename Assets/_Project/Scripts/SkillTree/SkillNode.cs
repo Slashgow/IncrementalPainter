@@ -9,10 +9,6 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [SerializeField] private SkillDataBase skillDataBase;
     public SkillDataBase SkillDataBase => skillDataBase;
 
-    [Header("Level Configuration")]
-    [SerializeField, Range(0, 10)] private int targetLevel = 1;
-    public int TargetLevel => targetLevel;
-
     [SerializeField] private Image iconImage;
     [SerializeField] private Image backgroundImage;
     [SerializeField] private Button button;
@@ -79,7 +75,7 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         if (treeManager != null)
         {
-            treeManager.TryLevelUpSkillToLevel(skillDataBase, targetLevel);
+            treeManager.TryLevelUpSkill(skillDataBase);
         }
     }
 
@@ -123,10 +119,10 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         int currentLevel = treeManager.GetSkillLevel(skillDataBase.SkillID);
 
-        if (currentLevel >= targetLevel)
+        if (currentLevel >= skillDataBase.MaxLevel)
             return SkillState.Unlocked;
 
-        if (treeManager.CanLevelUpToLevel(skillDataBase, targetLevel))
+        if (treeManager.CanLevelUpToLevel(skillDataBase, currentLevel + 1))
             return SkillState.Available;
 
         return SkillState.Locked;
@@ -154,8 +150,8 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
         LineRenderer line = lineObj.AddComponent<LineRenderer>();
         line.positionCount = 2;
-        line.startWidth = 3f;
-        line.endWidth = 3f;
+        line.startWidth = 0.2f;
+        line.endWidth = 0.2f;
         line.material = new Material(Shader.Find("Sprites/Default"));
         line.sortingOrder = -1;
 
@@ -179,47 +175,39 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             return;
         }
 
-        //if (targetLevel > skillDataBase.StartingLevel)
-        //{
-        //    SkillNode previousLevelNode = treeManager.FindNodeBySkillDataAndLevel(skillDataBase, targetLevel - 1);
-        //    if (previousLevelNode != null)
-        //    {
-        //        CreateConnectionLine(previousLevelNode);
-        //        Debug.Log($"Connected {skillDataBase.SkillName} Level {targetLevel} to Level {targetLevel - 1}");
-        //    }
-        //    else
-        //    {
-        //        Debug.LogWarning($"Could not find previous level node: {skillDataBase.SkillName} Level {targetLevel - 1}");
-        //    }
-        //}
+        HashSet<SkillDataBase> uniqueRequiredSkills = new HashSet<SkillDataBase>();
 
-        // Connect to required skills for this level
-        var levelReq = skillDataBase?.GetRequirementsForLevel(targetLevel);
-
-        if (levelReq != null && levelReq.RequiredSkills != null && levelReq.RequiredSkills.Count > 0)
+        foreach (var levelReq in skillDataBase.LevelRequirements)
         {
-            foreach (var requiredSkillWithLevel in levelReq.RequiredSkills)
+            if (levelReq != null && levelReq.RequiredSkills != null)
             {
-                if (requiredSkillWithLevel.SkillData != null)
+                foreach (var requiredSkillWithLevel in levelReq.RequiredSkills)
                 {
-                    // Find the node with the specific required level
-                    SkillNode requiredNode = treeManager.FindNodeBySkillDataAndLevel(requiredSkillWithLevel.SkillData, requiredSkillWithLevel.RequiredLevel);
-                    if (requiredNode != null)
+                    if (requiredSkillWithLevel.SkillData != null)
                     {
-                        CreateConnectionLine(requiredNode);
-                        Debug.Log($"Connected {skillDataBase.SkillName} Level {targetLevel} to required skill: {requiredSkillWithLevel.SkillData.SkillName} Level {requiredSkillWithLevel.RequiredLevel}");
-                    }
-                    else
-                    {
-                        Debug.LogWarning($"Could not find node for required skill: {requiredSkillWithLevel.SkillData.SkillName} Level {requiredSkillWithLevel.RequiredLevel}");
+                        uniqueRequiredSkills.Add(requiredSkillWithLevel.SkillData);
                     }
                 }
             }
         }
 
+        foreach (var requiredSkill in uniqueRequiredSkills)
+        {
+            SkillNode requiredNode = treeManager.FindNodeBySkillData(requiredSkill);
+            if (requiredNode != null)
+            {
+                CreateConnectionLine(requiredNode);
+                Debug.Log($"Connected {skillDataBase.SkillName} to required skill: {requiredSkill.SkillName}");
+            }
+            else
+            {
+                Debug.LogWarning($"Could not find node for required skill: {requiredSkill.SkillName}");
+            }
+        }
+
         if (connectionLines.Count == 0)
         {
-            Debug.Log($"{skillDataBase?.SkillName ?? "Skill"} Level {targetLevel} has no connections to create");
+            Debug.Log($"{skillDataBase?.SkillName ?? "Skill"} has no connections to create");
         }
     }
 

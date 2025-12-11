@@ -3,7 +3,7 @@ using inkolorgames;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CurrencyManager : MonoSingleton<CurrencyManager>
+public class CurrencyManager : MonoSingleton<CurrencyManager>, ISavable, ILoadable<int>
 {
     [SerializeField] private inkolorgames.Logger logger;
     [SerializeField] private PoolingSystem currencyPool;
@@ -27,7 +27,7 @@ public class CurrencyManager : MonoSingleton<CurrencyManager>
     protected override void Awake()
     {
         base.Awake();
-        currentCurrency = startingCurrency;
+        currentCurrency = Load();
     }
 
     private void OnEnable()
@@ -66,10 +66,13 @@ public class CurrencyManager : MonoSingleton<CurrencyManager>
             logger.Log($"Gained {amount} currency. Total: {currentCurrency}", this);
             OnCurrencyGained?.Invoke(amount, currentCurrency);
             OnCurrencyGainedUnity?.Invoke();
+            Save();
         }
         else
         {
+            logger.Log($"Spent {Mathf.Abs(amount)} currency. Total: {currentCurrency}", this);
             OnCurrencySpent?.Invoke(Mathf.Abs(amount), currentCurrency);
+            Save();
         }
     }
 
@@ -92,4 +95,22 @@ public class CurrencyManager : MonoSingleton<CurrencyManager>
 
     public bool CanAfford(int amount) => CurrentCurrency >= amount;
 
+    public void Save() => GameSaveManager.Instance.SaveCurrency(currentCurrency);
+
+    public int Load()
+    {
+        int currentCurrency = GameSaveManager.Instance.LoadCurrency();
+
+        if (currentCurrency == 0)
+            currentCurrency = startingCurrency;
+
+        return currentCurrency;
+    }
+
+    public void ResetCurrency()
+    {
+        currentCurrency = startingCurrency;
+        Save();
+        OnCurrencyChanged?.Invoke(currentCurrency);
+    }
 }

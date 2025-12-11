@@ -154,21 +154,19 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         }
         return null;
     }
-    public SkillNode FindNodeBySkillDataAndLevel(SkillDataBase skillData, int level)
-    {
-        foreach (var node in allSkillNodes)
-        {
-            if (node != null && node.SkillDataBase == skillData && node.TargetLevel == level)
-                return node;
-        }
-        return null;
-    }
 
     public int GetSkillLevel(string skillID)
     {
         if (leveledSkills.TryGetValue(skillID, out var skillLevelData))
             return skillLevelData.CurrentLevel;
         return 0;
+    }
+
+    public ISkillLevelData GetSkillLevelData(string skillID)
+    {
+        if (leveledSkills.TryGetValue(skillID, out var skillLevelData))
+            return skillLevelData;
+        return null;
     }
 
     public bool CanLevelUpToLevel(SkillDataBase skillData, int targetLevel)
@@ -190,7 +188,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
 
         var levelRequirement = skillData.GetRequirementsForLevel(targetLevel);
        
-        if (levelRequirement.RequiredSkills != null)
+        if (levelRequirement != null && levelRequirement.RequiredSkills != null)
         {
             foreach (var requiredSkillWithLevel in levelRequirement.RequiredSkills)
             {
@@ -215,6 +213,15 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
             return false;
 
         return true;
+    }
+
+    public void TryLevelUpSkill(SkillDataBase skillData)
+    {
+        if (!leveledSkills.TryGetValue(skillData.SkillID, out var skillLevelData))
+            return;
+
+        int targetLevel = skillLevelData.CurrentLevel + 1;
+        TryLevelUpSkillToLevel(skillData, targetLevel);
     }
 
     public void TryLevelUpSkillToLevel(SkillDataBase skillData, int targetLevel)
@@ -252,7 +259,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
 
     public bool IsSkillUnlocked(string skillID) => leveledSkills[skillID].IsUnlocked;
 
-    void RefreshAllNodes()
+    public void RefreshAllNodes()
     {
         foreach (var node in allSkillNodes)
         {

@@ -7,11 +7,13 @@ public class GameSaveData
     public Dictionary<string, LevelSaveData> levels = new();
     public SkillTreeSaveData skillTree;
     public int skillPoints = 0;
+    public int currency = 0;
 
     public GameSaveData()
     {
         levels = new Dictionary<string, LevelSaveData>();
         skillTree = new SkillTreeSaveData();
         skillPoints = 0;
+        currency = 0;
     }
 }

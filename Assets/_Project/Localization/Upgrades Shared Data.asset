@@ -159,6 +159,14 @@ MonoBehaviour:
     m_Key: UPGRADE_SPLITTER_SPLIT_COUNT
     m_Metadata:
       m_Items: []
+  - m_Id: 4972518605975552
+    m_Key: UPGRADE_VACUUM_RANGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4972731680813056
+    m_Key: UPGRADE_VACUUM_FORCE
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

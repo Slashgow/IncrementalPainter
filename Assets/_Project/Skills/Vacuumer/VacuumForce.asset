@@ -16,14 +16,14 @@ MonoBehaviour:
   skillName: Vacuum_Force
   description:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:c2cb2738a056b164bb9bace0f5b339ba
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 4972731680813056
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  icon: {fileID: 0}
+  icon: {fileID: 1856020655, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
   costFunction:
     a: 10
     b: 4
@@ -31,19 +31,12 @@ MonoBehaviour:
   maxLevel: 5
   levelRequirements:
   - level: 1
+    skillPointCost: 1
     requiredSkills:
-    - skillData: {fileID: 11400000, guid: 3c6ba10d598d3ad4c8c5101338365328, type: 2}
+    - skillData: {fileID: 11400000, guid: 032c26454ddab754685b1a515e113cc4, type: 2}
       requiredLevel: 1
-  - level: 2
-    requiredSkills: []
-  - level: 3
-    requiredSkills: []
-  - level: 4
-    requiredSkills: []
-  - level: 5
-    requiredSkills: []
   effectValue:
-    a: 0
+    a: 0.25
     b: 2
   references:
     version: 2

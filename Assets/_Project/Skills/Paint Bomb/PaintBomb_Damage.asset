@@ -31,25 +31,10 @@ MonoBehaviour:
   maxLevel: 5
   levelRequirements:
   - level: 1
+    skillPointCost: 0
     requiredSkills:
     - skillData: {fileID: 11400000, guid: cfd1ac9012ba4844c8fa8ee6717048a3, type: 2}
       requiredLevel: 1
-  - level: 2
-    requiredSkills:
-    - skillData: {fileID: 11400000, guid: cfd1ac9012ba4844c8fa8ee6717048a3, type: 2}
-      requiredLevel: 2
-  - level: 3
-    requiredSkills:
-    - skillData: {fileID: 11400000, guid: cfd1ac9012ba4844c8fa8ee6717048a3, type: 2}
-      requiredLevel: 3
-  - level: 4
-    requiredSkills:
-    - skillData: {fileID: 11400000, guid: cfd1ac9012ba4844c8fa8ee6717048a3, type: 2}
-      requiredLevel: 4
-  - level: 5
-    requiredSkills:
-    - skillData: {fileID: 11400000, guid: cfd1ac9012ba4844c8fa8ee6717048a3, type: 2}
-      requiredLevel: 5
   effectValue:
     a: 1
     b: 3

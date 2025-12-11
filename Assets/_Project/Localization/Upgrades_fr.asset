@@ -164,6 +164,14 @@ MonoBehaviour:
     m_Localized: Nombre de divisions
     m_Metadata:
       m_Items: []
+  - m_Id: 4972518605975552
+    m_Localized: "Port\xE9e de ramassage"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4972731680813056
+    m_Localized: Force de ramassage
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

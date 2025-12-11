@@ -1,3 +1,5 @@
+using System;
+
 public interface ISkillLevelData
 {
     string SkillID { get; }
@@ -7,4 +9,6 @@ public interface ISkillLevelData
     void Initialize();
     bool CanLevelUp();
     void LevelUp();
+
+    public event Action OnLevelUp;
 }

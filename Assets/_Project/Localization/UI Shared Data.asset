@@ -83,6 +83,18 @@ MonoBehaviour:
     m_Key: AUDIO
     m_Metadata:
       m_Items: []
+  - m_Id: 4702360008257536
+    m_Key: DAY_SUMMARY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4702427385556992
+    m_Key: RANK_REWARD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4725196290650112
+    m_Key: DAY
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -20,6 +20,12 @@ public class SkillTreeVisualData
     public Color AvailableColor => availableColor;
     public Color AvailableColorDarker => availableColorDarker;
 
+    [SerializeField] private Color skillPointColor = Color.white;
+    public Color SkillPointColor => skillPointColor;
+
+    [SerializeField] private Color maxLevelColor = Color.white;
+    public Color MaxLevelColor => maxLevelColor;
+
     [Header("Sprites")]
     [SerializeField] private Sprite backgroundSpriteLocked;
     [SerializeField] private Sprite backgroundSpriteUnlocked;
