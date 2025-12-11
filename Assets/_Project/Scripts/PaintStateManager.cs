@@ -19,6 +19,7 @@ public class PaintStateManager : MonoSingleton<PaintStateManager>
     public Countdown CountdownPaintState => countDownPaintState;
 
     public static event Action OnStartPaintState;
+    public static event Action<float> OnAddedTimeToCountdown;
     protected override void Awake()
     {
         base.Awake();
@@ -66,6 +67,7 @@ public class PaintStateManager : MonoSingleton<PaintStateManager>
         if (LuckUtility.RollLuck(chanceOfIncreasingTimerPerLevel.GetCurrentLevelData()))
         {
             countDownPaintState.AddTime(timeToAddOnIncreasePerLevel.GetCurrentLevelData());
+            OnAddedTimeToCountdown?.Invoke(timeToAddOnIncreasePerLevel.GetCurrentLevelData());
         }
     }
 }

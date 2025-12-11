@@ -41,6 +41,7 @@ public abstract class BaseDamageor : MonoBehaviour, IDamageor
                 anyDamageDealt = true;
                 float damageAmount = CalculateDamage(out bool isCritical);
                 OnAnyDamageorAttack?.Invoke(damageAmount, collider.transform.position, isCritical);
+                NotityDamage(damageAmount);
                 damageable.TakeDamage(Damage);
             }
         }
@@ -52,4 +53,6 @@ public abstract class BaseDamageor : MonoBehaviour, IDamageor
         isCritical = LuckUtility.RollLuck(CriticalHitLuck);
         return isCritical ? Damage * CriticalDamageMultiplier : Damage;
     }
+
+    public abstract void NotityDamage(float damage);
 }

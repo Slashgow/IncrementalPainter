@@ -98,6 +98,30 @@ MonoBehaviour:
     m_Localized: Day
     m_Metadata:
       m_Items: []
+  - m_Id: 4778311857598464
+    m_Localized: Circle Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4778558168100864
+    m_Localized: Bomb Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4778656197373952
+    m_Localized: Brush Swipe damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4778790729674752
+    m_Localized: Time added
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4778876645797888
+    m_Localized: Number of paint blobs destroyed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4779101036867584
+    m_Localized: Additional paint blobs spawned
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

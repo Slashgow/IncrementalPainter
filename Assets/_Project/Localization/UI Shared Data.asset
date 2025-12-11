@@ -95,6 +95,30 @@ MonoBehaviour:
     m_Key: DAY
     m_Metadata:
       m_Items: []
+  - m_Id: 4778311857598464
+    m_Key: AUTOCLICKER_DAMAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4778558168100864
+    m_Key: BOMB_DAMAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4778656197373952
+    m_Key: BRUSH_SWIPE_DAMAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4778790729674752
+    m_Key: TIME_ADDED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4778876645797888
+    m_Key: PAINT_BLOBS_DESTROYED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4779101036867584
+    m_Key: ADDITION_SPAWNED_PAINT_BLOBS
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

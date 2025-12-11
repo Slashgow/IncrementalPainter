@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class BrushSwipeDamageor : BaseDamageor
 {
@@ -16,6 +17,8 @@ public class BrushSwipeDamageor : BaseDamageor
     public float SwipeLength => swipeLengthPerLevel.GetCurrentLevelData();
     public float DamageWidth => damageWidthPerLevel.GetCurrentLevelData();
 
+    public static event Action<float> OnBrushSwipeDamage;
+
     private void OnEnable() => PaintBlob.OnAnyPaintBrushSwipeDie += PaintBlob_OnAnyPaintBrushSwipeDie;
     private void OnDisable() => PaintBlob.OnAnyPaintBrushSwipeDie -= PaintBlob_OnAnyPaintBrushSwipeDie;
     private void PaintBlob_OnAnyPaintBrushSwipeDie(Vector3 deathWorldPosition, Color color) => SpawnBrushSwipe(deathWorldPosition, color);
@@ -28,7 +31,7 @@ public class BrushSwipeDamageor : BaseDamageor
             return;
         }
 
-        Vector3 randomDirection = Random.insideUnitCircle.normalized;
+        Vector3 randomDirection = UnityEngine.Random.insideUnitCircle.normalized;
 
         BrushSwipeData currentSwipeData = new BrushSwipeData
         {
@@ -48,4 +51,6 @@ public class BrushSwipeDamageor : BaseDamageor
 
         OnAttackOnce?.Invoke();
     }
+
+    public override void NotityDamage(float damage) => OnBrushSwipeDamage?.Invoke(damage);
 }

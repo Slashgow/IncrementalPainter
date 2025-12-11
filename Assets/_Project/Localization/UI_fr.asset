@@ -98,6 +98,30 @@ MonoBehaviour:
     m_Localized: Jour
     m_Metadata:
       m_Items: []
+  - m_Id: 4778311857598464
+    m_Localized: "D\xE9g\xE2t du cercle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4778558168100864
+    m_Localized: "d\xE9g\xE2ts des bombes"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4778656197373952
+    m_Localized: "D\xE9g\xE2t du coup de pinceau"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4778790729674752
+    m_Localized: "Temps ajout\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4778876645797888
+    m_Localized: "Nombre de gouttes de peinture d\xE9truite"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4779101036867584
+    m_Localized: "apparation suppl\xE9mentaire de gouttes de peinture"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

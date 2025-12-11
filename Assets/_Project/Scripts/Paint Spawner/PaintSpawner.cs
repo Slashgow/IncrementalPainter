@@ -46,6 +46,8 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
     private bool isSpawning;
     private bool isInitialized;
 
+    public static event Action OnAdditionalSpawn;
+
     protected override void Awake()
     {
         base.Awake();
@@ -163,8 +165,12 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
 
     private void TrySpawn()
     {
-        if(LuckUtility.RollLuck(ChanceOfSpawnOnKill))
+        if (LuckUtility.RollLuck(ChanceOfSpawnOnKill))
+        {
             SpawnObject();
+            OnAdditionalSpawn?.Invoke();
+        }
+           
     }
 
     private PaintType GetWeightedPaintType()

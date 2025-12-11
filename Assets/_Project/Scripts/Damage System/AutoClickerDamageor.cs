@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 public class AutoClickerDamageor : BaseDamageor
 {
     [Header("Références")]
     [SerializeField] private AutoClicker autoClicker;
+
+    public static event Action<float> OnAutoClickerDamage;
 
     private void OnEnable()
     {
@@ -18,4 +21,5 @@ public class AutoClickerDamageor : BaseDamageor
     }
 
     private void HandleClick(Vector3 clickPosition) => TryDamage(clickPosition);
+    public override void NotityDamage(float damage) => OnAutoClickerDamage?.Invoke(damage);
 }
