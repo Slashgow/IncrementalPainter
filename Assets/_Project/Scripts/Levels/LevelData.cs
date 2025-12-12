@@ -8,6 +8,7 @@ public class LevelData : ScriptableObject
     [SerializeField] private string levelAuthor;
     [SerializeField] private string levelDate;
     [SerializeField] private ArtMovement artMovement;
+    [SerializeField, Range(0f,1f)] private float percentCompletionCondition;
     [SerializeField, ShowAssetPreview(128, 128)] private Sprite levelDrawing;
     [SerializeField] private GameObject levelPrefab;
 
@@ -23,6 +24,7 @@ public class LevelData : ScriptableObject
     public string LevelAuthor => levelAuthor;
     public string LevelDate => levelDate;
     public ArtMovement ArtMovement => artMovement;
+    public float PercentCompletionCondition => percentCompletionCondition;
     public Sprite LevelDrawing => levelDrawing;
     public GameObject LevelPrefab => levelPrefab;
 }

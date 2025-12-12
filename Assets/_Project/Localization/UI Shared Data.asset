@@ -119,6 +119,18 @@ MonoBehaviour:
     m_Key: ADDITION_SPAWNED_PAINT_BLOBS
     m_Metadata:
       m_Items: []
+  - m_Id: 5001023972569088
+    m_Key: COMPLETION_BAR_BEFORE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5001091920293888
+    m_Key: COMPLETION_BAR_AFTER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5008840846602240
+    m_Key: NEXT LEVEL
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

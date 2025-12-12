@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: e52170b90c6892c41a476cdb5a9f365a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6512032219681506858
+    second: classicisme_mort_socrate_0
+  - first:
+      213: 7245387667839984205
+    second: classicisme_mort_socrate_1
+  - first:
+      213: -2250008962548510872
+    second: classicisme_mort_socrate_2
+  - first:
+      213: 3314474675379112599
+    second: classicisme_mort_socrate_3
+  - first:
+      213: 554155631959642905
+    second: classicisme_mort_socrate_4
+  - first:
+      213: 762866089921770736
+    second: classicisme_mort_socrate_5
+  - first:
+      213: -4022547167675440109
+    second: classicisme_mort_socrate_6
+  - first:
+      213: 4935915975246047331
+    second: classicisme_mort_socrate_7
+  - first:
+      213: -8450246480903555162
+    second: classicisme_mort_socrate_8
+  - first:
+      213: -4749014762321939073
+    second: classicisme_mort_socrate_9
+  - first:
+      213: 8143052637930962434
+    second: classicisme_mort_socrate_10
+  - first:
+      213: 4227958790974497851
+    second: classicisme_mort_socrate_11
+  - first:
+      213: -76670293530722884
+    second: classicisme_mort_socrate_12
+  - first:
+      213: -1363389767901221588
+    second: classicisme_mort_socrate_13
+  - first:
+      213: -4175335786428324281
+    second: classicisme_mort_socrate_14
+  - first:
+      213: -531756543240543656
+    second: classicisme_mort_socrate_15
+  - first:
+      213: -5262548287076650449
+    second: classicisme_mort_socrate_16
+  - first:
+      213: -3429653949039128960
+    second: classicisme_mort_socrate_17
+  - first:
+      213: -2859983063385595066
+    second: classicisme_mort_socrate_18
+  - first:
+      213: -8844736233130930523
+    second: classicisme_mort_socrate_19
+  - first:
+      213: -7586337980965579380
+    second: classicisme_mort_socrate_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_0
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 1978
+        width: 11
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a26c3043dc26f5a50800000000000000
+      internalID: 6512032219681506858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_1
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1948
+        width: 14
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d42299932b9cc8460800000000000000
+      internalID: 7245387667839984205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_2
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 1970
+        width: 17
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86fc9d505cc56c0e0800000000000000
+      internalID: -2250008962548510872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_3
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 1959
+        width: 12
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79a000b08216ffd20800000000000000
+      internalID: 3314474675379112599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_4
+      rect:
+        serializedVersion: 2
+        x: 1662
+        y: 1964
+        width: 11
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9139c397c91c0b700800000000000000
+      internalID: 554155631959642905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_5
+      rect:
+        serializedVersion: 2
+        x: 1949
+        y: 1949
+        width: 11
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f47afcbaae369a00800000000000000
+      internalID: 762866089921770736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1300
+        width: 873
+        height: 641
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 314a372d9aa0d28c0800000000000000
+      internalID: -4022547167675440109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 573
+        width: 1078
+        height: 1326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36867b98d65ef7440800000000000000
+      internalID: 4935915975246047331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_8
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1816
+        width: 1472
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7bf31d891baba80800000000000000
+      internalID: -8450246480903555162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_9
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 1815
+        width: 15
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f75f6ba2c3c181eb0800000000000000
+      internalID: -4749014762321939073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_10
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 1594
+        width: 1276
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20ebe2ffa3fe10170800000000000000
+      internalID: 8143052637930962434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_11
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 1547
+        width: 1189
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b346605ae1abcaa30800000000000000
+      internalID: 4227958790974497851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_12
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 1443
+        width: 1181
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbdb64536cc9feef0800000000000000
+      internalID: -76670293530722884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_13
+      rect:
+        serializedVersion: 2
+        x: 1391
+        y: 1497
+        width: 8
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2d68d9ca34441de0800000000000000
+      internalID: -1363389767901221588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_14
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 478
+        width: 1116
+        height: 935
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 746a6ff593a3e06c0800000000000000
+      internalID: -4175335786428324281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_15
+      rect:
+        serializedVersion: 2
+        x: 1814
+        y: 1382
+        width: 7
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8526825cd32de98f0800000000000000
+      internalID: -531756543240543656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_16
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 1352
+        width: 531
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f22b47f073ca7f6b0800000000000000
+      internalID: -5262548287076650449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_17
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 1244
+        width: 284
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08ec10987eb6760d0800000000000000
+      internalID: -3429653949039128960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_18
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 562
+        width: 122
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 643a4438e8c4f48d0800000000000000
+      internalID: -2859983063385595066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_19
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 845
+        width: 446
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ae4434e14f214580800000000000000
+      internalID: -8844736233130930523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classicisme_mort_socrate_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2048
+        height: 770
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c851e7aecc9e7b690800000000000000
+      internalID: -7586337980965579380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      classicisme_mort_socrate_0: 6512032219681506858
+      classicisme_mort_socrate_1: 7245387667839984205
+      classicisme_mort_socrate_10: 8143052637930962434
+      classicisme_mort_socrate_11: 4227958790974497851
+      classicisme_mort_socrate_12: -76670293530722884
+      classicisme_mort_socrate_13: -1363389767901221588
+      classicisme_mort_socrate_14: -4175335786428324281
+      classicisme_mort_socrate_15: -531756543240543656
+      classicisme_mort_socrate_16: -5262548287076650449
+      classicisme_mort_socrate_17: -3429653949039128960
+      classicisme_mort_socrate_18: -2859983063385595066
+      classicisme_mort_socrate_19: -8844736233130930523
+      classicisme_mort_socrate_2: -2250008962548510872
+      classicisme_mort_socrate_20: -7586337980965579380
+      classicisme_mort_socrate_3: 3314474675379112599
+      classicisme_mort_socrate_4: 554155631959642905
+      classicisme_mort_socrate_5: 762866089921770736
+      classicisme_mort_socrate_6: -4022547167675440109
+      classicisme_mort_socrate_7: 4935915975246047331
+      classicisme_mort_socrate_8: -8450246480903555162
+      classicisme_mort_socrate_9: -4749014762321939073
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

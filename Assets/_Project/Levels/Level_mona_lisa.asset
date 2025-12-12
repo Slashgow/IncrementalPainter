@@ -10,11 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2548ba85b01887e4a935903037baf7cd, type: 3}
-  m_Name: Level 1
+  m_Name: Level_mona_lisa
   m_EditorClassIdentifier: 
   levelTitle: Mona Lisa
   levelAuthor: Leonard de Vinci
   levelDate: 1785
   artMovement: 0
-  levelDrawing: {fileID: 21300000, guid: 525d5d2566bd7ad4b8bc4dd4e1f1e703, type: 3}
+  percentCompletionCondition: 0.86
+  levelDrawing: {fileID: 21300000, guid: 30a7be76925576846a460f0b8a04c24f, type: 3}
   levelPrefab: {fileID: 8944416080909895153, guid: 0f581ce3d86c73b4daf268d9f305cea7, type: 3}
+  rankThresholds:
+    sRankDays: 3
+    aRankDays: 5
+    bRankDays: 7
+    cRankDays: 10
+  rankRewards:
+    sRankSkillPoints: 5
+    aRankSkillPoints: 3
+    bRankSkillPoints: 2
+    cRankSkillPoints: 1
+    dRankSkillPoints: 0
+    sRankCurrency: 1000
+    aRankCurrency: 500
+    bRankCurrency: 250
+    cRankCurrency: 100
+    dRankCurrency: 0

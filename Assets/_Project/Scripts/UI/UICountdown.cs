@@ -1,9 +1,13 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class UIPaintState : MonoBehaviour
+public class UICountdown : MonoBehaviour
 {
     [SerializeField] private TMP_Text textCountdown;
+    [SerializeField, Range(0f, 20f)] private float threshold; 
+
+    public UnityEvent OnTickLessThanThreshold;
 
     private void Awake()
     {
@@ -20,6 +24,9 @@ public class UIPaintState : MonoBehaviour
 
     private void UpdateCountdownText(float timeRemaining)
     {
+        if (timeRemaining <= threshold)
+            OnTickLessThanThreshold?.Invoke();
+
         int minutes = Mathf.FloorToInt(timeRemaining / 60f);
         int seconds = Mathf.FloorToInt(timeRemaining % 60f);
         textCountdown.text = $"{minutes:00}:{seconds:00}";

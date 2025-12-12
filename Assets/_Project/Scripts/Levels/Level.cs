@@ -14,7 +14,7 @@ public class Level : MonoBehaviour, ISavable, ILoadable<LevelSaveData>
     public SpriteRenderer FrameRenderer => frameRenderer;
     public Collider2D FrameCollider => frameCollider;
     public CwChangeCounter ColorChangeCounter => colorChangeCounter;
-    public bool IsDoneCondition => colorChangeCounter.Ratio >= 0.99f;
+    public bool IsDoneCondition => colorChangeCounter.Ratio >= levelData.PercentCompletionCondition;
 
     public event Action OnEndLevel;
     public void Initialize(LevelData levelData)

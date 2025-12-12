@@ -42,6 +42,20 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
         CurrentLevelIndex = currentUnlockableLevel != null ? Array.IndexOf(unlockableSortedLevels, currentUnlockableLevel) : -1;
     }
 
+    public void SetCurrentLevel(int levelIndex)
+    {
+        currentUnlockableLevel = unlockableSortedLevels[levelIndex];
+        CurrentLevelIndex = levelIndex;
+    }
+
+    public void SetNextLevelAsCurrentLevel()
+    {
+        if (CurrentLevelIndex >= unlockableSortedLevels.Length - 1)
+            return;
+
+        SetCurrentLevel(CurrentLevelIndex + 1);
+    }
+
     public void LoadCurrentLevel()
     {
         currentLevelInstance = null;

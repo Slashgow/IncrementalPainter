@@ -122,6 +122,18 @@ MonoBehaviour:
     m_Localized: Additional paint blobs spawned
     m_Metadata:
       m_Items: []
+  - m_Id: 5001023972569088
+    m_Localized: You painted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5001091920293888
+    m_Localized: of the canvas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5008840846602240
+    m_Localized: Next Level
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

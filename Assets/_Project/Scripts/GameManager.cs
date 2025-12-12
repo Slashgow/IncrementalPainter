@@ -58,6 +58,12 @@ public class GameManager : MonoSingleton<GameManager>
     public void StartPaintState() => SwitchState(GameState.PAINT);
     public void StartUpgradeState() => SwitchState(GameState.UPGRADE);
 
+    public void StartNextLevel()
+    {
+        LevelManager.Instance.SetNextLevelAsCurrentLevel();
+        SceneLoader.Instance.ReloadSceneAsync();
+    }
+
     public void Pause()
     {
         Time.timeScale = 0f;
