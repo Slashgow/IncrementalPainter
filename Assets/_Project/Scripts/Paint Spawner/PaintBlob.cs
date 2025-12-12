@@ -11,7 +11,7 @@ public class PaintBlob : MonoBehaviour
 
     private PaintType paintType;
 
-    public static event Action<Vector3> OnAnyPaintBombDie;
+    public static event Action<Vector3, Color> OnAnyPaintBombDie;
     public static event Action<Vector3> OnAnyPaintFreezerDie;
     public static event Action<Vector3, Color> OnAnyPaintBrushSwipeDie;
     public static event Action<Vector3, ISplittable> OnAnyPaintBlobSplitDie;
@@ -39,7 +39,7 @@ public class PaintBlob : MonoBehaviour
             case PaintType.Normal:
                 break;
             case PaintType.BombPaint:
-                OnAnyPaintBombDie?.Invoke(deathWorldPosition);
+                OnAnyPaintBombDie?.Invoke(deathWorldPosition, color);
                 break;
             case PaintType.Freeze:
                 OnAnyPaintFreezerDie?.Invoke(deathWorldPosition);
