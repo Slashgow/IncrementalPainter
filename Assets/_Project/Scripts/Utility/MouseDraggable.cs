@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Collider2D))]
@@ -9,6 +10,11 @@ public class MouseDraggable : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     [Header("Drag Settings")]
     [SerializeField, Range(0.01f, 0.5f)] private float smoothTime = 0.05f;
+
+    public UnityEvent OnStartDragUnityEvent;
+    public UnityEvent OnEndDragUnityEvent;
+    public UnityEvent OnHoverStartUnityEvent;
+    public UnityEvent OnHoverEndUnityEvent;
 
     private Camera mainCam;
     private Vector3 velocity = Vector3.zero;
@@ -45,6 +51,7 @@ public class MouseDraggable : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     private void StartDragging(PointerEventData eventData)
     {
+        OnStartDragUnityEvent?.Invoke();
         isDragging = true;
         velocity = Vector3.zero;
         Vector3 mouseWorldPos = mainCam.ScreenToWorldPoint(eventData.position);
@@ -55,11 +62,21 @@ public class MouseDraggable : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     private void StopDragging()
     {
+        OnEndDragUnityEvent?.Invoke();
         isDragging = false;
         velocity = Vector3.zero;
         grabOffset = Vector3.zero;
     }
 
-    public void OnPointerEnter(PointerEventData eventData) => spriteRenderer.color = hoverColor;
-    public void OnPointerExit(PointerEventData eventData) => spriteRenderer.color = normalColor;
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        OnHoverStartUnityEvent?.Invoke();
+        spriteRenderer.color = hoverColor;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        OnHoverEndUnityEvent?.Invoke();
+        spriteRenderer.color = normalColor;
+    }
 }
