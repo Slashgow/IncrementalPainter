@@ -3794,6 +3794,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1988011186}
   - component: {fileID: 1988011185}
+  - component: {fileID: 1988011189}
+  - component: {fileID: 1988011188}
+  - component: {fileID: 1988011187}
+  - component: {fileID: 1988011191}
+  - component: {fileID: 1988011190}
   m_Layer: 0
   m_Name: Paint Freezer
   m_TagString: Untagged
@@ -3823,6 +3828,33 @@ MonoBehaviour:
   OnStunAppliedOnce:
     m_PersistentCalls:
       m_Calls: []
+  OnPaintFreezerDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1988011188}
+        m_TargetAssemblyTypeName: PoolInstantiatedEffect, Assembly-CSharp
+        m_MethodName: DoEffect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1988011189}
+        m_TargetAssemblyTypeName: inkolorgames.effects.EffectApplier, inkolorgames.inkolortools
+        m_MethodName: DoEffects
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1988011186
 Transform:
   m_ObjectHideFlags: 0
@@ -3838,6 +3870,87 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1988011187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988011184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6869d1947bdee49a545215e6121ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 5112403345868107898, guid: b9a626cb6533dc14cacbcbb8f57fecda, type: 3}
+  growPoolSize: 10
+--- !u!114 &1988011188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988011184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2afd04775eaa049bffaa83641e90e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  poolSystems:
+  - {fileID: 1988011187}
+  numberOfEffectToSpawn: 1
+  instantiateFirstOnExactPosition: 1
+  spawnMinOffset: {x: 0, y: 0, z: 0}
+  spawnMaxOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &1988011189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988011184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64df80c7d3d6b44fb2de900c5cd716c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects:
+  - {fileID: 1988011191}
+  - {fileID: 1988011190}
+--- !u!114 &1988011190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988011184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 971ebe4a4d8b2b44c9d4533c69f3e9e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  MyShake: {fileID: 11400000, guid: 39ac4f4fcd73a624ca403a285aa9ea1d, type: 2}
+--- !u!114 &1988011191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988011184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5eda5c5002d44f43b2f2ddcf6544eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  audioClips:
+  - {fileID: 8300000, guid: 7d031d6ec614e11408bbabcf6c8e11e3, type: 3}
+  - {fileID: 8300000, guid: 8d8ca26bd00503e4bb91bb4a7d7e78e8, type: 3}
+  - {fileID: 8300000, guid: ec8b5e7079b951141803b0402d8060df, type: 3}
+  - {fileID: 8300000, guid: 49343d663b51d5d4c85905d8ac54688c, type: 3}
+  luckPercentage: 35
 --- !u!1001 &2145213590
 PrefabInstance:
   m_ObjectHideFlags: 0
