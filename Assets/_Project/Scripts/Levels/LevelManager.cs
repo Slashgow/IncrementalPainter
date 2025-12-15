@@ -61,7 +61,7 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
         currentLevelInstance = null;
         this.transform.DestroyAllChildren();
 
-        GameObject levelGOInstance = Instantiate(CurrentLevelData.LevelPrefab, Vector3.zero, Quaternion.identity, this.transform);
+        GameObject levelGOInstance = Instantiate(CurrentLevelData.LevelPrefab, CurrentLevelData.SpawnOffset, Quaternion.identity, this.transform);
         currentLevelInstance = levelGOInstance.GetComponent<Level>();
         currentLevelInstance.Initialize(CurrentLevelData);
 

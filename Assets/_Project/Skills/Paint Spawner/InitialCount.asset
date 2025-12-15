@@ -37,7 +37,7 @@ MonoBehaviour:
       requiredLevel: 1
   effectValue:
     a: 10
-    b: 30
+    b: 50
   references:
     version: 2
     RefIds: []

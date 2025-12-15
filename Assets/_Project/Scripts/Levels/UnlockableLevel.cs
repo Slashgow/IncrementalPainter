@@ -8,10 +8,12 @@ public class UnlockableLevel : IUnlockable
 {
     [SerializeField] private LevelData levelData;
     [SerializeField] private List<UnlockCondition> unlockConditions = new List<UnlockCondition>();
+    
 
     public LevelData LevelData => levelData;
     public bool IsUnlocked => CheckUnlockCondition();
     public List<UnlockCondition> UnlockConditions => unlockConditions;
+  
 
     private LevelSaveData saveData;
     public bool CheckUnlockCondition()

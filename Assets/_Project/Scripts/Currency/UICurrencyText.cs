@@ -16,6 +16,6 @@ public class UICurrencyText : MonoBehaviour
     }
     private void UpdateCurrencyText(int newCurrency)
     {
-        currencyText.text = $"{newCurrency.ToString()} $";
+        currencyText.text = $"{FormatUtility.FormatValue(newCurrency)} $";
     }
 }

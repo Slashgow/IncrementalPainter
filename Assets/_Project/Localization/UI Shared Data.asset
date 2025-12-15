@@ -131,6 +131,10 @@ MonoBehaviour:
     m_Key: NEXT LEVEL
     m_Metadata:
       m_Items: []
+  - m_Id: 6287935521812480
+    m_Key: CURRENCY_GAINED
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

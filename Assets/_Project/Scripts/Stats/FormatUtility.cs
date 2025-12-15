@@ -2,12 +2,18 @@ using UnityEngine;
 
 public static class FormatUtility
 {
-    public static string FormatDamage(float damage)
+    public static string FormatValue(float damage)
     {
         if (damage >= 1000000)
-            return $"{damage / 1000000f:F1}M";
+        {
+            float value = damage / 1000000f;
+            return value % 1 == 0 ? $"{value:F0}M" : $"{value:F1}M";
+        }
         if (damage >= 1000)
-            return $"{damage / 1000f:F1}K";
+        {
+            float value = damage / 1000f;
+            return value % 1 == 0 ? $"{value:F0}K" : $"{value:F1}K";
+        }
         return $"{damage:F0}";
     }
 

@@ -11,7 +11,8 @@ public class LevelData : ScriptableObject
     [SerializeField, Range(0f,1f)] private float percentCompletionCondition;
     [SerializeField, ShowAssetPreview(128, 128)] private Sprite levelDrawing;
     [SerializeField] private GameObject levelPrefab;
-    [SerializeField, Range(0f, 20f)] private float cameraPaintZoom; 
+    [SerializeField, Range(0f, 20f)] private float cameraPaintZoom;
+    [SerializeField] private Vector3 spawnOffset;
 
     [Header("Ranking System")]
     [SerializeField] private LevelRankThresholds rankThresholds = new LevelRankThresholds();
@@ -28,5 +29,6 @@ public class LevelData : ScriptableObject
     public float PercentCompletionCondition => percentCompletionCondition;
     public Sprite LevelDrawing => levelDrawing;
     public GameObject LevelPrefab => levelPrefab;
-    public float CameraPaintZoom => cameraPaintZoom;    
+    public float CameraPaintZoom => cameraPaintZoom;
+    public Vector3 SpawnOffset => spawnOffset;
 }

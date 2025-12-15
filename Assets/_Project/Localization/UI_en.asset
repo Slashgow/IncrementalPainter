@@ -134,6 +134,10 @@ MonoBehaviour:
     m_Localized: Next Level
     m_Metadata:
       m_Items: []
+  - m_Id: 6287935521812480
+    m_Localized: Money gained
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -60,7 +60,7 @@ public class MagneterManager : MonoSingleton<MagneterManager>
     {
         for (int i = 0; i < additionalCount; i++)
         {
-            Vector3 spawnPos = SpriteUtility.GetRandomPositionInSprite(frameRenderer.transform, frameRenderer);
+            Vector3 spawnPos = SpriteUtility.GetRandomPositionInSprite(frameRenderer.transform, frameRenderer, true);
             spawnPos.z = 0f;
 
             Instantiate(magneterPrefab, spawnPos, Quaternion.identity, magneterParent);

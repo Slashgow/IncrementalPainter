@@ -19,11 +19,13 @@ MonoBehaviour:
   percentCompletionCondition: 0.99
   levelDrawing: {fileID: 21300000, guid: b556f62bbbe951348a9beb6367ad4b1f, type: 3}
   levelPrefab: {fileID: 8944416080909895153, guid: 1171d9e802320e14ba692c9db0634a9c, type: 3}
+  cameraPaintZoom: 10
+  spawnOffset: {x: 0, y: 0, z: 0}
   rankThresholds:
-    sRankDays: 3
-    aRankDays: 5
-    bRankDays: 7
-    cRankDays: 10
+    sRankDays: 5
+    aRankDays: 10
+    bRankDays: 20
+    cRankDays: 25
   rankRewards:
     sRankSkillPoints: 5
     aRankSkillPoints: 3

@@ -18,21 +18,22 @@ MonoBehaviour:
   artMovement: 0
   percentCompletionCondition: 0.86
   levelDrawing: {fileID: 21300000, guid: 30a7be76925576846a460f0b8a04c24f, type: 3}
-  levelPrefab: {fileID: 8944416080909895153, guid: 0f581ce3d86c73b4daf268d9f305cea7, type: 3}
-  cameraPaintZoom: 10
+  levelPrefab: {fileID: 8944416080909895153, guid: b209fdc5032e56f4dae4f368907f0487, type: 3}
+  cameraPaintZoom: 4.5
+  spawnOffset: {x: 0, y: -0.5, z: 0}
   rankThresholds:
-    sRankDays: 3
-    aRankDays: 5
-    bRankDays: 7
-    cRankDays: 10
+    sRankDays: 5
+    aRankDays: 10
+    bRankDays: 20
+    cRankDays: 25
   rankRewards:
     sRankSkillPoints: 5
     aRankSkillPoints: 3
     bRankSkillPoints: 2
     cRankSkillPoints: 1
     dRankSkillPoints: 0
-    sRankCurrency: 1000
-    aRankCurrency: 500
-    bRankCurrency: 250
-    cRankCurrency: 100
+    sRankCurrency: 10000
+    aRankCurrency: 5000
+    bRankCurrency: 3000
+    cRankCurrency: 1000
     dRankCurrency: 0

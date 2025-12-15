@@ -19,7 +19,7 @@ public class CurrencyManager : MonoSingleton<CurrencyManager>, ISavable, ILoadab
     public int CurrencyMultiplier => Mathf.FloorToInt(currencyMultiplierPerLevel.GetCurrentLevelData());
 
     public event Action<int> OnCurrencyChanged;
-    public event Action<int, int> OnCurrencyGained;
+    public static event Action<int, int> OnCurrencyGained;
     public event Action<int, int> OnCurrencySpent;
 
     public UnityEvent OnCurrencyGainedUnity;

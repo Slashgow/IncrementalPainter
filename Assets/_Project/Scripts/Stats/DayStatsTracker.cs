@@ -23,6 +23,7 @@ public class DayStatsTracker : MonoSingleton<DayStatsTracker>
 
         GameManager.OnStartGameState += HandleGameStateChange;
         LevelManager.OnStartLevel += OnLevelStart;
+        CurrencyManager.OnCurrencyGained += RecordCurrencyGained;
 
         SimpleDamageable.OnAnyDamageableDie += RecordEnemyDestroyed;
         PaintStateManager.OnAddedTimeToCountdown += RecordTimeAddedToCountdown;
@@ -46,6 +47,9 @@ public class DayStatsTracker : MonoSingleton<DayStatsTracker>
 
         if (LevelManager.HasInstance)
             LevelManager.OnStartLevel -= OnLevelStart;
+
+        if(CurrencyManager.HasInstance)
+            CurrencyManager.OnCurrencyGained -= RecordCurrencyGained;
     }
 
     private void HandleGameStateChange(GameManager.GameState state)
@@ -110,7 +114,7 @@ public class DayStatsTracker : MonoSingleton<DayStatsTracker>
         OnDayStatsUpdated?.Invoke(currentDayStats);
     }
 
-    public void RecordCurrencyGained(int amount)
+    public void RecordCurrencyGained(int amount, int newCurrency)
     {
         currentDayStats.CurrencyGained += amount;
         OnDayStatsUpdated?.Invoke(currentDayStats);

@@ -76,7 +76,7 @@ public class SkillNodeDetail : MonoBehaviour
                 int cost = skillNode.SkillDataBase.GetCostForLevel(currentLevel + 1);
                 int skillPointCost = skillNode.SkillDataBase.GetSkillPointCostForLevel(currentLevel + 1);
 
-                string costStr = $"<color=#{currentHexaColor}>{cost} $</color>";
+                string costStr = $"<color=#{currentHexaColor}>{FormatUtility.FormatValue(cost)} $</color>";
                 if (skillPointCost > 0)
                     costStr += $" + <color=#{valueHexaSkillPointColor}>{skillPointCost} SP</color>";
 
