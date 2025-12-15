@@ -19,6 +19,7 @@ MonoBehaviour:
   percentCompletionCondition: 0.86
   levelDrawing: {fileID: 21300000, guid: 30a7be76925576846a460f0b8a04c24f, type: 3}
   levelPrefab: {fileID: 8944416080909895153, guid: 0f581ce3d86c73b4daf268d9f305cea7, type: 3}
+  cameraPaintZoom: 10
   rankThresholds:
     sRankDays: 3
     aRankDays: 5

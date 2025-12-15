@@ -7,7 +7,7 @@ public static class SpriteUtility
         if (!spawnOnlyInOpaquePixels)
             return GetRandomPositionInBounds(transform, spriteRenderer.bounds);
 
-        int maxAttempts = 50;
+        int maxAttempts = 20;
         for (int i = 0; i < maxAttempts; i++)
         {
             Vector3 worldPos = GetRandomPositionInBounds(transform, spriteRenderer.bounds);

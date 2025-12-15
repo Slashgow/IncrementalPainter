@@ -49,7 +49,12 @@ public class RandomMovement : MonoBehaviour, ILevelContainable, IMovable
         currentDirection = Random.insideUnitCircle.normalized;
     }
 
-    public void ReverseDirection() => currentDirection = -currentDirection;
+    public void ReverseDirection()
+    {
+        currentDirection = (Vector3.zero - transform.position).normalized;
+        timeSinceLastDirectionChange = 0f;
+    }
+
     public void StartMovement() => canMove = true;
     public void StopMovement() => canMove = false;
 }

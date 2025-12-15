@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2548ba85b01887e4a935903037baf7cd, type: 3}
+  m_Name: Level_logo_Inkolor
+  m_EditorClassIdentifier: 
+  levelTitle: Inkolor
+  levelAuthor: Inkolor
+  levelDate: 2025
+  artMovement: 0
+  percentCompletionCondition: 0.99
+  levelDrawing: {fileID: 21300000, guid: 525d5d2566bd7ad4b8bc4dd4e1f1e703, type: 3}
+  levelPrefab: {fileID: 8944416080909895153, guid: a8c71b5bf1284c547a7b0647fb2abe15, type: 3}
+  cameraPaintZoom: 4.5
+  rankThresholds:
+    sRankDays: 5
+    aRankDays: 10
+    bRankDays: 20
+    cRankDays: 25
+  rankRewards:
+    sRankSkillPoints: 5
+    aRankSkillPoints: 3
+    bRankSkillPoints: 2
+    cRankSkillPoints: 1
+    dRankSkillPoints: 0
+    sRankCurrency: 1000
+    aRankCurrency: 500
+    bRankCurrency: 250
+    cRankCurrency: 100
+    dRankCurrency: 0

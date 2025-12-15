@@ -8,6 +8,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
 {
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> initialCountPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> spawnTimeIntervalPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> countPerSpawnPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> maxSpawnCountPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningWhenKillingPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningBombPaintPerLevel;
@@ -16,6 +17,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningSplitPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> InitialCountPerLevel => initialCountPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> SpawnTimeIntervalPerLevel => spawnTimeIntervalPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> CountPerSpawnPerLevel => countPerSpawnPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> MaxSpawnCountPerLevel => maxSpawnCountPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningWhenKillingPerLevel => chanceOfSpawningWhenKillingPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningBombPaintPerLevel => chanceOfSpawningBombPaintPerLevel;
@@ -24,6 +26,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningSplitPerLevel => chanceOfSpawningSplitPerLevel;
     public int InitialCount => Mathf.FloorToInt(initialCountPerLevel.GetCurrentLevelData());
     public float SpawnTimeInterval => spawnTimeIntervalPerLevel.GetCurrentLevelData();
+    public int CountPerSpawn => Mathf.FloorToInt(countPerSpawnPerLevel.GetCurrentLevelData());
     public int MaxSpawnCount => Mathf.FloorToInt(maxSpawnCountPerLevel.GetCurrentLevelData());
     public float ChanceOfSpawnOnKill => chanceOfSpawningWhenKillingPerLevel.GetCurrentLevelData();
     public float ChanceOfSpawningBombPaint => chanceOfSpawningBombPaintPerLevel.GetCurrentLevelData();
@@ -93,7 +96,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
     {
         isSpawning = true;
         spawnTimer?.Cancel();
-        spawnTimer = Timer.Register(SpawnTimeInterval, onComplete: SpawnObject, isLooped: true, useRealTime: useRealTime);
+        spawnTimer = Timer.Register(SpawnTimeInterval, onComplete: () => SpawnObject(), isLooped: true, useRealTime: useRealTime);
     }
 
     public void StopSpawning()
@@ -102,29 +105,32 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
         spawnTimer?.Cancel();
     }
 
-    public void SpawnObject()
+    public void SpawnObject(bool overrideCountPerSpawn = false)
     {
-        if (MaxSpawnCount >= 0 && spawnedCount >= MaxSpawnCount)
+        int countPerSpawn = overrideCountPerSpawn ? 1 : CountPerSpawn;
+
+        for (int i = 0; i< countPerSpawn; i++)
         {
-            StopSpawning();
-            return;
+            if (MaxSpawnCount >= 0 && spawnedCount >= MaxSpawnCount)
+            {
+                StopSpawning();
+                return;
+            }
+
+            Vector3 spawnPosition = SpriteUtility.GetRandomPositionInSprite(spriteRenderer.transform, spriteRenderer, true);
+            spawnPosition.z += zOffset;
+
+            PaintType paintType = GetWeightedPaintType();
+            SpawnPaintBlob(spawnPosition, paintType);
         }
-
-        Vector3 spawnPosition = SpriteUtility.GetRandomPositionInSprite(spriteRenderer.transform, spriteRenderer);
-        spawnPosition.z += zOffset;
-
-        PaintType paintType = GetWeightedPaintType();
-        SpawnPaintBlob(spawnPosition, paintType);
     }
-
-  
 
     public GameObject SpawnPaintBlob(Vector3 position, PaintType paintType, int splitGeneration = 0, float? customScale = null)
     {
         EnemyData enemyData = ChooseEnemyData(SkillTreeManager.TotalUpgradesBought, LevelManager.CurrentLevelIndex);
         //Debug.Log($"Choose Ennemy {enemyData.Difficulty.ToString()}");
 
-        GameObject spawned = pool.GetPrefabFromPool(position, spawnParent, false);
+        GameObject spawned = pool.GetPrefabFromPool(position, spawnParent, true);
 
         spawned.transform.localScale = Vector3.one * enemyData.Scale;
 
@@ -160,14 +166,14 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
         if (!isSpawning && spawnedCount < MaxSpawnCount)
             StartSpawning();
 
-        TrySpawn();
+        TrySpawn(true);
     }
 
-    private void TrySpawn()
+    private void TrySpawn(bool overrideCountPerSpawn = false)
     {
         if (LuckUtility.RollLuck(ChanceOfSpawnOnKill))
         {
-            SpawnObject();
+            SpawnObject(overrideCountPerSpawn);
             OnAdditionalSpawn?.Invoke();
         }
            

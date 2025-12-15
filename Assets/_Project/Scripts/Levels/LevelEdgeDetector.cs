@@ -6,7 +6,7 @@ public class LevelEdgeDetector : MonoBehaviour
     {
         if(collider2D.TryGetComponent(out ILevelContainable levelContainable))
         {
-            Debug.Log("Reversing direction for " + collider2D.name);
+            //Debug.Log("Reversing direction for " + collider2D.name);
             levelContainable.ReverseDirection();
         }
     }

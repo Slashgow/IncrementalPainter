@@ -172,6 +172,10 @@ MonoBehaviour:
     m_Localized: Force de ramassage
     m_Metadata:
       m_Items: []
+  - m_Id: 6473862420492288
+    m_Localized: Nombre de blob de peinture pour chaque apparition
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

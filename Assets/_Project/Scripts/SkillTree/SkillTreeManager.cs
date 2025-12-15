@@ -77,6 +77,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[paintSpawner.ChanceOfSpawningBrushSwipePaintPerLevel.SkillID] = paintSpawner.ChanceOfSpawningBrushSwipePaintPerLevel;
         leveledSkills[paintSpawner.ChanceOfSpawningSplitPerLevel.SkillID] = paintSpawner.ChanceOfSpawningSplitPerLevel;
         leveledSkills[paintSpawner.SpawnTimeIntervalPerLevel.SkillID] = paintSpawner.SpawnTimeIntervalPerLevel;
+        leveledSkills[paintSpawner.CountPerSpawnPerLevel.SkillID] = paintSpawner.CountPerSpawnPerLevel;
         leveledSkills[paintSpawner.MaxSpawnCountPerLevel.SkillID] = paintSpawner.MaxSpawnCountPerLevel;
         leveledSkills[paintSpawner.InitialCountPerLevel.SkillID] = paintSpawner.InitialCountPerLevel;
         leveledSkills[deathPainter.SplatterScalePerLevel.SkillID] = deathPainter.SplatterScalePerLevel;
@@ -115,6 +116,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         paintSpawner.ChanceOfSpawningBrushSwipePaintPerLevel.Initialize();
         paintSpawner.ChanceOfSpawningSplitPerLevel.Initialize();
         paintSpawner.SpawnTimeIntervalPerLevel.Initialize();
+        paintSpawner.CountPerSpawnPerLevel.Initialize();
         paintSpawner.MaxSpawnCountPerLevel.Initialize();
         paintSpawner.InitialCountPerLevel.Initialize();
         deathPainter.SplatterScalePerLevel.Initialize();

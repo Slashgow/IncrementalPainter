@@ -50,6 +50,8 @@ MonoBehaviour:
     skillData: {fileID: 11400000, guid: ed62c62e577d2c24da9bb7c892737742, type: 2}
   spawnTimeIntervalPerLevel:
     skillData: {fileID: 11400000, guid: 11f9b509fd611314c9e500377b18bbe7, type: 2}
+  countPerSpawnPerLevel:
+    skillData: {fileID: 11400000, guid: f4ac5f9358b526d4498f399dd0d41c3c, type: 2}
   maxSpawnCountPerLevel:
     skillData: {fileID: 11400000, guid: e31a75f61c9f54f488f49164a3ca665b, type: 2}
   chanceOfSpawningWhenKillingPerLevel:
@@ -68,30 +70,30 @@ MonoBehaviour:
     maxHealth: 9
     cost: 10
     scale: 0.2
-    baseWeigth: 20
+    baseWeigth: 50
     upgradeWeightExponent: 0
-    levelWeightExponent: 0
+    levelWeightExponent: 1
   - difficulty: 1
-    maxHealth: 13
+    maxHealth: 19
     cost: 20
     scale: 0.4
-    baseWeigth: 1
+    baseWeigth: 10
     upgradeWeightExponent: 1
-    levelWeightExponent: 0.5
+    levelWeightExponent: 2
   - difficulty: 2
-    maxHealth: 17
+    maxHealth: 29
     cost: 30
     scale: 0.6
-    baseWeigth: 1
-    upgradeWeightExponent: 2
-    levelWeightExponent: 1
+    baseWeigth: 5
+    upgradeWeightExponent: 1.2
+    levelWeightExponent: 2
   - difficulty: 3
-    maxHealth: 20
+    maxHealth: 39
     cost: 40
     scale: 0.8
     baseWeigth: 1
-    upgradeWeightExponent: 3
-    levelWeightExponent: 2
+    upgradeWeightExponent: 1.4
+    levelWeightExponent: 3
   autoStart: 1
   zOffset: 0
   spawnParent: {fileID: 1039041530853263093}
@@ -109,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 798080866972570822, guid: 0e8ae09fc49b0ce4e8e7f4ee527b83ff, type: 3}
-  growPoolSize: 10
+  growPoolSize: 200
 --- !u!1 &5442154982494036360
 GameObject:
   m_ObjectHideFlags: 0

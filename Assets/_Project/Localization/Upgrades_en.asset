@@ -170,6 +170,10 @@ MonoBehaviour:
     m_Localized: Pickup Force
     m_Metadata:
       m_Items: []
+  - m_Id: 6473862420492288
+    m_Localized: Count per spawn
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

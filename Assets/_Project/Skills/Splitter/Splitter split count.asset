@@ -26,15 +26,27 @@ MonoBehaviour:
   icon: {fileID: -542598715, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
   costFunction:
     a: 10
-    b: 4
+    b: 10
   startingLevel: 0
   maxLevel: 5
   levelRequirements:
   - level: 1
-    skillPointCost: 0
+    skillPointCost: 1
     requiredSkills:
     - skillData: {fileID: 11400000, guid: c82d4c41928966747a4ca3e6004a2cf5, type: 2}
       requiredLevel: 1
+  - level: 2
+    skillPointCost: 2
+    requiredSkills: []
+  - level: 3
+    skillPointCost: 3
+    requiredSkills: []
+  - level: 4
+    skillPointCost: 4
+    requiredSkills: []
+  - level: 5
+    skillPointCost: 5
+    requiredSkills: []
   effectValue:
     a: 1
     b: 2

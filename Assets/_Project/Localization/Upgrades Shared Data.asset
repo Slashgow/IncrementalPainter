@@ -167,6 +167,10 @@ MonoBehaviour:
     m_Key: UPGRADE_VACUUM_FORCE
     m_Metadata:
       m_Items: []
+  - m_Id: 6473862420492288
+    m_Key: UPGRADE_SPAWNER_COUNT_PER_SPAWN
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

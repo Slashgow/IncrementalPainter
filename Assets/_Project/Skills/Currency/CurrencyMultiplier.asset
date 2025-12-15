@@ -31,10 +31,22 @@ MonoBehaviour:
   maxLevel: 3
   levelRequirements:
   - level: 1
-    skillPointCost: 5
+    skillPointCost: 2
     requiredSkills:
     - skillData: {fileID: 11400000, guid: 3c6ba10d598d3ad4c8c5101338365328, type: 2}
       requiredLevel: 1
+  - level: 2
+    skillPointCost: 4
+    requiredSkills: []
+  - level: 3
+    skillPointCost: 6
+    requiredSkills: []
+  - level: 4
+    skillPointCost: 8
+    requiredSkills: []
+  - level: 5
+    skillPointCost: 10
+    requiredSkills: []
   effectValue:
     a: 1
     b: 1

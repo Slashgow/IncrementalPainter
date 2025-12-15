@@ -15,6 +15,7 @@ public class Splitter : MonoBehaviour, ISplitter
     public int SplitCount => Mathf.RoundToInt(splitCountPerLevel.GetCurrentLevelData());
     public bool IsActive => isActive;
 
+    public UnityEvent<Vector3> OnPaintSplitDie;
     public UnityEvent OnSplitterActivated;
     public UnityEvent OnSplitterDeactivated;
     public UnityEvent<ISplittable> OnSplitTriggered;
@@ -29,6 +30,7 @@ public class Splitter : MonoBehaviour, ISplitter
         if (!isActive)
             return;
 
+        OnPaintSplitDie?.Invoke(deathWorldPosition);
         TrySplit(splittable, deathWorldPosition);
     }
 

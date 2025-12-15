@@ -9,7 +9,6 @@ public class CameraMover : MonoBehaviour
 
     [SerializeField] private Transform paintCameraTransform;
     [SerializeField] private Transform skillTreeCameraTransform;
-    [SerializeField, Range(0f,20f)] private float paintStateZoom = 10f;
     [SerializeField, Range(0f,30f)] private float upgradeStateZoom = 10f;
 
     [Header("Camera Movement Settings")]
@@ -74,7 +73,7 @@ public class CameraMover : MonoBehaviour
         {
             case GameManager.GameState.PAINT:
                 LockMovement();
-                MoveAndZoomToSameTime(0f, 0f, paintStateZoom, paintCameraTransform.position);
+                MoveAndZoomToSameTime(0f, 0f, LevelManager.Instance.CurrentLevelData.CameraPaintZoom, paintCameraTransform.position);
                 break;
             case GameManager.GameState.DAY_SUMMARY:
                 break;

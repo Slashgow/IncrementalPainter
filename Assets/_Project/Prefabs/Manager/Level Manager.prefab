@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1623257377970485385}
   - component: {fileID: 7200141919807011505}
   m_Layer: 0
-  m_Name: complete 1 level
+  m_Name: complete 2 level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af93bdbcd1c473f49a0d580438531a79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredCompletedLevels: 1
+  requiredCompletedLevels: 2
+--- !u!1 &2948963627457053264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7117556620785046149}
+  - component: {fileID: 913010916917189584}
+  m_Layer: 0
+  m_Name: complete logo inkolor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7117556620785046149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948963627457053264}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 623909872397918200}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &913010916917189584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948963627457053264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8121427c4a95e42a97122ac00bd1cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredLevelAuthor: Inkolor
+  requiredLevelTitle: Inkolor
 --- !u!1 &6587097264052769181
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,6 +124,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3818680118330074719}
+  - {fileID: 7117556620785046149}
   - {fileID: 2067892554468794268}
   - {fileID: 1623257377970485385}
   m_Father: {fileID: 0}
@@ -97,9 +144,12 @@ MonoBehaviour:
   completionTracker: {fileID: 1037331632690210968}
   defaultLevel: {fileID: 11400000, guid: 86fce4b65d45868428db4499ba673069, type: 2}
   unlockableSortedLevels:
-  - levelData: {fileID: 11400000, guid: 86fce4b65d45868428db4499ba673069, type: 2}
+  - levelData: {fileID: 11400000, guid: df35e19a92a782e4f8624824bd041a86, type: 2}
     unlockConditions:
     - {fileID: 2430276174761575609}
+  - levelData: {fileID: 11400000, guid: 86fce4b65d45868428db4499ba673069, type: 2}
+    unlockConditions:
+    - {fileID: 913010916917189584}
   - levelData: {fileID: 11400000, guid: bb8d1afe9d670174ea1ba625215eb77f, type: 2}
     unlockConditions:
     - {fileID: 3731951117819498348}

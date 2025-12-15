@@ -7,5 +7,6 @@
     CUBISM,
     SURREALISM,
     REALISM,
-    CLASSICISM
+    CLASSICISM,
+    EGG
 }
