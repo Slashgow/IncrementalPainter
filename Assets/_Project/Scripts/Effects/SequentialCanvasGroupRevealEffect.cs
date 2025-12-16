@@ -28,13 +28,13 @@ public class SequentialCanvasGroupRevealEffect : Effect
         }
     }
 
-    private void OnDestroy() => sequence?.Kill(this);
+    private void OnDestroy() => sequence?.Kill();
     public override void DoEffect()
     {
-        sequence?.Kill(this);
+        sequence?.Kill();
 
         sequence = DOTween.Sequence();
-        sequence.SetTarget(this).SetUpdate(true);
+        sequence.SetUpdate(true);
 
         for (int i = 0; i < revealObjects.Count; i++)
         {

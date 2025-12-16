@@ -8,6 +8,7 @@ public class LevelStats
     public float TotalDamageDealt;
     public float TotalTimeAdded;
     public int TotalCurrencyGained;
+    public int CurrentDay;
 
     public LevelStats()
     {
@@ -16,6 +17,7 @@ public class LevelStats
         TotalDamageDealt = 0f;
         TotalTimeAdded = 0f;
         TotalCurrencyGained = 0;
+        CurrentDay = 1;
     }
 
     public void AddDayStats(DayStats dayStats)
@@ -25,5 +27,6 @@ public class LevelStats
         TotalDamageDealt += dayStats.TotalDamageDealt;
         TotalTimeAdded += dayStats.TimeAdded;
         TotalCurrencyGained += dayStats.CurrencyGained;
+        CurrentDay++;
     }
 }

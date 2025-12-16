@@ -25,6 +25,17 @@ public static class Helper
         }
     }
 
+    public static void DestroyAllChildrenWithComponent<T>(this Transform transform) where T : Component
+    {
+        for (int i = transform.childCount - 1; i >= 0; i--)
+        {
+            if(transform.GetChild(i).GetComponent<T>())
+            {
+                GameObject.Destroy(transform.GetChild(i).gameObject);
+            }
+        }
+    }
+
     public static Vector3 CalculateBezierPoint(float t, Vector3 startPoint, Vector3 endPoint, Vector3 controlPoint)
     {
         // Quadratic Bezier curve formula: B(t) = (1-t)²P₀ + 2(1-t)tP₁ + t²P₂

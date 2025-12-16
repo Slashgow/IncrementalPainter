@@ -59,7 +59,7 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
     public void LoadCurrentLevel()
     {
         currentLevelInstance = null;
-        this.transform.DestroyAllChildren();
+        this.transform.DestroyAllChildrenWithComponent<Level>();
 
         GameObject levelGOInstance = Instantiate(CurrentLevelData.LevelPrefab, CurrentLevelData.SpawnOffset, Quaternion.identity, this.transform);
         currentLevelInstance = levelGOInstance.GetComponent<Level>();
@@ -95,6 +95,5 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
         LevelSaveData saveData = GameSaveManager.Instance.LoadLevelData(CurrentLevelData.LevelAuthor, CurrentLevelData.LevelTitle);
         return saveData?.bestRank ?? LevelRank.None;
     }
-    public int GetCurrentLevelDaysElapsed() => completionTracker.GetDaysElapsed();
     public LevelRank GetCurrentProjectedRank() => completionTracker.GetCurrentProjectedRank();
 }

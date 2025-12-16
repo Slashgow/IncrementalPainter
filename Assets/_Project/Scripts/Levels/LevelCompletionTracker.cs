@@ -5,35 +5,9 @@ public class LevelCompletionTracker : MonoBehaviour
 {
     [SerializeField] private inkolorgames.Logger logger;
 
-    private int daysElapsed;
     private LevelData currentLevelData;
     private bool isTracking;
-
-    public int GetDaysElapsed() => daysElapsed;
     public bool IsTracking => isTracking;
-
-    public static event Action<int> OnUpdateDay;
-
-    private void Awake()
-    {
-        GameManager.OnStartGameState += GameManager_OnStartGameState;
-    }
-
-    private void OnDestroy()
-    {
-        if (GameManager.HasInstance)
-            GameManager.OnStartGameState -= GameManager_OnStartGameState;
-    }
-
-    private void GameManager_OnStartGameState(GameManager.GameState state)
-    {
-        if (state == GameManager.GameState.DAY_SUMMARY && isTracking)
-        {
-            daysElapsed++;
-            OnUpdateDay?.Invoke(daysElapsed);
-            logger.Log($"Day {daysElapsed} completed for level '{currentLevelData.LevelTitle}'", this);
-        }
-    }
 
     public void StartTracking(LevelData levelData)
     {
@@ -44,10 +18,7 @@ public class LevelCompletionTracker : MonoBehaviour
         }
 
         currentLevelData = levelData;
-        daysElapsed = 0;
-        OnUpdateDay?.Invoke(daysElapsed);
         isTracking = true;
-
         logger.Log($"Started tracking level '{levelData.LevelTitle}'", this);
     }
 
@@ -59,12 +30,10 @@ public class LevelCompletionTracker : MonoBehaviour
         if (!levelCompleted)
         {
             isTracking = false;
-            daysElapsed = 0;
-            OnUpdateDay?.Invoke(daysElapsed);
             return;
         }
 
-        int finalDays = Mathf.Max(1, daysElapsed);
+        int finalDays = Mathf.Max(1, LevelStatsTracker.Instance.TotalLevelStats.TotalDaysPlayed);
         LevelSaveData saveData = GameSaveManager.Instance.LoadLevelData(currentLevelData.LevelAuthor, currentLevelData.LevelTitle);
         LevelRank newRank = currentLevelData.GetRankForDays(finalDays);
         bool shouldUpdateRank = saveData.bestRank < newRank;
@@ -97,7 +66,6 @@ public class LevelCompletionTracker : MonoBehaviour
         );
 
         isTracking = false;
-        daysElapsed = 0;
     }
 
     public LevelRank GetCurrentProjectedRank()
@@ -105,7 +73,7 @@ public class LevelCompletionTracker : MonoBehaviour
         if (!isTracking || currentLevelData == null)
             return LevelRank.None;
 
-        return currentLevelData.GetRankForDays(Mathf.Max(1, daysElapsed));
+        return currentLevelData.GetRankForDays(Mathf.Max(1, LevelStatsTracker.Instance.TotalLevelStats.TotalDaysPlayed));
     }
     private void AwardRankRewardDifference(LevelRank previousRank, LevelRank newRank)
     {

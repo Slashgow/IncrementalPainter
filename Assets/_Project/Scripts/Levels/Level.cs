@@ -11,6 +11,8 @@ public class Level : MonoBehaviour, ISavable, ILoadable<LevelSaveData>
 
     private LevelData levelData;
     private LevelSaveData saveData;
+
+    public LevelData LevelData => levelData;
     public SpriteRenderer FrameRenderer => frameRenderer;
     public Collider2D FrameCollider => frameCollider;
     public CwChangeCounter ColorChangeCounter => colorChangeCounter;

@@ -14,9 +14,11 @@ public class LevelSaveData
     public int daysToComplete;
     public LevelRank bestRank;
     public bool hasClaimedReward;
+    public int currentDayElapsed;
 
     public LevelSaveData(bool isDone, float completionRatio, string author, string title,
-                         bool isUnlocked = false, int daysToComplete = 0, LevelRank bestRank = LevelRank.None, bool hasClaimedReward = false)
+                         bool isUnlocked = false, int daysToComplete = 0, LevelRank bestRank = LevelRank.None, 
+                         bool hasClaimedReward = false, int currentDayElapsed = 0)
     {
         this.isDone = isDone;
         this.completionRatio = completionRatio;
@@ -26,6 +28,7 @@ public class LevelSaveData
         this.daysToComplete = daysToComplete;
         this.bestRank = bestRank;
         this.hasClaimedReward = hasClaimedReward;
+        this.currentDayElapsed = currentDayElapsed;
     }
 
     public void UpdateRank(int newDaysToComplete, LevelRankThresholds thresholds)

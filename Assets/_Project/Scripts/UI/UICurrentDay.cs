@@ -8,14 +8,15 @@ public class UICurrentDay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dayElapsedText;
     [SerializeField] private bool showCurrentDay = false;
 
-    private void Awake() => LevelCompletionTracker.OnUpdateDay += LevelCompletionTracker_OnUpdateDay;
+    private void Awake() => LevelStatsTracker.OnDayEnded += OnDayEnded;
+    private void OnDestroy() => LevelStatsTracker.OnDayEnded -= OnDayEnded;
 
     private void Start()
     {
-        LevelCompletionTracker_OnUpdateDay(0);
+        OnDayEnded(null, LevelStatsTracker.Instance.TotalLevelStats.CurrentDay);
     }
-    private void OnDestroy() => LevelCompletionTracker.OnUpdateDay -= LevelCompletionTracker_OnUpdateDay;
-    private void LevelCompletionTracker_OnUpdateDay(int dayElapsed)
+
+    private void OnDayEnded(DayStats dayStats, int dayElapsed)
     {
         dayElapsedText.text = $"{dayLocalized.GetLocalizedString()} {(showCurrentDay ? dayElapsed + 1 : dayElapsed)}";
     }

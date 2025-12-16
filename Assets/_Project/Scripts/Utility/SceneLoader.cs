@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : PersistentMonoSingleton<SceneLoader>
 {
+    public void LoadSceneAsync(int buildIndex) => StartCoroutine(LoadSceneAsyncCoroutine(buildIndex));
     public void LoadNextSceneAsync() => StartCoroutine(LoadSceneAsyncCoroutine((SceneManager.GetActiveScene().buildIndex + 1) % 
         SceneManager.sceneCountInBuildSettings));
 

@@ -713,6 +713,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7168970440968985383, guid: dac1b934d104551469f280c1098deb2d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168970440968985383, guid: dac1b934d104551469f280c1098deb2d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168970440968985383, guid: dac1b934d104551469f280c1098deb2d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168970440968985383, guid: dac1b934d104551469f280c1098deb2d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8262450109079061793, guid: dac1b934d104551469f280c1098deb2d, type: 3}
       propertyPath: m_Name
       value: Page General Settings

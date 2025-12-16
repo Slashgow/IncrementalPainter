@@ -2,7 +2,7 @@
 using inkolorgames;
 using UnityEngine;
 
-public class DayStatsTracker : MonoSingleton<DayStatsTracker>
+public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILoadable<int>
 {
     [SerializeField] private inkolorgames.Logger logger;
 
@@ -13,7 +13,7 @@ public class DayStatsTracker : MonoSingleton<DayStatsTracker>
     public LevelStats TotalLevelStats => totalLevelStats;
 
     public static event Action<DayStats> OnDayStatsUpdated;
-    public static event Action<DayStats> OnDayEnded;
+    public static event Action<DayStats, int> OnDayEnded;
 
     protected override void Awake()
     {
@@ -60,12 +60,18 @@ public class DayStatsTracker : MonoSingleton<DayStatsTracker>
             EndCurrentDay();
     }
 
-    private void OnLevelStart(Level level) => ResetLevelStats();
+    private void OnLevelStart(Level level)
+    {
+        ResetLevelStats();
+        totalLevelStats.CurrentDay = LoadCurrentDayElapsed(level);
+    }
+
     private void StartNewDay() => currentDayStats = new DayStats();
     private void EndCurrentDay()
     {
         totalLevelStats.AddDayStats(currentDayStats);
-        OnDayEnded?.Invoke(currentDayStats);
+        Save();
+        OnDayEnded?.Invoke(currentDayStats, totalLevelStats.CurrentDay);
     }
 
     private void ResetLevelStats()
@@ -121,4 +127,40 @@ public class DayStatsTracker : MonoSingleton<DayStatsTracker>
     }
     public DayStats GetCurrentDayStats() => currentDayStats;
     public LevelStats GetTotalLevelStats() => totalLevelStats;
+
+    public void Save()
+    {
+        if (!LevelManager.HasInstance)
+            return;
+
+        LevelData levelData = LevelManager.Instance.CurrentLevelData;
+        LevelSaveData saveData = GameSaveManager.Instance.LoadLevelData(levelData.LevelAuthor, levelData.LevelTitle);
+
+        GameSaveManager.Instance.SaveLevelData(
+            saveData.isDone,
+            saveData.completionRatio,
+            levelData.LevelAuthor,
+            levelData.LevelTitle,
+            saveData.isUnlocked,
+            saveData.daysToComplete,
+            saveData.bestRank,
+            saveData.hasClaimedReward,
+            totalLevelStats.CurrentDay 
+        );
+    }
+
+    public int Load() => throw new NotImplementedException();
+
+    public int LoadCurrentDayElapsed(Level level)
+    {
+        LevelSaveData saveData = GameSaveManager.Instance.LoadLevelData(level.LevelData.LevelAuthor, level.LevelData.LevelTitle);
+
+        if (saveData.currentDayElapsed > 0)
+        {
+            logger.Log($"Loaded level progress: Day {totalLevelStats.CurrentDay}", this);
+            return saveData.currentDayElapsed; 
+        }
+
+        return 0;
+    }
 }

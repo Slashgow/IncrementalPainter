@@ -13,10 +13,10 @@ public class UIDayStatsSummary : MonoBehaviour
 
     private DayStats currentDayStats;
 
-    private void Awake() => DayStatsTracker.OnDayEnded += OnDayEnded;
-    private void OnDestroy() => DayStatsTracker.OnDayEnded -= OnDayEnded;
+    private void Awake() => LevelStatsTracker.OnDayEnded += OnDayEnded;
+    private void OnDestroy() => LevelStatsTracker.OnDayEnded -= OnDayEnded;
 
-    private void OnDayEnded(DayStats dayStats)
+    private void OnDayEnded(DayStats dayStats, int currentDay)
     {
         currentDayStats = dayStats;
         UpdateDisplay(dayStats);

@@ -2,6 +2,7 @@
 using System.IO;
 using inkolorgames;
 using Newtonsoft.Json;
+using PaintCore;
 using SaveUtility;
 using UnityEngine;
 
@@ -41,7 +42,7 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
     }
 
     public void SaveLevelData(bool isDone, float completionPercentage, string author, string title, bool isUnlocked = false, 
-        int daysToComplete = 0, LevelRank bestRank = LevelRank.None, bool hasClaimedReward = false)
+        int daysToComplete = -1, LevelRank bestRank = LevelRank.None, bool hasClaimedReward = false, int currentDayElapsed = -1)
     {
         gameSaveData.levels.TryGetValue(SavePath.GetLevelID(author, title), out LevelSaveData existingEntry);
 
@@ -51,15 +52,17 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
             existingEntry.isDone = isDone;
             existingEntry.completionRatio = completionPercentage;
             existingEntry.isUnlocked = isUnlocked;
-            existingEntry.daysToComplete = daysToComplete;
-            existingEntry.bestRank = bestRank;
+            existingEntry.daysToComplete = daysToComplete == - 1 ? existingEntry.daysToComplete : daysToComplete;
+            existingEntry.bestRank = bestRank == LevelRank.None ? existingEntry.bestRank : bestRank;
             existingEntry.hasClaimedReward = hasClaimedReward;
+            existingEntry.currentDayElapsed = currentDayElapsed == -1 ? existingEntry.currentDayElapsed : currentDayElapsed;
         }
         else
         {
             logger.Log($"Saving unexisting {SavePath.GetLevelID(author, title)}", this);
             gameSaveData.levels.Add(SavePath.GetLevelID(author, title), 
-                new LevelSaveData(isDone, completionPercentage, author, title, isUnlocked, daysToComplete, bestRank, hasClaimedReward));
+                new LevelSaveData(isDone, completionPercentage, author, title, isUnlocked, daysToComplete, bestRank, 
+                hasClaimedReward, currentDayElapsed));
         }
 
         SaveGameData();
@@ -85,6 +88,13 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
     {
         gameSaveData.levels.Remove(SavePath.GetLevelID(author, title));
         SaveGameData();
+    }
+
+    public void ClearLevelProgress(string author, string title, string saveName)
+    {
+        LevelSaveData saveData = LoadLevelData(author, title);
+        SaveLevelData(false, 0, author, title, saveData.isUnlocked, 0, saveData.bestRank, saveData.hasClaimedReward, 0);
+        CwCommon.ClearSave(saveName, SavePath.SaveFolderSprites);
     }
 
     public void SaveSkillTree(SkillTreeSaveData skillTreeData)
