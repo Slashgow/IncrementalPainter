@@ -44,9 +44,11 @@ public class AutoClickerVisual : MonoBehaviour
     private void HandleClick(Vector3 position)
     {
         scaleTween?.Kill();
-        scaleTween = this.transform.DOScale(-endScaleBonus, autoClicker.ClickTimerInterval)
+
+        this.transform.localScale = Vector3.one * targetScale;
+
+        scaleTween = this.transform.DOScale(targetScale - endScaleBonus, autoClicker.ClickTimerInterval)
             .SetEase(curve)
-            .SetRelative(true)
             .SetUpdate(autoClicker.UseRealTime)
             .SetRecyclable(true);
     }

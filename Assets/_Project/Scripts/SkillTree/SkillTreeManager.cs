@@ -254,6 +254,65 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
             $"{costLog}\nTotal Upgrades bought: {totalUpgradesBought}", this);
         Save();
     }
+    public void RefundAndResetSkillTree()
+    {
+        int totalCurrencyRefund = 0;
+        int totalSkillPointsRefund = 0;
+
+        CalculateRefundCost(ref totalCurrencyRefund, ref totalSkillPointsRefund);
+        ResetSkillTree();
+        RefundCurrency(totalCurrencyRefund);
+        RefundSkillPoints(totalSkillPointsRefund);
+
+        Save();
+        logger.Log($"Skill tree reset complete. Refunded: {totalCurrencyRefund} currency, {totalSkillPointsRefund} skill points", this);
+    }
+
+    private void CalculateRefundCost(ref int totalCurrencyRefund, ref int totalSkillPointsRefund)
+    {
+        foreach (var kvp in leveledSkills)
+        {
+            ISkillLevelData skillLevelData = kvp.Value;
+            SkillDataBase skillData = GetSkillDataBase(kvp.Key);
+
+            if (skillData == null)
+                continue;
+
+            for (int level = 1; level <= skillLevelData.CurrentLevel; level++)
+            {
+                totalCurrencyRefund += skillData.GetCostForLevel(level);
+                totalSkillPointsRefund += skillData.GetSkillPointCostForLevel(level);
+            }
+        }
+    }
+
+    private void RefundSkillPoints(int totalSkillPointsRefund)
+    {
+        if (totalSkillPointsRefund > 0)
+        {
+            SkillPointManager.Instance.AddSkillPoints(totalSkillPointsRefund);
+            logger.Log($"Refunded {totalSkillPointsRefund} skill points", this);
+        }
+    }
+
+    private void RefundCurrency(int totalCurrencyRefund)
+    {
+        if (totalCurrencyRefund > 0)
+        {
+            CurrencyManager.Instance.AddCurrency(totalCurrencyRefund);
+            logger.Log($"Refunded {totalCurrencyRefund} currency", this);
+        }
+    }
+
+    private SkillDataBase GetSkillDataBase(string skillID)
+    {
+        foreach (var node in allSkillNodes)
+        {
+            if (node != null && node.SkillDataBase != null && node.SkillDataBase.SkillID == skillID)
+                return node.SkillDataBase;
+        }
+        return null;
+    }
 
     public bool IsSkillUnlocked(string skillID) => leveledSkills[skillID].IsUnlocked;
 

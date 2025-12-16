@@ -37,6 +37,6 @@ public abstract class SkillDataBase : ScriptableObject
         if(levelRequirement != null)
             return levelRequirement.SkillPointCost;
 
-        return -1;
+        return 0;
     }
 }
