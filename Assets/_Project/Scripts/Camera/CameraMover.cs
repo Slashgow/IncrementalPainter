@@ -47,26 +47,27 @@ public class CameraMover : MonoBehaviour
         IsMovingWithWASD = true;
         IsMovementLocked = false;
 
-        GameManager.OnStartGameState += GameManager_OnStartGameState;
-
         LockMovement();
     }
-    private void Start()
+
+    private void OnEnable()
     {
         inputHandler.OnRecenterCamera += InputHandler_OnRecenterCamera;
+        GameManager.OnStartGameState += GameManager_OnStartGameState;
+    }
+
+    private void OnDisable()
+    {
+        inputHandler.OnRecenterCamera -= InputHandler_OnRecenterCamera;
+        GameManager.OnStartGameState -= GameManager_OnStartGameState;
+    }
+
+    private void Start()
+    { 
         targetPosition = transform.position;
         targetZoom = cam.orthographicSize;
     }
 
-    private void OnDestroy()
-    {
-        inputHandler.OnRecenterCamera -= InputHandler_OnRecenterCamera;
-
-        if (GameManager.HasInstance)
-        {
-            GameManager.OnStartGameState -= GameManager_OnStartGameState;
-        }
-    }
     private void GameManager_OnStartGameState(GameManager.GameState state)
     {
         switch (state)

@@ -5,16 +5,8 @@ public class MagneterVisual : MonoBehaviour
     [SerializeField] private Magneter magneter;
     [SerializeField] private ParticleSystem ringParticleSystem;
 
-    private void Start()
-    {
-        GameManager.OnStartGameState += GameManager_OnStartGameState;
-    }
-
-    private void OnDestroy()
-    {
-        if(GameManager.HasInstance)
-            GameManager.OnStartGameState -= GameManager_OnStartGameState;
-    }
+    private void OnEnable() => GameManager.OnStartGameState += GameManager_OnStartGameState;
+    private void OnDisable() => GameManager.OnStartGameState -= GameManager_OnStartGameState;
 
     private void GameManager_OnStartGameState(GameManager.GameState gameState)
     {

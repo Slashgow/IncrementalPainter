@@ -30,20 +30,24 @@ public class VignetteEffect : SpriteCompletionEffect
 
     private Tween colorTween;
 
-    void Start()
+    protected override void OnEnable()
     {
-        GameManager.OnStartGameState += GameManager_OnStartGameState;
+        base.OnEnable();
+
         globalVolume = FindAnyObjectByType<Volume>();
 
         if (globalVolume.profile.TryGet(out vignette))
         {
             UpdateVignetteBasedOnRatio();
         }
+
+        GameManager.OnStartGameState += GameManager_OnStartGameState;
     }
-    private void OnDestroy()
+
+    protected override void OnDisable()
     {
-        if (GameManager.HasInstance)
-            GameManager.OnStartGameState -= GameManager_OnStartGameState;
+        base.OnDisable();
+        GameManager.OnStartGameState -= GameManager_OnStartGameState;
 
         if (colorTween != null)
             colorTween.Kill();
@@ -67,8 +71,6 @@ public class VignetteEffect : SpriteCompletionEffect
                 break;
         }
     }
-
-
     public override void DoEffect() => UpdateVignetteBasedOnRatio();
     private void UpdateVignetteBasedOnRatio()
     {

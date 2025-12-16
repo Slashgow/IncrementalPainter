@@ -11,11 +11,8 @@ public class HideOnPause : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (GameManager.HasInstance)
-        {
-            GameManager.OnPause -= GameManager_OnPause;
-            GameManager.OnResume -= GameManager_OnResume;
-        }
+        GameManager.OnPause -= GameManager_OnPause;
+        GameManager.OnResume -= GameManager_OnResume;
     }
 
     private void GameManager_OnResume() => spriteRenderer.enabled = true;

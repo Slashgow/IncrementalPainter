@@ -24,7 +24,6 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
         GameManager.OnStartGameState += HandleGameStateChange;
         LevelManager.OnStartLevel += OnLevelStart;
         CurrencyManager.OnCurrencyGained += RecordCurrencyGained;
-
         SimpleDamageable.OnAnyDamageableDie += RecordEnemyDestroyed;
         PaintStateManager.OnAddedTimeToCountdown += RecordTimeAddedToCountdown;
         PaintSpawner.OnAdditionalSpawn += RecordAdditionalPaintBlobSpawned;
@@ -41,15 +40,9 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
         AutoClickerDamageor.OnAutoClickerDamage -= RecordAutoClickerDamage;
         BombDamageor.OnBombDamage -= RecordBombDamage;
         BrushSwipeDamageor.OnBrushSwipeDamage -= RecordBrushSwipeDamage;
-
-        if (GameManager.HasInstance)
-            GameManager.OnStartGameState -= HandleGameStateChange;
-
-        if (LevelManager.HasInstance)
-            LevelManager.OnStartLevel -= OnLevelStart;
-
-        if(CurrencyManager.HasInstance)
-            CurrencyManager.OnCurrencyGained -= RecordCurrencyGained;
+        GameManager.OnStartGameState -= HandleGameStateChange;
+        LevelManager.OnStartLevel -= OnLevelStart;
+        CurrencyManager.OnCurrencyGained -= RecordCurrencyGained;
     }
 
     private void HandleGameStateChange(GameManager.GameState state)
@@ -63,7 +56,7 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
     private void OnLevelStart(Level level)
     {
         ResetLevelStats();
-        totalLevelStats.CurrentDay = LoadCurrentDayElapsed(level);
+        LoadLevelProgress(level);
     }
 
     private void StartNewDay() => currentDayStats = new DayStats();
@@ -151,16 +144,20 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
 
     public int Load() => throw new NotImplementedException();
 
-    public int LoadCurrentDayElapsed(Level level)
+    public void LoadLevelProgress(Level level)
     {
         LevelSaveData saveData = GameSaveManager.Instance.LoadLevelData(level.LevelData.LevelAuthor, level.LevelData.LevelTitle);
 
-        if (saveData.currentDayElapsed > 0)
+        if (saveData.isDone)
         {
-            logger.Log($"Loaded level progress: Day {totalLevelStats.CurrentDay}", this);
-            return saveData.currentDayElapsed; 
+            GameSaveManager.Instance.ClearLevelProgress(level.LevelData.LevelAuthor, level.LevelData.LevelTitle);
+            totalLevelStats.CurrentDay = 1;
+            logger.Log($"Level was completed, starting fresh from Day 1", this);
         }
-
-        return 0;
+        else if (saveData.currentDay > 0)
+        {
+            totalLevelStats.CurrentDay = saveData.currentDay;
+            logger.Log($"Loaded level progress: Day {totalLevelStats.CurrentDay}", this);
+        }
     }
 }

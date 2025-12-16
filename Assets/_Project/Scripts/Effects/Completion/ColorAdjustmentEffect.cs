@@ -12,10 +12,9 @@ public class ColorAdjustmentEffect : SpriteCompletionEffect
     private Volume globalVolume;
     private ColorAdjustments colorAdjustement;
 
-
-    void Start()
+    protected override void OnEnable()
     {
-        GameManager.OnStartGameState += GameManager_OnStartGameState;
+        base.OnEnable();
 
         globalVolume = FindAnyObjectByType<Volume>();
 
@@ -23,12 +22,14 @@ public class ColorAdjustmentEffect : SpriteCompletionEffect
         {
             UpdateColorBasedOnRatio();
         }
+
+        GameManager.OnStartGameState += GameManager_OnStartGameState;
     }
 
-    private void OnDestroy()
+    protected override void OnDisable()
     {
-        if(GameManager.HasInstance)
-            GameManager.OnStartGameState -= GameManager_OnStartGameState;
+        base.OnDisable();
+        GameManager.OnStartGameState -= GameManager_OnStartGameState;
     }
 
     private void GameManager_OnStartGameState(GameManager.GameState gameState)

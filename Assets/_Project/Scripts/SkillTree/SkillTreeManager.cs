@@ -48,11 +48,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         GameManager.OnStartGameState += GameManager_OnStartGameState;
     }
 
-    private void OnDestroy()
-    {
-        if(GameManager.HasInstance)
-            GameManager.OnStartGameState -= GameManager_OnStartGameState;
-    }
+    private void OnDestroy() => GameManager.OnStartGameState -= GameManager_OnStartGameState;
     private void GameManager_OnStartGameState(GameManager.GameState gameState)
     {
         if(gameState != GameManager.GameState.UPGRADE)

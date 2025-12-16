@@ -56,26 +56,18 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
         base.Awake();
         isInitialized = false;
         SimpleDamageable.OnAnyDamageableDie += SimpleDamageable_OnAnyDamageableDie;
+        PaintStateManager.OnStartPaintState += PaintStateManager_OnStartPaintState;
     }
 
     void Start()
     {
-        if (spriteRenderer == null)
-        {
-            spriteRenderer = LevelManager.Instance.CurrentLevelInstance.FrameRenderer;
-        }
-
-        PaintStateManager.OnStartPaintState += PaintStateManager_OnStartPaintState;
-
         if (autoStart && !isInitialized)
             InitializeSpawning();
     }
 
     private void OnDestroy()
     {
-        if(PaintStateManager.HasInstance)
-            PaintStateManager.OnStartPaintState -= PaintStateManager_OnStartPaintState;
-
+        PaintStateManager.OnStartPaintState -= PaintStateManager_OnStartPaintState;
         SimpleDamageable.OnAnyDamageableDie -= SimpleDamageable_OnAnyDamageableDie;
         StopSpawning();
     }
@@ -83,6 +75,9 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
 
     public void InitializeSpawning()
     {
+        if (spriteRenderer == null)
+            spriteRenderer = LevelManager.Instance.CurrentLevelInstance.FrameRenderer;
+
         isInitialized = true;
         for (int i = 0; i < InitialCount; i++)
         {

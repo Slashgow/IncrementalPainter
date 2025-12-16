@@ -31,12 +31,8 @@ public class UICountdown : MonoBehaviour
     private void OnDestroy()
     {
         timeAddedTimer?.Cancel();
-
-        if (PaintStateManager.HasInstance)
-        {
-            PaintStateManager.OnStartPaintState -= HandleStartPaintState;
-            PaintStateManager.OnAddedTimeToCountdown -= HandleTimeAdded;
-        }           
+        PaintStateManager.OnStartPaintState -= HandleStartPaintState;
+        PaintStateManager.OnAddedTimeToCountdown -= HandleTimeAdded;       
     }
 
     private void UpdateCountdownText(float timeRemaining)

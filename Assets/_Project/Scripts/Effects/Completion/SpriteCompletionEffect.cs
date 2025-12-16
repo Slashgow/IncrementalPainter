@@ -12,7 +12,7 @@ public abstract class SpriteCompletionEffect : Effect
         changeCounter.OnUpdated += ChangeCounter_OnUpdated;
     }
 
-    private void OnDisable() => changeCounter.OnUpdated -= ChangeCounter_OnUpdated;
+    protected virtual void OnDisable() => changeCounter.OnUpdated -= ChangeCounter_OnUpdated;
 
     private void ChangeCounter_OnUpdated() => DoEffect();
 }

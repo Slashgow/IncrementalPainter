@@ -13,6 +13,7 @@ public class AutoClickerVisual : MonoBehaviour
 
     private Tween scaleTween;
     private float baseRadiusSpriteCircle;
+    private float targetScale;
 
     private void Awake()
     {
@@ -52,6 +53,7 @@ public class AutoClickerVisual : MonoBehaviour
     private void MatchAutoClickerRadius()
     {
         scaleTween?.Kill();
-        this.transform.localScale = Vector3.one * (damageor.DamageRadius) / baseRadiusSpriteCircle;
+        targetScale = damageor.DamageRadius / baseRadiusSpriteCircle;
+        this.transform.localScale = Vector3.one * targetScale;
     }
 }

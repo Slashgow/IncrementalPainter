@@ -16,8 +16,8 @@ public class UICurrentDay : MonoBehaviour
         OnDayEnded(null, LevelStatsTracker.Instance.TotalLevelStats.CurrentDay);
     }
 
-    private void OnDayEnded(DayStats dayStats, int dayElapsed)
+    private void OnDayEnded(DayStats dayStats, int currentDay)
     {
-        dayElapsedText.text = $"{dayLocalized.GetLocalizedString()} {(showCurrentDay ? dayElapsed + 1 : dayElapsed)}";
+        dayElapsedText.text = $"{dayLocalized.GetLocalizedString()} {(showCurrentDay ? currentDay: currentDay - 1)}";
     }
 }

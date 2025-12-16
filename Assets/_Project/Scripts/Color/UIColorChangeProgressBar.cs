@@ -17,13 +17,11 @@ public class UIColorChangeProgressBar : MonoBehaviour
         counter.OnUpdated += ColorChangeCounter_OnUpdated;
         GameManager.OnStartGameState += GameManager_OnStartGameState;
     }
-    private void OnDestroy()
-    {
-        if (counter != null)
-            counter.OnUpdated -= ColorChangeCounter_OnUpdated;
 
-        if (GameManager.HasInstance)
-            GameManager.OnStartGameState -= GameManager_OnStartGameState;
+    private void OnDisable()
+    {
+        counter.OnUpdated -= ColorChangeCounter_OnUpdated;
+        GameManager.OnStartGameState -= GameManager_OnStartGameState;
     }
 
     private void GameManager_OnStartGameState(GameManager.GameState state)

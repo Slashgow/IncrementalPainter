@@ -60,6 +60,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void StartNextLevel()
     {
+        Resume();
         LevelManager.Instance.SetNextLevelAsCurrentLevel();
         SceneLoader.Instance.ReloadSceneAsync();
     }

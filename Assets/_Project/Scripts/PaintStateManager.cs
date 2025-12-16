@@ -31,11 +31,8 @@ public class PaintStateManager : MonoSingleton<PaintStateManager>
     private void OnDestroy()
     {
         SimpleDamageable.OnAnyDamageableDie -= SimpleDamageable_OnAnyDamageableDie;
-        if (GameManager.HasInstance)
-            GameManager.OnStartGameState -= HandleStartGameState;
-
-        if(LevelManager.HasInstance)
-            LevelManager.OnEndLevel -= LevelManager_OnEndLevel;
+        GameManager.OnStartGameState -= HandleStartGameState;
+        LevelManager.OnEndLevel -= LevelManager_OnEndLevel;
     }
     private void HandleStartGameState(GameManager.GameState state)
     {

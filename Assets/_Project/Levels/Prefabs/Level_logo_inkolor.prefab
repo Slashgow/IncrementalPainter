@@ -593,7 +593,7 @@ MonoBehaviour:
   undoRedo: 0
   stateLimit: 10
   saveLoad: 1
-  saveName: egg_logo_inkolor
+  saveName: Inkolor_Inkolor
   width: 512
   height: 512
   texture: {fileID: 0}
@@ -636,7 +636,7 @@ MonoBehaviour:
   readAtStart: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 7729110937390697375}
-  cooldown: -3952.202
+  cooldown: -3954.2131
   maskMesh: {fileID: 0}
   maskSubmesh: 0
   maskTexture: {fileID: 0}

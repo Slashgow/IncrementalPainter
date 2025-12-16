@@ -19,22 +19,25 @@ public class Level : MonoBehaviour, ISavable, ILoadable<LevelSaveData>
     public bool IsDoneCondition => colorChangeCounter.Ratio >= levelData.PercentCompletionCondition;
 
     public event Action OnEndLevel;
+
+    private void OnEnable()
+    {
+        colorChangeCounter.OnUpdated += ColorChangeCounter_OnUpdated;
+        GameManager.OnStartGameState += GameManager_OnStartGameState;
+    }
+
+    private void OnDisable()
+    {
+        colorChangeCounter.OnUpdated -= ColorChangeCounter_OnUpdated;
+        GameManager.OnStartGameState -= GameManager_OnStartGameState;
+    }
+
     public void Initialize(LevelData levelData)
     {
         this.levelData = levelData;
         saveData = Load();
 
         drawingRenderer.sprite = levelData.LevelDrawing;
-
-        colorChangeCounter.OnUpdated += ColorChangeCounter_OnUpdated;
-        GameManager.OnStartGameState += GameManager_OnStartGameState;
-    }
-
-    private void OnDestroy()
-    {
-        colorChangeCounter.OnUpdated -= ColorChangeCounter_OnUpdated;
-        if(GameManager.HasInstance)
-            GameManager.OnStartGameState -= GameManager_OnStartGameState;
     }
 
     private void ColorChangeCounter_OnUpdated()
