@@ -16,6 +16,16 @@ public class UnlockableLevel : IUnlockable
   
 
     private LevelSaveData saveData;
+    public LevelSaveData SaveData
+    {
+        get
+        {
+            if (saveData == null)
+                saveData = GameSaveManager.Instance.LoadLevelData(levelData.LevelAuthor, levelData.LevelTitle);
+
+            return saveData;
+        }
+    }
     public bool CheckUnlockCondition()
     {
         if (unlockConditions == null || unlockConditions.Count == 0)

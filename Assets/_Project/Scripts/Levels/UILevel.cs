@@ -2,6 +2,7 @@
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 public class UILevel : MonoBehaviour, IUISelectable<LevelData>
@@ -11,8 +12,19 @@ public class UILevel : MonoBehaviour, IUISelectable<LevelData>
     [SerializeField] private Image levelDrawing;
 
     [SerializeField] private Selectable selectable;
+
+    [Header("Lock UI Elements")]
     [SerializeField] private Image lockBackground;
     [SerializeField] private TextMeshProUGUI lockDescription;
+
+    [Header("Rank UI Elements")]
+    [SerializeField] private Image rankIconImage;
+    [SerializeField] private Sprite sRankIcon, aRankIcon, bRankIcon, cRankIcon, dRankIcon;
+
+    [Header("On-Going UI Elements")]
+    [SerializeField] private GameObject onGoingParent;
+    [SerializeField] private TextMeshProUGUI onGoingText;
+    [SerializeField] private LocalizedString dayLocalizedString;
 
     private UnlockableLevel unlockableLevel;
     public event Action<LevelData> OnSelectEvent;
@@ -40,13 +52,36 @@ public class UILevel : MonoBehaviour, IUISelectable<LevelData>
         textAuthor.text = $"{unlockableLevel.LevelData.LevelAuthor} - {unlockableLevel.LevelData.LevelDate}";
         levelDrawing.sprite = unlockableLevel.LevelData.LevelDrawing;
 
+        LevelSaveData levelSaveData = unlockableLevel.SaveData;
+        TryDisplayOnGoingInfo(levelSaveData);
+        TryDisplayBestRank(levelSaveData);
+        TryDisplayUnlockConditions();
+    }
+
+    private void TryDisplayOnGoingInfo(LevelSaveData levelSaveData)
+    {
+        if(!levelSaveData.isDone && levelSaveData.completionRatio > 0f)
+        {
+            onGoingParent.SetActive(true);
+            onGoingText.text = $"{dayLocalizedString.GetLocalizedString()} {levelSaveData.currentDay} \n " +
+                $"{Mathf.RoundToInt(levelSaveData.completionRatio * 100f)}/" +
+                $"{Mathf.RoundToInt(unlockableLevel.LevelData.PercentCompletionCondition * 100f)} %";
+        }
+        else
+        {
+            onGoingParent.SetActive(false);
+        }
+    }
+
+    private void TryDisplayUnlockConditions()
+    {
         if (unlockableLevel.IsUnlocked)
         {
             selectable.interactable = true;
             lockBackground.gameObject.SetActive(false);
             lockDescription.gameObject.SetActive(false);
         }
-        else 
+        else
         {
             selectable.interactable = false;
             lockBackground.gameObject.SetActive(true);
@@ -59,6 +94,39 @@ public class UILevel : MonoBehaviour, IUISelectable<LevelData>
             }
             lockDescription.text = conditionDescription.ToString();
 
+        }
+    }
+
+    private void TryDisplayBestRank(LevelSaveData levelSaveData)
+    {
+        if (levelSaveData.bestRank != LevelRank.None)
+        {
+            rankIconImage.gameObject.SetActive(true);
+            switch (levelSaveData.bestRank)
+            {
+                case LevelRank.S:
+                    rankIconImage.sprite = sRankIcon;
+                    break;
+                case LevelRank.A:
+                    rankIconImage.sprite = aRankIcon;
+                    break;
+                case LevelRank.B:
+                    rankIconImage.sprite = bRankIcon;
+                    break;
+                case LevelRank.C:
+                    rankIconImage.sprite = cRankIcon;
+                    break;
+                case LevelRank.D:
+                    rankIconImage.sprite = dRankIcon;
+                    break;
+                default:
+                    rankIconImage.gameObject.SetActive(false);
+                    break;
+            }
+        }
+        else
+        {
+            rankIconImage.gameObject.SetActive(false);
         }
     }
 }

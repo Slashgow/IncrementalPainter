@@ -15,8 +15,8 @@ MonoBehaviour:
   levelTitle: Inkolor
   levelAuthor: Inkolor
   levelDate: 2025
-  artMovement: 0
-  percentCompletionCondition: 0.95
+  artMovement: 8
+  percentCompletionCondition: 0.145
   levelDrawing: {fileID: 21300000, guid: 525d5d2566bd7ad4b8bc4dd4e1f1e703, type: 3}
   levelPrefab: {fileID: 8944416080909895153, guid: a8c71b5bf1284c547a7b0647fb2abe15, type: 3}
   cameraPaintZoom: 4.5
