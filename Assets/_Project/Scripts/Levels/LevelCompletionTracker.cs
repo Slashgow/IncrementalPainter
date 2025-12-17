@@ -9,6 +9,8 @@ public class LevelCompletionTracker : MonoBehaviour
     private bool isTracking;
     public bool IsTracking => isTracking;
 
+    public static event Action<int, int> OnGiveReward;
+
     public void StartTracking(LevelData levelData)
     {
         if (levelData == null)
@@ -89,11 +91,11 @@ public class LevelCompletionTracker : MonoBehaviour
 
         int newRankSkillPoints = currentLevelData.GetSkillPointReward(newRank);
         int previousRankSkillPoints = currentLevelData.GetSkillPointReward(previousClaimedRank);
-        int skillPointDifference = newRankSkillPoints - previousRankSkillPoints;
+        int skillPointDifference = Mathf.Max(0, newRankSkillPoints - previousRankSkillPoints);
 
         int newRankCurrency = currentLevelData.GetCurrencyReward(newRank);
         int previousRankCurrency = currentLevelData.GetCurrencyReward(previousClaimedRank);
-        int currencyDifference = newRankCurrency - previousRankCurrency;
+        int currencyDifference = Mathf.Max(0, newRankCurrency - previousRankCurrency);
 
         if (skillPointDifference > 0)
         {
@@ -114,6 +116,8 @@ public class LevelCompletionTracker : MonoBehaviour
             else
                 logger.Log($"Awarded {currencyDifference} bonus currency for improving rank! (Total earned from this level: {newRankCurrency})", this);
         }
+
+        OnGiveReward?.Invoke(skillPointDifference, currencyDifference);
     }
 
 }

@@ -1,5 +1,6 @@
 using System;
 using Coffee.UIExtensions;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -12,20 +13,29 @@ public class UIRewardDaySummary : MonoBehaviour
     [SerializeField] private Image rankIconImage;
     [SerializeField] private Sprite sRankIcon, aRankIcon, bRankIcon, cRankIcon, dRankIcon;
 
+    [SerializeField] private TextMeshProUGUI rewardText;
+    [SerializeField] private GameObject rewardLineSeparator;
+    [SerializeField] private Color currencyColor, skillPointColor;
+
     [SerializeField] private UnityEvent OnAction;
 
     private Timer timerBeforeAction;
+    private string currencyColorHex;
+    private string skillPointHex;
 
     private void OnEnable()
     {
+        currencyColorHex = ColorUtility.ToHtmlStringRGB(currencyColor);
+        skillPointHex = ColorUtility.ToHtmlStringRGB(skillPointColor);
         LevelManager.OnEndLevel += LevelManager_OnEndLevel;
-
+        LevelCompletionTracker.OnGiveReward += TryDisplayReward;
         HideReward();
     }
 
     private void OnDisable()
     {
         timerBeforeAction?.Cancel();
+        LevelCompletionTracker.OnGiveReward -= TryDisplayReward;
         LevelManager.OnEndLevel -= LevelManager_OnEndLevel;
     }
 
@@ -33,6 +43,8 @@ public class UIRewardDaySummary : MonoBehaviour
     {
         rankIconImage.gameObject.SetActive(false);
         particleReward.gameObject.SetActive(false);
+        rewardText.gameObject.SetActive(false);
+        rewardLineSeparator.SetActive(false);
     }
 
     private void LevelManager_OnEndLevel()
@@ -44,6 +56,15 @@ public class UIRewardDaySummary : MonoBehaviour
         timerBeforeAction = Timer.Register(timeBeforeAction, onComplete: () => OnAction?.Invoke(), useRealTime: true);
 
         rankIconImage.gameObject.SetActive(true);
+    }
+
+    private void TryDisplayReward(int skillPointEarned, int currencyEarned)
+    {
+        rewardText.gameObject.SetActive(true);
+        rewardLineSeparator.SetActive(true);
+
+        rewardText.text = $"{(currencyEarned > 0 ? $"<color=#{currencyColorHex}>+{currencyEarned} $</color>" : "")} " +
+                          $"{(skillPointEarned > 0 ? $"<color=#{skillPointHex}>+{skillPointEarned} SP</color>" : "")}"; 
     }
 
     public void DisplayParticleEffect()
