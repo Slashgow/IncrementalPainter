@@ -187,6 +187,7 @@ Shader "Cartoon FX/Remaster/Particle Ubershader"
 			{
 				Name "BASE_URP"
 				Tags { "LightMode"="UniversalForward" }
+				ZTest Always
 
 				CGPROGRAM
 
@@ -232,6 +233,7 @@ Shader "Cartoon FX/Remaster/Particle Ubershader"
 			{
 				Name "BASE_URP"
 				Tags { "LightMode"="Universal2D" }
+				ZTest Always
 
 				CGPROGRAM
 
@@ -274,7 +276,8 @@ Shader "Cartoon FX/Remaster/Particle Ubershader"
 			}
 
 			//--------------------------------------------------------------------------------------------------------------------------------
-
+			/*
+// vvvv Comment out "ShadowCaster" pass whole vvvv
 			Pass
 			{
 				Name "ShadowCaster"
@@ -312,6 +315,8 @@ Shader "Cartoon FX/Remaster/Particle Ubershader"
 
 				ENDCG
 			}
+			// ^^^^ Comment out "ShadowCaster" pass whole ^^^^
+*/
 		}
 /*** END URP ***/
 

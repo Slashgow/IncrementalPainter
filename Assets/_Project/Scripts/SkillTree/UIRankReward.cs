@@ -17,13 +17,6 @@ public class UIRankReward : MonoBehaviour
     private void Start()
     {
         Initialize(LevelManager.Instance.CurrentLevelData);
-        LevelManager.OnStartLevel += OnLevelStart;
-    }
-
-    private void OnDestroy()
-    {
-        if (LevelManager.HasInstance)
-            LevelManager.OnStartLevel -= OnLevelStart;
     }
     private void OnLevelStart(Level level) => Initialize(LevelManager.Instance.CurrentLevelData);
 

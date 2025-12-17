@@ -54,7 +54,6 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
             existingEntry.isUnlocked = isUnlocked;
             existingEntry.daysToComplete = daysToComplete == - 1 ? existingEntry.daysToComplete : daysToComplete;
             existingEntry.bestRank = bestRank == LevelRank.None ? existingEntry.bestRank : bestRank;
-            existingEntry.hasClaimedReward = hasClaimedReward;
             existingEntry.currentDay = currentDay == -1 ? existingEntry.currentDay : currentDay;
         }
         else
@@ -93,7 +92,7 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
     public void ClearLevelProgress(string author, string title)
     {
         LevelSaveData saveData = LoadLevelData(author, title);
-        SaveLevelData(false, 0, author, title, saveData.isUnlocked, 0, saveData.bestRank, saveData.hasClaimedReward, 1);
+        SaveLevelData(false, 0, author, title, saveData.isUnlocked, 0, saveData.bestRank, false, 1);
         CwCommon.ClearSave(SavePath.GetLevelID(author, title), SavePath.SaveFolderSprites);
     }
 

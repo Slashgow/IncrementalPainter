@@ -253,7 +253,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -275,7 +275,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -284,6 +284,28 @@ TextureImporter:
       bones: []
       spriteID: ca9806764b69e9a43965b68b21c37d4b
       internalID: -1132794835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: retry
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25a260660835fa14da4501972f49c3a0
+      internalID: -1101837135
       vertices: []
       indices: 
       edges: []
@@ -305,6 +327,7 @@ TextureImporter:
       audio_settings: -1714364884
       dropdown_arrow: -1132794835
       home_settings: 20227486
+      retry: -1101837135
       settings: 7609018768930029109
       upgrades_1: -2052557411
       upgrades_2: 101409961

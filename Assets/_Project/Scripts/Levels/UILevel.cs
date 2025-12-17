@@ -52,7 +52,7 @@ public class UILevel : MonoBehaviour, IUISelectable<LevelData>
         textAuthor.text = $"{unlockableLevel.LevelData.LevelAuthor} - {unlockableLevel.LevelData.LevelDate}";
         levelDrawing.sprite = unlockableLevel.LevelData.LevelDrawing;
 
-        LevelSaveData levelSaveData = unlockableLevel.SaveData;
+        LevelSaveData levelSaveData = GameSaveManager.Instance.LoadLevelData(unlockableLevel.LevelData.LevelAuthor, unlockableLevel.LevelData.LevelTitle);
         TryDisplayOnGoingInfo(levelSaveData);
         TryDisplayBestRank(levelSaveData);
         TryDisplayUnlockConditions();

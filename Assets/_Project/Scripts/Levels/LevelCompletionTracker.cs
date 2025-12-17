@@ -36,17 +36,14 @@ public class LevelCompletionTracker : MonoBehaviour
         int finalDays = Mathf.Max(1, LevelStatsTracker.Instance.TotalLevelStats.TotalDaysPlayed);
         LevelSaveData saveData = GameSaveManager.Instance.LoadLevelData(currentLevelData.LevelAuthor, currentLevelData.LevelTitle);
         LevelRank newRank = currentLevelData.GetRankForDays(finalDays);
-        bool shouldUpdateRank = saveData.bestRank < newRank;
 
-        if (shouldUpdateRank)
+        AwardRankRewardDifference(saveData.claimedRewardRank, newRank);
+
+        bool isNewBest = newRank > saveData.bestRank;
+        if (isNewBest)
         {
-            LevelRank previousBestRank = saveData.bestRank;
-
-            saveData.daysToComplete = finalDays;
-            saveData.bestRank = newRank;
-
-            AwardRankRewardDifference(previousBestRank, newRank);
             logger.Log($"NEW BEST! Level '{currentLevelData.LevelTitle}' completed in {finalDays} days. Rank: {newRank.GetDisplayName()}", this);
+            saveData.bestRank = newRank;
         }
         else
         {
@@ -54,6 +51,8 @@ public class LevelCompletionTracker : MonoBehaviour
         }
 
         saveData.isDone = true;
+        saveData.daysToComplete = finalDays;
+        saveData.claimedRewardRank = newRank;
 
         GameSaveManager.Instance.SaveLevelData(
             saveData.isDone,
@@ -62,7 +61,9 @@ public class LevelCompletionTracker : MonoBehaviour
             saveData.title,
             saveData.isUnlocked,
             saveData.daysToComplete,
-            saveData.bestRank
+            saveData.bestRank,
+            false,
+            saveData.currentDay
         );
 
         isTracking = false;
@@ -75,37 +76,43 @@ public class LevelCompletionTracker : MonoBehaviour
 
         return currentLevelData.GetRankForDays(Mathf.Max(1, LevelStatsTracker.Instance.TotalLevelStats.TotalDaysPlayed));
     }
-    private void AwardRankRewardDifference(LevelRank previousRank, LevelRank newRank)
+    private void AwardRankRewardDifference(LevelRank previousClaimedRank, LevelRank newRank)
     {
         if (currentLevelData == null)
             return;
 
+        if (newRank <= previousClaimedRank)
+        {
+            logger.Log($"No new rewards to claim. Already claimed rewards for {previousClaimedRank.GetDisplayName()} rank or better.", this);
+            return;
+        }
+
         int newRankSkillPoints = currentLevelData.GetSkillPointReward(newRank);
-        int previousRankSkillPoints = currentLevelData.GetSkillPointReward(previousRank);
+        int previousRankSkillPoints = currentLevelData.GetSkillPointReward(previousClaimedRank);
         int skillPointDifference = newRankSkillPoints - previousRankSkillPoints;
+
+        int newRankCurrency = currentLevelData.GetCurrencyReward(newRank);
+        int previousRankCurrency = currentLevelData.GetCurrencyReward(previousClaimedRank);
+        int currencyDifference = newRankCurrency - previousRankCurrency;
 
         if (skillPointDifference > 0)
         {
             SkillPointManager.Instance.AddSkillPoints(skillPointDifference);
 
-            if (previousRank == LevelRank.None)
+            if (previousClaimedRank == LevelRank.None)
                 logger.Log($"Awarded {skillPointDifference} skill points for {newRank.GetDisplayName()} rank!", this);
             else
-                logger.Log($"Awarded {skillPointDifference} skill points for improving from {previousRank.GetDisplayName()} to {newRank.GetDisplayName()} rank! (Total from this level: {newRankSkillPoints})", this);
+                logger.Log($"Awarded {skillPointDifference} skill points for improving from {previousClaimedRank.GetDisplayName()} to {newRank.GetDisplayName()} rank! (Total earned from this level: {newRankSkillPoints})", this);
         }
-
-        int newRankCurrency = currentLevelData.GetCurrencyReward(newRank);
-        int previousRankCurrency = currentLevelData.GetCurrencyReward(previousRank);
-        int currencyDifference = newRankCurrency - previousRankCurrency;
 
         if (currencyDifference > 0)
         {
             CurrencyManager.Instance.AddCurrency(currencyDifference);
 
-            if (previousRank == LevelRank.None)
+            if (previousClaimedRank == LevelRank.None)
                 logger.Log($"Awarded {currencyDifference} bonus currency for {newRank.GetDisplayName()} rank!", this);
             else
-                logger.Log($"Awarded {currencyDifference} bonus currency for improving rank! (Total from this level: {newRankCurrency})", this);
+                logger.Log($"Awarded {currencyDifference} bonus currency for improving rank! (Total earned from this level: {newRankCurrency})", this);
         }
     }
 

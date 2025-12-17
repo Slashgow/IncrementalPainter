@@ -20,7 +20,7 @@ public class Level : MonoBehaviour, ISavable, ILoadable<LevelSaveData>
 
     public event Action OnEndLevel;
 
-    private void OnEnable()
+    private void Start()
     {
         colorChangeCounter.OnUpdated += ColorChangeCounter_OnUpdated;
         GameManager.OnStartGameState += GameManager_OnStartGameState;

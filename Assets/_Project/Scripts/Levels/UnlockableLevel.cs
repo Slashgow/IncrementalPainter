@@ -9,30 +9,19 @@ public class UnlockableLevel : IUnlockable
     [SerializeField] private LevelData levelData;
     [SerializeField] private List<UnlockCondition> unlockConditions = new List<UnlockCondition>();
     
-
     public LevelData LevelData => levelData;
     public bool IsUnlocked => CheckUnlockCondition();
     public List<UnlockCondition> UnlockConditions => unlockConditions;
   
 
     private LevelSaveData saveData;
-    public LevelSaveData SaveData
-    {
-        get
-        {
-            if (saveData == null)
-                saveData = GameSaveManager.Instance.LoadLevelData(levelData.LevelAuthor, levelData.LevelTitle);
 
-            return saveData;
-        }
-    }
     public bool CheckUnlockCondition()
     {
         if (unlockConditions == null || unlockConditions.Count == 0)
             return true;
 
-        if (saveData == null)
-            saveData = GameSaveManager.Instance.LoadLevelData(levelData.LevelAuthor, levelData.LevelTitle);
+        saveData = GameSaveManager.Instance.LoadLevelData(levelData.LevelAuthor, levelData.LevelTitle);
 
         if (saveData.isUnlocked)
             return true;
@@ -47,8 +36,7 @@ public class UnlockableLevel : IUnlockable
 
     public void Unlock()
     {
-        if (saveData == null)
-            saveData = GameSaveManager.Instance.LoadLevelData(levelData.LevelAuthor, levelData.LevelTitle);
+        saveData = GameSaveManager.Instance.LoadLevelData(levelData.LevelAuthor, levelData.LevelTitle);
 
         if (saveData.isUnlocked)
             return;

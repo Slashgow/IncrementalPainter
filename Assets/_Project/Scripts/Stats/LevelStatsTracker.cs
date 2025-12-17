@@ -18,11 +18,10 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
     protected override void Awake()
     {
         base.Awake();
-        currentDayStats = new DayStats();
-        totalLevelStats = new LevelStats();
+        ResetLevelStats();
+        LoadLevelProgress(LevelManager.Instance.CurrentLevelData);
 
         GameManager.OnStartGameState += HandleGameStateChange;
-        LevelManager.OnStartLevel += OnLevelStart;
         CurrencyManager.OnCurrencyGained += RecordCurrencyGained;
         SimpleDamageable.OnAnyDamageableDie += RecordEnemyDestroyed;
         PaintStateManager.OnAddedTimeToCountdown += RecordTimeAddedToCountdown;
@@ -41,7 +40,6 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
         BombDamageor.OnBombDamage -= RecordBombDamage;
         BrushSwipeDamageor.OnBrushSwipeDamage -= RecordBrushSwipeDamage;
         GameManager.OnStartGameState -= HandleGameStateChange;
-        LevelManager.OnStartLevel -= OnLevelStart;
         CurrencyManager.OnCurrencyGained -= RecordCurrencyGained;
     }
 
@@ -51,12 +49,6 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
             StartNewDay();
         else if (state == GameManager.GameState.DAY_SUMMARY)
             EndCurrentDay();
-    }
-
-    private void OnLevelStart(Level level)
-    {
-        ResetLevelStats();
-        LoadLevelProgress(level);
     }
 
     private void StartNewDay() => currentDayStats = new DayStats();
@@ -137,20 +129,20 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
             saveData.isUnlocked,
             saveData.daysToComplete,
             saveData.bestRank,
-            saveData.hasClaimedReward,
+            false,
             totalLevelStats.CurrentDay 
         );
     }
 
     public int Load() => throw new NotImplementedException();
 
-    public void LoadLevelProgress(Level level)
+    public void LoadLevelProgress(LevelData levelData)
     {
-        LevelSaveData saveData = GameSaveManager.Instance.LoadLevelData(level.LevelData.LevelAuthor, level.LevelData.LevelTitle);
+        LevelSaveData saveData = GameSaveManager.Instance.LoadLevelData(levelData.LevelAuthor, levelData.LevelTitle);
 
         if (saveData.isDone)
         {
-            GameSaveManager.Instance.ClearLevelProgress(level.LevelData.LevelAuthor, level.LevelData.LevelTitle);
+            GameSaveManager.Instance.ClearLevelProgress(levelData.LevelAuthor, levelData.LevelTitle);
             totalLevelStats.CurrentDay = 1;
             logger.Log($"Level was completed, starting fresh from Day 1", this);
         }

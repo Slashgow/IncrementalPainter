@@ -3,23 +3,29 @@ using UnityEngine.UI;
 
 public class UIButtonsDaySummary : MonoBehaviour
 {
-    [SerializeField] private Button upgradeButton, continueButton, startNextLevel;
+    [SerializeField] private Button continueButton, mainMenuButton, nextLevelButton, retryButton;
 
     public void OnEnable()
     {
-        LevelManager.OnEndLevel += LevelManager_OnEndLevel;
+        LevelManager.OnEndLevel += ShowOnlyEndButtons;
+
+        ShowOnlyContinueButton();
+    }
+    private void OnDisable() => LevelManager.OnEndLevel -= ShowOnlyEndButtons;
+
+    private void ShowOnlyContinueButton()
+    {
+        continueButton.gameObject.SetActive(true);
+        mainMenuButton.gameObject.SetActive(false);
+        nextLevelButton.gameObject.SetActive(false);
+        retryButton.gameObject.SetActive(false);
     }
 
-    private void OnDisable()
+    private void ShowOnlyEndButtons()
     {
-        if(LevelManager.HasInstance)
-            LevelManager.OnEndLevel -= LevelManager_OnEndLevel;
-    }
-
-    private void LevelManager_OnEndLevel()
-    {
-        upgradeButton.gameObject.SetActive(false);
         continueButton.gameObject.SetActive(false);
-        startNextLevel.gameObject.SetActive(true);
+        mainMenuButton.gameObject.SetActive(true);
+        retryButton.gameObject.SetActive(true);
+        nextLevelButton.gameObject.SetActive(LevelManager.CurrentLevelIndex < LevelManager.Instance.UnlockableSortedLevels.Length - 1);
     }
 }
