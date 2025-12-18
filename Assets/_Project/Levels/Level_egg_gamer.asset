@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2548ba85b01887e4a935903037baf7cd, type: 3}
-  m_Name: Level_naissance_venus
+  m_Name: Level_egg_gamer
   m_EditorClassIdentifier: 
-  levelTitle: "La Naissance de V\xE9nus"
-  levelAuthor: Boticelli
-  levelDate: 1485
-  artMovement: 0
+  levelTitle: Eggspert
+  levelAuthor: Inkolor
+  levelDate: 2025
+  artMovement: 8
   percentCompletionCondition: 0.99
-  levelDrawing: {fileID: 21300000, guid: b556f62bbbe951348a9beb6367ad4b1f, type: 3}
-  levelPrefab: {fileID: 8944416080909895153, guid: 4abe09540a24de441ae4183f975e4eeb, type: 3}
+  levelDrawing: {fileID: 21300000, guid: 253b8e0daaef2164785c589a08abf338, type: 3}
+  levelPrefab: {fileID: 8944416080909895153, guid: ecb74bf3878e33341b762324f5c48615, type: 3}
   cameraPaintZoom: 4.5
   spawnOffset: {x: 0, y: -0.5, z: 0}
   rankThresholds:
-    sRankDays: 2
-    aRankDays: 4
+    sRankDays: 1
+    aRankDays: 3
     bRankDays: 6
-    cRankDays: 8
+    cRankDays: 12
   rankRewards:
     sRankSkillPoints: 5
     aRankSkillPoints: 3

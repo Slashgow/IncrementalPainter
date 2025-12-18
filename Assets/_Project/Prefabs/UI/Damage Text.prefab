@@ -176,5 +176,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  criticalScaleMultiplier: 1.8
+  criticalScaleMultiplier: 1.4
   criticalPunchScale: 0.2

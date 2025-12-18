@@ -24,6 +24,9 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
     public static event Action OnEndLevel;
     public static event Action<Level> OnStartLevel;
 
+    public bool IsNextLevelUnlocked => CurrentLevelIndex < unlockableSortedLevels.Length - 1 && 
+        unlockableSortedLevels[CurrentLevelIndex + 1].IsUnlocked;
+
     protected override void Awake()
     {
         base.Awake();

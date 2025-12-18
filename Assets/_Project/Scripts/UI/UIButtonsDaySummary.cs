@@ -26,6 +26,6 @@ public class UIButtonsDaySummary : MonoBehaviour
         continueButton.gameObject.SetActive(false);
         mainMenuButton.gameObject.SetActive(true);
         retryButton.gameObject.SetActive(true);
-        nextLevelButton.gameObject.SetActive(LevelManager.CurrentLevelIndex < LevelManager.Instance.UnlockableSortedLevels.Length - 1);
+        nextLevelButton.gameObject.SetActive(LevelManager.Instance.IsNextLevelUnlocked);
     }
 }

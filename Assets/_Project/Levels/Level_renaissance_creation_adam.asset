@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2548ba85b01887e4a935903037baf7cd, type: 3}
+  m_Name: Level_renaissance_creation_adam
+  m_EditorClassIdentifier: 
+  levelTitle: "La Cr\xE9ation d'Adam"
+  levelAuthor: Michel-Ange
+  levelDate: 1512
+  artMovement: 0
+  percentCompletionCondition: 0.99
+  levelDrawing: {fileID: 21300000, guid: d19fd417941b4674787c27cdcbe2901c, type: 3}
+  levelPrefab: {fileID: 8944416080909895153, guid: 27d084aadd0fbda4684101ee55d3d24e, type: 3}
+  cameraPaintZoom: 9
+  spawnOffset: {x: 0, y: 0, z: 0}
+  rankThresholds:
+    sRankDays: 2
+    aRankDays: 4
+    bRankDays: 6
+    cRankDays: 8
+  rankRewards:
+    sRankSkillPoints: 5
+    aRankSkillPoints: 3
+    bRankSkillPoints: 2
+    cRankSkillPoints: 1
+    dRankSkillPoints: 0
+    sRankCurrency: 30000
+    aRankCurrency: 20000
+    bRankCurrency: 10000
+    cRankCurrency: 5000
+    dRankCurrency: 0

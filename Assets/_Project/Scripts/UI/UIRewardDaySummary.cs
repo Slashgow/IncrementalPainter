@@ -63,7 +63,7 @@ public class UIRewardDaySummary : MonoBehaviour
         rewardText.gameObject.SetActive(true);
         rewardLineSeparator.SetActive(true);
 
-        rewardText.text = $"{(currencyEarned > 0 ? $"<color=#{currencyColorHex}>+{currencyEarned} $</color>" : "")} " +
+        rewardText.text = $"{(currencyEarned > 0 ? $"<color=#{currencyColorHex}>+{FormatUtility.FormatValue(currencyEarned)} $</color>" : "")} " +
                           $"{(skillPointEarned > 0 ? $"<color=#{skillPointHex}>+{skillPointEarned} SP</color>" : "")}"; 
     }
 

@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2548ba85b01887e4a935903037baf7cd, type: 3}
-  m_Name: Level_logo_Inkolor
+  m_Name: Level_egg_singer
   m_EditorClassIdentifier: 
-  levelTitle: Inkolor
+  levelTitle: Eggciting Vocals
   levelAuthor: Inkolor
   levelDate: 2025
   artMovement: 8
-  percentCompletionCondition: 0.95
-  levelDrawing: {fileID: 21300000, guid: 525d5d2566bd7ad4b8bc4dd4e1f1e703, type: 3}
-  levelPrefab: {fileID: 8944416080909895153, guid: a8c71b5bf1284c547a7b0647fb2abe15, type: 3}
+  percentCompletionCondition: 0.99
+  levelDrawing: {fileID: 21300000, guid: 1163a5d7e1765fb4b8c81d2bf96ebc24, type: 3}
+  levelPrefab: {fileID: 8944416080909895153, guid: 110f915eff5ceb64cbc8795f40e05401, type: 3}
   cameraPaintZoom: 4.5
   spawnOffset: {x: 0, y: -0.5, z: 0}
   rankThresholds:
-    sRankDays: 5
-    aRankDays: 10
-    bRankDays: 20
-    cRankDays: 25
+    sRankDays: 1
+    aRankDays: 3
+    bRankDays: 6
+    cRankDays: 12
   rankRewards:
     sRankSkillPoints: 5
     aRankSkillPoints: 3

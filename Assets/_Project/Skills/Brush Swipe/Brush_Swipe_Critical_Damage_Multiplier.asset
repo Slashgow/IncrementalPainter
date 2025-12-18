@@ -33,7 +33,7 @@ MonoBehaviour:
   - level: 1
     skillPointCost: 0
     requiredSkills:
-    - skillData: {fileID: 11400000, guid: 550ef977018a25a4eb8d8eee844f2739, type: 2}
+    - skillData: {fileID: 11400000, guid: f8b6ed9ca9a8e8b479fe853497c57977, type: 2}
       requiredLevel: 1
   effectValue:
     a: 0.25

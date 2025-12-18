@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2548ba85b01887e4a935903037baf7cd, type: 3}
-  m_Name: Level_creation_adam
+  m_Name: Level_renaissance_mona_lisa
   m_EditorClassIdentifier: 
-  levelTitle: "La Cr\xE9ation d'Adam"
-  levelAuthor: Michel-Ange
-  levelDate: 1512
+  levelTitle: Mona Lisa
+  levelAuthor: Leonard de Vinci
+  levelDate: 1516
   artMovement: 0
   percentCompletionCondition: 0.99
-  levelDrawing: {fileID: 21300000, guid: d19fd417941b4674787c27cdcbe2901c, type: 3}
-  levelPrefab: {fileID: 8944416080909895153, guid: d392ac0207d49c64d9b2b90c47409d1b, type: 3}
-  cameraPaintZoom: 4.5
-  spawnOffset: {x: 0, y: -0.5, z: 0}
+  levelDrawing: {fileID: 21300000, guid: 30a7be76925576846a460f0b8a04c24f, type: 3}
+  levelPrefab: {fileID: 8944416080909895153, guid: 6aa8d93c4d06c4e4aa8b3b0525deabef, type: 3}
+  cameraPaintZoom: 9
+  spawnOffset: {x: 0, y: 0, z: 0}
   rankThresholds:
     sRankDays: 2
     aRankDays: 4
@@ -32,8 +32,8 @@ MonoBehaviour:
     bRankSkillPoints: 2
     cRankSkillPoints: 1
     dRankSkillPoints: 0
-    sRankCurrency: 10000
-    aRankCurrency: 5000
-    bRankCurrency: 3000
-    cRankCurrency: 1000
+    sRankCurrency: 30000
+    aRankCurrency: 20000
+    bRankCurrency: 10000
+    cRankCurrency: 5000
     dRankCurrency: 0
