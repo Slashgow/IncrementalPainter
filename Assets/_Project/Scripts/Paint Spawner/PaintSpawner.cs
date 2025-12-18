@@ -36,7 +36,12 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
 
     [Header("Spawn Settings")]
     [SerializeField] private PoolingSystem pool;
+
     [SerializeField] private EnemyData[] enemyDatas;
+    [SerializeField, Range(0.1f, 3f)] private float sigmoidSteepness = 1.0f;
+    [SerializeField, Range(0f,10f)] private float upgradeGlobalCoefficient= 0.5f;
+
+    [Header("Runtime Settings")]
     [SerializeField] private bool autoStart = true;
     [SerializeField] private float zOffset = 0f;
     [SerializeField] private Transform spawnParent;
@@ -204,27 +209,48 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
 
     public EnemyData ChooseEnemyData(int upgrades, int level)
     {
+        if (enemyDatas.Length == 0)
+            return null;
+
         float totalWeight = 0f;
         float[] weights = new float[enemyDatas.Length];
 
+        // Calculate weights for each enemy using sigmoid gates
         for (int i = 0; i < enemyDatas.Length; i++)
         {
-            weights[i] = enemyDatas[i].BaseWeigth *
-                         Mathf.Pow(upgrades, enemyDatas[i].UpgradeWeightExponent) *
-                         Mathf.Pow(level, enemyDatas[i].LevelWeightExponent);
+            EnemyData enemy = enemyDatas[i];
+
+            // f(U)
+            float upgradeInfluence = PaintSpawnerUtility.CalculateUpgradeInfluence(upgrades, upgradeGlobalCoefficient, enemy.UpgradeInfluenceCoefficient);
+
+            float thresholdBefore = 1f;
+            if(i > 0)
+                thresholdBefore = enemyDatas[i - 1].LevelThreshold;
+            float thresholdCurrent = enemy.LevelThreshold;
+            bool isLast = (i == enemyDatas.Length - 1);
+
+            float gateWeight = PaintSpawnerUtility.CalculateSigmoidGate(level, thresholdBefore, thresholdCurrent, sigmoidSteepness, isLast);
+
+            weights[i] = PaintSpawnerUtility.CalculateWeight(enemy.BaseWeight, gateWeight, upgradeInfluence);
             totalWeight += weights[i];
         }
 
+        if (totalWeight <= 0f)
+            return enemyDatas[0];
+
+        // Weighted random selection
         float roll = UnityEngine.Random.value * totalWeight;
+        float cumulative = 0f;
+
         for (int i = 0; i < enemyDatas.Length; i++)
         {
-            if (roll < weights[i])
+            cumulative += weights[i];
+            if (roll < cumulative)
                 return enemyDatas[i];
-
-            roll -= weights[i];
         }
-        return enemyDatas[0];
-    }
+
+        return enemyDatas[enemyDatas.Length - 1];
+    } 
 
     void OnDrawGizmosSelected()
     {

@@ -16,16 +16,16 @@ MonoBehaviour:
   levelAuthor: Leonard de Vinci
   levelDate: 1785
   artMovement: 0
-  percentCompletionCondition: 0.86
+  percentCompletionCondition: 0.99
   levelDrawing: {fileID: 21300000, guid: 30a7be76925576846a460f0b8a04c24f, type: 3}
   levelPrefab: {fileID: 8944416080909895153, guid: b209fdc5032e56f4dae4f368907f0487, type: 3}
   cameraPaintZoom: 4.5
   spawnOffset: {x: 0, y: -0.5, z: 0}
   rankThresholds:
-    sRankDays: 5
-    aRankDays: 10
-    bRankDays: 20
-    cRankDays: 25
+    sRankDays: 2
+    aRankDays: 4
+    bRankDays: 6
+    cRankDays: 8
   rankRewards:
     sRankSkillPoints: 5
     aRankSkillPoints: 3

@@ -14,26 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelTitle: "La Cr\xE9ation d'Adam"
   levelAuthor: Michel-Ange
-  levelDate: 1574
+  levelDate: 1512
   artMovement: 0
   percentCompletionCondition: 0.99
   levelDrawing: {fileID: 21300000, guid: d19fd417941b4674787c27cdcbe2901c, type: 3}
-  levelPrefab: {fileID: 8944416080909895153, guid: 0e47e73c5709cd543959aa1990fc4ead, type: 3}
-  cameraPaintZoom: 0
-  spawnOffset: {x: 0, y: 0, z: 0}
+  levelPrefab: {fileID: 8944416080909895153, guid: d392ac0207d49c64d9b2b90c47409d1b, type: 3}
+  cameraPaintZoom: 4.5
+  spawnOffset: {x: 0, y: -0.5, z: 0}
   rankThresholds:
-    sRankDays: 5
-    aRankDays: 10
-    bRankDays: 20
-    cRankDays: 25
+    sRankDays: 2
+    aRankDays: 4
+    bRankDays: 6
+    cRankDays: 8
   rankRewards:
     sRankSkillPoints: 5
     aRankSkillPoints: 3
     bRankSkillPoints: 2
     cRankSkillPoints: 1
     dRankSkillPoints: 0
-    sRankCurrency: 1000
-    aRankCurrency: 500
-    bRankCurrency: 250
-    cRankCurrency: 100
+    sRankCurrency: 10000
+    aRankCurrency: 5000
+    bRankCurrency: 3000
+    cRankCurrency: 1000
     dRankCurrency: 0

@@ -70,30 +70,32 @@ MonoBehaviour:
     maxHealth: 9
     cost: 10
     scale: 0.2
-    baseWeigth: 50
-    upgradeWeightExponent: 0
-    levelWeightExponent: 1
+    baseWeight: 1
+    upgradeInfluenceCoefficient: 0
+    levelThreshold: 10
   - difficulty: 1
     maxHealth: 19
     cost: 20
     scale: 0.4
-    baseWeigth: 10
-    upgradeWeightExponent: 1
-    levelWeightExponent: 2
+    baseWeight: 1
+    upgradeInfluenceCoefficient: 0.1
+    levelThreshold: 15
   - difficulty: 2
     maxHealth: 29
     cost: 30
     scale: 0.6
-    baseWeigth: 5
-    upgradeWeightExponent: 1.2
-    levelWeightExponent: 2
+    baseWeight: 1
+    upgradeInfluenceCoefficient: 0.2
+    levelThreshold: 20
   - difficulty: 3
     maxHealth: 39
     cost: 40
     scale: 0.8
-    baseWeigth: 1
-    upgradeWeightExponent: 1.4
-    levelWeightExponent: 3
+    baseWeight: 1
+    upgradeInfluenceCoefficient: 0.4
+    levelThreshold: 0
+  sigmoidSteepness: 0.4
+  upgradeGlobalCoefficient: 0.1
   autoStart: 1
   zOffset: 0
   spawnParent: {fileID: 1039041530853263093}

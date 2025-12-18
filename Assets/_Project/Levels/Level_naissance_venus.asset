@@ -14,26 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelTitle: "La Naissance de V\xE9nus"
   levelAuthor: Boticelli
-  levelDate: 1574
+  levelDate: 1485
   artMovement: 0
   percentCompletionCondition: 0.99
   levelDrawing: {fileID: 21300000, guid: b556f62bbbe951348a9beb6367ad4b1f, type: 3}
-  levelPrefab: {fileID: 8944416080909895153, guid: 1171d9e802320e14ba692c9db0634a9c, type: 3}
-  cameraPaintZoom: 10
-  spawnOffset: {x: 0, y: 0, z: 0}
+  levelPrefab: {fileID: 8944416080909895153, guid: 4abe09540a24de441ae4183f975e4eeb, type: 3}
+  cameraPaintZoom: 4.5
+  spawnOffset: {x: 0, y: -0.5, z: 0}
   rankThresholds:
-    sRankDays: 5
-    aRankDays: 10
-    bRankDays: 20
-    cRankDays: 25
+    sRankDays: 2
+    aRankDays: 4
+    bRankDays: 6
+    cRankDays: 8
   rankRewards:
     sRankSkillPoints: 5
     aRankSkillPoints: 3
     bRankSkillPoints: 2
     cRankSkillPoints: 1
     dRankSkillPoints: 0
-    sRankCurrency: 1000
-    aRankCurrency: 500
-    bRankCurrency: 250
-    cRankCurrency: 100
+    sRankCurrency: 10000
+    aRankCurrency: 5000
+    bRankCurrency: 3000
+    cRankCurrency: 1000
     dRankCurrency: 0

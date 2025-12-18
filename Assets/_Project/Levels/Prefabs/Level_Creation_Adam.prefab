@@ -282,7 +282,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: b556f62bbbe951348a9beb6367ad4b1f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d19fd417941b4674787c27cdcbe2901c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -593,7 +593,7 @@ MonoBehaviour:
   undoRedo: 0
   stateLimit: 10
   saveLoad: 1
-  saveName: "Boticelli_La Naissance de V\xE9nus"
+  saveName: "Michel-Ange_La Cr\xE9ation d'Adam"
   width: 512
   height: 512
   texture: {fileID: 0}
@@ -636,7 +636,7 @@ MonoBehaviour:
   readAtStart: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 7729110937390697375}
-  cooldown: -4017.2456
+  cooldown: -4034.4885
   maskMesh: {fileID: 0}
   maskSubmesh: 0
   maskTexture: {fileID: 0}
@@ -944,7 +944,7 @@ GameObject:
   - component: {fileID: 1120519318142985437}
   - component: {fileID: 4028855872597269062}
   m_Layer: 0
-  m_Name: Level_Naissance_Venus
+  m_Name: Level_Creation_Adam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -25,7 +25,7 @@ MonoBehaviour:
     m_LocalVariables: []
   icon: {fileID: -1775260537, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
   costFunction:
-    a: 10
+    a: 100
     b: 10
   startingLevel: 0
   maxLevel: 5
