@@ -460,8 +460,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shakeTechnique: 0
   _makeDefaultOnEnable: 1
-  _limitMagnitude: 0
-  _positionalMagnitudeLimit: 10
+  _limitMagnitude: 1
+  _positionalMagnitudeLimit: 5
   _rotationalMagnitudeLimit: 3
 --- !u!114 &519420036
 MonoBehaviour:
@@ -799,7 +799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 2646645282290464020, guid: 8e7367d7347fdfa4696011b939777325, type: 3}
-  growPoolSize: 20
+  growPoolSize: 200
 --- !u!114 &825538549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2459,7 +2459,7 @@ GameObject:
   - component: {fileID: 1562959402}
   - component: {fileID: 1562959401}
   - component: {fileID: 1562959406}
-  - component: {fileID: 1562959404}
+  - component: {fileID: 1562959409}
   - component: {fileID: 1562959405}
   - component: {fileID: 1562959407}
   - component: {fileID: 1562959408}
@@ -2538,20 +2538,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1562959404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562959400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971ebe4a4d8b2b44c9d4533c69f3e9e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doEffectOnEnable: 0
-  MyShake: {fileID: 11400000, guid: 39ac4f4fcd73a624ca403a285aa9ea1d, type: 2}
 --- !u!114 &1562959405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2582,7 +2568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effects:
-  - {fileID: 1562959404}
+  - {fileID: 1562959409}
   - {fileID: 1562959405}
 --- !u!114 &1562959407
 MonoBehaviour:
@@ -2597,7 +2583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 2584144885890085385, guid: d4f42bd2aa93d524ebadb2e7d6c8fe1a, type: 3}
-  growPoolSize: 10
+  growPoolSize: 20
 --- !u!114 &1562959408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2617,6 +2603,20 @@ MonoBehaviour:
   instantiateFirstOnExactPosition: 1
   spawnMinOffset: {x: 0, y: 0, z: 0}
   spawnMaxOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &1562959409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562959400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796d92662e9c0e14599aca16cdbbf6b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  shakeData: {fileID: 11400000, guid: 39ac4f4fcd73a624ca403a285aa9ea1d, type: 2}
 --- !u!1 &1563423797
 GameObject:
   m_ObjectHideFlags: 0
@@ -2630,7 +2630,7 @@ GameObject:
   - component: {fileID: 1563423803}
   - component: {fileID: 1563423802}
   - component: {fileID: 1563423801}
-  - component: {fileID: 1563423800}
+  - component: {fileID: 1563423804}
   m_Layer: 0
   m_Name: Splitter
   m_TagString: Untagged
@@ -2704,20 +2704,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1563423800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1563423797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971ebe4a4d8b2b44c9d4533c69f3e9e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doEffectOnEnable: 0
-  MyShake: {fileID: 11400000, guid: 97bd6f04aae9f2f4ea83d8879e017b8a, type: 2}
 --- !u!114 &1563423801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2731,7 +2717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1429954232896169633, guid: d05d63755490ee64dba612d416b73766, type: 3}
-  growPoolSize: 6
+  growPoolSize: 30
 --- !u!114 &1563423802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2764,7 +2750,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effects:
-  - {fileID: 1563423800}
+  - {fileID: 1563423804}
+--- !u!114 &1563423804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563423797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796d92662e9c0e14599aca16cdbbf6b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  shakeData: {fileID: 11400000, guid: 97bd6f04aae9f2f4ea83d8879e017b8a, type: 2}
 --- !u!1 &1679544420
 GameObject:
   m_ObjectHideFlags: 0
@@ -2895,7 +2895,7 @@ GameObject:
   - component: {fileID: 1988011188}
   - component: {fileID: 1988011187}
   - component: {fileID: 1988011191}
-  - component: {fileID: 1988011190}
+  - component: {fileID: 1988011192}
   m_Layer: 0
   m_Name: Paint Freezer
   m_TagString: Untagged
@@ -2980,7 +2980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 5112403345868107898, guid: b9a626cb6533dc14cacbcbb8f57fecda, type: 3}
-  growPoolSize: 10
+  growPoolSize: 20
 --- !u!114 &1988011188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3014,21 +3014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effects:
   - {fileID: 1988011191}
-  - {fileID: 1988011190}
---- !u!114 &1988011190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988011184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971ebe4a4d8b2b44c9d4533c69f3e9e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doEffectOnEnable: 0
-  MyShake: {fileID: 11400000, guid: 39ac4f4fcd73a624ca403a285aa9ea1d, type: 2}
+  - {fileID: 1988011192}
 --- !u!114 &1988011191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3048,6 +3034,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ec8b5e7079b951141803b0402d8060df, type: 3}
   - {fileID: 8300000, guid: 49343d663b51d5d4c85905d8ac54688c, type: 3}
   luckPercentage: 35
+--- !u!114 &1988011192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988011184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796d92662e9c0e14599aca16cdbbf6b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  shakeData: {fileID: 11400000, guid: 39ac4f4fcd73a624ca403a285aa9ea1d, type: 2}
 --- !u!1001 &956886875113831423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3450,7 +3450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 49307734463992339, guid: 4069eaf74b7af7c4696bb831f59bfaef, type: 3}
       propertyPath: m_fontSize
-      value: 50.4
+      value: 34.55
       objectReference: {fileID: 0}
     - target: {fileID: 53451728113524104, guid: 4069eaf74b7af7c4696bb831f59bfaef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

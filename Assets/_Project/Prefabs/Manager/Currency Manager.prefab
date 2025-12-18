@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 2807968163413007823, guid: 1a9aa786ac474b14bab4c39b19eba03d, type: 3}
-  growPoolSize: 10
+  growPoolSize: 100
 --- !u!114 &6136215535721006617
 MonoBehaviour:
   m_ObjectHideFlags: 0
