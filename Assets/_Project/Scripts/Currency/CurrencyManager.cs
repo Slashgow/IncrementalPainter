@@ -34,12 +34,22 @@ public class CurrencyManager : MonoSingleton<CurrencyManager>, ISavable, ILoadab
     {
         CurrencyHolder.OnPickUpCurrency += OnPickUpCurrency;
         SimpleCostable.OnSimpleCostableDie += SpawnCurrencyHolder;
+        GameManager.OnStartGameState += GameManager_OnStartGameState;
     }
 
     private void OnDisable()
     {
         CurrencyHolder.OnPickUpCurrency -= OnPickUpCurrency;
         SimpleCostable.OnSimpleCostableDie -= SpawnCurrencyHolder;
+        GameManager.OnStartGameState -= GameManager_OnStartGameState;
+    }
+
+    private void GameManager_OnStartGameState(GameManager.GameState gameState)
+    {
+        if(gameState != GameManager.GameState.DAY_SUMMARY)
+            return;
+
+        Save();
     }
 
     public void SpawnCurrencyHolder(Vector3 deathWorldPosition, int cost)
@@ -66,7 +76,6 @@ public class CurrencyManager : MonoSingleton<CurrencyManager>, ISavable, ILoadab
             logger.Log($"Gained {amount} currency. Total: {currentCurrency}", this);
             OnCurrencyGained?.Invoke(amount, currentCurrency);
             OnCurrencyGainedUnity?.Invoke();
-            Save();
         }
         else
         {

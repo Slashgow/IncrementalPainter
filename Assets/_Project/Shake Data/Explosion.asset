@@ -21,7 +21,7 @@ MonoBehaviour:
   _totalDuration: 0.25
   _fadeInDuration: 0.1
   _fadeOutDuration: 0.1
-  _magnitude: 0.8
+  _magnitude: 5
   _magnitudeNoise: 0.1
   _magnitudeCurve:
     serializedVersion: 2
@@ -47,7 +47,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _roughness: 6
+  _roughness: 3
   _roughnessNoise: 0.3
   _roughnessCurve:
     serializedVersion: 2
