@@ -28,7 +28,7 @@ MonoBehaviour:
     a: 100
     b: 10
   startingLevel: 0
-  maxLevel: 3
+  maxLevel: 4
   levelRequirements:
   - level: 1
     skillPointCost: 2

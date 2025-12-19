@@ -150,6 +150,10 @@ MonoBehaviour:
     m_Localized: Commencer
     m_Metadata:
       m_Items: []
+  - m_Id: 7557996375044096
+    m_Localized: "Secousse de la cam\xE9ra"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

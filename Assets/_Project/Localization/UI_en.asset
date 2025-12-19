@@ -150,6 +150,10 @@ MonoBehaviour:
     m_Localized: Start
     m_Metadata:
       m_Items: []
+  - m_Id: 7557996375044096
+    m_Localized: Screenshake
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

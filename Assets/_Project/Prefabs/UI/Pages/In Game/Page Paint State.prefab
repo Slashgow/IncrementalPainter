@@ -412,6 +412,7 @@ GameObject:
   - component: {fileID: 469321691636598781}
   - component: {fileID: 68564569646204802}
   - component: {fileID: 6469177704186001302}
+  - component: {fileID: 5894296605869823138}
   m_Layer: 5
   m_Name: Page Paint State
   m_TagString: Untagged
@@ -468,10 +469,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnShowUnityEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5894296605869823138}
+        m_TargetAssemblyTypeName: inkolorgames.effects.RectTransformScaleEffect,
+          inkolorgames.inkolortools
+        m_MethodName: DoEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHideUnityEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5894296605869823138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5331365664622625229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b36c2c984250a24692f44d2eef5dc81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  changeStartScale: 0
+  startScale: 0.2
+  endScale: 1
+  duration: 0.2
+  easing: 4
+  loops: 0
+  loopType: 1
 --- !u!1 &5332405459761799135
 GameObject:
   m_ObjectHideFlags: 0

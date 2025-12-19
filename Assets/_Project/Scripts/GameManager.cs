@@ -26,9 +26,12 @@ public class GameManager : MonoSingleton<GameManager>
     public static event Action<GameState> OnEndGameState;
     public static event Action OnPause, OnResume;
 
+    public bool IsPause { get; private set; }
+
     protected override void Awake()
     {
         base.Awake();
+        IsPause = true;
         CurrentPauseState = PauseState.PLAY;
         LevelManager.Instance.LoadCurrentLevel();
     }
@@ -67,6 +70,12 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void Pause()
     {
+        Debug.Log("try pause");
+        if (IsPause)
+            return;
+
+        Debug.Log("pause");
+        IsPause = true;
         Time.timeScale = 0f;
         CurrentPauseState = PauseState.PAUSE;
         OnPause?.Invoke();
@@ -74,6 +83,15 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void Resume()
     {
+        Debug.Log("Try Resume");
+        if (CurrentGameState != GameState.PAINT)
+            return;
+
+        if (!IsPause)
+            return;
+
+        Debug.Log("Resume");
+        IsPause = false;
         Time.timeScale = 1f;
         CurrentPauseState = PauseState.PLAY;
         OnResume?.Invoke();

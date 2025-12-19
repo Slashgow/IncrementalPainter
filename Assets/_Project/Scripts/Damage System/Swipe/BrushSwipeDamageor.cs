@@ -47,7 +47,7 @@ public class BrushSwipeDamageor : BaseDamageor
         };
 
         BrushSwipe swipe = Instantiate(brushSwipePrefab, origin, Quaternion.identity);
-        swipe.Initialize(origin, randomDirection, currentSwipeData, Damage, damageableLayers);
+        swipe.Initialize(origin, randomDirection, currentSwipeData, Damage, CriticalDamageMultiplier, CriticalHitLuck, damageableLayers);
 
         OnAttackOnce?.Invoke();
     }

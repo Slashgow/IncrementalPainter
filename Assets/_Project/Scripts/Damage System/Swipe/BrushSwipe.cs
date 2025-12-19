@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityTimer;
 
@@ -8,6 +9,8 @@ public class BrushSwipe : MonoBehaviour
     private LineRenderer lineRenderer;
     private BrushSwipeData data;
     private float damage;
+    private float criticalDamageMultiplier;
+    private float criticalDamageChance;
     private LayerMask damageableLayers;
 
     private Vector3 startPoint;
@@ -20,10 +23,15 @@ public class BrushSwipe : MonoBehaviour
 
     private HashSet<GameObject> damagedObjects = new HashSet<GameObject>();
 
-    public void Initialize(Vector3 origin, Vector3 direction, BrushSwipeData swipeData, float damageAmount, LayerMask layers)
+    public static event Action<float, Vector3, bool> OnAnyBrushSwipeAttack;
+
+    public void Initialize(Vector3 origin, Vector3 direction, BrushSwipeData swipeData, 
+        float damage, float criticalDamageMultiplier, float criticalDamageChance, LayerMask layers)
     {
         data = swipeData;
-        damage = damageAmount;
+        this.damage = damage;
+        this.criticalDamageMultiplier = criticalDamageMultiplier;
+        this.criticalDamageChance = criticalDamageChance;
         damageableLayers = layers;
 
         lineRenderer = GetComponent<LineRenderer>();
@@ -49,7 +57,7 @@ public class BrushSwipe : MonoBehaviour
         Vector3 perpendicular = new Vector3(-direction.y, direction.x, 0f).normalized;
 
         // Add randomized curvature
-        float randomCurvature = data.curvature + Random.Range(-data.curvatureVariation, data.curvatureVariation);
+        float randomCurvature = data.curvature + UnityEngine.Random.Range(-data.curvatureVariation, data.curvatureVariation);
         randomCurvature = Mathf.Clamp01(randomCurvature);
 
         float offset = data.swipeLength * randomCurvature;
@@ -103,10 +111,18 @@ public class BrushSwipe : MonoBehaviour
             var damageable = collider.GetComponentInParent<IDamageable>();
             if (damageable != null)
             {
-                damageable.TakeDamage(damage);
+                float damageAmount = CalculateDamage(out bool isCritical);
+                OnAnyBrushSwipeAttack?.Invoke(damageAmount, currentPosition, isCritical);
+                damageable.TakeDamage(damageAmount);
                 damagedObjects.Add(collider.gameObject);
             }
         }
+    }
+
+    private float CalculateDamage(out bool isCritical)
+    {
+        isCritical = LuckUtility.RollLuck(criticalDamageChance);
+        return isCritical ? damage * criticalDamageMultiplier : damage;
     }
 
 

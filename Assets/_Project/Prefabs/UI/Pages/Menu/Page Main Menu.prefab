@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1378602404764206848}
   - component: {fileID: 599451605347660591}
   - component: {fileID: 128495856561456434}
+  - component: {fileID: 2569615671929898898}
   m_Layer: 5
   m_Name: Page Main Menu
   m_TagString: Untagged
@@ -64,10 +65,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnShowUnityEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2569615671929898898}
+        m_TargetAssemblyTypeName: inkolorgames.effects.RectTransformScaleEffect,
+          inkolorgames.inkolortools
+        m_MethodName: DoEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHideUnityEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2569615671929898898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2401256092710869355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b36c2c984250a24692f44d2eef5dc81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  changeStartScale: 0
+  startScale: 0.2
+  endScale: 1
+  duration: 0.2
+  easing: 4
+  loops: 0
+  loopType: 1
 --- !u!1 &8669549428549003499
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,13 +611,45 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7317671649672108594, guid: f95f398e65453f443a3e473af7278eb0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 615733073808124409}
   m_SourcePrefab: {fileID: 100100000, guid: f95f398e65453f443a3e473af7278eb0, type: 3}
 --- !u!224 &877374721806971721 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5716287171811451915, guid: f95f398e65453f443a3e473af7278eb0, type: 3}
   m_PrefabInstance: {fileID: 4862017657681450818}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2807093681018932592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7317671649672108594, guid: f95f398e65453f443a3e473af7278eb0, type: 3}
+  m_PrefabInstance: {fileID: 4862017657681450818}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &615733073808124409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2807093681018932592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43668104c2586874aa64139232d09571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 7388536401106615277}
+--- !u!114 &7388536401106615277 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2733687144379264175, guid: f95f398e65453f443a3e473af7278eb0, type: 3}
+  m_PrefabInstance: {fileID: 4862017657681450818}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2807093681018932592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4954335668986026650
 PrefabInstance:
   m_ObjectHideFlags: 0

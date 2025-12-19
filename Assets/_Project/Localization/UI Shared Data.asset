@@ -147,6 +147,10 @@ MonoBehaviour:
     m_Key: START
     m_Metadata:
       m_Items: []
+  - m_Id: 7557996375044096
+    m_Key: SCREENSHAKE
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

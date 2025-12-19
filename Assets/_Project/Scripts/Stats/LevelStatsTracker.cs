@@ -28,7 +28,7 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
         PaintSpawner.OnAdditionalSpawn += RecordAdditionalPaintBlobSpawned;
         AutoClickerDamageor.OnAutoClickerDamage += RecordAutoClickerDamage;
         BombDamageor.OnBombDamage += RecordBombDamage;
-        BrushSwipeDamageor.OnBrushSwipeDamage += RecordBrushSwipeDamage;
+        BrushSwipe.OnAnyBrushSwipeAttack += RecordBrushSwipeDamage;
     }
 
     private void OnDestroy()
@@ -38,7 +38,7 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
         PaintSpawner.OnAdditionalSpawn -= RecordAdditionalPaintBlobSpawned;
         AutoClickerDamageor.OnAutoClickerDamage -= RecordAutoClickerDamage;
         BombDamageor.OnBombDamage -= RecordBombDamage;
-        BrushSwipeDamageor.OnBrushSwipeDamage -= RecordBrushSwipeDamage;
+        BrushSwipe.OnAnyBrushSwipeAttack -= RecordBrushSwipeDamage;
         GameManager.OnStartGameState -= HandleGameStateChange;
         CurrencyManager.OnCurrencyGained -= RecordCurrencyGained;
     }
@@ -92,7 +92,7 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
         OnDayStatsUpdated?.Invoke(currentDayStats);
     }
 
-    public void RecordBrushSwipeDamage(float damage)
+    public void RecordBrushSwipeDamage(float damage, Vector3 position, bool isCritical)
     {
         currentDayStats.BrushSwipeDamage += damage;
         currentDayStats.TotalDamageDealt += damage;
