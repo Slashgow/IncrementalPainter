@@ -81,10 +81,16 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void UpdateVisuals()
     {
-        if (skillDataBase == null) 
+        Debug.Log($"UpdateVisuals called for {skillDataBase?.SkillName}");
+
+        if (skillDataBase == null)
+        {
+            Debug.LogWarning("skillDataBase is null!");
             return;
+        }
 
         currentState = DetermineState();
+        Debug.Log($"Determined state: {currentState}");
 
         switch (currentState)
         {
