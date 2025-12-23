@@ -23,17 +23,17 @@ MonoBehaviour:
   spawnOffset: {x: 0, y: 0, z: 0}
   rankThresholds:
     sRankDays: 2
-    aRankDays: 4
-    bRankDays: 6
-    cRankDays: 8
+    aRankDays: 6
+    bRankDays: 12
+    cRankDays: 18
   rankRewards:
     sRankSkillPoints: 5
     aRankSkillPoints: 3
     bRankSkillPoints: 2
     cRankSkillPoints: 1
     dRankSkillPoints: 0
-    sRankCurrency: 30000
-    aRankCurrency: 20000
-    bRankCurrency: 10000
-    cRankCurrency: 5000
-    dRankCurrency: 0
+    sRankCurrency: 100000
+    aRankCurrency: 50000
+    bRankCurrency: 30000
+    cRankCurrency: 10000
+    dRankCurrency: 5000
