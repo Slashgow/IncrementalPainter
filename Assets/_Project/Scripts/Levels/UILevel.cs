@@ -63,7 +63,7 @@ public class UILevel : MonoBehaviour, IUISelectable<LevelData>
         if(!levelSaveData.isDone && levelSaveData.completionRatio > 0f)
         {
             onGoingParent.SetActive(true);
-            onGoingText.text = $"{dayLocalizedString.GetLocalizedString()} {levelSaveData.currentDay} \n " +
+            onGoingText.text = $"{dayLocalizedString.GetLocalizedString()} {levelSaveData.levelStats.CurrentDay} \n " +
                 $"{Mathf.RoundToInt(levelSaveData.completionRatio * 100f)}/" +
                 $"{Mathf.RoundToInt(unlockableLevel.LevelData.PercentCompletionCondition * 100f)} %";
         }

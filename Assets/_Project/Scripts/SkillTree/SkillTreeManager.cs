@@ -52,25 +52,15 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
     private void OnDestroy() => GameManager.OnStartGameState -= GameManager_OnStartGameState;
     private void GameManager_OnStartGameState(GameManager.GameState gameState)
     {
-        Debug.Log($"GameManager_OnStartGameState called with state: {gameState}");
+        //Debug.Log($"GameManager_OnStartGameState called with state: {gameState}");
 
         if (gameState != GameManager.GameState.UPGRADE)
             return;
 
  
-        Debug.Log($"Starting refresh. AllSkillNodes count: {allSkillNodes.Count}");
+        //Debug.Log($"Starting refresh. AllSkillNodes count: {allSkillNodes.Count}");
         RefreshAllNodes();
     }
-
-    private IEnumerator RefreshNodesNextFrame()
-    {
-        Debug.Log("RefreshNodesNextFrame started");
-        yield return null;
-        Debug.Log("About to call RefreshAllNodes");
-        RefreshAllNodes();
-        Debug.Log("RefreshAllNodes completed");
-    }
-
 
     private void InitializeSkills()
     {
@@ -333,14 +323,14 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
 
     public void RefreshAllNodes()
     {
-        Debug.Log($"RefreshAllNodes called. Node count: {allSkillNodes.Count}");
+        //Debug.Log($"RefreshAllNodes called. Node count: {allSkillNodes.Count}");
         foreach (var node in allSkillNodes)
         {
             if (node != null)
             {
-                Debug.Log($"Updating node: {node.SkillDataBase?.SkillName}, State before: {node.CurrentState}");
+                //Debug.Log($"Updating node: {node.SkillDataBase?.SkillName}, State before: {node.CurrentState}");
                 node.UpdateVisuals();
-                Debug.Log($"State after: {node.CurrentState}");
+                //Debug.Log($"State after: {node.CurrentState}");
             }
         }
     }

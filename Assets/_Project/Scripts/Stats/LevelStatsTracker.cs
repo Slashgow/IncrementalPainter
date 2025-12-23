@@ -130,7 +130,7 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
             saveData.daysToComplete,
             saveData.bestRank,
             false,
-            totalLevelStats.CurrentDay 
+            totalLevelStats
         );
     }
 
@@ -146,9 +146,9 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
             totalLevelStats.CurrentDay = 1;
             logger.Log($"Level was completed, starting fresh from Day 1", this);
         }
-        else if (saveData.currentDay > 0)
+        else if (saveData.levelStats != null && saveData.levelStats.CurrentDay > 0)
         {
-            totalLevelStats.CurrentDay = saveData.currentDay;
+            totalLevelStats = saveData.levelStats;
             logger.Log($"Loaded level progress: Day {totalLevelStats.CurrentDay}", this);
         }
     }

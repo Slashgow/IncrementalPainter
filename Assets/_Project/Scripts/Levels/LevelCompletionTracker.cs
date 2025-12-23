@@ -65,7 +65,7 @@ public class LevelCompletionTracker : MonoBehaviour
             saveData.daysToComplete,
             saveData.bestRank,
             false,
-            saveData.currentDay
+            saveData.levelStats
         );
 
         isTracking = false;

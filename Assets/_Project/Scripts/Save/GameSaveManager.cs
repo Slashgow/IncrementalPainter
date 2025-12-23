@@ -42,7 +42,7 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
     }
 
     public void SaveLevelData(bool isDone, float completionPercentage, string author, string title, bool isUnlocked = false, 
-        int daysToComplete = -1, LevelRank bestRank = LevelRank.None, bool hasClaimedReward = false, int currentDay = -1)
+        int daysToComplete = -1, LevelRank bestRank = LevelRank.None, bool hasClaimedReward = false, LevelStats levelStats = null)
     {
         gameSaveData.levels.TryGetValue(SavePath.GetLevelID(author, title), out LevelSaveData existingEntry);
 
@@ -54,14 +54,14 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
             existingEntry.isUnlocked = isUnlocked;
             existingEntry.daysToComplete = daysToComplete == - 1 ? existingEntry.daysToComplete : daysToComplete;
             existingEntry.bestRank = bestRank == LevelRank.None ? existingEntry.bestRank : bestRank;
-            existingEntry.currentDay = currentDay == -1 ? existingEntry.currentDay : currentDay;
+            existingEntry.levelStats = levelStats ?? existingEntry.levelStats;
         }
         else
         {
             logger.Log($"Saving unexisting {SavePath.GetLevelID(author, title)}", this);
             gameSaveData.levels.Add(SavePath.GetLevelID(author, title), 
                 new LevelSaveData(isDone, completionPercentage, author, title, isUnlocked, daysToComplete, bestRank, 
-                hasClaimedReward, currentDay));
+                hasClaimedReward, levelStats));
         }
 
         SaveGameData();
@@ -92,7 +92,7 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
     public void ClearLevelProgress(string author, string title)
     {
         LevelSaveData saveData = LoadLevelData(author, title);
-        SaveLevelData(false, 0, author, title, saveData.isUnlocked, 0, saveData.bestRank, false, 1);
+        SaveLevelData(false, 0, author, title, saveData.isUnlocked, 0, saveData.bestRank, false, new LevelStats());
         CwCommon.ClearSave(SavePath.GetLevelID(author, title), SavePath.SaveFolderSprites);
     }
 
