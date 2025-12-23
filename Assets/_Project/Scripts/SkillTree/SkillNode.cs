@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -25,6 +26,11 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     private SkillNodeDetail activeDetailInstance;
 
+    [SerializeField] private UnityEvent OnDiscoverNode;
+
+    private bool isDiscovered;
+    public bool IsDiscovered => isDiscovered;
+
     public enum SkillState
     {
         Locked,
@@ -44,6 +50,9 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (!isDiscovered)
+            return;
+
         if (treeManager.DetailPrefab != null && treeManager.DetailCanvas != null)
         {
             activeDetailInstance = Instantiate(treeManager.DetailPrefab, 
@@ -81,16 +90,21 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void UpdateVisuals()
     {
-        //Debug.Log($"UpdateVisuals called for {skillDataBase?.SkillName}");
-
         if (skillDataBase == null)
-        {
-            //Debug.LogWarning("skillDataBase is null!");
             return;
-        }
+
+        bool wasDiscovered = isDiscovered;
+        isDiscovered = CheckIfDiscovered();
+
+        if (!wasDiscovered && isDiscovered)
+            OnDiscoverNode?.Invoke();
+
+        SetNodeVisibility(isDiscovered);
+
+        if (!isDiscovered)
+            return;
 
         currentState = DetermineState();
-        //Debug.Log($"Determined state: {currentState}");
 
         switch (currentState)
         {
@@ -119,6 +133,41 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         }
 
         UpdateConnectionLines();
+    }
+    private bool CheckIfDiscovered()
+    {
+        var levelRequirement = skillDataBase.GetRequirementsForLevel(1);
+
+        if (levelRequirement == null || levelRequirement.RequiredSkills == null || levelRequirement.RequiredSkills.Count == 0)
+            return true;
+
+        foreach (var requiredSkillWithLevel in levelRequirement.RequiredSkills)
+        {
+            if (requiredSkillWithLevel.SkillData == null)
+                continue;
+
+            int currentLevel = treeManager.GetSkillLevel(requiredSkillWithLevel.SkillData.SkillID);
+            if (currentLevel < 1)
+                return false;
+        }
+
+        return true;
+    }
+
+    private void SetNodeVisibility(bool visible)
+    {
+        if (iconImage)
+            iconImage.gameObject.SetActive(visible);
+        if (backgroundImage)
+            backgroundImage.gameObject.SetActive(visible);
+        if (button)
+            button.gameObject.SetActive(visible);
+
+        foreach (var line in connectionLines)
+        {
+            if (line != null)
+                line.gameObject.SetActive(visible);
+        }
     }
 
     private SkillState DetermineState()

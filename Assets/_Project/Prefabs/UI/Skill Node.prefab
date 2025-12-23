@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 888715272991911543}
   - component: {fileID: 7168286036989111248}
   - component: {fileID: 618003002056747048}
+  - component: {fileID: 427372069888746903}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -139,7 +140,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: -50, y: -50, z: -50, w: -50}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -226,6 +227,26 @@ MonoBehaviour:
   duration: 0.2
   easing: 10
   useSelectableInteractability: 1
+--- !u!114 &427372069888746903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6688199285505260428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b36c2c984250a24692f44d2eef5dc81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 1
+  changeStartScale: 1
+  startScale: 0.2
+  endScale: 1
+  duration: 1
+  easing: 30
+  loops: 0
+  loopType: 1
 --- !u!1 &6739706608164289842
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,6 +257,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3497839809469098451}
   - component: {fileID: 7986043459631872983}
+  - component: {fileID: 2613585263216195519}
+  - component: {fileID: 3287188876111951724}
+  - component: {fileID: 8944625303005916116}
   m_Layer: 5
   m_Name: Skill Node
   m_TagString: Untagged
@@ -276,8 +300,94 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillDataBase: {fileID: 0}
-  targetLevel: 1
   iconImage: {fileID: 41432711811885976}
   backgroundImage: {fileID: 3057301413953577289}
   button: {fileID: 888715272991911543}
   connectionLines: []
+  OnDiscoverNode:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8944625303005916116}
+        m_TargetAssemblyTypeName: inkolorgames.effects.SFXEffects, inkolorgames.inkolortools
+        m_MethodName: DoEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2613585263216195519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6739706608164289842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64df80c7d3d6b44fb2de900c5cd716c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects:
+  - {fileID: 3287188876111951724}
+  - {fileID: 8944625303005916116}
+--- !u!114 &3287188876111951724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6739706608164289842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db811bdce2772a14f97b5a6e68a27638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  lineRevealDuration: 1
+  lineRevealCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  OnComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  reverseReveal: 1
+--- !u!114 &8944625303005916116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6739706608164289842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf022e3c5170344fae704fbf4f879dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  audioClips:
+  - {fileID: 8300000, guid: 67583b1df87740e41b2542fe351fd91d, type: 3}

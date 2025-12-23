@@ -70,11 +70,9 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void Pause()
     {
-        Debug.Log("try pause");
         if (IsPause)
             return;
 
-        Debug.Log("pause");
         IsPause = true;
         Time.timeScale = 0f;
         CurrentPauseState = PauseState.PAUSE;
@@ -83,14 +81,12 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void Resume()
     {
-        Debug.Log("Try Resume");
         if (CurrentGameState != GameState.PAINT)
             return;
 
         if (!IsPause)
             return;
 
-        Debug.Log("Resume");
         IsPause = false;
         Time.timeScale = 1f;
         CurrentPauseState = PauseState.PLAY;
