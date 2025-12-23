@@ -47,6 +47,7 @@ MonoBehaviour:
   - level: 5
     skillPointCost: 10
     requiredSkills: []
+  unitValue: 5
   effectValue:
     a: 1
     b: 1

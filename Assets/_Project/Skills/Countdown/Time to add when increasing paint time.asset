@@ -35,6 +35,7 @@ MonoBehaviour:
     requiredSkills:
     - skillData: {fileID: 11400000, guid: bf6e118703275964fb908b0af96e99c0, type: 2}
       requiredLevel: 1
+  unitValue: 3
   effectValue:
     a: 1
     b: 1

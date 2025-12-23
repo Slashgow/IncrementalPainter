@@ -64,8 +64,14 @@ public class SkillNodeDetail : MonoBehaviour
             currentLevelText.text = $"Level <color=#{currentHexaColor}>{currentLevel}</color> / {maxLevel}";
 
         if (statValueDescriptionText)
-            statValueDescriptionText.text = $"<color=#{currentHexaColor}>{skillNode.SkillDataBase.GetEffectValueAtLevel(currentLevel)}</color> -> " +
-                $"<color=#{currentHexaColor}>{skillNode.SkillDataBase.GetEffectValueAtLevel(currentLevel+1)}</color>";
+        {
+            statValueDescriptionText.text = $"<color=#{currentHexaColor}>" +
+                $"{FormatUtility.FormatValue(skillNode.SkillDataBase.UnitValue, skillNode.SkillDataBase.GetEffectValueAtLevel(currentLevel))}" +
+                $"</color> -> " +
+                $"<color=#{currentHexaColor}>" +
+                $"{FormatUtility.FormatValue(skillNode.SkillDataBase.UnitValue, skillNode.SkillDataBase.GetEffectValueAtLevel(currentLevel + 1))}" +
+                $"</color>";
+        }
 
         if (costText)
         {
@@ -110,14 +116,5 @@ public class SkillNodeDetail : MonoBehaviour
             default:
                 break;
         }
-    }
-
-    private string FormatValue(float value)
-    {
-        if (value >= 1000000f) 
-            return (value / 1000000f).ToString("F2") + "M";
-        if (value >= 1000f) 
-            return (value / 1000f).ToString("F2") + "K";
-        return value.ToString("F2");
     }
 }

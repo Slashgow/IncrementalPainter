@@ -1,7 +1,30 @@
+using System.Text;
 using UnityEngine;
 
 public static class FormatUtility
 {
+    public static string FormatValue(UnitValue unitValue, float value)
+    {
+        switch (unitValue)
+        {
+            case UnitValue.NO_UNIT:
+                return FormatValue(value);
+            case UnitValue.PERCENTAGE:
+                return new StringBuilder($"{value} %").ToString();
+            case UnitValue.CLICK_PER_SECOND:
+                return new StringBuilder($"{value} Click/s").ToString();
+            case UnitValue.SECOND:
+                return FormatTime(value);
+            case UnitValue.METER:
+                return new StringBuilder($"{value} m").ToString();
+            case UnitValue.MULTIPLIER:
+                return new StringBuilder($"x {value}").ToString();
+            default:
+                return FormatValue(value);
+        }
+    }
+
+
     public static string FormatValue(float damage)
     {
         if (damage >= 1000000)

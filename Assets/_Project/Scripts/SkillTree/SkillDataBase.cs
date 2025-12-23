@@ -27,6 +27,10 @@ public abstract class SkillDataBase : ScriptableObject
     [Header("Per-Level Requirements")]
     [SerializeField] private List<SkillLevelRequirement> levelRequirements = new List<SkillLevelRequirement>();
     public List<SkillLevelRequirement> LevelRequirements => levelRequirements;
+
+    [Header("Unit Value")]
+    [SerializeField] private UnitValue unitValue;
+    public UnitValue UnitValue => unitValue;
     public abstract float GetEffectValueAtLevel(int level);
     public SkillLevelRequirement GetRequirementsForLevel(int level) => levelRequirements.Find(req => req.Level == level);
     public int GetCostForLevel(int level) => Mathf.RoundToInt(costFunction.Evaluate(level));
