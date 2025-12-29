@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6779132991299214879}
+  - component: {fileID: 2699089283188217754}
   - component: {fileID: 4199983495212388051}
   - component: {fileID: 8811257036007215974}
   - component: {fileID: 4604253230976657234}
@@ -43,6 +44,19 @@ Transform:
   - {fileID: 938334628455799913}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2699089283188217754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882197496587690495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 669400dc9d7a4be4182d75e9c95c320a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleAutoclickerInputActionReference: {fileID: -3199157550163689742, guid: 36a53b2e84799364fbb83b6ebfc8ceac, type: 3}
 --- !u!114 &4199983495212388051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,10 +69,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49d21c4a90e7b9e4dbff4503b1ea3c75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  autoClickerInput: {fileID: 2699089283188217754}
   targetCamera: {fileID: 0}
   logger: {fileID: 7481424112164422760}
   clickTimerIntervalPerLevel:
     skillData: {fileID: 11400000, guid: b57d95ae9b45fe74dba77d0acf4b2987, type: 2}
+  toggleAutoclickerPerLevel:
+    skillData: {fileID: 11400000, guid: 7e66a97787e60114182c95d756d05c34, type: 2}
   useRealTime: 0
 --- !u!114 &8811257036007215974
 MonoBehaviour:
@@ -111,6 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1a0c6534a2d654f9df591d080cc5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circleVisuals:
+  - {fileID: 1721848700406742428}
+  - {fileID: 6600467794673684648}
   circleVisualCollider: {fileID: 2020888545691585024}
   autoClicker: {fileID: 4199983495212388051}
   damageor: {fileID: 8811257036007215974}
@@ -355,6 +375,7 @@ GameObject:
   - component: {fileID: 3301405576410462465}
   - component: {fileID: 6600467794673684648}
   - component: {fileID: 2739292682637095326}
+  - component: {fileID: 6422027767927814334}
   m_Layer: 0
   m_Name: Inner Circle Visual
   m_TagString: Untagged
@@ -455,6 +476,19 @@ MonoBehaviour:
   loopType: 0
   useRealTime: 1
   isRelative: 0
+--- !u!114 &6422027767927814334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2482893864687272415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449e39ab49c20a6418f3fafa02ad5595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 6600467794673684648}
 --- !u!1 &7560482830283150627
 GameObject:
   m_ObjectHideFlags: 0

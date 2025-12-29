@@ -65,12 +65,19 @@ public class SkillNodeDetail : MonoBehaviour
 
         if (statValueDescriptionText)
         {
-            statValueDescriptionText.text = $"<color=#{currentHexaColor}>" +
-                $"{FormatUtility.FormatValue(skillNode.SkillDataBase.UnitValue, skillNode.SkillDataBase.GetEffectValueAtLevel(currentLevel))}" +
-                $"</color> -> " +
-                $"<color=#{currentHexaColor}>" +
-                $"{FormatUtility.FormatValue(skillNode.SkillDataBase.UnitValue, skillNode.SkillDataBase.GetEffectValueAtLevel(currentLevel + 1))}" +
-                $"</color>";
+            if (isMaxed)
+            {
+                statValueDescriptionText.text = $"<color=#{valueHexaMaxLevelColor}>LVL MAX</color>";
+            }
+            else
+            {
+                statValueDescriptionText.text = $"<color=#{currentHexaColor}>" +
+                                    $"{FormatUtility.FormatValue(skillNode.SkillDataBase.UnitValue, skillNode.SkillDataBase.GetEffectValueAtLevel(currentLevel))}" +
+                                    $"</color> -> " +
+                                    $"<color=#{currentHexaColor}>" +
+                                    $"{FormatUtility.FormatValue(skillNode.SkillDataBase.UnitValue, skillNode.SkillDataBase.GetEffectValueAtLevel(currentLevel + 1))}" +
+                                    $"</color>";
+            }
         }
 
         if (costText)

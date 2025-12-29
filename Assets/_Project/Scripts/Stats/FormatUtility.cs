@@ -19,6 +19,8 @@ public static class FormatUtility
                 return new StringBuilder($"{value} m").ToString();
             case UnitValue.MULTIPLIER:
                 return new StringBuilder($"x {value}").ToString();
+            case UnitValue.BOOLEAN:
+                return new StringBuilder($"{(value > 0  ? "unlocked" : "locked")}").ToString();
             default:
                 return FormatValue(value);
         }

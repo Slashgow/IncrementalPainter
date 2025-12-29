@@ -176,6 +176,10 @@ MonoBehaviour:
     m_Localized: Nombre de blob de peinture pour chaque apparition
     m_Metadata:
       m_Items: []
+  - m_Id: 11546557684248576
+    m_Localized: "Clic-Droit pour Activer/D\xE9sactiver le cercle"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

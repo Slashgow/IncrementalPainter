@@ -171,6 +171,10 @@ MonoBehaviour:
     m_Key: UPGRADE_SPAWNER_COUNT_PER_SPAWN
     m_Metadata:
       m_Items: []
+  - m_Id: 11546557684248576
+    m_Key: UPGRADE_TOGGLE_AUTOCLICKER
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

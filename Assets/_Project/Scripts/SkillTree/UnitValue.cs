@@ -5,5 +5,6 @@ public enum UnitValue
     CLICK_PER_SECOND,
     SECOND,
     METER,
-    MULTIPLIER
+    MULTIPLIER,
+    BOOLEAN
 }

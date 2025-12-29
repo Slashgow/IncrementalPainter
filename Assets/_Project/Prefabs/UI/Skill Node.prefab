@@ -307,9 +307,9 @@ MonoBehaviour:
   OnDiscoverNode:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8944625303005916116}
-        m_TargetAssemblyTypeName: inkolorgames.effects.SFXEffects, inkolorgames.inkolortools
-        m_MethodName: DoEffect
+      - m_Target: {fileID: 2613585263216195519}
+        m_TargetAssemblyTypeName: inkolorgames.effects.EffectApplier, inkolorgames.inkolortools
+        m_MethodName: DoEffects
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

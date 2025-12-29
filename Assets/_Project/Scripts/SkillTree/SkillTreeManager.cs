@@ -72,6 +72,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[paintStateManager.ChanceOfIncreasingTimerPerLevel.SkillID] = paintStateManager.ChanceOfIncreasingTimerPerLevel;
         leveledSkills[paintStateManager.TimeToAddOnIncreasePerLevel.SkillID] = paintStateManager.TimeToAddOnIncreasePerLevel;
         leveledSkills[autoClicker.ClickTimerIntervalPerLevel.SkillID] = autoClicker.ClickTimerIntervalPerLevel;
+        leveledSkills[autoClicker.ToggleAutoclickerPerLevel.SkillID] = autoClicker.ToggleAutoclickerPerLevel;
         leveledSkills[paintSpawner.ChanceOfSpawningWhenKillingPerLevel.SkillID] = paintSpawner.ChanceOfSpawningWhenKillingPerLevel;
         leveledSkills[paintSpawner.ChanceOfSpawningBombPaintPerLevel.SkillID] = paintSpawner.ChanceOfSpawningBombPaintPerLevel;
         leveledSkills[paintSpawner.ChanceOfSpawningFreezePaintPerLevel.SkillID] = paintSpawner.ChanceOfSpawningFreezePaintPerLevel;
@@ -111,6 +112,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         paintStateManager.ChanceOfIncreasingTimerPerLevel.Initialize();
         paintStateManager.TimeToAddOnIncreasePerLevel.Initialize();
         autoClicker.ClickTimerIntervalPerLevel.Initialize();
+        autoClicker.ToggleAutoclickerPerLevel.Initialize();
         paintSpawner.ChanceOfSpawningWhenKillingPerLevel.Initialize();
         paintSpawner.ChanceOfSpawningBombPaintPerLevel.Initialize();
         paintSpawner.ChanceOfSpawningFreezePaintPerLevel.Initialize();
