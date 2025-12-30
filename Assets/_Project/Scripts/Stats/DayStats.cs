@@ -12,6 +12,9 @@ public class DayStats
     public int TimesTimerIncreased;
     public int AdditionalPaintBlobsSpawned;
     public int CurrencyGained;
+    public int MagnetItemSpawned;
+    public int NukeItemSpawned;
+    public int PaintBlobsDestroyedByNuke;
 
     public DayStats()
     {
@@ -24,5 +27,8 @@ public class DayStats
         TimesTimerIncreased = 0;
         AdditionalPaintBlobsSpawned = 0;
         CurrencyGained = 0;
+        MagnetItemSpawned = 0;
+        NukeItemSpawned = 0;
+        PaintBlobsDestroyedByNuke = 0;
     }
 }

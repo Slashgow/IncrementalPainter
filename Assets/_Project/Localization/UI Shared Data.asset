@@ -151,6 +151,18 @@ MonoBehaviour:
     m_Key: SCREENSHAKE
     m_Metadata:
       m_Items: []
+  - m_Id: 11534455686950912
+    m_Key: MAGNET_ITEM_SPAWNED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11534759241314304
+    m_Key: NUKE_ITEM_SPAWNED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11534888828530688
+    m_Key: PAINT_BLOB_DESTROYED_BY_NUKE
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

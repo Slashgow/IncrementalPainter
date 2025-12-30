@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
@@ -14,6 +15,9 @@ public class ItemSpawner : MonoBehaviour
     public float SpawnChanceVacuumableMagnetItem => spawnChanceVacuumableMagnetItemPerLevel.GetCurrentLevelData();
     public float SpawnChanceNukeItem => spawnChanceNukeItemPerLevel.GetCurrentLevelData();
 
+    public static event Action OnSpawnMagnetItem;
+    public static event Action OnSpawnNukeItem;
+
     private SpriteRenderer spriteRenderer;
 
     private void OnEnable() => PaintSpawner.OnSpawnPaint += PaintSpawner_OnSpawnPaint;
@@ -22,10 +26,17 @@ public class ItemSpawner : MonoBehaviour
     private void PaintSpawner_OnSpawnPaint()
     {
         if (LuckUtility.RollLuck(SpawnChanceVacuumableMagnetItem))
+        {
             SpawnObject(magnetItemPrefab);
+            OnSpawnMagnetItem?.Invoke();
+        }
 
-        if(LuckUtility.RollLuck(SpawnChanceNukeItem))
+
+        if (LuckUtility.RollLuck(SpawnChanceNukeItem))
+        {
             SpawnObject(nukeItemPrefab.gameObject);
+            OnSpawnNukeItem?.Invoke();
+        }
     }
 
     private void SpawnObject(GameObject prefab)

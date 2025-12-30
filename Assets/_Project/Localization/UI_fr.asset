@@ -154,6 +154,18 @@ MonoBehaviour:
     m_Localized: "Secousse de la cam\xE9ra"
     m_Metadata:
       m_Items: []
+  - m_Id: 11534455686950912
+    m_Localized: Nombre de boosts de ramassage obtenus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11534759241314304
+    m_Localized: "Nombre de bombes nucl\xE9aires obtenus"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11534888828530688
+    m_Localized: "Nombre de gouttes de peinture d\xE9truite par une bombe nucl\xE9aire"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -154,6 +154,18 @@ MonoBehaviour:
     m_Localized: Screenshake
     m_Metadata:
       m_Items: []
+  - m_Id: 11534455686950912
+    m_Localized: Number of pickup boost spawned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11534759241314304
+    m_Localized: Number of nuke spawned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11534888828530688
+    m_Localized: Number of paint blobs destroyed by nuke
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
