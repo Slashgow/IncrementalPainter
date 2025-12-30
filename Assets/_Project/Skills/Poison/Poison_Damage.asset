@@ -23,7 +23,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  icon: {fileID: 1730111849, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
+  icon: {fileID: 1874201113, guid: e5d32b0d3af324541b2ccb2fc3aa7fb4, type: 3}
   costFunction:
     a: 100
     b: 10
