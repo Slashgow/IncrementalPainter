@@ -128,8 +128,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magnetItemPrefab: {fileID: 2807968163413007823, guid: f8a7b66995aff0a4fa32ceb63bddd953, type: 3}
+  nukeItemPrefab: {fileID: 5919393436916576885, guid: ddcec240951b21246af7cd689e6d2a20, type: 3}
   spawnChanceVacuumableMagnetItemPerLevel:
     skillData: {fileID: 11400000, guid: 32c528fa84a709643ba946f47e51cd3b, type: 2}
+  spawnChanceNukeItemPerLevel:
+    skillData: {fileID: 11400000, guid: 6a63afd92dc7a644086924a3c4d5fa4d, type: 2}
 --- !u!1 &5442154982494036360
 GameObject:
   m_ObjectHideFlags: 0

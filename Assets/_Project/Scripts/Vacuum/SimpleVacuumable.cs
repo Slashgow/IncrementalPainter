@@ -25,6 +25,12 @@ public class SimpleVacuumable : MonoBehaviour, IVacuumable
 
     public static event Action<IVacuumable, IVacuumer> OnAnyVacuumableCollected;
 
+    private void OnEnable()
+    {
+        if(targetPosition == Vector3.zero)
+            Initialize(transform.position);
+    }
+
     public void Initialize(Vector3 targetPosition) => this.targetPosition = targetPosition;
 
     public void ApplyVacuumMovement(Vector3 movement)

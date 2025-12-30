@@ -10,35 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33731296d6af78e4d974e1768760d497, type: 3}
-  m_Name: ChanceOfSpawnMagnetItem
+  m_Name: Nuke_Damage
   m_EditorClassIdentifier: 
-  skillID: SpawnChanceMagnetItem
-  skillName: SpawnChanceMagnetItem
+  skillID: Nuke_Damage
+  skillName: Nuke_Damage
   description:
     m_TableReference:
       m_TableCollectionName: GUID:c2cb2738a056b164bb9bace0f5b339ba
     m_TableEntryReference:
-      m_KeyId: 11828999053766656
+      m_KeyId: 11837154810785792
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  icon: {fileID: 354743924, guid: e5d32b0d3af324541b2ccb2fc3aa7fb4, type: 3}
+  icon: {fileID: -1084543492, guid: e5d32b0d3af324541b2ccb2fc3aa7fb4, type: 3}
   costFunction:
-    a: 100
-    b: 10
-  startingLevel: 0
-  maxLevel: 5
-  levelRequirements:
-  - level: 1
-    skillPointCost: 0
-    requiredSkills:
-    - skillData: {fileID: 11400000, guid: db548c119e6dd154d8275d850e430f20, type: 2}
-      requiredLevel: 1
-  unitValue: 1
-  effectValue:
-    a: 0.1
+    a: 0
     b: 0
+  startingLevel: 0
+  maxLevel: 0
+  levelRequirements: []
+  unitValue: 0
+  effectValue:
+    a: 0
+    b: 200
   references:
     version: 2
     RefIds: []

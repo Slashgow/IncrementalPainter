@@ -913,6 +913,173 @@ MonoBehaviour:
   normalHitColor: {r: 0.68235296, g: 0.82745105, b: 0.3529412, a: 1}
   criticalHitColor: {r: 0.29411766, g: 0.5254902, b: 0.27450982, a: 1}
   criticalMinLimit: 25
+--- !u!1 &836908325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 836908327}
+  - component: {fileID: 836908326}
+  - component: {fileID: 836908331}
+  - component: {fileID: 836908330}
+  - component: {fileID: 836908332}
+  - component: {fileID: 836908329}
+  - component: {fileID: 836908328}
+  m_Layer: 0
+  m_Name: Nuke Damageor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &836908326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836908325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f1966f3572add449b2cb7b4d185aac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 43559bb50b5078f44b5d48e5989ba902, type: 2}
+  criticalDamageMultiplierSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: d27a34db1e0494d47902f6620768e324, type: 2}
+  criticalHitLuckSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 5f5917714708bc34c8c2712241fc9155, type: 2}
+  damageRadiusSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 2d36623e14a9c6b4fad9c23270d91400, type: 2}
+  damageableLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  OnAttackOnce:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollectNuke:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 836908329}
+        m_TargetAssemblyTypeName: PoolInstantiatedEffect, Assembly-CSharp
+        m_MethodName: DoEffect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 836908331}
+        m_TargetAssemblyTypeName: inkolorgames.effects.EffectApplier, inkolorgames.inkolortools
+        m_MethodName: DoEffects
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &836908327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836908325}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &836908328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836908325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6869d1947bdee49a545215e6121ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4593184484909914552, guid: ddccdb85573868b4c8e7f40f96697204, type: 3}
+  growPoolSize: 10
+--- !u!114 &836908329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836908325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2afd04775eaa049bffaa83641e90e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  poolSystems:
+  - {fileID: 836908328}
+  numberOfEffectToSpawn: 1
+  instantiateFirstOnExactPosition: 1
+  spawnMinOffset: {x: 0, y: 0, z: 0}
+  spawnMaxOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &836908330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836908325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796d92662e9c0e14599aca16cdbbf6b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  shakeData: {fileID: 11400000, guid: 9abdad8abeb0a1d4e8ae4f8dfc746629, type: 2}
+--- !u!114 &836908331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836908325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64df80c7d3d6b44fb2de900c5cd716c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects:
+  - {fileID: 836908330}
+  - {fileID: 836908332}
+--- !u!114 &836908332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836908325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf022e3c5170344fae704fbf4f879dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  audioClips:
+  - {fileID: 8300000, guid: 9f81b35063c169644b030095b3cb69d6, type: 3}
 --- !u!1001 &907292362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6139,5 +6306,6 @@ SceneRoots:
   - {fileID: 1562959402}
   - {fileID: 1988011186}
   - {fileID: 1563423799}
+  - {fileID: 836908327}
   - {fileID: 595230175}
   - {fileID: 235815903}

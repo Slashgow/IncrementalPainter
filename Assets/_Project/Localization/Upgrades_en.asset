@@ -183,6 +183,11 @@ MonoBehaviour:
       range/force
     m_Metadata:
       m_Items: []
+  - m_Id: 11837154810785792
+    m_Localized: Chance of spawning a nuke that will destroy every paint blobs on
+      the canvas
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

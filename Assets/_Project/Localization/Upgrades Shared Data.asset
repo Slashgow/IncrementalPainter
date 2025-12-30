@@ -179,6 +179,10 @@ MonoBehaviour:
     m_Key: UPGRADE_SPAWN_CHANCE_MAGNET_ITEM
     m_Metadata:
       m_Items: []
+  - m_Id: 11837154810785792
+    m_Key: UPGRADE_SPAWN_CHANCE_NUKE_ITEM
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
