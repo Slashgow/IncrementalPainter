@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelManager : PersistentMonoSingleton<LevelManager>
 {
     [SerializeField] private LevelCompletionTracker completionTracker;
+    [SerializeField] private Color sRankColor, aRankColor, bRankColor, cRankColor, dRankColor;
 
     [SerializeField] private LevelData defaultLevel;
 
@@ -99,4 +100,17 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
         return saveData?.bestRank ?? LevelRank.None;
     }
     public LevelRank GetCurrentProjectedRank() => completionTracker.GetCurrentProjectedRank();
+    public Color GetCurrentProjectedRankColor()
+    {
+        LevelRank projectedRank = GetCurrentProjectedRank();
+        return projectedRank switch
+        {
+            LevelRank.S => sRankColor,
+            LevelRank.A => aRankColor,
+            LevelRank.B => bRankColor,
+            LevelRank.C => cRankColor,
+            LevelRank.D => dRankColor,
+            _ => Color.white,
+        };
+    }
 }

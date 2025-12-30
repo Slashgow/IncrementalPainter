@@ -3095,6 +3095,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1941335809553924507}
     m_Modifications:
+    - target: {fileID: 1032748024513247879, guid: f21d1ea4bca41ed46b22481fdd7b223d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: a19997a8b1df5ec458f6b61d8d833b82, type: 2}
     - target: {fileID: 2946912539625993775, guid: f21d1ea4bca41ed46b22481fdd7b223d, type: 3}
       propertyPath: m_Name
       value: Background Title

@@ -318,6 +318,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   completionTracker: {fileID: 1037331632690210968}
+  sRankColor: {r: 0.9725491, g: 0.83921576, b: 0.10980393, a: 1}
+  aRankColor: {r: 0.73333335, g: 0.14117648, b: 0.227451, a: 1}
+  bRankColor: {r: 0.27058825, g: 0.5921569, b: 0.8196079, a: 1}
+  cRankColor: {r: 0.46274513, g: 0.75294125, b: 0.27450982, a: 1}
+  dRankColor: {r: 0.54509807, g: 0.09411766, b: 0.47058827, a: 1}
   defaultLevel: {fileID: 11400000, guid: 86fce4b65d45868428db4499ba673069, type: 2}
   unlockableSortedLevels:
   - levelData: {fileID: 11400000, guid: df35e19a92a782e4f8624824bd041a86, type: 2}

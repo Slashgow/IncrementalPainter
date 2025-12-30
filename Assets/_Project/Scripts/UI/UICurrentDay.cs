@@ -8,6 +8,7 @@ public class UICurrentDay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dayElapsedText;
     [SerializeField] private bool showCurrentDay = false;
 
+
     private void Awake() => LevelStatsTracker.OnDayEnded += OnDayEnded;
     private void OnDestroy() => LevelStatsTracker.OnDayEnded -= OnDayEnded;
 
@@ -18,6 +19,7 @@ public class UICurrentDay : MonoBehaviour
 
     private void OnDayEnded(DayStats dayStats, int currentDay)
     {
+        dayElapsedText.color = LevelManager.Instance.GetCurrentProjectedRankColor();
         dayElapsedText.text = $"{dayLocalized.GetLocalizedString()} {(showCurrentDay ? currentDay: currentDay - 1)}";
     }
 }
