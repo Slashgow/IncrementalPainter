@@ -113,4 +113,30 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
             _ => Color.white,
         };
     }
+
+    public int GetRemainingCurrencyReward(UnlockableLevel unlockableLevel)
+    {
+        if (unlockableLevel == null || unlockableLevel.LevelData == null)
+            return 0;
+
+        LevelData levelData = unlockableLevel.LevelData;
+        LevelSaveData saveData = GameSaveManager.Instance.LoadLevelData(levelData.LevelAuthor, levelData.LevelTitle);
+
+        int maxCurrencyReward = levelData.GetCurrencyReward(LevelRank.S);
+        int claimedCurrency = levelData.GetCurrencyReward(saveData.claimedRewardRank);
+        return Mathf.Max(0, maxCurrencyReward - claimedCurrency);
+    }
+
+    public int GetRemainingSkillPointReward(UnlockableLevel unlockableLevel)
+    {
+        if (unlockableLevel == null || unlockableLevel.LevelData == null)
+            return 0;
+
+        LevelData levelData = unlockableLevel.LevelData;
+        LevelSaveData saveData = GameSaveManager.Instance.LoadLevelData(levelData.LevelAuthor, levelData.LevelTitle);
+
+        int maxSkillPointReward = levelData.GetSkillPointReward(LevelRank.S);
+        int claimedSkillPoints = levelData.GetSkillPointReward(saveData.claimedRewardRank);
+        return Mathf.Max(0, maxSkillPointReward - claimedSkillPoints);
+    }
 }

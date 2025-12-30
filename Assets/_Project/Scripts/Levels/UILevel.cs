@@ -26,11 +26,24 @@ public class UILevel : MonoBehaviour, IUISelectable<LevelData>
     [SerializeField] private TextMeshProUGUI onGoingText;
     [SerializeField] private LocalizedString dayLocalizedString;
 
+    [Header("Reward Left UI Elements")]
+    [SerializeField] private LocalizedString rewardLeftLocalizedString, rewardRightLocalizedString;
+    [SerializeField] private TextMeshProUGUI textRewardLeftToGet;
+    [SerializeField] private Color currencyColor, skillPointColor;
+
+    private string currencyColorHex;
+    private string skillPointHex;
+    private int remainingCurrencyReward;
+    private int remainingSPReward;
+
     private UnlockableLevel unlockableLevel;
     public event Action<LevelData> OnSelectEvent;
 
     public void Initialize(UnlockableLevel unlockableLevel)
     {
+        currencyColorHex = ColorUtility.ToHtmlStringRGB(currencyColor);
+        skillPointHex = ColorUtility.ToHtmlStringRGB(skillPointColor);
+
         this.unlockableLevel = unlockableLevel;
         UpdateLevelInfo();
     }
@@ -50,6 +63,22 @@ public class UILevel : MonoBehaviour, IUISelectable<LevelData>
     {
         textTitle.text = unlockableLevel.LevelData.LevelTitle;
         textAuthor.text = $"{unlockableLevel.LevelData.LevelAuthor} - {unlockableLevel.LevelData.LevelDate}";
+
+        remainingCurrencyReward = LevelManager.Instance.GetRemainingCurrencyReward(unlockableLevel);
+        remainingSPReward = LevelManager.Instance.GetRemainingSkillPointReward(unlockableLevel);
+
+        if(remainingCurrencyReward <= 0 && remainingSPReward <= 0)
+            textRewardLeftToGet.gameObject.SetActive(false);
+        else
+        {
+            textRewardLeftToGet.gameObject.SetActive(true);
+
+            textRewardLeftToGet.text = $"{rewardLeftLocalizedString.GetLocalizedString()} " +
+                $"{(remainingCurrencyReward > 0 ? $"<color=#{currencyColorHex}>{FormatUtility.FormatValue(remainingCurrencyReward)} $</color>" : "")} & " +
+                $"{(remainingSPReward > 0 ? $"<color=#{skillPointHex}>{remainingSPReward} SP</color>" : "")} " +
+                $"{rewardRightLocalizedString.GetLocalizedString()}";
+        } 
+        
         levelDrawing.sprite = unlockableLevel.LevelData.LevelDrawing;
 
         LevelSaveData levelSaveData = GameSaveManager.Instance.LoadLevelData(unlockableLevel.LevelData.LevelAuthor, unlockableLevel.LevelData.LevelTitle);

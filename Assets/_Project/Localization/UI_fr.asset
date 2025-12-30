@@ -166,6 +166,14 @@ MonoBehaviour:
     m_Localized: "Nombre de gouttes de peinture d\xE9truite par une bombe nucl\xE9aire"
     m_Metadata:
       m_Items: []
+  - m_Id: 11586245098860544
+    m_Localized: Encore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11586321552633856
+    m_Localized: "\xE0 r\xE9cup\xE9rer"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -163,6 +163,14 @@ MonoBehaviour:
     m_Key: PAINT_BLOB_DESTROYED_BY_NUKE
     m_Metadata:
       m_Items: []
+  - m_Id: 11586245098860544
+    m_Key: REWARD_LEFT_TO_GET
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11586321552633856
+    m_Key: REWARD_RIGHT_TO_GET
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
