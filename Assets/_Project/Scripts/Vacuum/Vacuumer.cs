@@ -24,10 +24,30 @@ public class Vacuumer : MonoBehaviour, IVacuumer
     [SerializeField] private bool isActive = true;
 
     public Transform Transform => transform;
-    public float VacuumForce => vacuumForcePerLevel.GetCurrentLevelData();
-    public float VacuumRange => vacuumRangePerLevel.GetCurrentLevelData();
+    public float VacuumForce => vacuumForcePerLevel.GetCurrentLevelData() + vacuumForceBoost;
+    public float VacuumRange => vacuumRangePerLevel.GetCurrentLevelData() + vacuumRangeBoost;
     public float CollectDistance => collectDistance;
     public bool IsActive => isActive;
+
+    private float vacuumForceBoost = 0f;
+    private float vacuumRangeBoost = 0f;
+    private Timer boostDuration;
+
+    public void AddTemporaryBoost(float forceBoost, float rangeBoost, float duration)
+    {
+        boostDuration?.Cancel();
+        boostDuration = Timer.Register(
+            duration,
+            onComplete: () =>
+            {
+                vacuumForceBoost = 0f;
+                vacuumRangeBoost = 0f;
+            },
+            useRealTime: false
+        );
+        vacuumForceBoost = forceBoost;
+        vacuumRangeBoost = rangeBoost;
+    }
 
     private HashSet<IVacuumable> vacuumedObjects = new HashSet<IVacuumable>();
     private Timer detectionTimer;
@@ -152,6 +172,7 @@ public class Vacuumer : MonoBehaviour, IVacuumer
     private void OnDestroy()
     {
         detectionTimer?.Cancel();
+        boostDuration?.Cancel();
         vacuumedObjects.Clear();
     }
 
@@ -182,3 +203,4 @@ public class Vacuumer : MonoBehaviour, IVacuumer
         }
     }
 }
+

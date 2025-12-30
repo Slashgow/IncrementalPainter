@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using inkolorgames;
 using UnityEngine;
 using UnityTimer;
@@ -55,6 +54,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
     private bool isInitialized;
 
     public static event Action OnAdditionalSpawn;
+    public static event Action OnSpawnPaint;
 
     protected override void Awake()
     {
@@ -122,6 +122,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
 
             PaintType paintType = GetWeightedPaintType();
             SpawnPaintBlob(spawnPosition, paintType);
+            OnSpawnPaint?.Invoke();
         }
     }
 

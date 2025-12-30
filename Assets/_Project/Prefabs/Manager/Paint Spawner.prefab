@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7010035475108515566}
   - component: {fileID: 8320128552981738484}
   - component: {fileID: 7085179760342262382}
+  - component: {fileID: 5577091823455831881}
   m_Layer: 0
   m_Name: Paint Spawner
   m_TagString: Untagged
@@ -114,6 +115,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 798080866972570822, guid: 0e8ae09fc49b0ce4e8e7f4ee527b83ff, type: 3}
   growPoolSize: 200
+--- !u!114 &5577091823455831881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2890733673538930724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e6bda2a29737774780c60be7f95c6b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnetItemPrefab: {fileID: 2807968163413007823, guid: f8a7b66995aff0a4fa32ceb63bddd953, type: 3}
+  spawnChanceVacuumableMagnetItemPerLevel:
+    skillData: {fileID: 11400000, guid: 32c528fa84a709643ba946f47e51cd3b, type: 2}
 --- !u!1 &5442154982494036360
 GameObject:
   m_ObjectHideFlags: 0

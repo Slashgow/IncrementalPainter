@@ -12,6 +12,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
     [SerializeField] private PaintStateManager paintStateManager;
     [SerializeField] private AutoClicker autoClicker;
     [SerializeField] private PaintSpawner paintSpawner;
+    [SerializeField] private ItemSpawner itemSpawner;
     [SerializeField] private Painter deathPainter;
     [SerializeField] private BombDamageor bombDamageor;
     [SerializeField] private BombStunner bombStunner;
@@ -82,6 +83,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[paintSpawner.CountPerSpawnPerLevel.SkillID] = paintSpawner.CountPerSpawnPerLevel;
         leveledSkills[paintSpawner.MaxSpawnCountPerLevel.SkillID] = paintSpawner.MaxSpawnCountPerLevel;
         leveledSkills[paintSpawner.InitialCountPerLevel.SkillID] = paintSpawner.InitialCountPerLevel;
+        leveledSkills[itemSpawner.SpawnChanceVacuumableMagnetItemPerLevel.SkillID] = itemSpawner.SpawnChanceVacuumableMagnetItemPerLevel;
         leveledSkills[deathPainter.SplatterScalePerLevel.SkillID] = deathPainter.SplatterScalePerLevel;
         leveledSkills[bombDamageor.DamageSkillDataPerLevel.SkillID] = bombDamageor.DamageSkillDataPerLevel;
         leveledSkills[bombDamageor.CriticalDamageMultiplierSkillDataPerLevel.SkillID] = bombDamageor.CriticalDamageMultiplierSkillDataPerLevel;
@@ -122,6 +124,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         paintSpawner.CountPerSpawnPerLevel.Initialize();
         paintSpawner.MaxSpawnCountPerLevel.Initialize();
         paintSpawner.InitialCountPerLevel.Initialize();
+        itemSpawner.SpawnChanceVacuumableMagnetItemPerLevel.Initialize();
         deathPainter.SplatterScalePerLevel.Initialize();
         bombDamageor.DamageSkillDataPerLevel.Initialize();
         bombDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();

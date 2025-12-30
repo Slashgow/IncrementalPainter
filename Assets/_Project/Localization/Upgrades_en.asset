@@ -178,6 +178,11 @@ MonoBehaviour:
     m_Localized: Right-Click to enable/disable the circle
     m_Metadata:
       m_Items: []
+  - m_Id: 11828999053766656
+    m_Localized: Chance of spawning a magnet giving a temporary boost to your pickup
+      range/force
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

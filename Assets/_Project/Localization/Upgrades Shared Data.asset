@@ -175,6 +175,10 @@ MonoBehaviour:
     m_Key: UPGRADE_TOGGLE_AUTOCLICKER
     m_Metadata:
       m_Items: []
+  - m_Id: 11828999053766656
+    m_Key: UPGRADE_SPAWN_CHANCE_MAGNET_ITEM
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
