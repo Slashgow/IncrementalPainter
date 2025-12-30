@@ -14,6 +14,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningFreezePaintPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningBrushSwipePaintPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningSplitPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningPoisonPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> InitialCountPerLevel => initialCountPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> SpawnTimeIntervalPerLevel => spawnTimeIntervalPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> CountPerSpawnPerLevel => countPerSpawnPerLevel;
@@ -23,6 +24,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningFreezePaintPerLevel => chanceOfSpawningFreezePaintPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningBrushSwipePaintPerLevel => chanceOfSpawningBrushSwipePaintPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningSplitPerLevel => chanceOfSpawningSplitPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningPoisonPerLevel => chanceOfSpawningPoisonPerLevel;
     public int InitialCount => Mathf.FloorToInt(initialCountPerLevel.GetCurrentLevelData());
     public float SpawnTimeInterval => spawnTimeIntervalPerLevel.GetCurrentLevelData();
     public int CountPerSpawn => Mathf.FloorToInt(countPerSpawnPerLevel.GetCurrentLevelData());
@@ -32,6 +34,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
     public float ChanceOfSpawningFreezePaint => chanceOfSpawningFreezePaintPerLevel.GetCurrentLevelData();
     public float ChanceOfSpawningBrushSwipePaint => chanceOfSpawningBrushSwipePaintPerLevel.GetCurrentLevelData();
     public float ChanceOfSpawningSplitPaint => chanceOfSpawningSplitPerLevel.GetCurrentLevelData();
+    public float ChanceOfSpawningPoison => chanceOfSpawningPoisonPerLevel.GetCurrentLevelData();
 
     [Header("Spawn Settings")]
     [SerializeField] private PoolingSystem pool;
@@ -182,7 +185,8 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
 
     private PaintType GetWeightedPaintType()
     {
-        float totalSpecialWeight = ChanceOfSpawningBombPaint + ChanceOfSpawningFreezePaint + ChanceOfSpawningBrushSwipePaint + ChanceOfSpawningSplitPaint;
+        float totalSpecialWeight = ChanceOfSpawningBombPaint + ChanceOfSpawningFreezePaint + ChanceOfSpawningBrushSwipePaint + 
+            ChanceOfSpawningSplitPaint + ChanceOfSpawningPoison;
 
         if (totalSpecialWeight <= 0f)
             return PaintType.Normal;
@@ -205,7 +209,11 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
         if (roll < cumulativeWeight)
             return PaintType.BrushSwipe;
 
-        return PaintType.Split;
+        cumulativeWeight += ChanceOfSpawningSplitPaint;
+        if (roll < cumulativeWeight)
+            return PaintType.Split;
+
+        return PaintType.Poison;
     }
 
     public EnemyData ChooseEnemyData(int upgrades, int level)

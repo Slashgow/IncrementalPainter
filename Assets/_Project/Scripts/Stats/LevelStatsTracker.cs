@@ -29,6 +29,7 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
         AutoClickerDamageor.OnAutoClickerDamage += RecordAutoClickerDamage;
         BombDamageor.OnBombDamage += RecordBombDamage;
         BrushSwipe.OnAnyBrushSwipeAttack += RecordBrushSwipeDamage;
+        PoisonZone.OnAnyPoisonAttack += RecordPoisonDamage;
         NukeDamageor.OnNukeDamage += RecordNukeDamage;
         ItemSpawner.OnSpawnMagnetItem += RecordMagnetItemSpawn;
         ItemSpawner.OnSpawnNukeItem += RecordNukeItemSpawn;
@@ -42,6 +43,7 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
         AutoClickerDamageor.OnAutoClickerDamage -= RecordAutoClickerDamage;
         BombDamageor.OnBombDamage -= RecordBombDamage;
         BrushSwipe.OnAnyBrushSwipeAttack -= RecordBrushSwipeDamage;
+        PoisonZone.OnAnyPoisonAttack -= RecordPoisonDamage;
         GameManager.OnStartGameState -= HandleGameStateChange;
         CurrencyManager.OnCurrencyGained -= RecordCurrencyGained;
         NukeDamageor.OnNukeDamage -= RecordNukeDamage;
@@ -101,6 +103,12 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
     public void RecordBrushSwipeDamage(float damage, Vector3 position, bool isCritical)
     {
         currentDayStats.BrushSwipeDamage += damage;
+        currentDayStats.TotalDamageDealt += damage;
+        OnDayStatsUpdated?.Invoke(currentDayStats);
+    }
+    private void RecordPoisonDamage(float damage, Vector3 position, bool isCritical)
+    {
+        currentDayStats.PoisonDamage += damage;
         currentDayStats.TotalDamageDealt += damage;
         OnDayStatsUpdated?.Invoke(currentDayStats);
     }

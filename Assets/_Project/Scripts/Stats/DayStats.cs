@@ -7,6 +7,7 @@ public class DayStats
     public float AutoClickerDamage;
     public float BombDamage;
     public float BrushSwipeDamage;
+    public float PoisonDamage;
     public float TotalDamageDealt;
     public float TimeAdded;
     public int TimesTimerIncreased;
@@ -22,6 +23,7 @@ public class DayStats
         AutoClickerDamage = 0f;
         BombDamage = 0f;
         BrushSwipeDamage = 0f;
+        PoisonDamage = 0f;
         TotalDamageDealt = 0f;
         TimeAdded = 0f;
         TimesTimerIncreased = 0;

@@ -65,6 +65,8 @@ MonoBehaviour:
     skillData: {fileID: 11400000, guid: c2a105c658090c140acd3aac8ff7e428, type: 2}
   chanceOfSpawningSplitPerLevel:
     skillData: {fileID: 11400000, guid: c82d4c41928966747a4ca3e6004a2cf5, type: 2}
+  chanceOfSpawningPoisonPerLevel:
+    skillData: {fileID: 11400000, guid: d846aa4b761cad749b8c7bd59146856d, type: 2}
   pool: {fileID: 7085179760342262382}
   enemyDatas:
   - difficulty: 0

@@ -4,5 +4,6 @@ public enum PaintType
     BombPaint,
     Freeze,
     BrushSwipe,
-    Split
+    Split,
+    Poison
 }

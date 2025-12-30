@@ -188,6 +188,35 @@ MonoBehaviour:
       the canvas
     m_Metadata:
       m_Items: []
+  - m_Id: 11926660608028672
+    m_Localized: Poison tick damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11926882776117248
+    m_Localized: Chance of spawning a blob of paint that will release a poison zone
+      when destroyed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11927187798487040
+    m_Localized: Poison Critical Chance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11927344178917376
+    m_Localized: Poison Critical Damage Multiplier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11927510533402624
+    m_Localized: Radius of the poison zone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11927607639928832
+    m_Localized: Poison zone duration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11927808521924608
+    m_Localized: Poison damage tick interval
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

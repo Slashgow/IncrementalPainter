@@ -171,6 +171,10 @@ MonoBehaviour:
     m_Key: REWARD_RIGHT_TO_GET
     m_Metadata:
       m_Items: []
+  - m_Id: 11621978383708160
+    m_Key: POISON_DAMAGE
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -183,6 +183,34 @@ MonoBehaviour:
     m_Key: UPGRADE_SPAWN_CHANCE_NUKE_ITEM
     m_Metadata:
       m_Items: []
+  - m_Id: 11926660608028672
+    m_Key: POISON_DAMAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11926882776117248
+    m_Key: POISON_CHANCE_OF_SPAWNING
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11927187798487040
+    m_Key: POISON_CRITICAL_HIT_LUCK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11927344178917376
+    m_Key: POISON_CRITICAL_HIT_MULTIPLIER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11927510533402624
+    m_Key: POISON_RADIUS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11927607639928832
+    m_Key: POISON_ZONE_DURATION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11927808521924608
+    m_Key: POISON_TICK_INTERVAL
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -22,9 +22,9 @@ MonoBehaviour:
   cameraPaintZoom: 9
   spawnOffset: {x: 0, y: 0, z: 0}
   rankThresholds:
-    sRankDays: 1
-    aRankDays: 2
-    bRankDays: 2
+    sRankDays: 2
+    aRankDays: 6
+    bRankDays: 12
     cRankDays: 18
   rankRewards:
     sRankSkillPoints: 5

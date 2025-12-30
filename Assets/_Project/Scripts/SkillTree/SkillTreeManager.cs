@@ -21,6 +21,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
     [SerializeField] private MagneterManager magneterManager;
     [SerializeField] private Splitter splitter;
     [SerializeField] private Vacuumer vacuumer;
+    [SerializeField] private PoisonDamageor poisonDamageor;
 
     [Header("Skill Nodes")]
     public List<SkillNode> allSkillNodes;
@@ -106,7 +107,14 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[splitter.SplitCountPerLevel.SkillID] = splitter.SplitCountPerLevel;
         leveledSkills[vacuumer.VacuumForcePerLevel.SkillID] = vacuumer.VacuumForcePerLevel;
         leveledSkills[vacuumer.VacuumRangePerLevel.SkillID] = vacuumer.VacuumRangePerLevel;
-    
+        leveledSkills[poisonDamageor.DamageSkillDataPerLevel.SkillID] = poisonDamageor.DamageSkillDataPerLevel;
+        leveledSkills[poisonDamageor.DamageRadiusSkillDataPerLevel.SkillID] = poisonDamageor.DamageRadiusSkillDataPerLevel;
+        leveledSkills[poisonDamageor.CriticalDamageMultiplierSkillDataPerLevel.SkillID] = poisonDamageor.CriticalDamageMultiplierSkillDataPerLevel;
+        leveledSkills[poisonDamageor.CriticalHitLuckSkillDataPerLevel.SkillID] = poisonDamageor.CriticalHitLuckSkillDataPerLevel;
+        leveledSkills[poisonDamageor.DotDurationSkillDataPerLevel.SkillID] = poisonDamageor.DotDurationSkillDataPerLevel;
+        leveledSkills[poisonDamageor.DotTickIntervalSkillDataPerLevel.SkillID] = poisonDamageor.DotTickIntervalSkillDataPerLevel;
+        leveledSkills[paintSpawner.ChanceOfSpawningPoisonPerLevel.SkillID] = paintSpawner.ChanceOfSpawningPoisonPerLevel;
+
         autoClickerDamageor.DamageSkillDataPerLevel.Initialize();
         autoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
         autoClickerDamageor.CriticalHitLuckSkillDataPerLevel.Initialize();
@@ -148,6 +156,13 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         splitter.SplitCountPerLevel.Initialize();
         vacuumer.VacuumForcePerLevel.Initialize();
         vacuumer.VacuumRangePerLevel.Initialize();
+        poisonDamageor.DamageSkillDataPerLevel.Initialize();
+        poisonDamageor.DamageRadiusSkillDataPerLevel.Initialize();
+        poisonDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
+        poisonDamageor.CriticalHitLuckSkillDataPerLevel.Initialize();
+        poisonDamageor.DotDurationSkillDataPerLevel.Initialize();
+        poisonDamageor.DotTickIntervalSkillDataPerLevel.Initialize();
+        paintSpawner.ChanceOfSpawningPoisonPerLevel.Initialize();
     }
 
     void Start()
