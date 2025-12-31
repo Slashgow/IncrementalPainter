@@ -1,0 +1,80 @@
+﻿using System.Collections.Generic;
+using UnityEngine;
+using UnityTimer;
+
+public class BossEnemy : MonoBehaviour
+{
+    [Header("Boss Stats")]
+    [SerializeField] private SimpleDamageable damageable;
+
+    [Header("Water Attack Settings")]
+    [SerializeField] private GameObject waterProjectilePrefab;
+    [SerializeField, Range(0f,20f)] private float waterAttackInterval = 5f;
+    [SerializeField, Range(0, 6)] private int waterProjectilesPerAttack = 3;
+
+    [Header("Healing Settings")]
+    [SerializeField] private GameObject healingPaintPrefab;
+    [SerializeField, Range(0f,20f)] private float healAmountPerPaint = 5f;
+
+    private Timer attackTimer;
+    private List<GameObject> activeWaterProjectiles = new List<GameObject>();
+
+    private SpriteRenderer frameRenderer;
+
+    private void Start()
+    {
+        if (frameRenderer == null)
+            frameRenderer = LevelManager.Instance.CurrentLevelInstance.FrameRenderer;
+
+        StartWaterAttacks();
+    }
+
+    private void StartWaterAttacks()
+    {
+        attackTimer = Timer.Register(waterAttackInterval, onComplete: () => PerformWaterAttack(), isLooped: true,useRealTime: false);
+    }
+
+    public void StopWaterAttacks() => attackTimer?.Cancel();
+
+    private void PerformWaterAttack()
+    {
+        for (int i = 0; i < waterProjectilesPerAttack; i++)
+        {
+            Vector3 targetPosition = SpriteUtility.GetRandomPositionInSprite(frameRenderer.transform, frameRenderer, true);
+            SpawnWaterProjectile(targetPosition);
+        }
+    }
+
+    private void SpawnWaterProjectile(Vector3 targetPosition)
+    {
+        GameObject waterInstance = Instantiate(waterProjectilePrefab, transform.position, Quaternion.identity);
+
+        if (waterInstance.TryGetComponent<WaterProjectile>(out var waterProjectile))
+        {
+            waterProjectile.Initialize(this, targetPosition);
+            activeWaterProjectiles.Add(waterInstance);
+        }
+    }
+
+    public void SpawnHealingPaint(Vector3 paintPosition, Color paintColor)
+    {
+        GameObject healingInstance = Instantiate(healingPaintPrefab, paintPosition, Quaternion.identity);
+
+        if (healingInstance.TryGetComponent<HealingPaint>(out var healingPaint))
+        {
+            healingPaint.Initialize(damageable, paintPosition, paintColor, healAmountPerPaint);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        attackTimer?.Cancel();
+
+        foreach (var projectile in activeWaterProjectiles)
+        {
+            if (projectile != null)
+                Destroy(projectile);
+        }
+        activeWaterProjectiles.Clear();
+    }
+}

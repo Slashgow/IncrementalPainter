@@ -3,7 +3,7 @@ using inkolorgames;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SimpleDamageable : MonoBehaviour, IDamageable
+public class SimpleDamageable : MonoBehaviour, IDamageable, IHealable
 {
     [Header("Color")]
     [SerializeField] private SimpleColorable colorable;
@@ -24,6 +24,10 @@ public class SimpleDamageable : MonoBehaviour, IDamageable
     public event Action<float> OnTakeDamage;
     public event Action<Vector3, Color> OnDie;
     public static event Action<Vector3, Color, float> OnAnyDamageableDie;
+
+    public UnityEvent<float> OnHealUnityEvent;
+    public event Action<float> OnHeal;
+    public static event Action<IHealable, float> OnAnyHeal;
 
     private void OnEnable() => isDead = false;
     public void Initialize(PoolingSystem pool, float maxHealth)
@@ -63,5 +67,23 @@ public class SimpleDamageable : MonoBehaviour, IDamageable
             Destroy(gameObject);
         else if(returnToPoolOnDeath)
             pool.AddToPool(gameObject);
+    }
+
+    public void Heal(float amount)
+    {
+        if (amount <= 0f || isDead)
+            return;
+
+        float healthBefore = CurrentHealth;
+        float newHealth = Mathf.Min(CurrentHealth + amount, MaxHealth);
+        float actualHealAmount = newHealth - healthBefore;
+
+        if (actualHealAmount > 0f)
+        {
+            currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+            OnHeal?.Invoke(actualHealAmount);
+            OnHealUnityEvent?.Invoke(actualHealAmount);
+            OnAnyHeal?.Invoke(this, actualHealAmount);
+        }
     }
 }
