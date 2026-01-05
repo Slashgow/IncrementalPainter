@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using inkolorgames;
 using UnityEngine;
 using UnityTimer;
 
@@ -8,12 +9,12 @@ public class BossCleaner : MonoBehaviour
     [SerializeField] private SimpleDamageable damageable;
 
     [Header("Water Attack Settings")]
-    [SerializeField] private GameObject waterProjectilePrefab;
+    [SerializeField] private PoolingSystem waterProjectilePool;
     [SerializeField, Range(0f,20f)] private float waterAttackInterval = 5f;
     [SerializeField, Range(0, 6)] private int waterProjectilesPerAttack = 3;
 
     [Header("Healing Settings")]
-    [SerializeField] private GameObject healingPaintPrefab;
+    [SerializeField] private PoolingSystem healingPaintPool;
     [SerializeField, Range(0,20)] private int healingPaintCountPerWaterHit = 5;
     [SerializeField] private Vector2 spawnOffsetRange;
     [SerializeField, Range(0f,20f)] private float healAmountPerPaint = 5f;
@@ -49,11 +50,11 @@ public class BossCleaner : MonoBehaviour
 
     private void SpawnWaterProjectile(Vector3 targetPosition)
     {
-        GameObject waterInstance = Instantiate(waterProjectilePrefab, transform.position, Quaternion.identity);
+        GameObject waterInstance = waterProjectilePool.GetPrefabFromPool(transform.position);
 
         if (waterInstance.TryGetComponent<WaterProjectile>(out var waterProjectile))
         {
-            waterProjectile.Initialize(this, targetPosition);
+            waterProjectile.Initialize(waterProjectilePool,this, targetPosition);
             activeWaterProjectiles.Add(waterInstance);
         }
     }
@@ -62,11 +63,12 @@ public class BossCleaner : MonoBehaviour
     {
         for (int i = 0; i < healingPaintCountPerWaterHit; i++)
         {
-            GameObject healingInstance = Instantiate(healingPaintPrefab, paintPosition, Quaternion.identity);
+            GameObject healingInstance = healingPaintPool.GetPrefabFromPool(paintPosition);
 
             if (healingInstance.TryGetComponent<HealingPaint>(out var healingPaint))
             {
-                healingPaint.Initialize(damageable, paintPosition + (Vector3)Helper.CalculateOffset(true, Vector2.zero, spawnOffsetRange), 
+                healingPaint.Initialize(healingPaintPool, damageable, 
+                    paintPosition + (Vector3)Helper.CalculateOffset(true, Vector2.zero, spawnOffsetRange), 
                     healAmountPerPaint, this.transform);
             }
         }

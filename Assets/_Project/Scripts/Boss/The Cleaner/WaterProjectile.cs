@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using inkolorgames;
+using UnityEngine;
 public class WaterProjectile : MonoBehaviour
 {
     [Header("References")]
@@ -9,9 +10,11 @@ public class WaterProjectile : MonoBehaviour
 
     private Vector3 targetPosition;
     private BossCleaner boss;
+    private PoolingSystem pool;
 
-    public void Initialize(BossCleaner boss, Vector3 targetPosition)
+    public void Initialize(PoolingSystem pool, BossCleaner boss, Vector3 targetPosition)
     {
+        this.pool = pool;
         this.boss = boss;
         this.targetPosition = targetPosition;
 
@@ -19,7 +22,7 @@ public class WaterProjectile : MonoBehaviour
         flightMover.StartFlight(targetPosition);
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         flightMover.OnReachTarget -= OnReachTargetPosition;
     }
@@ -28,7 +31,7 @@ public class WaterProjectile : MonoBehaviour
     {
         Debug.Log("WaterProjectile reached target position, erasing paint.");
         ErasePaintInArea();
-        Destroy(gameObject);
+        pool.AddToPool(gameObject);
     }
 
     private void ErasePaintInArea()

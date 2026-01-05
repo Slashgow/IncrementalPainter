@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 2689734407732949331}
   - component: {fileID: 4760446406402888247}
   - component: {fileID: 6547133696831745673}
+  - component: {fileID: 7206012203790312751}
+  - component: {fileID: 3291649671681297148}
   m_Layer: 0
   m_Name: The Cleaner
   m_TagString: Untagged
@@ -105,10 +107,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageable: {fileID: 4818058784100310057}
-  waterProjectilePrefab: {fileID: 3907796742143444475, guid: 12b23f51cddf75b4eb012f4b1b54e2bd, type: 3}
+  waterProjectilePool: {fileID: 7206012203790312751}
   waterAttackInterval: 5
   waterProjectilesPerAttack: 3
-  healingPaintPrefab: {fileID: 798080866972570822, guid: af214ba927f32a14095ed297210b3437, type: 3}
+  healingPaintPool: {fileID: 3291649671681297148}
   healingPaintCountPerWaterHit: 5
   spawnOffsetRange: {x: 1.5, y: 1.5}
   healAmountPerPaint: 5
@@ -159,6 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ffaa5e0d35057040bd5aed9b398f539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useRandomColorOnEnable: 1
+  customColor: {r: 0, g: 0, b: 0, a: 0}
   spriteRenderer: {fileID: 949577402013800218}
 --- !u!70 &6547133696831745673
 CapsuleCollider2D:
@@ -197,3 +201,31 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &7206012203790312751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878125376689745335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6869d1947bdee49a545215e6121ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3907796742143444475, guid: 12b23f51cddf75b4eb012f4b1b54e2bd, type: 3}
+  growPoolSize: 10
+--- !u!114 &3291649671681297148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878125376689745335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6869d1947bdee49a545215e6121ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 798080866972570822, guid: af214ba927f32a14095ed297210b3437, type: 3}
+  growPoolSize: 10

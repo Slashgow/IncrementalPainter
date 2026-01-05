@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using inkolorgames;
+using UnityEngine;
 
 public class HealingPaint : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class HealingPaint : MonoBehaviour
 
     private IHealable target;
     private Transform targetTransform;
+    private PoolingSystem pool;
 
     private void Awake()
     {
@@ -18,8 +20,9 @@ public class HealingPaint : MonoBehaviour
             healer = GetComponent<SimpleHealer>();
     }
 
-    public void Initialize(IHealable target, Vector3 startPosition, float healAmount, Transform targetTransform)
+    public void Initialize(PoolingSystem pool, IHealable target, Vector3 startPosition, float healAmount, Transform targetTransform)
     {
+        this.pool = pool;
         this.target = target;
         this.targetTransform = targetTransform;
         transform.position = startPosition;
@@ -31,7 +34,7 @@ public class HealingPaint : MonoBehaviour
         flightMover.StartFlight(targetTransform.position);
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         flightMover.OnReachTarget -= OnReachBoss;
     }
@@ -42,6 +45,6 @@ public class HealingPaint : MonoBehaviour
             healer.PerformHeal(target);
         }
 
-        Destroy(gameObject);
+        this.pool.AddToPool(gameObject);
     }
 }
