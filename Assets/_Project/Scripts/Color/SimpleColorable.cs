@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using NaughtyAttributes;
+using UnityEngine;
 
 public class SimpleColorable : MonoBehaviour, IColorable
 {
+    [SerializeField] private bool useRandomColorOnEnable = true;
+    [SerializeField, HideIf("useRandomColorOnEnable")] private Color customColor;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
     private Color color;
@@ -9,7 +12,10 @@ public class SimpleColorable : MonoBehaviour, IColorable
 
     private void OnEnable()
     {
-        color = PaintColorManager.Instance.GetRandomColor();
+        if (useRandomColorOnEnable)
+            color = PaintColorManager.Instance.GetRandomColor();
+        else
+            color = customColor;
 
         spriteRenderer.color = color;
     }

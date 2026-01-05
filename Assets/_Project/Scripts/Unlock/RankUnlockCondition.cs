@@ -24,7 +24,7 @@ public class RankUnlockCondition : UnlockCondition
         if (saveData == null)
             return false;
 
-        return saveData.isDone && saveData.bestRank >= minimumRank;
+        return saveData.bestRank >= minimumRank;
     }
 
     public override string GetDescription()

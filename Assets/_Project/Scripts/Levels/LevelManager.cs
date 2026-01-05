@@ -16,6 +16,8 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
     private Level currentLevelInstance;
     public Level CurrentLevelInstance => currentLevelInstance;
 
+    private SimpleDamageable currentBossDamageableInstance;
+    public SimpleDamageable CurrentBossDamageableInstance => currentBossDamageableInstance;
     public static int CurrentLevelIndex { get; private set; } = -1;
 
     private UnlockableLevel currentUnlockableLevel;
@@ -68,6 +70,15 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
         GameObject levelGOInstance = Instantiate(CurrentLevelData.LevelPrefab, CurrentLevelData.SpawnOffset, Quaternion.identity, this.transform);
         currentLevelInstance = levelGOInstance.GetComponent<Level>();
         currentLevelInstance.Initialize(CurrentLevelData);
+
+        if(CurrentLevelData.IsBossLevel && CurrentLevelData.BossLevelPrefab != null)
+        {
+            GameObject bossInstance = Instantiate(CurrentLevelData.BossLevelPrefab, currentLevelInstance.BossSpawnTransform.position,
+               currentLevelInstance.BossSpawnTransform.rotation);
+
+            if (bossInstance.TryGetComponent<SimpleDamageable>(out var damageable))
+                currentBossDamageableInstance = damageable;
+        }
 
         completionTracker.StartTracking(CurrentLevelData);
 

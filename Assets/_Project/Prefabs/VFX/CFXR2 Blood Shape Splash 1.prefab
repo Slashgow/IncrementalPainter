@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4553287630450876386}
   - component: {fileID: 114387828131215454}
   m_Layer: 0
-  m_Name: CFXR2 Blood Shape Splash
+  m_Name: CFXR2 Blood Shape Splash 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,8 +189,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.944, g: 0.12586667, b: 0.12586667, a: 1}
-      maxColor: {r: 0.734, g: 0.17298089, b: 0.18700643, a: 1}
+      minColor: {r: 0.49803925, g: 0.8235295, b: 0.91372555, a: 1}
+      maxColor: {r: 0, g: 0.5372549, b: 0.7568628, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4996,8 +4996,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 1, g: 0.13333334, b: 0.13333334, a: 1}
-      maxColor: {r: 0.692, g: 0, b: 0, a: 1}
+      minColor: {r: 0.49803925, g: 0.8235295, b: 0.91372555, a: 1}
+      maxColor: {r: 0, g: 0.5372549, b: 0.7568628, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -9899,8 +9899,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 1, g: 0.13333334, b: 0.13333334, a: 1}
-      maxColor: {r: 0.7764706, g: 0, b: 0, a: 1}
+      minColor: {r: 0.49803925, g: 0.8235295, b: 0.91372555, a: 1}
+      maxColor: {r: 0, g: 0.5372549, b: 0.7568628, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

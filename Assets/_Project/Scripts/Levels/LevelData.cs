@@ -13,6 +13,8 @@ public class LevelData : ScriptableObject
     [SerializeField] private GameObject levelPrefab;
     [SerializeField, Range(0f, 20f)] private float cameraPaintZoom;
     [SerializeField] private Vector3 spawnOffset;
+    [SerializeField] private bool isBossLevel = false;
+    [SerializeField, ShowIf("isBossLevel")] private GameObject bossLevelPrefab;
 
     [Header("Ranking System")]
     [SerializeField] private LevelRankThresholds rankThresholds = new LevelRankThresholds();
@@ -31,4 +33,6 @@ public class LevelData : ScriptableObject
     public GameObject LevelPrefab => levelPrefab;
     public float CameraPaintZoom => cameraPaintZoom;
     public Vector3 SpawnOffset => spawnOffset;
+    public bool IsBossLevel => isBossLevel;
+    public GameObject BossLevelPrefab => bossLevelPrefab;
 }

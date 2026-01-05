@@ -26,7 +26,7 @@ public class SimpleDamageable : MonoBehaviour, IDamageable, IHealable
     public static event Action<Vector3, Color, float> OnAnyDamageableDie;
 
     public UnityEvent<float> OnHealUnityEvent;
-    public event Action<float> OnHeal;
+    public event Action<float, float> OnHeal;
     public static event Action<IHealable, float> OnAnyHeal;
 
     private void OnEnable() => isDead = false;
@@ -35,6 +35,12 @@ public class SimpleDamageable : MonoBehaviour, IDamageable, IHealable
         this.maxHealth = maxHealth;
         currentHealth = maxHealth;
         this.pool = pool;
+    }
+
+    public void Initialize(float maxHealth)
+    {
+        this.maxHealth = maxHealth;
+        currentHealth = maxHealth;
     }
 
     public void TakeDamage(float amount)
@@ -81,7 +87,7 @@ public class SimpleDamageable : MonoBehaviour, IDamageable, IHealable
         if (actualHealAmount > 0f)
         {
             currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
-            OnHeal?.Invoke(actualHealAmount);
+            OnHeal?.Invoke(actualHealAmount, currentHealth);
             OnHealUnityEvent?.Invoke(actualHealAmount);
             OnAnyHeal?.Invoke(this, actualHealAmount);
         }

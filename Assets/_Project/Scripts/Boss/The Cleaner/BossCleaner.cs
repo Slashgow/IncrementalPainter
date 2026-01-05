@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityTimer;
 
-public class BossEnemy : MonoBehaviour
+public class BossCleaner : MonoBehaviour
 {
     [Header("Boss Stats")]
     [SerializeField] private SimpleDamageable damageable;
@@ -14,6 +14,8 @@ public class BossEnemy : MonoBehaviour
 
     [Header("Healing Settings")]
     [SerializeField] private GameObject healingPaintPrefab;
+    [SerializeField, Range(0,20)] private int healingPaintCountPerWaterHit = 5;
+    [SerializeField] private Vector2 spawnOffsetRange;
     [SerializeField, Range(0f,20f)] private float healAmountPerPaint = 5f;
 
     private Timer attackTimer;
@@ -56,13 +58,17 @@ public class BossEnemy : MonoBehaviour
         }
     }
 
-    public void SpawnHealingPaint(Vector3 paintPosition, Color paintColor)
+    public void SpawnHealingPaint(Vector3 paintPosition)
     {
-        GameObject healingInstance = Instantiate(healingPaintPrefab, paintPosition, Quaternion.identity);
-
-        if (healingInstance.TryGetComponent<HealingPaint>(out var healingPaint))
+        for (int i = 0; i < healingPaintCountPerWaterHit; i++)
         {
-            healingPaint.Initialize(damageable, paintPosition, paintColor, healAmountPerPaint);
+            GameObject healingInstance = Instantiate(healingPaintPrefab, paintPosition, Quaternion.identity);
+
+            if (healingInstance.TryGetComponent<HealingPaint>(out var healingPaint))
+            {
+                healingPaint.Initialize(damageable, paintPosition + (Vector3)Helper.CalculateOffset(true, Vector2.zero, spawnOffsetRange), 
+                    healAmountPerPaint, this.transform);
+            }
         }
     }
 

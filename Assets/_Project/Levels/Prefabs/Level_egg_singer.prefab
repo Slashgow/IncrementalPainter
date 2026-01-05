@@ -363,7 +363,7 @@ MonoBehaviour:
   readAtStart: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 7729110937390697375}
-  cooldown: -3978.588
+  cooldown: -3986.4978
   maskMesh: {fileID: 0}
   maskSubmesh: 0
   maskTexture: {fileID: 0}
@@ -420,6 +420,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 7.7357674, y: 6.353646}
   m_EdgeRadius: 0
+--- !u!1 &8649820747593863145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7326836440727422647}
+  m_Layer: 0
+  m_Name: Boss Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7326836440727422647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8649820747593863145}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.79, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8933231709956628056}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8944416080909895153
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +487,7 @@ Transform:
   - {fileID: 2017774953931823171}
   - {fileID: 3869027661409296342}
   - {fileID: 9109749754409316972}
+  - {fileID: 7326836440727422647}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1411807109367371168
@@ -474,6 +506,7 @@ MonoBehaviour:
   frameRenderer: {fileID: 578334937340142797}
   drawingRenderer: {fileID: 533299881063692111}
   colorChangeCounter: {fileID: 5468570172593660373}
+  bossSpawnTransform: {fileID: 7326836440727422647}
 --- !u!114 &1120519318142985437
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class CompletePreviousLevelCondition : UnlockCondition
     public override bool IsMet()
     {
         LevelSaveData saveData = GameSaveManager.Instance.LoadLevelData(requiredLevelAuthor, requiredLevelTitle);
-        return saveData != null && saveData.isDone;
+        return saveData != null && saveData.bestRank != LevelRank.None;
     }
 
     public override string GetDescription() => $"Complete '{requiredLevelTitle}' by {requiredLevelAuthor}";

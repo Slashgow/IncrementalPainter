@@ -1,6 +1,4 @@
-﻿using System.Net;
-using DG.Tweening.Plugins.Core.PathCore;
-using UnityEngine;
+﻿using UnityEngine;
 
 public static class Helper
 {

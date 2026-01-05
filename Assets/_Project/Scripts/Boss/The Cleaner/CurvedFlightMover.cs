@@ -1,6 +1,7 @@
 ﻿using System;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityTimer;
 
 public class CurvedFlightMover : MonoBehaviour
@@ -35,6 +36,7 @@ public class CurvedFlightMover : MonoBehaviour
     private Timer flightTimer;
 
     public bool IsFlying => isFlying;
+    [SerializeField] private UnityEvent OnReachTargetUnityEvent;
     public event Action OnReachTarget;
 
     public void StartFlight(Vector3 target, float? customDuration = null, float? customHeight = null)
@@ -75,6 +77,7 @@ public class CurvedFlightMover : MonoBehaviour
             {
                 transform.position = targetPosition;
                 isFlying = false;
+                OnReachTargetUnityEvent?.Invoke();
                 OnReachTarget?.Invoke();
             },
             onUpdate: (float secondsElapsed) =>

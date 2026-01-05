@@ -8,15 +8,20 @@ public class WaterProjectile : MonoBehaviour
     [SerializeField, Range(0f,20f)] private float ErasureScale = 2f;
 
     private Vector3 targetPosition;
-    private BossEnemy boss;
+    private BossCleaner boss;
 
-    public void Initialize(BossEnemy boss, Vector3 targetPosition)
+    public void Initialize(BossCleaner boss, Vector3 targetPosition)
     {
         this.boss = boss;
         this.targetPosition = targetPosition;
 
         flightMover.OnReachTarget += OnReachTargetPosition;
         flightMover.StartFlight(targetPosition);
+    }
+
+    private void OnDestroy()
+    {
+        flightMover.OnReachTarget -= OnReachTargetPosition;
     }
 
     private void OnReachTargetPosition()
@@ -29,6 +34,6 @@ public class WaterProjectile : MonoBehaviour
     private void ErasePaintInArea()
     {
         Eraser.Instance.EraseAt(targetPosition, ErasureScale);
-        //boss.SpawnHealingPaint(collider.transform.position, collider.GetComponent<SimpleColorable>()?.Color ?? Color.white);
+        boss.SpawnHealingPaint(transform.position);
     }
 }

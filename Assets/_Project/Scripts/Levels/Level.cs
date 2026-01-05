@@ -8,6 +8,7 @@ public class Level : MonoBehaviour, ISavable, ILoadable<LevelSaveData>
     [SerializeField] private SpriteRenderer frameRenderer;
     [SerializeField] private SpriteRenderer drawingRenderer;
     [SerializeField] private CwChangeCounter colorChangeCounter;
+    [SerializeField] private Transform bossSpawnTransform;
 
     private LevelData levelData;
     private LevelSaveData saveData;
@@ -16,6 +17,7 @@ public class Level : MonoBehaviour, ISavable, ILoadable<LevelSaveData>
     public SpriteRenderer FrameRenderer => frameRenderer;
     public Collider2D FrameCollider => frameCollider;
     public CwChangeCounter ColorChangeCounter => colorChangeCounter;
+    public Transform BossSpawnTransform => bossSpawnTransform;
     public bool IsDoneCondition => colorChangeCounter.Ratio >= levelData.PercentCompletionCondition;
 
     public event Action OnEndLevel;
