@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using inkolorgames;
 using UnityEngine;
 using UnityTimer;
@@ -12,6 +13,7 @@ public class BossCleaner : MonoBehaviour
     [SerializeField] private PoolingSystem waterProjectilePool;
     [SerializeField, Range(0f,20f)] private float waterAttackInterval = 5f;
     [SerializeField, Range(0, 6)] private int waterProjectilesPerAttack = 3;
+    [SerializeField] private PoolingSystem waterTargetPreviewPool;
 
     [Header("Healing Settings")]
     [SerializeField] private PoolingSystem healingPaintPool;
@@ -44,7 +46,18 @@ public class BossCleaner : MonoBehaviour
         for (int i = 0; i < waterProjectilesPerAttack; i++)
         {
             Vector3 targetPosition = SpriteUtility.GetRandomPositionInSprite(frameRenderer.transform, frameRenderer, true);
+            SpawnWaterTargetPreview(targetPosition);
             SpawnWaterProjectile(targetPosition);
+        }
+    }
+
+    private void SpawnWaterTargetPreview(Vector3 targetPosition)
+    {
+        GameObject waterPreviewInstance = waterTargetPreviewPool.GetPrefabFromPool(targetPosition);
+
+        if(waterTargetPreviewPool.TryGetComponent<PooledObject>(out var pooledObject))
+        {
+            pooledObject.SetPool(waterTargetPreviewPool);
         }
     }
 

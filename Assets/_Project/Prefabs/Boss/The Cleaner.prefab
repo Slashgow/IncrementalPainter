@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6547133696831745673}
   - component: {fileID: 7206012203790312751}
   - component: {fileID: 3291649671681297148}
+  - component: {fileID: 6971480936930111506}
   m_Layer: 0
   m_Name: The Cleaner
   m_TagString: Untagged
@@ -110,6 +111,7 @@ MonoBehaviour:
   waterProjectilePool: {fileID: 7206012203790312751}
   waterAttackInterval: 5
   waterProjectilesPerAttack: 3
+  waterTargetPreviewPool: {fileID: 6971480936930111506}
   healingPaintPool: {fileID: 3291649671681297148}
   healingPaintCountPerWaterHit: 5
   spawnOffsetRange: {x: 1.5, y: 1.5}
@@ -229,3 +231,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 798080866972570822, guid: af214ba927f32a14095ed297210b3437, type: 3}
   growPoolSize: 10
+--- !u!114 &6971480936930111506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878125376689745335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6869d1947bdee49a545215e6121ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 5466129738652808925, guid: b2a7693b1dad9e54c979245c86354a88, type: 3}
+  growPoolSize: 5

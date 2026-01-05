@@ -1,17 +1,29 @@
 ﻿using inkolorgames;
+using NaughtyAttributes;
 using UnityEngine;
+
 
 public class PooledObject : MonoBehaviour
 {
-    [SerializeField, Range(0.1f, 10f)] private float returnToPoolAfter = 2f;
+    [SerializeField] private bool returnToPoolAutomatically = true;
+    [SerializeField, ShowIf("returnToPoolAutomatically"), Range(0.1f, 10f)] private float returnToPoolAfter = 2f;
 
     private PoolingSystem parentPool;
     private float timer;
 
-    private void OnEnable() => timer = returnToPoolAfter;
+    private void OnEnable()
+    {
+        if(!returnToPoolAutomatically)
+            return;
+
+        timer = returnToPoolAfter;
+    }
 
     private void Update()
     {
+        if (!returnToPoolAutomatically)
+            return;
+
         timer -= Time.deltaTime;
 
         if (timer <= 0f)
