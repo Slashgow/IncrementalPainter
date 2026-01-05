@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2220366580489239762}
   - component: {fileID: 5850106127315573162}
   - component: {fileID: 7721927385872348188}
+  - component: {fileID: 3585624310754792590}
+  - component: {fileID: 2250639715359951425}
   m_Layer: 5
   m_Name: Skill Node Details
   m_TagString: Untagged
@@ -127,6 +129,49 @@ MonoBehaviour:
   currentLevelText: {fileID: 703128721795416873}
   costText: {fileID: 202858473117046531}
   statValueDescriptionText: {fileID: 4219751537287575161}
+--- !u!114 &3585624310754792590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229094764730674583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b36c2c984250a24692f44d2eef5dc81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 1
+  changeStartScale: 1
+  startScale: 0.3
+  endScale: 1
+  duration: 0.2
+  easing: 10
+  loops: 0
+  loopType: 1
+--- !u!114 &2250639715359951425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229094764730674583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1ec93447fa0c14795a962f9bcae572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 1
+  rotationDuration: 0.3
+  ease: 30
+  rotationAxis: {x: 0, y: 0, z: 1}
+  startAngle: 17
+  endAngle: 0
+  rotateMode: 0
+  loopCount: 0
+  loopType: 0
+  useRealTime: 1
+  isRelative: 0
 --- !u!1001 &1416813235768929942
 PrefabInstance:
   m_ObjectHideFlags: 0
