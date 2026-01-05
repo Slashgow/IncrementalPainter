@@ -55,7 +55,7 @@ public class BossCleaner : MonoBehaviour
     {
         GameObject waterPreviewInstance = waterTargetPreviewPool.GetPrefabFromPool(targetPosition);
 
-        if(waterTargetPreviewPool.TryGetComponent<PooledObject>(out var pooledObject))
+        if(waterPreviewInstance.TryGetComponent<PooledObject>(out var pooledObject))
         {
             pooledObject.SetPool(waterTargetPreviewPool);
         }

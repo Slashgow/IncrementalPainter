@@ -1047,6 +1047,7 @@ GameObject:
   - component: {fileID: 5616904669100004614}
   - component: {fileID: 2150043615341315078}
   - component: {fileID: 3809840650203560774}
+  - component: {fileID: 6173520849992070569}
   m_Layer: 5
   m_Name: HP Bar Boss
   m_TagString: Untagged
@@ -1127,6 +1128,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fillAmountImage: {fileID: 622277260610360100}
   hpText: {fileID: 8629601977808079360}
+  isVisualImmediate: 0
+  OnUpdateFillAmount:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6173520849992070569}
+        m_TargetAssemblyTypeName: ImageFillAmountEffect, Assembly-CSharp
+        m_MethodName: Fill
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6173520849992070569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8354363472958497168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 586a8a0efff023f4286f45c48592fb38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  image: {fileID: 622277260610360100}
+  duration: 0.5
+  ease: 7
+  useRealTime: 1
+  OnUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUpdateFloat:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8629601977808079360}
+        m_TargetAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9147127739227002904
 GameObject:
   m_ObjectHideFlags: 0

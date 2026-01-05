@@ -14,6 +14,7 @@ public class ImageFillAmountEffect : Effect
 
     private Tween fillTween;
     public UnityEvent OnUpdate;
+    public UnityEvent<string> OnUpdateFloat;
     public override void DoEffect() => Fill();
     private void Fill()
     {
@@ -21,6 +22,22 @@ public class ImageFillAmountEffect : Effect
         float endValue = image.fillAmount;  
         image.fillAmount = 0f;
         fillTween = image.DOFillAmount(endValue, duration).SetUpdate(useRealTime).SetEase(ease).OnUpdate(() => OnUpdate?.Invoke());
+    }
+
+    public void Fill(float startFillAmount, float targetFillAmount)
+    {
+        fillTween?.Kill();
+        float startValue = image.fillAmount;  
+        fillTween = image.DOFillAmount(targetFillAmount, duration).SetUpdate(useRealTime).SetEase(ease).OnUpdate(() => OnUpdate?.Invoke());
+    }
+
+    public void Fill(float startingHealth, float targetHealth, float maxHealth)
+    {
+        fillTween?.Kill();
+        float startValue = startingHealth / maxHealth;
+        fillTween = image.DOFillAmount(targetHealth / maxHealth, duration).SetUpdate(useRealTime).SetEase(ease)
+            .OnUpdate(() => OnUpdateFloat?.Invoke(Mathf.FloorToInt(Mathf.Lerp(startingHealth, targetHealth, fillTween.ElapsedPercentage())).ToString()
+            ));
     }
     private void OnDestroy() => fillTween?.Kill();
 }
