@@ -121,6 +121,22 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
     }
 
     public int LoadCurrency() => gameSaveData.currency;
+
+    public void SaveColorThemes(ColorThemeSaveData colorThemeData)
+    {
+        gameSaveData.colorThemes = colorThemeData;
+        SaveGameData();
+        logger.Log("Color themes saved", this);
+    }
+
+    public ColorThemeSaveData LoadColorThemes()
+    {
+        if (gameSaveData.colorThemes == null)
+        {
+            gameSaveData.colorThemes = new ColorThemeSaveData();
+        }
+        return gameSaveData.colorThemes;
+    }
     public void ClearAllSaves()
     {
         gameSaveData = new GameSaveData();

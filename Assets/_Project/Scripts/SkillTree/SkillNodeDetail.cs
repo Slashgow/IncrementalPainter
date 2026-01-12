@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkillNodeDetail : MonoBehaviour
+public class SkillNodeDetail : MonoBehaviour, IColorChanger
 {
     [SerializeField] private Image backgroundImage;
     [SerializeField] private Image backgroundTitleImage;
@@ -42,11 +42,19 @@ public class SkillNodeDetail : MonoBehaviour
 
         skillLevelData = treeManager.GetSkillLevelData(skillNode.SkillDataBase.SkillID);
         skillLevelData.OnLevelUp += SkillLevelData_OnLevelUp;
+        ThemeColorManager.OnThemeChanged += OnThemeChanged;
 
         UpdateVisual(skillLevelData);
     }
 
-    private void OnDisable() => skillLevelData.OnLevelUp -= SkillLevelData_OnLevelUp;
+    private void OnDisable()
+    {
+        ThemeColorManager.OnThemeChanged -= OnThemeChanged;
+        skillLevelData.OnLevelUp -= SkillLevelData_OnLevelUp;
+    }
+
+    public void OnThemeChanged(ColorTheme newTheme) => UpdateColor();
+    public void UpdateColor() => UpdateCurrentColor();
     private void SkillLevelData_OnLevelUp() => UpdateVisual(skillLevelData);
 
     public void UpdateVisual(ISkillLevelData skillLevelData)
@@ -124,4 +132,6 @@ public class SkillNodeDetail : MonoBehaviour
                 break;
         }
     }
+
+   
 }

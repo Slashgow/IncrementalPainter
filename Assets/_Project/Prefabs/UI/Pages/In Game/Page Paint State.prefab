@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 7693602636177111780}
   - component: {fileID: 7215789944312338051}
   - component: {fileID: 8629601977808079360}
+  - component: {fileID: 6869607488151102458}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -171,6 +172,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6869607488151102458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91535184958775655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79293b8335e45524296381367f122aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorId: 6
+  updateOnStart: 1
+  listenToThemeChanges: 1
 --- !u!1 &2027246797640709494
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,6 +201,7 @@ GameObject:
   - component: {fileID: 5336829481392167891}
   - component: {fileID: 9139116005272622555}
   - component: {fileID: 5927291378704354658}
+  - component: {fileID: 8533576802171164444}
   m_Layer: 5
   m_Name: countdown time added
   m_TagString: Untagged
@@ -369,6 +386,21 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &8533576802171164444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027246797640709494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79293b8335e45524296381367f122aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorId: 14
+  updateOnStart: 1
+  listenToThemeChanges: 1
 --- !u!1 &4367731238681141264
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +413,7 @@ GameObject:
   - component: {fileID: 8014728001537850964}
   - component: {fileID: 209436474496588402}
   - component: {fileID: 3667447281745145773}
+  - component: {fileID: 8402555518472362389}
   m_Layer: 5
   m_Name: Percent Completion
   m_TagString: Untagged
@@ -537,6 +570,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8402555518472362389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4367731238681141264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79293b8335e45524296381367f122aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorId: 6
+  updateOnStart: 1
+  listenToThemeChanges: 1
 --- !u!1 &5267127001981145371
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +596,7 @@ GameObject:
   - component: {fileID: 1124712259898990647}
   - component: {fileID: 7501867629793379405}
   - component: {fileID: 622277260610360100}
+  - component: {fileID: 4550509996760921022}
   m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
@@ -612,6 +661,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4550509996760921022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5267127001981145371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1142f7bb8621e1d48ae2cad0578aef6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorId: 12
+  updateOnStart: 1
+  listenToThemeChanges: 1
 --- !u!1 &5331365664622625229
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,8 +939,8 @@ MonoBehaviour:
   timeAddedText: {fileID: 1629928636884089089}
   showDurationTimeAdded: 1.5
   threshold: 10
-  thresholdColor: {r: 0.91372555, g: 0.25490198, b: 0.3803922, a: 1}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  thresholdColorId: 12
+  normalColorId: 6
   OnTickLessThanThreshold:
     m_PersistentCalls:
       m_Calls:
@@ -1048,6 +1112,7 @@ GameObject:
   - component: {fileID: 2150043615341315078}
   - component: {fileID: 3809840650203560774}
   - component: {fileID: 6173520849992070569}
+  - component: {fileID: 7283963181338123736}
   m_Layer: 5
   m_Name: HP Bar Boss
   m_TagString: Untagged
@@ -1179,6 +1244,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7283963181338123736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8354363472958497168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1142f7bb8621e1d48ae2cad0578aef6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorId: 22
+  updateOnStart: 1
+  listenToThemeChanges: 1
 --- !u!1 &9147127739227002904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1365,6 +1445,10 @@ PrefabInstance:
     - target: {fileID: 1221267732359501057, guid: a6b5d4935f527cd4ab3bbc2356397558, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1354861669127681531, guid: a6b5d4935f527cd4ab3bbc2356397558, type: 3}
+      propertyPath: colorId
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2733687144379264175, guid: a6b5d4935f527cd4ab3bbc2356397558, type: 3}
       propertyPath: m_TargetGraphic

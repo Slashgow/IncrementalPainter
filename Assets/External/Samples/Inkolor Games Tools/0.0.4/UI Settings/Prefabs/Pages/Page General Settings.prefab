@@ -16,8 +16,10 @@ GameObject:
   - component: {fileID: 5289983211903520253}
   - component: {fileID: 8240074958889140695}
   - component: {fileID: 1418083693687257759}
+  - component: {fileID: 8611954573592777890}
   - component: {fileID: 2991231111566058473}
   - component: {fileID: 292693560850999924}
+  - component: {fileID: 1853452244104926152}
   m_Layer: 5
   m_Name: Page General Settings
   m_TagString: Untagged
@@ -168,6 +170,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultLocaleIndex: 0
+--- !u!114 &8611954573592777890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8262450109079061793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4454a1c60d4e04e90c57b5fa61d43f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  languageDropdown: {fileID: 7365341815508675868}
 --- !u!114 &2991231111566058473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +211,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableScreenShakeToggle: {fileID: 6266304397296287277}
   fontSizeMultiplierSlider: {fileID: 2097493066135045712}
+--- !u!114 &1853452244104926152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8262450109079061793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1142f7bb8621e1d48ae2cad0578aef6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorId: 12
+  updateOnStart: 1
+  listenToThemeChanges: 1
 --- !u!1001 &1440826022789547624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -325,6 +355,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8487074153491016564, guid: 7bbfa72d751a9be459d5d425eb671eb5, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8611954573592777890}
+    - target: {fileID: 8487074153491016564, guid: 7bbfa72d751a9be459d5d425eb671eb5, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -359,6 +393,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4105205060410474764, guid: 7bbfa72d751a9be459d5d425eb671eb5, type: 3}
   m_PrefabInstance: {fileID: 1440826022789547624}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7365341815508675868 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8487074153491016564, guid: 7bbfa72d751a9be459d5d425eb671eb5, type: 3}
+  m_PrefabInstance: {fileID: 1440826022789547624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3182101307599814444
 PrefabInstance:
   m_ObjectHideFlags: 0

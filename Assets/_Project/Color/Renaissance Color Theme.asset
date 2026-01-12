@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73c7806db4c7ab4783888f12ff3f229, type: 3}
+  m_Name: Renaissance Color Theme
+  m_EditorClassIdentifier: 
+  themeName: Renaissance
+  colors:
+  - colorId: 0
+    color: {r: 0.85098046, g: 0.65882355, b: 0.427451, a: 1}
+  - colorId: 1
+    color: {r: 0.85098046, g: 0.5568628, b: 0.19215688, a: 1}
+  - colorId: 2
+    color: {r: 0.9490197, g: 0.7960785, b: 0.7372549, a: 1}
+  - colorId: 3
+    color: {r: 0.85098046, g: 0.82745105, b: 0.7019608, a: 1}
+  - colorId: 4
+    color: {r: 0.7490196, g: 0.47450984, b: 0.37647063, a: 1}
+  - colorId: 5
+    color: {r: 0.43137258, g: 0.54901963, b: 0.6509804, a: 1}
+  - colorId: 6
+    color: {r: 1, g: 1, b: 1, a: 1}
+  - colorId: 7
+    color: {r: 0.9490197, g: 0.7960785, b: 0.7372549, a: 1}
+  - colorId: 8
+    color: {r: 0.34509805, g: 0.12941177, b: 0.10980393, a: 1}
+  - colorId: 9
+    color: {r: 0.43137258, g: 0.54901963, b: 0.6509804, a: 1}
+  - colorId: 10
+    color: {r: 0.22133332, g: 0.45150134, b: 0.6509804, a: 1}
+  - colorId: 11
+    color: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  - colorId: 12
+    color: {r: 0.9490197, g: 0.7960785, b: 0.7372549, a: 1}
+  - colorId: 13
+    color: {r: 0.43137258, g: 0.54901963, b: 0.6509804, a: 1}
+  - colorId: 14
+    color: {r: 0.85098046, g: 0.65882355, b: 0.427451, a: 1}
+  - colorId: 15
+    color: {r: 0.85098046, g: 0.79215693, b: 0.6784314, a: 1}
+  - colorId: 16
+    color: {r: 0.6509804, g: 0.5921569, b: 0.5019608, a: 1}
+  - colorId: 17
+    color: {r: 0.85098046, g: 0.82745105, b: 0.7019608, a: 1}
+  - colorId: 18
+    color: {r: 0.23529413, g: 0.2509804, b: 0.15686275, a: 1}
+  - colorId: 19
+    color: {r: 0.7490196, g: 0.57254905, b: 0.41960788, a: 1}
+  - colorId: 20
+    color: {r: 0.45098042, g: 0.31764707, b: 0.20784315, a: 1}
+  - colorId: 21
+    color: {r: 0.85098046, g: 0.65882355, b: 0.427451, a: 1}
+  - colorId: 22
+    color: {r: 0.45098042, g: 0.31764707, b: 0.20784315, a: 1}
+  - colorId: 23
+    color: {r: 0.85098046, g: 0.65882355, b: 0.427451, a: 1}
+  - colorId: 24
+    color: {r: 0.6509804, g: 0.30980393, b: 0.23529413, a: 1}
+  - colorId: 25
+    color: {r: 0.43137258, g: 0.54901963, b: 0.6509804, a: 1}
+  - colorId: 26
+    color: {r: 0.23529413, g: 0.2509804, b: 0.15686275, a: 1}
+  - colorId: 27
+    color: {r: 0.34509805, g: 0.12941177, b: 0.10980393, a: 1}

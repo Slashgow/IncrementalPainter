@@ -13,7 +13,7 @@ public class SimpleColorable : MonoBehaviour, IColorable
     private void OnEnable()
     {
         if (useRandomColorOnEnable)
-            color = PaintColorManager.Instance.GetRandomColor();
+            color = ThemeColorManager.Instance.GetRandomPaintColor();
         else
             color = customColor;
 

@@ -14,8 +14,8 @@ public class UICountdown : MonoBehaviour
 
     [Header("Threshold Visual Changes")]
     [SerializeField, Range(0f, 20f)] private float threshold;
-    [SerializeField] private Color thresholdColor;
-    [SerializeField] private Color normalColor;
+    [SerializeField] private ColorId thresholdColorId;
+    [SerializeField] private ColorId normalColorId;
 
     public UnityEvent OnTickLessThanThreshold;
     public UnityEvent OnTimeAdded;
@@ -39,15 +39,15 @@ public class UICountdown : MonoBehaviour
     {
         if (timeRemaining <= threshold)
         {
-            if(textCountdown.color != thresholdColor)
-                textCountdown.color = thresholdColor;
+            if(textCountdown.color != ThemeColorManager.Instance.GetColor(thresholdColorId))
+                textCountdown.color = ThemeColorManager.Instance.GetColor(thresholdColorId);
 
             OnTickLessThanThreshold?.Invoke();
         }
         else
         {
-            if (textCountdown.color != normalColor)
-                textCountdown.color = normalColor;
+            if (textCountdown.color != ThemeColorManager.Instance.GetColor(normalColorId))
+                textCountdown.color = ThemeColorManager.Instance.GetColor(normalColorId);
         }
        
         int minutes = Mathf.FloorToInt(timeRemaining / 60f);

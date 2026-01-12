@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IColorChanger
 {
     [Header("References")]
     [SerializeField] private SkillDataBase skillDataBase;
@@ -48,6 +48,12 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         Initialize();
     }
+
+    private void OnEnable() => ThemeColorManager.OnThemeChanged += OnThemeChanged;
+    private void OnDisable() => ThemeColorManager.OnThemeChanged -= OnThemeChanged;
+
+    public void OnThemeChanged(ColorTheme newTheme) => UpdateColor();
+    public void UpdateColor() => UpdateVisuals();
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (!isDiscovered)

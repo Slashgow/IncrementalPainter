@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6870406855048196476}
   - component: {fileID: 6817434745418250641}
   - component: {fileID: 4897956740751328550}
+  - component: {fileID: 8524721128009567977}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -75,6 +76,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8524721128009567977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409221433599271702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1142f7bb8621e1d48ae2cad0578aef6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorId: 14
+  updateOnStart: 1
+  listenToThemeChanges: 1
 --- !u!1 &3723557382078602607
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +241,7 @@ GameObject:
   - component: {fileID: 1867467707511567033}
   - component: {fileID: 9121187810362695786}
   - component: {fileID: 1558300252726039132}
+  - component: {fileID: 2521329088711763057}
   m_Layer: 5
   m_Name: Button Back
   m_TagString: Untagged
@@ -363,3 +380,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82dc2d1848c8de24099465476a01b6a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2521329088711763057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6370405758983605784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83164e2af23a5c5458a326d3c2a45905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalColorId: 7
+  highlightedColorId: 8
+  pressedColorId: 9
+  selectedColorId: 10
+  disabledColorId: 11
+  updateOnStart: 1
+  listenToThemeChanges: 1
+  colorMultiplier: 1
+  fadeDuration: 0.1

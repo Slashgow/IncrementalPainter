@@ -2,10 +2,11 @@
 using System.Linq;
 using inkolorgames;
 using UnityEngine;
+
 public class LevelManager : PersistentMonoSingleton<LevelManager>
 {
     [SerializeField] private LevelCompletionTracker completionTracker;
-    [SerializeField] private Color sRankColor, aRankColor, bRankColor, cRankColor, dRankColor;
+    [SerializeField] private RankColorsId rankColorsId;
 
     [SerializeField] private LevelData defaultLevel;
 
@@ -114,15 +115,7 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
     public Color GetCurrentProjectedRankColor()
     {
         LevelRank projectedRank = GetCurrentProjectedRank();
-        return projectedRank switch
-        {
-            LevelRank.S => sRankColor,
-            LevelRank.A => aRankColor,
-            LevelRank.B => bRankColor,
-            LevelRank.C => cRankColor,
-            LevelRank.D => dRankColor,
-            _ => Color.white,
-        };
+        return rankColorsId.GetColorForRank(projectedRank);
     }
 
     public int GetRemainingCurrencyReward(UnlockableLevel unlockableLevel)

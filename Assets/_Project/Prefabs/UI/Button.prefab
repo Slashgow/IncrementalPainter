@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2733687144379264175}
   - component: {fileID: 7347201741740243812}
   - component: {fileID: 9176765805541641822}
+  - component: {fileID: 7413466359925874084}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -151,6 +152,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82dc2d1848c8de24099465476a01b6a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7413466359925874084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7317671649672108594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83164e2af23a5c5458a326d3c2a45905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalColorId: 7
+  highlightedColorId: 8
+  pressedColorId: 9
+  selectedColorId: 10
+  disabledColorId: 11
+  updateOnStart: 1
+  listenToThemeChanges: 1
+  colorMultiplier: 1
+  fadeDuration: 0.1
 --- !u!1001 &1510152163639290592
 PrefabInstance:
   m_ObjectHideFlags: 0

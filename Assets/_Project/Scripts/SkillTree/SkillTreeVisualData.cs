@@ -5,26 +5,26 @@ using UnityEngine;
 public class SkillTreeVisualData
 {
     [Header("Colors")]
-    [SerializeField] private Color lockedColor = Color.gray;
-    [SerializeField] private Color lockedColorDarker = Color.gray;
-    public Color LockedColor => lockedColor;
-    public Color LockedColorDarker => lockedColorDarker;
+    [SerializeField] private ColorId lockedColorID = ColorId.SKILL_NODE_LOCKED;
+    [SerializeField] private ColorId lockedColorDarkerID = ColorId.SKILL_NODE_LOCKED_DARKER;
+    public Color LockedColor => ThemeColorManager.Instance.GetColor(lockedColorID);
+    public Color LockedColorDarker => ThemeColorManager.Instance.GetColor(lockedColorDarkerID);
 
-    [SerializeField] private Color unlockedColor = Color.green;
-    [SerializeField] private Color unlockedColorDarker = Color.green;
-    public Color UnlockedColor => unlockedColor;
-    public Color UnlockedColorDarker => unlockedColorDarker;
+    [SerializeField] private ColorId unlockedColorID = ColorId.SKILL_NODE_UNLOCKED;
+    [SerializeField] private ColorId unlockedColorDarkerID = ColorId.SKILL_NODE_UNLOCKED_DARKER;
+    public Color UnlockedColor => ThemeColorManager.Instance.GetColor(unlockedColorID);
+    public Color UnlockedColorDarker => ThemeColorManager.Instance.GetColor(unlockedColorDarkerID);
 
-    [SerializeField] private Color availableColor = Color.yellow;
-    [SerializeField] private Color availableColorDarker = Color.yellow;
-    public Color AvailableColor => availableColor;
-    public Color AvailableColorDarker => availableColorDarker;
+    [SerializeField] private ColorId availableColorID = ColorId.SKILL_NODE_AVAILABLE;
+    [SerializeField] private ColorId availableColorDarkerID = ColorId.SKILL_NODE_AVAILABLE_DARKER;
+    public Color AvailableColor => ThemeColorManager.Instance.GetColor(availableColorID);
+    public Color AvailableColorDarker => ThemeColorManager.Instance.GetColor(availableColorDarkerID);
 
-    [SerializeField] private Color skillPointColor = Color.white;
-    public Color SkillPointColor => skillPointColor;
+    [SerializeField] private ColorId skillPointColorID = ColorId.SKILL_NODE_SKILL_POINT;
+    public Color SkillPointColor => ThemeColorManager.Instance.GetColor(skillPointColorID);
 
-    [SerializeField] private Color maxLevelColor = Color.white;
-    public Color MaxLevelColor => maxLevelColor;
+    [SerializeField] private ColorId maxLevelColorID = ColorId.SKILL_NODE_MAX_LEVEL;
+    public Color MaxLevelColor => ThemeColorManager.Instance.GetColor(maxLevelColorID);
 
     [Header("Sprites")]
     [SerializeField] private Sprite backgroundSpriteLocked;

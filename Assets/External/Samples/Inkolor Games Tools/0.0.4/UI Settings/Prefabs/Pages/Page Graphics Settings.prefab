@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2578594665746520926}
   - component: {fileID: 1067759213661550634}
   - component: {fileID: 5232732197085403930}
+  - component: {fileID: 903616846249458060}
   m_Layer: 5
   m_Name: Page Graphics Settings
   m_TagString: Untagged
@@ -174,6 +175,21 @@ MonoBehaviour:
   OnHideUnityEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &903616846249458060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808644815342492709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1142f7bb8621e1d48ae2cad0578aef6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorId: 12
+  updateOnStart: 1
+  listenToThemeChanges: 1
 --- !u!1001 &1271910206587035955
 PrefabInstance:
   m_ObjectHideFlags: 0
