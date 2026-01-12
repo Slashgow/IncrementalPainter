@@ -19,11 +19,16 @@ public class DamageText : MonoBehaviour
 
     private PoolingSystem poolingSystem;
     private Sequence animationSequence;
+    private float originalFontSize;
 
     public void Initialize(float damageAmount, Color textColor, PoolingSystem pool, string textAfterAmount = "")
     {
         poolingSystem = pool;
 
+        if(originalFontSize == 0f)
+            originalFontSize = textComponent.fontSize;
+
+        textComponent.fontSize = originalFontSize * AdvancedGameSettingsManager.Instance.FontSizeMultiplier;
         textComponent.text = $"{Mathf.RoundToInt(damageAmount)} {textAfterAmount}";
         textComponent.color = textColor;
         transform.localScale = Vector3.one;
@@ -35,6 +40,10 @@ public class DamageText : MonoBehaviour
     {
         poolingSystem = pool;
 
+        if (originalFontSize == 0f)
+            originalFontSize = textComponent.fontSize;
+
+        textComponent.fontSize = originalFontSize * AdvancedGameSettingsManager.Instance.FontSizeMultiplier;
         textComponent.text = $"{Mathf.RoundToInt(damageAmount)} {textAfterAmount}";
         textComponent.color = textColor;
 

@@ -178,6 +178,10 @@ MonoBehaviour:
     m_Localized: "D\xE9g\xE2t des zones empoisonn\xE9es"
     m_Metadata:
       m_Items: []
+  - m_Id: 16225013806264320
+    m_Localized: "Taille de police des d\xE9g\xE2ts/devise"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

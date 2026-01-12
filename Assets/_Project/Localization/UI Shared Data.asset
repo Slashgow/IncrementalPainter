@@ -175,6 +175,10 @@ MonoBehaviour:
     m_Key: POISON_DAMAGE
     m_Metadata:
       m_Items: []
+  - m_Id: 16225013806264320
+    m_Key: FONT_SIZE
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
