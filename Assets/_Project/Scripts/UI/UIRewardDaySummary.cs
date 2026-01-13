@@ -82,18 +82,23 @@ public class UIRewardDaySummary : MonoBehaviour
             {
                 case LevelRank.S:
                     rankIconImage.sprite = sRankIcon;
+                    rankIconImage.color = LevelManager.Instance.GetColorForRank(LevelRank.S);
                     break;
                 case LevelRank.A:
                     rankIconImage.sprite = aRankIcon;
+                    rankIconImage.color = LevelManager.Instance.GetColorForRank(LevelRank.A);
                     break;
                 case LevelRank.B:
                     rankIconImage.sprite = bRankIcon;
+                    rankIconImage.color = LevelManager.Instance.GetColorForRank(LevelRank.B);
                     break;
                 case LevelRank.C:
                     rankIconImage.sprite = cRankIcon;
+                    rankIconImage.color = LevelManager.Instance.GetColorForRank(LevelRank.C);
                     break;
                 case LevelRank.D:
                     rankIconImage.sprite = dRankIcon;
+                    rankIconImage.color = LevelManager.Instance.GetColorForRank(LevelRank.D);
                     break;
                 default:
                     rankIconImage.gameObject.SetActive(false);
