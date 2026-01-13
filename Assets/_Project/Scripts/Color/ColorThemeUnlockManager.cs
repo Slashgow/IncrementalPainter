@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using inkolorgames;
 using UnityEngine;
 
 public class ColorThemeUnlockManager : MonoBehaviour
@@ -11,11 +10,8 @@ public class ColorThemeUnlockManager : MonoBehaviour
     public static event System.Action<string> OnThemeUnlocked;
     public static event System.Action<string> OnThemeLocked;
 
-    private void OnLevelWasLoaded(int level)
-    {
-        CheckAllUnlocks();
-    }
-
+    private void OnEnable() => LevelManager.OnEndLevel += CheckAllUnlocks;
+    private void OnDisable() => LevelManager.OnEndLevel -= CheckAllUnlocks;
     private void Start()
     {
         if (checkUnlocksOnStart)

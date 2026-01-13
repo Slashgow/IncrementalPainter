@@ -164,8 +164,9 @@ public class ThemeColorManager : PersistentMonoSingleton<ThemeColorManager>
             Debug.LogError($"Theme index {index} out of range!");
         }
     }
-    private ColorTheme GetThemeById(string themeId) => availableThemes.Find(t => t.ThemeId == themeId);
-    private int GetThemeIndex(ColorTheme theme) => availableThemes.IndexOf(theme);
+    public ColorTheme GetThemeById(string themeId) => availableThemes.Find(t => t.ThemeId == themeId);
+    public int GetThemeIndex(ColorTheme theme) => availableThemes.IndexOf(theme);
+    public int GetCurrentThemeIndex() => GetThemeIndex(currentTheme);
     public List<ColorTheme> GetAvailableThemes() => new List<ColorTheme>(availableThemes);
     public void OverrideColor(ColorId id, Color color) => OnColorChanged?.Invoke(id, color);
     public bool IsThemeUnlocked(string themeId) => unlockManager != null && unlockManager.IsThemeUnlocked(themeId);
@@ -198,6 +199,13 @@ public class ThemeColorManager : PersistentMonoSingleton<ThemeColorManager>
     {
         return unlockManager != null ?
                unlockManager.GetLockedUnlockableThemes() :
+               new List<UnlockableColorTheme>();
+    }
+
+    public List<UnlockableColorTheme> GetUnlockedThemes()
+    {
+        return unlockManager != null ?
+               unlockManager.GetUnlockedUnlockableThemes() :
                new List<UnlockableColorTheme>();
     }
 

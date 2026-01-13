@@ -182,6 +182,22 @@ MonoBehaviour:
     m_Localized: "Taille de police des d\xE9g\xE2ts/devise"
     m_Metadata:
       m_Items: []
+  - m_Id: 16595858131120128
+    m_Localized: "Th\xE8me de couleur d\xE9bloqu\xE9 !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16600901530021888
+    m_Localized: "Th\xE8me de couleur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16600974028566528
+    m_Localized: Continuer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16601025043886080
+    m_Localized: Appliquer
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

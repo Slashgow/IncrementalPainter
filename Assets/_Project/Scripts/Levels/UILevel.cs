@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.UI;
 
-public class UILevel : MonoBehaviour, IUISelectable<LevelData>
+public class UILevel : MonoBehaviour, IUISelectable<LevelData>, IColorChanger
 {
     [SerializeField] private TextMeshProUGUI textTitle;
     [SerializeField] private TextMeshProUGUI textAuthor;
@@ -39,6 +39,10 @@ public class UILevel : MonoBehaviour, IUISelectable<LevelData>
     private UnlockableLevel unlockableLevel;
     public event Action<LevelData> OnSelectEvent;
 
+    private void OnEnable() => ThemeColorManager.OnThemeChanged += OnThemeChanged;
+    private void OnDisable() => ThemeColorManager.OnThemeChanged -= OnThemeChanged;
+    public void OnThemeChanged(ColorTheme newTheme) => UpdateColor();
+    public void UpdateColor() => UpdateLevelInfo();
     public void Initialize(UnlockableLevel unlockableLevel)
     {
         currencyColorHex = ColorUtility.ToHtmlStringRGB(currencyColor);
@@ -135,18 +139,23 @@ public class UILevel : MonoBehaviour, IUISelectable<LevelData>
             {
                 case LevelRank.S:
                     rankIconImage.sprite = sRankIcon;
+                    rankIconImage.color = ThemeColorManager.Instance.GetColor(ColorId.RANK_S);
                     break;
                 case LevelRank.A:
                     rankIconImage.sprite = aRankIcon;
+                    rankIconImage.color = ThemeColorManager.Instance.GetColor(ColorId.RANK_A);
                     break;
                 case LevelRank.B:
                     rankIconImage.sprite = bRankIcon;
+                    rankIconImage.color = ThemeColorManager.Instance.GetColor(ColorId.RANK_B);
                     break;
                 case LevelRank.C:
                     rankIconImage.sprite = cRankIcon;
+                    rankIconImage.color = ThemeColorManager.Instance.GetColor(ColorId.RANK_C);
                     break;
                 case LevelRank.D:
                     rankIconImage.sprite = dRankIcon;
+                    rankIconImage.color = ThemeColorManager.Instance.GetColor(ColorId.RANK_D);
                     break;
                 default:
                     rankIconImage.gameObject.SetActive(false);
@@ -158,4 +167,6 @@ public class UILevel : MonoBehaviour, IUISelectable<LevelData>
             rankIconImage.gameObject.SetActive(false);
         }
     }
+
+
 }

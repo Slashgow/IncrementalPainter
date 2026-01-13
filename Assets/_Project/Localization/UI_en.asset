@@ -182,6 +182,22 @@ MonoBehaviour:
     m_Localized: Damage/Currency font size
     m_Metadata:
       m_Items: []
+  - m_Id: 16595858131120128
+    m_Localized: Color theme unlocked!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16600901530021888
+    m_Localized: Color Theme
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16600974028566528
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16601025043886080
+    m_Localized: Apply
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

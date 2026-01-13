@@ -179,6 +179,22 @@ MonoBehaviour:
     m_Key: FONT_SIZE
     m_Metadata:
       m_Items: []
+  - m_Id: 16595858131120128
+    m_Key: COLOR_UNLOCKED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16600901530021888
+    m_Key: COLOR_THEME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16600974028566528
+    m_Key: CONTINUE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16601025043886080
+    m_Key: APPLY
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

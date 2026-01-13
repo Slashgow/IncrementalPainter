@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIRankReward : MonoBehaviour
+public class UIRankReward : MonoBehaviour, IColorChanger
 {
     [SerializeField] private LevelRank rank;
     [SerializeField] private Sprite rankIcon;
@@ -14,6 +14,11 @@ public class UIRankReward : MonoBehaviour
 
     private LevelData currentLevelData;
 
+    private void OnEnable() => ThemeColorManager.OnThemeChanged += OnThemeChanged;
+    private void OnDisable() => ThemeColorManager.OnThemeChanged -= OnThemeChanged;
+
+    public void OnThemeChanged(ColorTheme newTheme) => UpdateColor();
+    public void UpdateColor() => rankImage.color = LevelManager.Instance.GetColorForRank(rank);
     private void Start()
     {
         Initialize(LevelManager.Instance.CurrentLevelData);
@@ -32,6 +37,7 @@ public class UIRankReward : MonoBehaviour
             return;
         
         rankImage.sprite = rankIcon;
+        UpdateColor();
 
         int daysRequired = currentLevelData.GetDaysRequiredForRank(rank);
         if (daysRequired == int.MaxValue)
@@ -51,4 +57,6 @@ public class UIRankReward : MonoBehaviour
         else
             rewardText.text = "No Reward";
     }
+
+
 }

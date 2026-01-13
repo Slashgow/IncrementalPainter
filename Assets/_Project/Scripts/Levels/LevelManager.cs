@@ -117,6 +117,7 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
         LevelRank projectedRank = GetCurrentProjectedRank();
         return rankColorsId.GetColorForRank(projectedRank);
     }
+    public Color GetColorForRank(LevelRank rank) => rankColorsId.GetColorForRank(rank);
 
     public int GetRemainingCurrencyReward(UnlockableLevel unlockableLevel)
     {
