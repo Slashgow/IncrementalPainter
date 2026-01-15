@@ -88,8 +88,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0b2d0ba53eaa74dad2f8b1cd0023f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beginSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426356394913792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  midSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426788248842240
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  endSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426970013200384
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   requiredLevel: {fileID: 11400000, guid: 6247094ae030dc440be92b91b834c788, type: 2}
   minimumRank: 5
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &7714926429341423725
 GameObject:
   m_ObjectHideFlags: 0

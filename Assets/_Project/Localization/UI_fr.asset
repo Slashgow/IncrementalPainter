@@ -222,6 +222,34 @@ MonoBehaviour:
     m_Localized: Voir l'asset
     m_Metadata:
       m_Items: []
+  - m_Id: 17426356394913792
+    m_Localized: "Compl\xE9ter"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17426426154577920
+    m_Localized: niveaux
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17426525572165632
+    m_Localized: Toujours disponible
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17426656010825728
+    m_Localized: par
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17426706292142080
+    m_Localized: "\xE0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17426788248842240
+    m_Localized: avec le rang
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17426970013200384
+    m_Localized: ou mieux
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

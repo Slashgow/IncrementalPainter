@@ -44,8 +44,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b8121427c4a95e42a97122ac00bd1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredLevelAuthor: Inkolor
-  requiredLevelTitle: Eggspert
+  beginSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426356394913792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  endSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426656010825728
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  requiredLevelData: {fileID: 11400000, guid: 3a87d2d68374f784398e1bc59b5caeac, type: 2}
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &2655263674503698622
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,8 +110,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0b2d0ba53eaa74dad2f8b1cd0023f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beginSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426356394913792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  midSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426788248842240
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  endSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426970013200384
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   requiredLevel: {fileID: 11400000, guid: 86fce4b65d45868428db4499ba673069, type: 2}
   minimumRank: 5
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &2707484764049812342
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,8 +186,170 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0b2d0ba53eaa74dad2f8b1cd0023f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beginSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426356394913792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  midSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426788248842240
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  endSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426970013200384
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   requiredLevel: {fileID: 11400000, guid: df35e19a92a782e4f8624824bd041a86, type: 2}
   minimumRank: 5
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &3116556474857521605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7669254934211141081}
+  - component: {fileID: 515520432504347538}
+  m_Layer: 0
+  m_Name: Finish et in acardia ego
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7669254934211141081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3116556474857521605}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7576727699297752358}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &515520432504347538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3116556474857521605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8121427c4a95e42a97122ac00bd1cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beginSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426356394913792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  endSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426656010825728
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  requiredLevelData: {fileID: 11400000, guid: 0558e7614117fd24a91122c1834d40ea, type: 2}
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &5285736002292202303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3976652537910490287}
+  - component: {fileID: 7038627355199644160}
+  m_Layer: 0
+  m_Name: Finish mort socrate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3976652537910490287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5285736002292202303}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7576727699297752358}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7038627355199644160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5285736002292202303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8121427c4a95e42a97122ac00bd1cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beginSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426356394913792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  endSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426656010825728
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  requiredLevelData: {fileID: 11400000, guid: c36088f641f3e9d48b3739d7cb54ce87, type: 2}
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &5433484730397854276
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +394,160 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af93bdbcd1c473f49a0d580438531a79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beginSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426356394913792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  endSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426426154577920
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   requiredCompletedLevels: 4
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &5546579917296945408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3435131757633887466}
+  - component: {fileID: 377861448560009626}
+  m_Layer: 0
+  m_Name: Finish serment horace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3435131757633887466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5546579917296945408}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7576727699297752358}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &377861448560009626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5546579917296945408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8121427c4a95e42a97122ac00bd1cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beginSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426356394913792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  endSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426656010825728
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  requiredLevelData: {fileID: 11400000, guid: 92b1b188162eedf49bd18c0d7d46e24e, type: 2}
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &5597870140497313674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3113682635596584621}
+  - component: {fileID: 2170607677376468872}
+  m_Layer: 0
+  m_Name: Complete 8 Levels
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3113682635596584621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5597870140497313674}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7576727699297752358}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2170607677376468872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5597870140497313674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af93bdbcd1c473f49a0d580438531a79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beginSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426356394913792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  endSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426426154577920
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  requiredCompletedLevels: 8
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &5832735640547477614
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,8 +592,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b8121427c4a95e42a97122ac00bd1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredLevelAuthor: Leonard de Vinci
-  requiredLevelTitle: Mona Lisa
+  beginSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  endSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  requiredLevelData: {fileID: 11400000, guid: 86fce4b65d45868428db4499ba673069, type: 2}
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &6214328106389175329
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,10 +649,15 @@ Transform:
   - {fileID: 3159133429003349188}
   - {fileID: 493419131180087700}
   - {fileID: 7832663840034949196}
+  - {fileID: 3113682635596584621}
   - {fileID: 2399845900702323767}
   - {fileID: 6628084371449174317}
   - {fileID: 8886088792464053752}
   - {fileID: 8775415494907142066}
+  - {fileID: 3435131757633887466}
+  - {fileID: 3976652537910490287}
+  - {fileID: 7669254934211141081}
+  - {fileID: 3821447749279538954}
   m_Father: {fileID: 623909872397918200}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6587097264052769181
@@ -318,11 +708,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   completionTracker: {fileID: 1037331632690210968}
-  sRankColor: {r: 0.9725491, g: 0.83921576, b: 0.10980393, a: 1}
-  aRankColor: {r: 0.73333335, g: 0.14117648, b: 0.227451, a: 1}
-  bRankColor: {r: 0.27058825, g: 0.5921569, b: 0.8196079, a: 1}
-  cRankColor: {r: 0.46274513, g: 0.75294125, b: 0.27450982, a: 1}
-  dRankColor: {r: 0.54509807, g: 0.09411766, b: 0.47058827, a: 1}
+  rankColorsId:
+    sRankColorID: 23
+    aRankColorID: 24
+    bRankColorID: 25
+    cRankColorID: 26
+    dRankColorID: 27
   defaultLevel: {fileID: 11400000, guid: 86fce4b65d45868428db4499ba673069, type: 2}
   unlockableSortedLevels:
   - levelData: {fileID: 11400000, guid: df35e19a92a782e4f8624824bd041a86, type: 2}
@@ -340,9 +731,24 @@ MonoBehaviour:
   - levelData: {fileID: 11400000, guid: 6247094ae030dc440be92b91b834c788, type: 2}
     unlockConditions:
     - {fileID: 4527245175444610771}
-  - levelData: {fileID: 11400000, guid: 86fce4b65d45868428db4499ba673069, type: 2}
+  - levelData: {fileID: 11400000, guid: 92b1b188162eedf49bd18c0d7d46e24e, type: 2}
     unlockConditions:
     - {fileID: 6765753603020592782}
+  - levelData: {fileID: 11400000, guid: c36088f641f3e9d48b3739d7cb54ce87, type: 2}
+    unlockConditions:
+    - {fileID: 377861448560009626}
+  - levelData: {fileID: 11400000, guid: 0558e7614117fd24a91122c1834d40ea, type: 2}
+    unlockConditions:
+    - {fileID: 7038627355199644160}
+  - levelData: {fileID: 11400000, guid: 1302c7acea24ce94293d4237d982bb02, type: 2}
+    unlockConditions:
+    - {fileID: 515520432504347538}
+  - levelData: {fileID: 11400000, guid: a89c2a8f7e9469f40afe301ec75ed656, type: 2}
+    unlockConditions:
+    - {fileID: 6771932392856022242}
+  - levelData: {fileID: 11400000, guid: 86fce4b65d45868428db4499ba673069, type: 2}
+    unlockConditions:
+    - {fileID: 2170607677376468872}
   - levelData: {fileID: 11400000, guid: 0414937677068004490a3a0aebe465dd, type: 2}
     unlockConditions:
     - {fileID: 4642989411716843172}
@@ -471,8 +877,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b8121427c4a95e42a97122ac00bd1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredLevelAuthor: Inkolor
-  requiredLevelTitle: Eggstra DJ
+  beginSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426356394913792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  endSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426656010825728
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  requiredLevelData: {fileID: 11400000, guid: 7c89aaeb34ff6a3449a8efdc3a066f51, type: 2}
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &7619397902170505250
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,8 +943,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b8121427c4a95e42a97122ac00bd1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredLevelAuthor: Boticelli
-  requiredLevelTitle: "La Naissance de V\xE9nus"
+  beginSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426356394913792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  endSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426656010825728
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  requiredLevelData: {fileID: 11400000, guid: bb8d1afe9d670174ea1ba625215eb77f, type: 2}
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &7642161943847895287
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,8 +1009,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b8121427c4a95e42a97122ac00bd1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredLevelAuthor: Michel-Ange
-  requiredLevelTitle: "La Cr\xE9ation d'Adam"
+  beginSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426356394913792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  endSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426656010825728
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  requiredLevelData: {fileID: 11400000, guid: 0414937677068004490a3a0aebe465dd, type: 2}
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &7929115416411700450
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,5 +1075,101 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b8121427c4a95e42a97122ac00bd1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredLevelAuthor: Inkolor
-  requiredLevelTitle: Mister Inkolor
+  beginSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426356394913792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  endSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426656010825728
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  requiredLevelData: {fileID: 11400000, guid: df35e19a92a782e4f8624824bd041a86, type: 2}
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &8920133921618880424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3821447749279538954}
+  - component: {fileID: 6771932392856022242}
+  m_Layer: 0
+  m_Name: rank s serment horace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3821447749279538954
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8920133921618880424}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7576727699297752358}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6771932392856022242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8920133921618880424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0b2d0ba53eaa74dad2f8b1cd0023f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beginSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426356394913792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  midSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426788248842240
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  endSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426970013200384
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  requiredLevel: {fileID: 11400000, guid: 92b1b188162eedf49bd18c0d7d46e24e, type: 2}
+  minimumRank: 5
+  references:
+    version: 2
+    RefIds: []

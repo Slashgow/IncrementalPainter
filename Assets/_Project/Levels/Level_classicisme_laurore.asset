@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2548ba85b01887e4a935903037baf7cd, type: 3}
-  m_Name: Level_egg_singer
+  m_Name: Level_classicisme_laurore
   m_EditorClassIdentifier: 
-  levelTitle: Eggciting Vocals
-  levelAuthor: Inkolor
-  levelDate: 2025
-  artMovement: 8
+  levelTitle: L'Aurore
+  levelAuthor: Guido Reni
+  levelDate: 1614
+  artMovement: 7
   percentCompletionCondition: 0.99
-  levelDrawing: {fileID: 21300000, guid: 1163a5d7e1765fb4b8c81d2bf96ebc24, type: 3}
-  levelPrefab: {fileID: 8944416080909895153, guid: 110f915eff5ceb64cbc8795f40e05401, type: 3}
-  cameraPaintZoom: 4.5
-  spawnOffset: {x: 0, y: -0.5, z: 0}
+  levelDrawing: {fileID: 21300000, guid: cae02f4d0bcb6b44d8f26e0ac14accd1, type: 3}
+  levelPrefab: {fileID: 8944416080909895153, guid: 618a18ad895265a4baca35cf3d1c4e0d, type: 3}
+  cameraPaintZoom: 7.5
+  spawnOffset: {x: 0, y: 0, z: 0}
   isBossLevel: 0
   bossLevelPrefab: {fileID: 1878125376689745335, guid: e0605e2d1e54bbc4aaa6874c5ada195b, type: 3}
   rankThresholds:
@@ -34,8 +34,8 @@ MonoBehaviour:
     bRankSkillPoints: 2
     cRankSkillPoints: 1
     dRankSkillPoints: 0
-    sRankCurrency: 20000
-    aRankCurrency: 15000
-    bRankCurrency: 10000
-    cRankCurrency: 5000
-    dRankCurrency: 1000
+    sRankCurrency: 100000
+    aRankCurrency: 50000
+    bRankCurrency: 30000
+    cRankCurrency: 20000
+    dRankCurrency: 10000

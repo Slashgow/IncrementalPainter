@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.Localization;
 
 public class RankUnlockCondition : UnlockCondition
 {
+    [SerializeField] private LocalizedString beginSentenceLocalizedString, midSentenceLocalizedString, endSentenceLocalizedString;
+
     [Header("Required Previous Level")]
     [SerializeField] private LevelData requiredLevel;
 
@@ -32,7 +35,8 @@ public class RankUnlockCondition : UnlockCondition
         if (requiredLevel == null)
             return "No level requirement";
 
-        return $"Complete '{requiredLevel.LevelTitle}' with rank {minimumRank.GetDisplayName()} or better";
+        return $"{beginSentenceLocalizedString.GetLocalizedString()} '{requiredLevel.LevelTitle}' " +
+            $"{midSentenceLocalizedString.GetLocalizedString()} {minimumRank.GetDisplayName()} {endSentenceLocalizedString.GetLocalizedString()}";
     }
 
  

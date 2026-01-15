@@ -1,9 +1,11 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Localization;
 
 [Serializable]
 public class MinimumCompletionRatioCondition : UnlockCondition
 {
+    [SerializeField] private LocalizedString beginSentenceLocalizedString, endSentenceLocalizedString;
     [SerializeField] private string requiredLevelAuthor;
     [SerializeField] private string requiredLevelTitle;
     [SerializeField] private float minimumRatio;
@@ -14,5 +16,5 @@ public class MinimumCompletionRatioCondition : UnlockCondition
         return saveData != null && saveData.completionRatio >= minimumRatio;
     }
 
-    public override string GetDescription() => $"Complete '{requiredLevelTitle}' at {minimumRatio * 100}%";
+    public override string GetDescription() => $"{beginSentenceLocalizedString.GetLocalizedString()} '{requiredLevelTitle}' {endSentenceLocalizedString.GetLocalizedString()} {minimumRatio * 100}%";
 }

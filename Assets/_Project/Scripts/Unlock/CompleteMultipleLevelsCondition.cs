@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Localization;
 
 [Serializable]
 public class CompleteMultipleLevelsCondition : UnlockCondition
 {
+    [SerializeField] private LocalizedString beginSentenceLocalizedString, endSentenceLocalizedString;
     [SerializeField] private int requiredCompletedLevels;
 
     public override bool IsMet()
@@ -14,5 +16,5 @@ public class CompleteMultipleLevelsCondition : UnlockCondition
         return completedCount >= requiredCompletedLevels;
     }
 
-    public override string GetDescription() => $"Complete {requiredCompletedLevels} levels";
+    public override string GetDescription() => $"{beginSentenceLocalizedString.GetLocalizedString()} {requiredCompletedLevels} {endSentenceLocalizedString.GetLocalizedString()}";
 }

@@ -222,6 +222,34 @@ MonoBehaviour:
     m_Localized: See asset
     m_Metadata:
       m_Items: []
+  - m_Id: 17426356394913792
+    m_Localized: Complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17426426154577920
+    m_Localized: Levels
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17426525572165632
+    m_Localized: Always available
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17426656010825728
+    m_Localized: by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17426706292142080
+    m_Localized: at
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17426788248842240
+    m_Localized: With rank
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17426970013200384
+    m_Localized: or better
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
