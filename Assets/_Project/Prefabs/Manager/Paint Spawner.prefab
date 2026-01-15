@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8320128552981738484}
   - component: {fileID: 7085179760342262382}
   - component: {fileID: 5577091823455831881}
+  - component: {fileID: 5769465102157207446}
+  - component: {fileID: 5063413813275425916}
   m_Layer: 0
   m_Name: Paint Spawner
   m_TagString: Untagged
@@ -111,6 +113,22 @@ MonoBehaviour:
   zOffset: 0
   spawnParent: {fileID: 1039041530853263093}
   useRealTime: 0
+  OnSpawnBurst:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5769465102157207446}
+        m_TargetAssemblyTypeName: PoolInstantiatedEffect, Assembly-CSharp
+        m_MethodName: DoEffect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  spawnBurstParticlePosition: {x: 0, y: 0, z: 0}
 --- !u!114 &7085179760342262382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +161,39 @@ MonoBehaviour:
     skillData: {fileID: 11400000, guid: 32c528fa84a709643ba946f47e51cd3b, type: 2}
   spawnChanceNukeItemPerLevel:
     skillData: {fileID: 11400000, guid: 6a63afd92dc7a644086924a3c4d5fa4d, type: 2}
+--- !u!114 &5769465102157207446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2890733673538930724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2afd04775eaa049bffaa83641e90e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  poolSystems:
+  - {fileID: 5063413813275425916}
+  numberOfEffectToSpawn: 1
+  instantiateFirstOnExactPosition: 1
+  spawnMinOffset: {x: 0, y: 0, z: 0}
+  spawnMaxOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &5063413813275425916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2890733673538930724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6869d1947bdee49a545215e6121ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 2883797502249945402, guid: a2600520a7244a7499db0c3fb98d5889, type: 3}
+  growPoolSize: 2
 --- !u!1 &5442154982494036360
 GameObject:
   m_ObjectHideFlags: 0

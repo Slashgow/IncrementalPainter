@@ -1,6 +1,7 @@
 using System;
 using inkolorgames;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityTimer;
 
 public class PaintSpawner : MonoSingleton<PaintSpawner>
@@ -60,6 +61,10 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
     [SerializeField] private float zOffset = 0f;
     [SerializeField] private Transform spawnParent;
     [SerializeField] private bool useRealTime = false;
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent<Vector3> OnSpawnBurst;
+    [SerializeField] private Vector3 spawnBurstParticlePosition;
     
     private SpriteRenderer spriteRenderer;
 
@@ -207,6 +212,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
 
         if (LuckUtility.RollLuck(ChanceOfBurstingIfNotEnoughBlobsOnCanvas))
         {
+            OnSpawnBurst?.Invoke(spawnBurstParticlePosition);
             //Debug.Log("spawn burst");
             for (int i = 0; i < NumberOfBlobsToSpawnOnBurst; i++)
             {
