@@ -220,6 +220,24 @@ MonoBehaviour:
     m_Localized: "Multiplicateur de d\xE9g\xE2ts critiques de la zone empoisonn\xE9e"
     m_Metadata:
       m_Items: []
+  - m_Id: 17702368206778368
+    m_Localized: "Chance de faire apparaitre un d\xE9ferlement de gouttes de peinture
+      lorsque leur nombre est inf\xE9rieur au seuil d\xE9fini."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17702904289161216
+    m_Localized: "Nombre de gouttes de peinture \xE0 faire apparaitre par d\xE9ferlement"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17703186712621056
+    m_Localized: "Seuil minimum de gouttes de peinture pour tenter de faire apparaitre
+      un d\xE9ferlement de gouttes de peinture"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17704746351980544
+    m_Localized: "Intervalle de temps entre deux essais de d'apparition en d\xE9ferlement"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

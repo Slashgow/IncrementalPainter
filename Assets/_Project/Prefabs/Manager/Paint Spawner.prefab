@@ -57,6 +57,14 @@ MonoBehaviour:
     skillData: {fileID: 11400000, guid: e31a75f61c9f54f488f49164a3ca665b, type: 2}
   chanceOfSpawningWhenKillingPerLevel:
     skillData: {fileID: 11400000, guid: af63347a65b1dfc49aa899eda8e0aa6f, type: 2}
+  chanceOfBurstingIfNotEnoughBlobsOnCanvasPerLevel:
+    skillData: {fileID: 11400000, guid: 99a0784709af2e941a446f04a478b0e7, type: 2}
+  numberOfBlobsToSpawnOnBurstPerLevel:
+    skillData: {fileID: 11400000, guid: 9e2cf6ab95d6372408b622e764d0f6a3, type: 2}
+  numberOfBlobsToTryBurstingPerLevel:
+    skillData: {fileID: 11400000, guid: 8c61a72afcb96cc418ab963cabd0df54, type: 2}
+  timeIntervalCheckBurstingPerLevel:
+    skillData: {fileID: 11400000, guid: ecc0945c07ef50843905d14d242850aa, type: 2}
   chanceOfSpawningBombPaintPerLevel:
     skillData: {fileID: 11400000, guid: cfd1ac9012ba4844c8fa8ee6717048a3, type: 2}
   chanceOfSpawningFreezePaintPerLevel:

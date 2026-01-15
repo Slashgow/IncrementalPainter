@@ -84,6 +84,10 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[paintSpawner.CountPerSpawnPerLevel.SkillID] = paintSpawner.CountPerSpawnPerLevel;
         leveledSkills[paintSpawner.MaxSpawnCountPerLevel.SkillID] = paintSpawner.MaxSpawnCountPerLevel;
         leveledSkills[paintSpawner.InitialCountPerLevel.SkillID] = paintSpawner.InitialCountPerLevel;
+        leveledSkills[paintSpawner.ChanceOfBurstingIfNotEnoughBlobsOnCanvasPerLevel.SkillID] = paintSpawner.ChanceOfBurstingIfNotEnoughBlobsOnCanvasPerLevel;
+        leveledSkills[paintSpawner.NumberOfBlobsToSpawnOnBurstPerLevel.SkillID] = paintSpawner.NumberOfBlobsToSpawnOnBurstPerLevel;
+        leveledSkills[paintSpawner.NumberOfBlobsToTryBurstingPerLevel.SkillID] = paintSpawner.NumberOfBlobsToTryBurstingPerLevel;
+        leveledSkills[paintSpawner.TimeIntervalCheckBurstingPerLevel.SkillID] = paintSpawner.TimeIntervalCheckBurstingPerLevel;
         leveledSkills[itemSpawner.SpawnChanceVacuumableMagnetItemPerLevel.SkillID] = itemSpawner.SpawnChanceVacuumableMagnetItemPerLevel;
         leveledSkills[itemSpawner.SpawnChanceNukeItemPerLevel.SkillID] = itemSpawner.SpawnChanceNukeItemPerLevel;
         leveledSkills[deathPainter.SplatterScalePerLevel.SkillID] = deathPainter.SplatterScalePerLevel;
@@ -163,6 +167,10 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         poisonDamageor.DotDurationSkillDataPerLevel.Initialize();
         poisonDamageor.DotTickIntervalSkillDataPerLevel.Initialize();
         paintSpawner.ChanceOfSpawningPoisonPerLevel.Initialize();
+        paintSpawner.ChanceOfBurstingIfNotEnoughBlobsOnCanvasPerLevel.Initialize();
+        paintSpawner.NumberOfBlobsToSpawnOnBurstPerLevel.Initialize();
+        paintSpawner.NumberOfBlobsToTryBurstingPerLevel.Initialize();
+        paintSpawner.TimeIntervalCheckBurstingPerLevel.Initialize();
     }
 
     void Start()

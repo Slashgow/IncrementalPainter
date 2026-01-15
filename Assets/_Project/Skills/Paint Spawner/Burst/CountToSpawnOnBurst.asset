@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33731296d6af78e4d974e1768760d497, type: 3}
-  m_Name: Max Count
+  m_Name: CountToSpawnOnBurst
   m_EditorClassIdentifier: 
-  skillID: MaxCountPaintSpawner
-  skillName: MaxCountPaintSpawner
+  skillID: CountToSpawnOnBurst
+  skillName: CountToSpawnOnBurst
   description:
     m_TableReference:
       m_TableCollectionName: GUID:c2cb2738a056b164bb9bace0f5b339ba
     m_TableEntryReference:
-      m_KeyId: 4273120494350336
+      m_KeyId: 17702904289161216
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  icon: {fileID: 1213784092, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
+  icon: {fileID: -1885373379, guid: e5d32b0d3af324541b2ccb2fc3aa7fb4, type: 3}
   costFunction:
     a: 100
     b: 10
@@ -33,12 +33,12 @@ MonoBehaviour:
   - level: 1
     skillPointCost: 0
     requiredSkills:
-    - skillData: {fileID: 11400000, guid: 11f9b509fd611314c9e500377b18bbe7, type: 2}
+    - skillData: {fileID: 11400000, guid: 99a0784709af2e941a446f04a478b0e7, type: 2}
       requiredLevel: 1
   unitValue: 0
   effectValue:
-    a: 50
-    b: 100
+    a: 10
+    b: 20
   references:
     version: 2
     RefIds: []

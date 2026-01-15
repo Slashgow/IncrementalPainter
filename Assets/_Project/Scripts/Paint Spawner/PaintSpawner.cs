@@ -10,6 +10,10 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> countPerSpawnPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> maxSpawnCountPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningWhenKillingPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfBurstingIfNotEnoughBlobsOnCanvasPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> numberOfBlobsToSpawnOnBurstPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> numberOfBlobsToTryBurstingPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> timeIntervalCheckBurstingPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningBombPaintPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningFreezePaintPerLevel;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfSpawningBrushSwipePaintPerLevel;
@@ -20,6 +24,10 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
     public SkillDataPerLevelOfType<FunctionAffine> CountPerSpawnPerLevel => countPerSpawnPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> MaxSpawnCountPerLevel => maxSpawnCountPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningWhenKillingPerLevel => chanceOfSpawningWhenKillingPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> ChanceOfBurstingIfNotEnoughBlobsOnCanvasPerLevel => chanceOfBurstingIfNotEnoughBlobsOnCanvasPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> NumberOfBlobsToSpawnOnBurstPerLevel => numberOfBlobsToSpawnOnBurstPerLevel; 
+    public SkillDataPerLevelOfType<FunctionAffine> NumberOfBlobsToTryBurstingPerLevel => numberOfBlobsToTryBurstingPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> TimeIntervalCheckBurstingPerLevel => timeIntervalCheckBurstingPerLevel; 
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningBombPaintPerLevel => chanceOfSpawningBombPaintPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningFreezePaintPerLevel => chanceOfSpawningFreezePaintPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfSpawningBrushSwipePaintPerLevel => chanceOfSpawningBrushSwipePaintPerLevel;
@@ -30,6 +38,10 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
     public int CountPerSpawn => Mathf.FloorToInt(countPerSpawnPerLevel.GetCurrentLevelData());
     public int MaxSpawnCount => Mathf.FloorToInt(maxSpawnCountPerLevel.GetCurrentLevelData());
     public float ChanceOfSpawnOnKill => chanceOfSpawningWhenKillingPerLevel.GetCurrentLevelData();
+    public float ChanceOfBurstingIfNotEnoughBlobsOnCanvas => chanceOfBurstingIfNotEnoughBlobsOnCanvasPerLevel.GetCurrentLevelData();
+    public int NumberOfBlobsToSpawnOnBurst => Mathf.FloorToInt(numberOfBlobsToSpawnOnBurstPerLevel.GetCurrentLevelData());
+    public int NumberOfBlobsToTryBursting => Mathf.FloorToInt(numberOfBlobsToTryBurstingPerLevel.GetCurrentLevelData());
+    public float TimeIntervalCheckBursting => timeIntervalCheckBurstingPerLevel.GetCurrentLevelData();
     public float ChanceOfSpawningBombPaint => chanceOfSpawningBombPaintPerLevel.GetCurrentLevelData();
     public float ChanceOfSpawningFreezePaint => chanceOfSpawningFreezePaintPerLevel.GetCurrentLevelData();
     public float ChanceOfSpawningBrushSwipePaint => chanceOfSpawningBrushSwipePaintPerLevel.GetCurrentLevelData();
@@ -51,6 +63,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
     
     private SpriteRenderer spriteRenderer;
 
+    private Timer checkBurstTimer;
     private Timer spawnTimer;
     private int spawnedCount = 0;
     private bool isSpawning;
@@ -100,12 +113,15 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
         isSpawning = true;
         spawnTimer?.Cancel();
         spawnTimer = Timer.Register(SpawnTimeInterval, onComplete: () => SpawnObject(), isLooped: true, useRealTime: useRealTime);
+        checkBurstTimer?.Cancel();
+        checkBurstTimer = Timer.Register(TimeIntervalCheckBursting, onComplete: () => TrySpawnBurst(true), isLooped:true, useRealTime: useRealTime);
     }
 
     public void StopSpawning()
     {
         isSpawning = false;
         spawnTimer?.Cancel();
+        checkBurstTimer?.Cancel();
     }
 
     public void SpawnObject(bool overrideCountPerSpawn = false)
@@ -181,6 +197,23 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
             OnAdditionalSpawn?.Invoke();
         }
            
+    }
+
+    private void TrySpawnBurst(bool overrideCountPerSpawn = false)
+    {
+        //Debug.Log("try spawn burst");
+        if (spawnedCount > NumberOfBlobsToTryBursting)
+            return;
+
+        if (LuckUtility.RollLuck(ChanceOfBurstingIfNotEnoughBlobsOnCanvas))
+        {
+            //Debug.Log("spawn burst");
+            for (int i = 0; i < NumberOfBlobsToSpawnOnBurst; i++)
+            {
+                SpawnObject(overrideCountPerSpawn);
+                OnAdditionalSpawn?.Invoke();
+            }
+        }
     }
 
     private PaintType GetWeightedPaintType()

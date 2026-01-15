@@ -211,6 +211,22 @@ MonoBehaviour:
     m_Key: POISON_TICK_INTERVAL
     m_Metadata:
       m_Items: []
+  - m_Id: 17702368206778368
+    m_Key: CHANCE_BURST
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17702904289161216
+    m_Key: COUNT_TO_SPAWN_ON_BURST
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17703186712621056
+    m_Key: COUNT_THRESHOLD_TO_BURST
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17704746351980544
+    m_Key: TIME_INTERVAL_CHECK_BURST
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

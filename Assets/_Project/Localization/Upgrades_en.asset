@@ -217,6 +217,22 @@ MonoBehaviour:
     m_Localized: Poison damage tick interval
     m_Metadata:
       m_Items: []
+  - m_Id: 17702368206778368
+    m_Localized: Chance of spawning a burst of blobs when blobs count is below threshold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17702904289161216
+    m_Localized: Amount of paint blobs to spawn per burst
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17703186712621056
+    m_Localized: Paint blob amount threshold to try a spawn burst
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17704746351980544
+    m_Localized: Time interval between each spawn burst try
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
