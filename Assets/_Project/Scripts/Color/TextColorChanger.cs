@@ -32,6 +32,7 @@ public class TextColorChanger : MonoBehaviour, IColorChanger
             ThemeColorManager.OnThemeChanged += OnThemeChanged;
             ThemeColorManager.OnColorChanged += OnSpecificColorChanged;
         }
+        //UpdateColor();
     }
 
     private void OnDisable()

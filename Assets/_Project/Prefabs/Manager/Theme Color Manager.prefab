@@ -120,6 +120,82 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!1 &6313873685380076016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5850933095413763256}
+  - component: {fileID: 4039841799859514325}
+  m_Layer: 0
+  m_Name: rank s laurore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5850933095413763256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6313873685380076016}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3367237419970331355}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4039841799859514325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6313873685380076016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0b2d0ba53eaa74dad2f8b1cd0023f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beginSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426356394913792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  midSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426788248842240
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  endSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426970013200384
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  requiredLevel: {fileID: 11400000, guid: a89c2a8f7e9469f40afe301ec75ed656, type: 2}
+  minimumRank: 5
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &7714926429341423725
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +230,7 @@ Transform:
   m_Children:
   - {fileID: 3037542038116399587}
   - {fileID: 6936552905557484828}
+  - {fileID: 5850933095413763256}
   - {fileID: 8479423230352825994}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -173,6 +250,7 @@ MonoBehaviour:
   availableThemes:
   - {fileID: 11400000, guid: f8544aaa53610374181484648e88f8cd, type: 2}
   - {fileID: 11400000, guid: a54e84dc2bdfb6c4a991250f5b37761f, type: 2}
+  - {fileID: 11400000, guid: 010ea9c745b78934083bdb4b9fcb9325, type: 2}
   currentTheme: {fileID: 11400000, guid: f8544aaa53610374181484648e88f8cd, type: 2}
   defaultTheme: {fileID: 11400000, guid: f8544aaa53610374181484648e88f8cd, type: 2}
 --- !u!114 &9083568608195226659
@@ -194,6 +272,9 @@ MonoBehaviour:
   - colorTheme: {fileID: 11400000, guid: a54e84dc2bdfb6c4a991250f5b37761f, type: 2}
     unlockConditions:
     - {fileID: 2582276170416962410}
+  - colorTheme: {fileID: 11400000, guid: 010ea9c745b78934083bdb4b9fcb9325, type: 2}
+    unlockConditions:
+    - {fileID: 4039841799859514325}
   checkUnlocksOnStart: 1
   autoUnlockThemes: 1
 --- !u!114 &2873427735866140567

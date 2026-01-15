@@ -52,13 +52,21 @@ public class ThemeColorManager : PersistentMonoSingleton<ThemeColorManager>
             ColorTheme savedTheme = GetThemeById(saveData.currentThemeId);
             if (savedTheme != null && saveData.IsThemeUnlocked(saveData.currentThemeId))
             {
-                currentTheme = savedTheme;
+                SetTheme(savedTheme);
+                //currentTheme = savedTheme;
             }
         }
 
         if (currentTheme == null)
         {
-            currentTheme = defaultTheme != null ? defaultTheme : (availableThemes.Count > 0 ? availableThemes[0] : null);
+           // currentTheme = defaultTheme != null ? defaultTheme : (availableThemes.Count > 0 ? availableThemes[0] : null);
+           if(defaultTheme != null)
+                SetTheme(defaultTheme);
+            else
+            {
+                if (availableThemes.Count > 0)
+                    SetTheme(availableThemes[0]);
+            }
         }
     }
 
