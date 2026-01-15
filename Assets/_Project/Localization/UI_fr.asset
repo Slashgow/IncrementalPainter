@@ -202,6 +202,26 @@ MonoBehaviour:
     m_Localized: "<sprite name=mr> rembourser une am\xE9lioration"
     m_Metadata:
       m_Items: []
+  - m_Id: 17341520414109696
+    m_Localized: "R\xE9alis\xE9 par"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17342399636697088
+    m_Localized: Musiques
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17342445723709440
+    m_Localized: Effets sonores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17343143274213376
+    m_Localized: Licence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17343657546215424
+    m_Localized: Voir l'asset
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

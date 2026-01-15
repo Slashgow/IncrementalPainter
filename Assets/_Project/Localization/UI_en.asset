@@ -202,6 +202,26 @@ MonoBehaviour:
     m_Localized: <sprite name=mr> Refund one upgrade
     m_Metadata:
       m_Items: []
+  - m_Id: 17341520414109696
+    m_Localized: Made by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17342399636697088
+    m_Localized: Musics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17342445723709440
+    m_Localized: Sound effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17343143274213376
+    m_Localized: Licence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17343657546215424
+    m_Localized: See asset
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
