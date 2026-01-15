@@ -32,9 +32,30 @@ public class MagneterManager : MonoSingleton<MagneterManager>
         SpawnMagneters();
 
         MagneterCountPerLevel.OnLevelUp += MagneterManager_OnLevelUp;
+        MagneterCountPerLevel.OnLevelDown += MagneterCountPerLevel_OnLevelDown;
     }
 
-    private void OnDestroy() => MagneterCountPerLevel.OnLevelUp -= MagneterManager_OnLevelUp;
+    private void OnDestroy()
+    {
+        MagneterCountPerLevel.OnLevelDown -= MagneterCountPerLevel_OnLevelDown;
+        MagneterCountPerLevel.OnLevelUp -= MagneterManager_OnLevelUp;
+    }
+
+    private void MagneterCountPerLevel_OnLevelDown()
+    {
+        var currentMagneters = FindObjectsByType<Magneter>(FindObjectsSortMode.None);
+
+        int magneterToDestroy = currentMagneters.Length - MagneterCountToSpawn;
+        if (magneterToDestroy > 0)
+        {
+            for (int i = magneterToDestroy-1; i >= 0; i--)
+            {
+                Destroy(currentMagneters[i].gameObject);
+            }
+        }
+    }
+
+
     private void MagneterManager_OnLevelUp()
     {
         int currentMagneterCount = FindObjectsByType<Magneter>(FindObjectsSortMode.None).Length;

@@ -10,6 +10,7 @@ public class SkillDataPerLevelOfType<T> : ISkillLevelData where T : IFunction
     public bool IsUnlocked => CurrentLevel > skillData.StartingLevel;
     public int CurrentLevel { get; private set; }
     public event Action OnLevelUp;
+    public event Action OnLevelDown;
     public string SkillID => skillData.SkillID;
     public float GetCurrentLevelData() => skillData.EffectValue.Evaluate(CurrentLevel);
     public void Initialize()
@@ -31,4 +32,12 @@ public class SkillDataPerLevelOfType<T> : ISkillLevelData where T : IFunction
         }
     }
 
+    public void LevelDown()
+    {
+        if(CurrentLevel > skillData.StartingLevel)
+        {
+            CurrentLevel--;
+            OnLevelDown?.Invoke();
+        }
+    }
 }

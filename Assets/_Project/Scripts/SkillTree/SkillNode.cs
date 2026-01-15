@@ -4,9 +4,10 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IColorChanger
+public class SkillNode : MonoBehaviour, IColorChanger
 {
     [Header("References")]
+    [SerializeField] private PointerEventRegistered pointerEventRegistered;
     [SerializeField] private SkillDataBase skillDataBase;
     public SkillDataBase SkillDataBase => skillDataBase;
 
@@ -41,16 +42,29 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     private void Awake()
     {
         treeManager = GetComponentInParent<SkillTreeManager>();
-        button.onClick.AddListener(OnSkillClicked);
-  
     }
     private void Start()
     {
         Initialize();
     }
 
-    private void OnEnable() => ThemeColorManager.OnThemeChanged += OnThemeChanged;
-    private void OnDisable() => ThemeColorManager.OnThemeChanged -= OnThemeChanged;
+    private void OnEnable()
+    {
+        ThemeColorManager.OnThemeChanged += OnThemeChanged;
+        pointerEventRegistered.OnPointerEnterEvent += OnPointerEnter;
+        pointerEventRegistered.OnPointerExitEvent += OnPointerExit;
+        pointerEventRegistered.OnPointerClickEvent += OnPointerClick;
+        button.onClick.AddListener(OnSkillClicked);
+    }
+
+    private void OnDisable()
+    {
+        ThemeColorManager.OnThemeChanged -= OnThemeChanged;
+        pointerEventRegistered.OnPointerEnterEvent -= OnPointerEnter;
+        pointerEventRegistered.OnPointerExitEvent -= OnPointerExit;
+        pointerEventRegistered.OnPointerClickEvent -= OnPointerClick;
+        button.onClick.RemoveListener(OnSkillClicked);
+    }
 
     public void OnThemeChanged(ColorTheme newTheme) => UpdateColor();
     public void UpdateColor() => UpdateVisuals();
@@ -78,6 +92,25 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         }
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (!isDiscovered)
+            return;
+
+        //if (eventData.button == PointerEventData.InputButton.Left)
+        //{
+        //    OnSkillClicked();
+        //}
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            OnSkillRightClicked();
+        }
+    }
+    private void OnSkillRightClicked()
+    {
+        if (treeManager != null)
+            treeManager.TryRefundLastLevel(skillDataBase);
+    }
     public void Initialize()
     {
         if (iconImage) 

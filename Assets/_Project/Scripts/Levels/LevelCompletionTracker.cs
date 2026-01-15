@@ -46,6 +46,7 @@ public class LevelCompletionTracker : MonoBehaviour
         {
             logger.Log($"NEW BEST! Level '{currentLevelData.LevelTitle}' completed in {finalDays} days. Rank: {newRank.GetDisplayName()}", this);
             saveData.bestRank = newRank;
+            saveData.claimedRewardRank = newRank;
         }
         else
         {
@@ -54,7 +55,6 @@ public class LevelCompletionTracker : MonoBehaviour
 
         saveData.isDone = true;
         saveData.daysToComplete = finalDays;
-        saveData.claimedRewardRank = newRank;
 
         GameSaveManager.Instance.SaveLevelData(
             saveData.isDone,

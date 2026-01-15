@@ -14,6 +14,7 @@ public class BossCleaner : MonoBehaviour
     [SerializeField, Range(0f,20f)] private float waterAttackInterval = 5f;
     [SerializeField, Range(0, 6)] private int waterProjectilesPerAttack = 3;
     [SerializeField] private PoolingSystem waterTargetPreviewPool;
+    [SerializeField] private Transform guntipTransform;
 
     [Header("Healing Settings")]
     [SerializeField] private PoolingSystem healingPaintPool;
@@ -53,7 +54,7 @@ public class BossCleaner : MonoBehaviour
 
     private void SpawnWaterTargetPreview(Vector3 targetPosition)
     {
-        GameObject waterPreviewInstance = waterTargetPreviewPool.GetPrefabFromPool(targetPosition);
+        GameObject waterPreviewInstance = waterTargetPreviewPool.GetPrefabFromPool(targetPosition, null, true);
 
         if(waterPreviewInstance.TryGetComponent<PooledObject>(out var pooledObject))
         {
@@ -63,7 +64,7 @@ public class BossCleaner : MonoBehaviour
 
     private void SpawnWaterProjectile(Vector3 targetPosition)
     {
-        GameObject waterInstance = waterProjectilePool.GetPrefabFromPool(transform.position);
+        GameObject waterInstance = waterProjectilePool.GetPrefabFromPool(guntipTransform.position,null, true);
 
         if (waterInstance.TryGetComponent<WaterProjectile>(out var waterProjectile))
         {
@@ -76,7 +77,7 @@ public class BossCleaner : MonoBehaviour
     {
         for (int i = 0; i < healingPaintCountPerWaterHit; i++)
         {
-            GameObject healingInstance = healingPaintPool.GetPrefabFromPool(paintPosition);
+            GameObject healingInstance = healingPaintPool.GetPrefabFromPool(paintPosition,null, true);
 
             if (healingInstance.TryGetComponent<HealingPaint>(out var healingPaint))
             {

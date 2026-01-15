@@ -1,0 +1,496 @@
+fileFormatVersion: 2
+guid: e935b158356230241a370e34dcb2b592
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7810930719381617445
+    second: Boss_Cleaner_0
+  - first:
+      213: -1554234901447641462
+    second: Boss_Cleaner_1
+  - first:
+      213: 8603061540313404716
+    second: Boss_Cleaner_2
+  - first:
+      213: -4249804439261833885
+    second: Boss_Cleaner_3
+  - first:
+      213: -7269589556687541943
+    second: Boss_Cleaner_4
+  - first:
+      213: 4621579832363603188
+    second: Boss_Cleaner_5
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boss_Cleaner_cap
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 1650
+        width: 823
+        height: 326
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ec25a71659d3dd4ab5f2ee7f32055c5
+      internalID: -1554234901447641462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Cleaner_right_hand
+      rect:
+        serializedVersion: 2
+        x: 1823
+        y: 1884
+        width: 203
+        height: 149
+      alignment: 9
+      pivot: {x: 0.015392886, y: 0.34233102}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2d27101df75dd74fa7e149225f4a976
+      internalID: 8603061540313404716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Cleaner_bag
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 1217
+        width: 752
+        height: 612
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f9084b7634cafd4cacdbaecd5ba1364
+      internalID: 2105993321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Cleaner_left_hand
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 1659
+        width: 84
+        height: 177
+      alignment: 9
+      pivot: {x: 0.93332344, y: 0.9455656}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d34bf9431a7a1d45b0ba0fb662f67d6
+      internalID: -4249804439261833885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Cleaner_left_eye
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 1445
+        width: 152
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49f77978903963140ba0cd216484be75
+      internalID: 1398941059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Cleaner_right_eye
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1446
+        width: 114
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbffa51df5b86884eb89c4b089d6b094
+      internalID: -540114530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Cleaner_left_eyebrow
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 1467
+        width: 133
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61a66125301096e479a4b2c9c6fe1b86
+      internalID: 397069050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Cleaner_right_eyebrow
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 1461
+        width: 104
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d5d9effe1563104c9135f770ea516ad
+      internalID: 1159375544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Cleaner_gun
+      rect:
+        serializedVersion: 2
+        x: 1738
+        y: 1179
+        width: 241
+        height: 433
+      alignment: 9
+      pivot: {x: 0.42333832, y: 0.32688794}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1828db5babdbb14f975354b56e75c88
+      internalID: -7269589556687541943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Cleaner_eye
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 1378
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9f2f206960ca294996ebe17ea51d0b2
+      internalID: 1439264213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Cleaner_mouth
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1376
+        width: 40
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 084c38d3af1b37e438c155998152d82a
+      internalID: -1480685723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Cleaner_left_foot
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 965
+        width: 103
+        height: 168
+      alignment: 9
+      pivot: {x: 0.5688998, y: 0.9777745}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e1636c08be0ff646824b924c8f01828
+      internalID: -1310169877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Cleaner_right_foot
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 954
+        width: 88
+        height: 135
+      alignment: 9
+      pivot: {x: 0.6306995, y: 0.9767388}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42aaedb548131cb48bf3d494dc24c295
+      internalID: -916946619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Cleaner_body
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 405
+        width: 624
+        height: 807
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eddc5e527d453a41a39bfff61a41202
+      internalID: -7810930719381617445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Cleaner_gun_wire
+      rect:
+        serializedVersion: 2
+        x: 1785
+        y: 961
+        width: 111
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66b4f032232a9584f94aba8d5fe47f84
+      internalID: 4621579832363603188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6296eb80fabf40740a1fffd9415a412b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Boss_Cleaner_15: -1187851061
+      Boss_Cleaner_16: -248890351
+      Boss_Cleaner_2: -1086925880
+      Boss_Cleaner_bag: 2105993321
+      Boss_Cleaner_body: -7810930719381617445
+      Boss_Cleaner_cap: -1554234901447641462
+      Boss_Cleaner_eye: 1439264213
+      Boss_Cleaner_gun: -7269589556687541943
+      Boss_Cleaner_gun_wire: 4621579832363603188
+      Boss_Cleaner_left_eye: 1398941059
+      Boss_Cleaner_left_eyebrow: 397069050
+      Boss_Cleaner_left_foot: -1310169877
+      Boss_Cleaner_left_hand: -4249804439261833885
+      Boss_Cleaner_mouth: -1480685723
+      Boss_Cleaner_right_eye: -540114530
+      Boss_Cleaner_right_eyebrow: 1159375544
+      Boss_Cleaner_right_foot: -916946619
+      Boss_Cleaner_right_hand: 8603061540313404716
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

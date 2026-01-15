@@ -15,13 +15,24 @@ public class RotateEffect : Effect
     [SerializeField] private LoopType loopType = LoopType.Restart;
     [SerializeField] private bool useRealTime = true;
     [SerializeField] private bool isRelative = false;
+    [SerializeField] private bool forceReturnToOriginRotation = false;
 
     private Tween rotationTween;
+    private Vector3 originRotation;
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        originRotation = transform.localEulerAngles;
+    }
     public void Rotate()
     {
         rotationTween?.Kill();
-
         Vector3 currentRotation = transform.localEulerAngles;
+
+        if (forceReturnToOriginRotation)
+            currentRotation = originRotation;
+
         Vector3 normalizedAxis = rotationAxis.normalized;
 
         Vector3 startOffset = normalizedAxis * startAngle;

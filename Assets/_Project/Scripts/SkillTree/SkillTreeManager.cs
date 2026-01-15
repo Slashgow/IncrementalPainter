@@ -331,6 +331,88 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         }
     }
 
+    public void TryRefundLastLevel(SkillDataBase skillData)
+    {
+        if (!leveledSkills.TryGetValue(skillData.SkillID, out var skillLevelData))
+        {
+            logger.Log($"Skill not found: {skillData.SkillName}", this);
+            return;
+        }
+
+        int currentLevel = skillLevelData.CurrentLevel;
+
+        if (currentLevel <= 0)
+        {
+            logger.Log($"Cannot refund {skillData.SkillName}: Already at level 0", this);
+            return;
+        }
+
+        if (IsSkillRequiredByOthers(skillData, currentLevel))
+        {
+            logger.Log($"Cannot refund {skillData.SkillName}: Other skills depend on this level", this);
+            return;
+        }
+
+        int currencyRefund = skillData.GetCostForLevel(currentLevel);
+        int skillPointRefund = skillData.GetSkillPointCostForLevel(currentLevel);
+
+        skillLevelData.LevelDown();
+        totalUpgradesBought--;
+
+        CurrencyManager.Instance.AddCurrency(currencyRefund);
+        if (skillPointRefund > 0)
+            SkillPointManager.Instance.AddSkillPoints(skillPointRefund);
+
+        RefreshAllNodes();
+
+        string refundLog = $"[Refunded: {currencyRefund} currency";
+        if (skillPointRefund > 0)
+            refundLog += $", {skillPointRefund} SP";
+        refundLog += "]";
+
+        logger.Log($"Refunded {skillData.SkillName} from Level {currentLevel} → Level {skillLevelData.CurrentLevel} " +
+            $"{refundLog}\nTotal Upgrades: {totalUpgradesBought}", this);
+
+        Save();
+    }
+
+    private bool IsSkillRequiredByOthers(SkillDataBase skillData, int skillLevel)
+    {
+        foreach (var node in allSkillNodes)
+        {
+            if (node == null || node.SkillDataBase == null)
+                continue;
+
+            if (node.SkillDataBase.SkillID == skillData.SkillID)
+                continue;
+
+            var otherSkillLevel = GetSkillLevel(node.SkillDataBase.SkillID);
+
+            if (otherSkillLevel <= 0)
+                continue;
+
+            for (int level = 1; level <= otherSkillLevel; level++)
+            {
+                var levelReq = node.SkillDataBase.GetRequirementsForLevel(level);
+
+                if (levelReq != null && levelReq.RequiredSkills != null)
+                {
+                    foreach (var requiredSkill in levelReq.RequiredSkills)
+                    {
+                        if (requiredSkill.SkillData != null &&
+                            requiredSkill.SkillData.SkillID == skillData.SkillID &&
+                            requiredSkill.RequiredLevel >= skillLevel)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
     private SkillDataBase GetSkillDataBase(string skillID)
     {
         foreach (var node in allSkillNodes)

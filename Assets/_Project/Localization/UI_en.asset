@@ -198,6 +198,10 @@ MonoBehaviour:
     m_Localized: Apply
     m_Metadata:
       m_Items: []
+  - m_Id: 17338071920275456
+    m_Localized: <sprite name=mr> Refund one upgrade
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

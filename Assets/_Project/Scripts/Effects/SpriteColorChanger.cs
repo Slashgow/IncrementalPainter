@@ -11,6 +11,7 @@ public class SpriteColorChanger : Effect
     [SerializeField] private Ease easing;
 
     private SpriteRenderer spriteRenderer;
+    private SimpleColorable simpleColorable;
     private Color originColor;
     private Tween colorTween;
 
@@ -19,6 +20,7 @@ public class SpriteColorChanger : Effect
     protected virtual void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        simpleColorable = GetComponent<SimpleColorable>();
         originColor = spriteRenderer.color;
     }
 
@@ -29,7 +31,7 @@ public class SpriteColorChanger : Effect
         if (disableInAdvance)
             return;
 
-        spriteRenderer.color = originColor;
+        spriteRenderer.color = simpleColorable != null ? simpleColorable.Color : originColor;
 
         colorTween?.Kill();
 

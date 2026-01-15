@@ -198,6 +198,10 @@ MonoBehaviour:
     m_Localized: Appliquer
     m_Metadata:
       m_Items: []
+  - m_Id: 17338071920275456
+    m_Localized: "<sprite name=mr> rembourser une am\xE9lioration"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

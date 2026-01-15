@@ -9,6 +9,8 @@ public interface ISkillLevelData
     void Initialize();
     bool CanLevelUp();
     void LevelUp();
+    void LevelDown();
 
     public event Action OnLevelUp;
+    public event Action OnLevelDown;
 }

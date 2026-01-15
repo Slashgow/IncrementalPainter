@@ -28,7 +28,12 @@ public class AutoClicker : MonoBehaviour
     private Timer clickTimer;
     private bool isAutoClicking = false;
 
-    private void Awake() => clickTimerIntervalPerLevel.OnLevelUp += HandleLevelUp;
+    private void Awake()
+    {
+        clickTimerIntervalPerLevel.OnLevelUp += HandleLevelUp;
+        clickTimerIntervalPerLevel.OnLevelDown += HandleLevelUp;
+    }
+
     private void OnEnable() => autoClickerInput.OnToggleAutoclicker += AutoClickerInput_OnToggleAutoclicker;
     private void OnDisable() => autoClickerInput.OnToggleAutoclicker -= AutoClickerInput_OnToggleAutoclicker;
 
@@ -38,6 +43,7 @@ public class AutoClicker : MonoBehaviour
     {
         StopAutoClicking();
         clickTimerIntervalPerLevel.OnLevelUp -= HandleLevelUp;
+        clickTimerIntervalPerLevel.OnLevelDown -= HandleLevelUp;
     }
 
     private void HandleLevelUp()

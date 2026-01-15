@@ -42,6 +42,7 @@ public class SkillNodeDetail : MonoBehaviour, IColorChanger
 
         skillLevelData = treeManager.GetSkillLevelData(skillNode.SkillDataBase.SkillID);
         skillLevelData.OnLevelUp += SkillLevelData_OnLevelUp;
+        skillLevelData.OnLevelDown += SkillLevelData_OnLevelUp;
         ThemeColorManager.OnThemeChanged += OnThemeChanged;
 
         UpdateVisual(skillLevelData);
@@ -51,6 +52,7 @@ public class SkillNodeDetail : MonoBehaviour, IColorChanger
     {
         ThemeColorManager.OnThemeChanged -= OnThemeChanged;
         skillLevelData.OnLevelUp -= SkillLevelData_OnLevelUp;
+        skillLevelData.OnLevelDown -= SkillLevelData_OnLevelUp;
     }
 
     public void OnThemeChanged(ColorTheme newTheme) => UpdateColor();
