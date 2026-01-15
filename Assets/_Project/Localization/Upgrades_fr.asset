@@ -235,7 +235,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17704746351980544
-    m_Localized: "Intervalle de temps entre deux essais de d'apparition en d\xE9ferlement"
+    m_Localized: "Intervalle de temps entre deux essais d'apparition en d\xE9ferlement"
     m_Metadata:
       m_Items: []
   references:

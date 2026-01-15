@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using inkolorgames;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityTimer;
 
 public class BossCleaner : MonoBehaviour
@@ -15,6 +17,7 @@ public class BossCleaner : MonoBehaviour
     [SerializeField, Range(0, 6)] private int waterProjectilesPerAttack = 3;
     [SerializeField] private PoolingSystem waterTargetPreviewPool;
     [SerializeField] private Transform guntipTransform;
+    [SerializeField] private UnityEvent<Vector3> OnLaunchWaterAttack; 
 
     [Header("Healing Settings")]
     [SerializeField] private PoolingSystem healingPaintPool;
@@ -44,6 +47,7 @@ public class BossCleaner : MonoBehaviour
 
     private void PerformWaterAttack()
     {
+        OnLaunchWaterAttack?.Invoke(guntipTransform.position);
         for (int i = 0; i < waterProjectilesPerAttack; i++)
         {
             Vector3 targetPosition = SpriteUtility.GetRandomPositionInSprite(frameRenderer.transform, frameRenderer, true);

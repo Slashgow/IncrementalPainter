@@ -202,6 +202,10 @@ GameObject:
   - component: {fileID: 7498434472761755720}
   - component: {fileID: 3000305277896511006}
   - component: {fileID: 547047025067052310}
+  - component: {fileID: 3001440703769927760}
+  - component: {fileID: 3053451987953200390}
+  - component: {fileID: 969184487549977082}
+  - component: {fileID: 2175454173655374526}
   m_Layer: 0
   m_Name: The Cleaner
   m_TagString: Untagged
@@ -319,10 +323,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageable: {fileID: 4818058784100310057}
   waterProjectilePool: {fileID: 7206012203790312751}
-  waterAttackInterval: 5
+  waterAttackInterval: 8
   waterProjectilesPerAttack: 6
   waterTargetPreviewPool: {fileID: 6971480936930111506}
   guntipTransform: {fileID: 3246125799518172320}
+  OnLaunchWaterAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3053451987953200390}
+        m_TargetAssemblyTypeName: PoolInstantiatedEffect, Assembly-CSharp
+        m_MethodName: DoEffect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   healingPaintPool: {fileID: 3291649671681297148}
   healingPaintCountPerWaterHit: 5
   spawnOffsetRange: {x: 1.5, y: 1.5}
@@ -359,7 +378,19 @@ MonoBehaviour:
         m_CallState: 2
   OnHealUnityEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2175454173655374526}
+        m_TargetAssemblyTypeName: PoolInstantiatedEffect, Assembly-CSharp
+        m_MethodName: DoEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2689734407732949331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,6 +653,72 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3802302459956397560, guid: 3ff3a3970bd7c524580a38b88b02a1f9, type: 3}
   growPoolSize: 2
+--- !u!114 &3001440703769927760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878125376689745335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6869d1947bdee49a545215e6121ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 5339739117810204693, guid: f2a1b8c45d2de414a97f2e7a29b2e025, type: 3}
+  growPoolSize: 2
+--- !u!114 &3053451987953200390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878125376689745335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2afd04775eaa049bffaa83641e90e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  poolSystems:
+  - {fileID: 3001440703769927760}
+  numberOfEffectToSpawn: 1
+  instantiateFirstOnExactPosition: 1
+  spawnMinOffset: {x: 0, y: 0, z: 0}
+  spawnMaxOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &969184487549977082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878125376689745335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6869d1947bdee49a545215e6121ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8433079331162208932, guid: dc81a9c06cca6634cae64ef38bb35c2e, type: 3}
+  growPoolSize: 2
+--- !u!114 &2175454173655374526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878125376689745335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2afd04775eaa049bffaa83641e90e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  poolSystems:
+  - {fileID: 969184487549977082}
+  numberOfEffectToSpawn: 1
+  instantiateFirstOnExactPosition: 1
+  spawnMinOffset: {x: 0, y: 0, z: 0}
+  spawnMaxOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &2029021493436526804
 GameObject:
   m_ObjectHideFlags: 0
