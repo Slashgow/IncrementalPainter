@@ -1,5 +1,4 @@
 ﻿using inkolorgames;
-using PaintIn2D;
 using UnityEngine;
 
 public class MagneterManager : MonoSingleton<MagneterManager>

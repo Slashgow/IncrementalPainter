@@ -25,6 +25,7 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
     public UnlockableLevel CurrentUnlockableLevel => currentUnlockableLevel;
     public LevelData CurrentLevelData => currentUnlockableLevel.LevelData;
 
+    public static event Action OnMidLevel;
     public static event Action OnEndLevel;
     public static event Action<Level> OnStartLevel;
 
@@ -87,7 +88,12 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
 
         currentLevelInstance.OnEndLevel -= CurrentLevelInstance_OnEndLevel;
         currentLevelInstance.OnEndLevel += CurrentLevelInstance_OnEndLevel;
+
+        currentLevelInstance.OnMidLevel -= CurrentLevelInstance_OnMidLevel;
+        currentLevelInstance.OnMidLevel += CurrentLevelInstance_OnMidLevel;
     }
+
+    private void CurrentLevelInstance_OnMidLevel() => OnMidLevel?.Invoke();
 
     private void CurrentLevelInstance_OnEndLevel()
     {

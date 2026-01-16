@@ -21,6 +21,10 @@ public class Level : MonoBehaviour, ISavable, ILoadable<LevelSaveData>
     public bool IsDoneCondition => colorChangeCounter.Ratio >= levelData.PercentCompletionCondition;
 
     public event Action OnEndLevel;
+    public event Action OnMidLevel;
+
+    private bool isMidConditionRaised = false;
+    public bool IsMidCondition => colorChangeCounter.Ratio >= 0.5f;
 
     private void Start()
     {
@@ -44,6 +48,11 @@ public class Level : MonoBehaviour, ISavable, ILoadable<LevelSaveData>
 
     private void ColorChangeCounter_OnUpdated()
     {
+        if(!isMidConditionRaised && IsMidCondition)
+        {
+            OnMidLevel?.Invoke();
+        }
+
         if (!saveData.isDone && IsDoneCondition)
         {
             Save();

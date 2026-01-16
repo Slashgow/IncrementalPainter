@@ -363,7 +363,7 @@ MonoBehaviour:
   readAtStart: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 7729110937390697375}
-  cooldown: -4092.213
+  cooldown: -4097.3286
   maskMesh: {fileID: 0}
   maskSubmesh: 0
   maskTexture: {fileID: 0}
@@ -445,7 +445,7 @@ Transform:
   m_GameObject: {fileID: 8649820747593863145}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.79, y: 0, z: 0}
+  m_LocalPosition: {x: -8.77, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

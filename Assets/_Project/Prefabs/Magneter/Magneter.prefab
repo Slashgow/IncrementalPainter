@@ -110,6 +110,12 @@ MonoBehaviour:
     m_Bits: 4294967295
   detectionInterval: 0.2
   isActive: 1
+  useCustomMagnetData: 0
+  customMagnetData:
+    attractionForce: 0
+    attractionRadius: 0
+    orbitRadius: 0
+    orbitSpeed: 0
   OnMagnetActivated:
     m_PersistentCalls:
       m_Calls: []

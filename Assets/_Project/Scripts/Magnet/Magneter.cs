@@ -12,12 +12,26 @@ public class Magneter : MonoBehaviour, IMagneter
 
     [Header("Settings")]
     [SerializeField] private bool isActive = true;
+    [SerializeField] private bool useCustomMagnetData = false;
+    [SerializeField] private MagnetData customMagnetData;
 
     public Transform Transform => transform;
-    public float AttractionForce => MagneterManager.Instance.AttractionForcePerLevel.GetCurrentLevelData();
-    public float AttractionRadius => MagneterManager.Instance.AttractionRadiusPerLevel.GetCurrentLevelData();
-    public float OrbitRadius => MagneterManager.Instance.OrbitRadiusPerLevel.GetCurrentLevelData();
-    public float OrbitSpeed => MagneterManager.Instance.OrbitSpeedPerLevel.GetCurrentLevelData();
+
+    public float AttractionForce => useCustomMagnetData && customMagnetData != null
+        ? customMagnetData.AttractionForce
+        : MagneterManager.Instance.AttractionForcePerLevel.GetCurrentLevelData();
+
+    public float AttractionRadius => useCustomMagnetData && customMagnetData != null
+        ? customMagnetData.AttractionRadius
+        : MagneterManager.Instance.AttractionRadiusPerLevel.GetCurrentLevelData();
+
+    public float OrbitRadius => useCustomMagnetData && customMagnetData != null
+        ? customMagnetData.OrbitRadius
+        : MagneterManager.Instance.OrbitRadiusPerLevel.GetCurrentLevelData();
+
+    public float OrbitSpeed => useCustomMagnetData && customMagnetData != null
+        ? customMagnetData.OrbitSpeed
+        : MagneterManager.Instance.OrbitSpeedPerLevel.GetCurrentLevelData();
     public bool IsActive => isActive;
 
     private HashSet<IMagnetable> magnetedObjects = new HashSet<IMagnetable>();
@@ -165,6 +179,19 @@ public class Magneter : MonoBehaviour, IMagneter
             orbitAngles.Clear();
         }
     }
+
+    public void SetCustomMagnetData(MagnetData data)
+    {
+        customMagnetData = data;
+        useCustomMagnetData = data != null;
+
+        if(this.TryGetComponent(out MagneterVisual magneterVisual))
+        {
+            magneterVisual.UpdateSizeRing();
+        }
+    }
+
+    public void UseMagneterManagerData() => useCustomMagnetData = false;
 
     private void OnDestroy()
     {

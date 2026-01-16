@@ -16,7 +16,7 @@ public class MagneterVisual : MonoBehaviour
         UpdateSizeRing();
     }
 
-    private void UpdateSizeRing()
+    public void UpdateSizeRing()
     {
         var main = ringParticleSystem.main;
         main.startSize = magneter.AttractionRadius * 2f;

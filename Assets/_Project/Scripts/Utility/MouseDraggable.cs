@@ -20,6 +20,9 @@ public class MouseDraggable : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     private Vector3 velocity = Vector3.zero;
     private bool isDragging = false;
     private Vector3 grabOffset = Vector3.zero;
+    private bool canDrag = true;
+
+    public bool SetCanDrag(bool canDrag) => this.canDrag = canDrag;
 
     private void Awake()
     {
@@ -30,11 +33,17 @@ public class MouseDraggable : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (!canDrag)
+            return;
+
         StartDragging(eventData);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (!canDrag)
+            return;
+
         if (!isDragging) 
             return;
 
@@ -46,8 +55,21 @@ public class MouseDraggable : MonoBehaviour, IPointerDownHandler, IPointerUpHand
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
 
-    public void OnPointerUp(PointerEventData eventData) => StopDragging();
-    public void OnEndDrag(PointerEventData eventData) => StopDragging();
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        if(!canDrag)
+            return;
+
+        StopDragging();
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        if (!canDrag)
+            return;
+
+        StopDragging();
+    }
 
     private void StartDragging(PointerEventData eventData)
     {
