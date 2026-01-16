@@ -206,6 +206,9 @@ GameObject:
   - component: {fileID: 3053451987953200390}
   - component: {fileID: 969184487549977082}
   - component: {fileID: 2175454173655374526}
+  - component: {fileID: 797058632695949044}
+  - component: {fileID: 6696150246106812099}
+  - component: {fileID: 6830329946198237248}
   m_Layer: 0
   m_Name: The Cleaner
   m_TagString: Untagged
@@ -365,6 +368,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4128463718192376749}
+        m_TargetAssemblyTypeName: inkolorgames.effects.EffectApplier, inkolorgames.inkolortools
+        m_MethodName: DoEffects
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDieUnityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6830329946198237248}
         m_TargetAssemblyTypeName: inkolorgames.effects.EffectApplier, inkolorgames.inkolortools
         m_MethodName: DoEffects
         m_Mode: 1
@@ -719,6 +737,55 @@ MonoBehaviour:
   instantiateFirstOnExactPosition: 1
   spawnMinOffset: {x: 0, y: 0, z: 0}
   spawnMaxOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &797058632695949044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878125376689745335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf022e3c5170344fae704fbf4f879dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  audioClips:
+  - {fileID: 8300000, guid: 0f27701822d5c4344a0248d1e220972b, type: 3}
+--- !u!114 &6696150246106812099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878125376689745335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b2779119d10e741b47871189afb583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  prefabsEffects:
+  - {fileID: 3187647067869052980, guid: ec861685ff6d2504fbae9b05db2b6409, type: 3}
+  numberOfEffectToSpawn: 1
+  instantiateFirstOnExactPosition: 1
+  spawnMinOffset: {x: 0, y: 0, z: 0}
+  spawnMaxOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &6830329946198237248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878125376689745335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64df80c7d3d6b44fb2de900c5cd716c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects:
+  - {fileID: 6696150246106812099}
+  - {fileID: 797058632695949044}
 --- !u!1 &2029021493436526804
 GameObject:
   m_ObjectHideFlags: 0

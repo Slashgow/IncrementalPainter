@@ -594,18 +594,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beginSentenceLocalizedString:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 17426356394913792
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   endSentenceLocalizedString:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 17426656010825728
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

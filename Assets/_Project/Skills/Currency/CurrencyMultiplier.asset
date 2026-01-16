@@ -49,7 +49,7 @@ MonoBehaviour:
     requiredSkills: []
   unitValue: 5
   effectValue:
-    a: 1
+    a: 2
     b: 1
   references:
     version: 2

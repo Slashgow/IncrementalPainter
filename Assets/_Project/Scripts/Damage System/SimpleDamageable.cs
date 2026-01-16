@@ -22,6 +22,7 @@ public class SimpleDamageable : MonoBehaviour, IDamageable, IHealable
 
     public UnityEvent OnTakeDamageUnityEvent;
     public event Action<float> OnTakeDamage;
+    public UnityEvent OnDieUnityEvent;
     public event Action<Vector3, Color> OnDie;
     public static event Action<Vector3, Color, float> OnAnyDamageableDie;
 
@@ -67,6 +68,7 @@ public class SimpleDamageable : MonoBehaviour, IDamageable, IHealable
         isDead = true;
 
         OnDie?.Invoke(transform.position, colorable.Color);
+        OnDieUnityEvent?.Invoke();
         OnAnyDamageableDie?.Invoke(transform.position, colorable.Color, this.transform.localScale.x);
 
         if (destroyOnDeath)

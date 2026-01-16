@@ -250,6 +250,19 @@ MonoBehaviour:
     m_Localized: ou mieux
     m_Metadata:
       m_Items: []
+  - m_Id: 17701181445238784
+    m_Localized: "R\xE9initialiser la sauvegarde"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17703696417026048
+    m_Localized: Annuler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17704005067468800
+    m_Localized: "Vous \xEAtes sur le point de r\xE9initialiser enti\xE8rement votre
+      sauvegarde. Voulez-vous continuer ? "
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

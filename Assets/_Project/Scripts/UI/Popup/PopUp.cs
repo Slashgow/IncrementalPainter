@@ -7,7 +7,7 @@ public class PopUp : MonoBehaviour
 
     protected virtual void Awake() => gameObject.SetActive(false);
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         doActionButton.onClick.AddListener(OnClickDoActionButton);
         cancelButton.onClick.AddListener(OnClickCancelButton);

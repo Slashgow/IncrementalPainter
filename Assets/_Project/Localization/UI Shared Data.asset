@@ -247,6 +247,18 @@ MonoBehaviour:
     m_Key: OR_BETTER
     m_Metadata:
       m_Items: []
+  - m_Id: 17701181445238784
+    m_Key: CLEAR_SAVE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17703696417026048
+    m_Key: CANCEL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17704005067468800
+    m_Key: WARNING_DELETE_SAVE
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
