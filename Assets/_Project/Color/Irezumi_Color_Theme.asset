@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73c7806db4c7ab4783888f12ff3f229, type: 3}
+  m_Name: Irezumi_Color_Theme
+  m_EditorClassIdentifier: 
+  themeName: Irezumi
+  colors:
+  - colorId: 0
+    color: {r: 1, g: 0.8352942, b: 0.3529412, a: 1}
+  - colorId: 1
+    color: {r: 0.6392157, g: 0.18039216, b: 0.18039216, a: 1}
+  - colorId: 2
+    color: {r: 0.30980393, g: 0.49803925, b: 0.3372549, a: 1}
+  - colorId: 3
+    color: {r: 0.43529415, g: 0.60784316, b: 0.6666667, a: 1}
+  - colorId: 4
+    color: {r: 0.9803922, g: 0.8313726, b: 0.8313726, a: 1}
+  - colorId: 5
+    color: {r: 0.70980394, g: 0.63529414, b: 0.56078434, a: 1}
+  - colorId: 6
+    color: {r: 1, g: 1, b: 1, a: 1}
+  - colorId: 7
+    color: {r: 0.6392157, g: 0.18039216, b: 0.18039216, a: 1}
+  - colorId: 8
+    color: {r: 0.48627454, g: 0.10980393, b: 0.10980393, a: 1}
+  - colorId: 9
+    color: {r: 0.43529415, g: 0.60784316, b: 0.6666667, a: 1}
+  - colorId: 10
+    color: {r: 0.20784315, g: 0.34901962, b: 0.38823533, a: 1}
+  - colorId: 11
+    color: {r: 0.78823537, g: 0.7294118, b: 0.64705884, a: 0.5019608}
+  - colorId: 12
+    color: {r: 0.6392157, g: 0.18039216, b: 0.18039216, a: 1}
+  - colorId: 13
+    color: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 1}
+  - colorId: 14
+    color: {r: 1, g: 0.8352942, b: 0.3529412, a: 1}
+  - colorId: 15
+    color: {r: 0.78823537, g: 0.7294118, b: 0.64705884, a: 1}
+  - colorId: 16
+    color: {r: 0.627451, g: 0.56078434, b: 0.48627454, a: 1}
+  - colorId: 17
+    color: {r: 0.5647059, g: 0.7607844, b: 0.5647059, a: 1}
+  - colorId: 18
+    color: {r: 0.23137257, g: 0.34901962, b: 0.25882354, a: 1}
+  - colorId: 19
+    color: {r: 0.7843138, g: 0.2901961, b: 0.21176472, a: 1}
+  - colorId: 20
+    color: {r: 0.48627454, g: 0.10980393, b: 0.10980393, a: 1}
+  - colorId: 21
+    color: {r: 1, g: 0.8352942, b: 0.3529412, a: 1}
+  - colorId: 22
+    color: {r: 0.6784314, g: 0.42352945, b: 0.41960788, a: 1}
+  - colorId: 23
+    color: {r: 1, g: 0.8352942, b: 0.3529412, a: 1}
+  - colorId: 24
+    color: {r: 0.909804, g: 0.7137255, b: 0.7137255, a: 1}
+  - colorId: 25
+    color: {r: 0.43529415, g: 0.60784316, b: 0.6666667, a: 1}
+  - colorId: 26
+    color: {r: 0.5647059, g: 0.7607844, b: 0.5647059, a: 1}
+  - colorId: 27
+    color: {r: 0.6392157, g: 0.18039216, b: 0.18039216, a: 1}

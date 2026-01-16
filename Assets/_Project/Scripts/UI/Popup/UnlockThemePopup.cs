@@ -33,7 +33,9 @@ public class UnlockThemePopup : PopUp
 
         parentCanvas.gameObject.SetActive(true);
         gameObject.SetActive(true);
-        GameManager.Instance.Pause();
+
+        if(GameManager.HasInstance)
+            GameManager.Instance.Pause();
     }
 
     protected override void OnClickDoActionButton()
@@ -48,14 +50,18 @@ public class UnlockThemePopup : PopUp
 
         gameObject.SetActive(false);
         parentCanvas.gameObject.SetActive(false);
-        GameManager.Instance.Resume();
+
+        if(GameManager.HasInstance )
+            GameManager.Instance.Resume();
     }
 
     protected override void OnClickCancelButton()
     {
         base.OnClickCancelButton();
         parentCanvas.gameObject.SetActive(false);
-        GameManager.Instance.Resume();
+
+        if(GameManager.HasInstance)
+            GameManager.Instance.Resume();
     }
 
     private void GenerateColorPalette(ColorTheme theme)

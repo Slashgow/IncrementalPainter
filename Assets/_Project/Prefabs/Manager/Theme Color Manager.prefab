@@ -44,6 +44,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7988fbf4e1c9e154fa4c4f5b5fa917c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4734106223821845999
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9082949555907174077}
+  - component: {fileID: 3901121109651188060}
+  m_Layer: 0
+  m_Name: rank s Painter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9082949555907174077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4734106223821845999}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3367237419970331355}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3901121109651188060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4734106223821845999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0b2d0ba53eaa74dad2f8b1cd0023f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beginSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426356394913792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  midSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426788248842240
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  endSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426970013200384
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  requiredLevel: {fileID: 11400000, guid: 6776e52d7c66be54caf6bfd5af7e9c54, type: 2}
+  minimumRank: 5
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &6020163229033544254
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,6 +272,82 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!1 &6648957538030839704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8203930173780304702}
+  - component: {fileID: 2901073798376606344}
+  m_Layer: 0
+  m_Name: rank s debarquement cleopatre
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8203930173780304702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6648957538030839704}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3367237419970331355}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2901073798376606344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6648957538030839704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0b2d0ba53eaa74dad2f8b1cd0023f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beginSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426356394913792
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  midSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426788248842240
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  endSentenceLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 17426970013200384
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  requiredLevel: {fileID: 11400000, guid: 1302c7acea24ce94293d4237d982bb02, type: 2}
+  minimumRank: 5
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &7714926429341423725
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +382,9 @@ Transform:
   m_Children:
   - {fileID: 3037542038116399587}
   - {fileID: 6936552905557484828}
+  - {fileID: 9082949555907174077}
   - {fileID: 5850933095413763256}
+  - {fileID: 8203930173780304702}
   - {fileID: 8479423230352825994}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -251,6 +405,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f8544aaa53610374181484648e88f8cd, type: 2}
   - {fileID: 11400000, guid: a54e84dc2bdfb6c4a991250f5b37761f, type: 2}
   - {fileID: 11400000, guid: 010ea9c745b78934083bdb4b9fcb9325, type: 2}
+  - {fileID: 11400000, guid: bffeeb5126bc33444bef839a23ff387e, type: 2}
+  - {fileID: 11400000, guid: b518250058a6ad44db56ee17d2133d43, type: 2}
   currentTheme: {fileID: 11400000, guid: f8544aaa53610374181484648e88f8cd, type: 2}
   defaultTheme: {fileID: 11400000, guid: f8544aaa53610374181484648e88f8cd, type: 2}
 --- !u!114 &9083568608195226659
@@ -271,8 +427,14 @@ MonoBehaviour:
     - {fileID: 8976108481581896897}
   - colorTheme: {fileID: 11400000, guid: a54e84dc2bdfb6c4a991250f5b37761f, type: 2}
     unlockConditions:
+    - {fileID: 3901121109651188060}
+  - colorTheme: {fileID: 11400000, guid: b518250058a6ad44db56ee17d2133d43, type: 2}
+    unlockConditions:
     - {fileID: 2582276170416962410}
   - colorTheme: {fileID: 11400000, guid: 010ea9c745b78934083bdb4b9fcb9325, type: 2}
+    unlockConditions:
+    - {fileID: 2901073798376606344}
+  - colorTheme: {fileID: 11400000, guid: bffeeb5126bc33444bef839a23ff387e, type: 2}
     unlockConditions:
     - {fileID: 4039841799859514325}
   checkUnlocksOnStart: 1

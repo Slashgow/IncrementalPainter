@@ -172,6 +172,7 @@ MonoBehaviour:
   loopType: 0
   useRealTime: 1
   isRelative: 0
+  forceReturnToOriginRotation: 0
 --- !u!1001 &1416813235768929942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -298,6 +299,10 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2831568142318101481, guid: 3b8b73088b16fb34e91487a15205d264, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8734286286934008589, guid: fde0bffea3cebaf4f85d9f3b67e2c7b9, type: 2}
     - target: {fileID: 4846449836290642457, guid: 3b8b73088b16fb34e91487a15205d264, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -432,6 +437,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2831568142318101481, guid: 3b8b73088b16fb34e91487a15205d264, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8734286286934008589, guid: fde0bffea3cebaf4f85d9f3b67e2c7b9, type: 2}
+    - target: {fileID: 2831568142318101481, guid: 3b8b73088b16fb34e91487a15205d264, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4284563945
       objectReference: {fileID: 0}
@@ -560,6 +569,10 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2831568142318101481, guid: 3b8b73088b16fb34e91487a15205d264, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8734286286934008589, guid: fde0bffea3cebaf4f85d9f3b67e2c7b9, type: 2}
     - target: {fileID: 4846449836290642457, guid: 3b8b73088b16fb34e91487a15205d264, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -815,6 +828,10 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1032748024513247879, guid: f21d1ea4bca41ed46b22481fdd7b223d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8734286286934008589, guid: fde0bffea3cebaf4f85d9f3b67e2c7b9, type: 2}
     - target: {fileID: 1032748024513247879, guid: f21d1ea4bca41ed46b22481fdd7b223d, type: 3}
       propertyPath: m_enableAutoSizing
       value: 1

@@ -1,4 +1,5 @@
-﻿using TabUI;
+﻿using DG.Tweening;
+using TabUI;
 using UnityEngine;
 
 public class TabGroupColorChanger : TabGroup, IColorChanger
@@ -41,5 +42,14 @@ public class TabGroupColorChanger : TabGroup, IColorChanger
     public void UpdateColor()
     {
         OnThemeChanged(ThemeColorManager.Instance.CurrentTheme);
+    }
+
+    public override void ResetTabs()
+    {
+        base.ResetTabs();
+        if (selectedTab != null)
+        {
+            selectedTab.Background.color = tabActive;
+        }
     }
 }

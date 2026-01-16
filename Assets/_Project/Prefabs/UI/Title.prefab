@@ -69,7 +69,7 @@ MonoBehaviour:
   m_text: Day summary
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fde0bffea3cebaf4f85d9f3b67e2c7b9, type: 2}
-  m_sharedMaterial: {fileID: 8734286286934008589, guid: fde0bffea3cebaf4f85d9f3b67e2c7b9, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: a19997a8b1df5ec458f6b61d8d833b82, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
