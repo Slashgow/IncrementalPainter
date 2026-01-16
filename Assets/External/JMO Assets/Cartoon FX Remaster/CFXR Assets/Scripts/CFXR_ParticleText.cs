@@ -25,9 +25,9 @@ namespace CartoonFX
         [SerializeField] float letterSpacing = 0.44f;
 
         [Header("Colors")]
-        [SerializeField] Color backgroundColor = new Color(0, 0, 0, 1);
-        [SerializeField] Color color1 = new Color(1, 1, 1, 1);
-        [SerializeField] Color color2 = new Color(0, 0, 1, 1);
+        [SerializeField] public Color backgroundColor = new Color(0, 0, 0, 1);
+        [SerializeField] public Color color1 = new Color(1, 1, 1, 1);
+        [SerializeField] public Color color2 = new Color(0, 0, 1, 1);
 
         [Header("Delay")]
         [SerializeField] float delay = 0.05f;

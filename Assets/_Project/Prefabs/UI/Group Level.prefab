@@ -145,8 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiOutline: {fileID: 1121244867301086438}
-  hoverColor: {r: 0.9725491, g: 0.83921576, b: 0.10980393, a: 1}
-  selectedColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverColorId: 14
+  selectedColorId: 6
 --- !u!222 &4601473198727487949
 CanvasRenderer:
   m_ObjectHideFlags: 0

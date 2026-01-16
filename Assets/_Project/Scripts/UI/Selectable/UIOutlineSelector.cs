@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 public class UIOutlineSelector<T> : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
     [SerializeField] private UIOutline uiOutline;
-    [SerializeField] private Color hoverColor = Color.yellow;
-    [SerializeField] private Color selectedColor = Color.white;
+    [SerializeField] private ColorId hoverColorId;
+    [SerializeField] private ColorId selectedColorId;
 
     private static UIOutlineSelector<T> currentSelected;
     private IUISelectable<T> selectableComponent;
@@ -53,7 +53,7 @@ public class UIOutlineSelector<T> : MonoBehaviour, IPointerEnterHandler, IPointe
     {
         if (currentSelected != this)
         {
-            ShowOutline(hoverColor);
+            ShowOutline(ThemeColorManager.Instance.GetColor(hoverColorId));
         }
     }
 
@@ -70,7 +70,7 @@ public class UIOutlineSelector<T> : MonoBehaviour, IPointerEnterHandler, IPointe
     public void Select()
     {
         currentSelected = this;
-        ShowOutline(selectedColor);
+        ShowOutline(ThemeColorManager.Instance.GetColor(selectedColorId));
 
         if (selectableComponent != null)
         {
