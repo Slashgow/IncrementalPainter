@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2781479761441849075}
   - component: {fileID: 4368155527060002385}
+  - component: {fileID: 9022856067226647660}
   m_Layer: 0
   m_Name: Spot Light 2D
   m_TagString: Untagged
@@ -168,6 +169,21 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &9022856067226647660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2604857911862494593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d6aecbdba671684cb22353c81303976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLight: {fileID: 4368155527060002385}
+  colorId: 14
+  updateOnStart: 1
 --- !u!1 &2807968163413007823
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +198,7 @@ GameObject:
   - component: {fileID: 5418293967249535606}
   - component: {fileID: 5919393436916576885}
   - component: {fileID: 1818426880377585597}
+  - component: {fileID: 3592564498724268401}
   m_Layer: 0
   m_Name: Nuke Item
   m_TagString: Untagged
@@ -358,6 +375,21 @@ MonoBehaviour:
   useRealTime: 1
   isRelative: 1
   forceReturnToOriginRotation: 0
+--- !u!114 &3592564498724268401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2807968163413007823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3002095f9e1ee48b893002575c1fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorId: 14
+  updateOnStart: 1
+  listenToThemeChanges: 1
 --- !u!1 &4899602361938077623
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +400,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3747080362509130201}
   - component: {fileID: 1507538498098385203}
+  - component: {fileID: 2071821654864339142}
   m_Layer: 0
   m_Name: Spot Light 2D (1)
   m_TagString: Untagged
@@ -442,6 +475,21 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &2071821654864339142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4899602361938077623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d6aecbdba671684cb22353c81303976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLight: {fileID: 1507538498098385203}
+  colorId: 14
+  updateOnStart: 1
 --- !u!1 &6442787648890554121
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,6 +668,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8726141556844174970}
   - component: {fileID: 8007603770764513795}
+  - component: {fileID: 3579993215536663641}
   m_Layer: 0
   m_Name: Spot Light 2D (2)
   m_TagString: Untagged
@@ -694,6 +743,21 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &3579993215536663641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9127471480803060871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d6aecbdba671684cb22353c81303976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLight: {fileID: 8007603770764513795}
+  colorId: 14
+  updateOnStart: 1
 --- !u!1001 &3237804867964374071
 PrefabInstance:
   m_ObjectHideFlags: 0
