@@ -279,6 +279,10 @@ MonoBehaviour:
     m_Key: BOSS_MAGNETER_DESCRIPTION
     m_Metadata:
       m_Items: []
+  - m_Id: 18113578613993472
+    m_Key: IMAGES
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

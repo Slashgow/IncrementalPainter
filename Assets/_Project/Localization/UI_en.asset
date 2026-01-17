@@ -283,6 +283,10 @@ MonoBehaviour:
     m_Localized: Aka the paint drainer
     m_Metadata:
       m_Items: []
+  - m_Id: 18113578613993472
+    m_Localized: Images
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
