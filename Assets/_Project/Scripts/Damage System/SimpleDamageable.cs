@@ -73,8 +73,16 @@ public class SimpleDamageable : MonoBehaviour, IDamageable, IHealable
 
         if (destroyOnDeath)
             Destroy(gameObject);
-        else if(returnToPoolOnDeath)
-            pool.AddToPool(gameObject);
+        else if (returnToPoolOnDeath)
+        {
+            if(pool != null)
+                pool.AddToPool(gameObject);
+            else if(TryGetComponent(out PooledObject pooledObject))
+            {
+                pooledObject.ReturnToPool();
+            }
+        }
+            
     }
 
     public void Heal(float amount)

@@ -1,0 +1,494 @@
+fileFormatVersion: 2
+guid: 02ed480a2b9f97944a55499a72d844ef
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4948518820865697887
+    second: Boss_Magneter_0
+  - first:
+      213: 4203900398598204144
+    second: Boss_Magneter_1
+  - first:
+      213: -6984279611775973264
+    second: Boss_Magneter_2
+  - first:
+      213: -7642753372912769491
+    second: Boss_Magneter_3
+  - first:
+      213: -2642250437301201246
+    second: Boss_Magneter_4
+  - first:
+      213: 90913853215834632
+    second: Boss_Magneter_5
+  - first:
+      213: -5876309126287359881
+    second: Boss_Magneter_6
+  - first:
+      213: -2244583462055342189
+    second: Boss_Magneter_7
+  - first:
+      213: -839093438873151976
+    second: Boss_Magneter_8
+  - first:
+      213: 2930782086161134343
+    second: Boss_Magneter_9
+  - first:
+      213: 1851747493948970523
+    second: Boss_Magneter_10
+  - first:
+      213: 6396324381399038845
+    second: Boss_Magneter_11
+  - first:
+      213: 3632357100078602403
+    second: Boss_Magneter_12
+  - first:
+      213: 5326978962047471127
+    second: Boss_Magneter_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boss_Magneter_mouth
+      rect:
+        serializedVersion: 2
+        x: 1593
+        y: 2009
+        width: 110
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a717fdc954535bb0800000000000000
+      internalID: -4948518820865697887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Magneter_right_antenna
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 1761
+        width: 195
+        height: 270
+      alignment: 9
+      pivot: {x: 0.46623284, y: 0.15857838}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0faa199a321475a30800000000000000
+      internalID: 4203900398598204144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Magneter_hair
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 896
+        width: 1393
+        height: 1084
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 078071882bad21f90800000000000000
+      internalID: -6984279611775973264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Magneter_left_eyeball
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 1850
+        width: 159
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d26ad95ec4c7fe590800000000000000
+      internalID: -7642753372912769491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Magneter_right_eyeball
+      rect:
+        serializedVersion: 2
+        x: 1660
+        y: 1844
+        width: 150
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a69a0df937d45bd0800000000000000
+      internalID: -2642250437301201246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Magneter_left_eye
+      rect:
+        serializedVersion: 2
+        x: 1506
+        y: 1780
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8028716faadf24100800000000000000
+      internalID: 90913853215834632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Magneter_damaged_eye
+      rect:
+        serializedVersion: 2
+        x: 1616
+        y: 1785
+        width: 49
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7708141dbf7237ea0800000000000000
+      internalID: -5876309126287359881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Magneter_right_eye
+      rect:
+        serializedVersion: 2
+        x: 1710
+        y: 1783
+        width: 45
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39f897bcb33a9d0e0800000000000000
+      internalID: -2244583462055342189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Magneter_left_eyebrow
+      rect:
+        serializedVersion: 2
+        x: 1629
+        y: 1585
+        width: 154
+        height: 168
+      alignment: 9
+      pivot: {x: 0.9092431, y: 0.9199328}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 816da9a86f0fa54f0800000000000000
+      internalID: -839093438873151976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Magneter_left_antenna
+      rect:
+        serializedVersion: 2
+        x: 1829
+        y: 1413
+        width: 205
+        height: 276
+      alignment: 9
+      pivot: {x: 0.60783035, y: 0.22053108}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70376b787ca3ca820800000000000000
+      internalID: 2930782086161134343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Magneter_right_eyebrow
+      rect:
+        serializedVersion: 2
+        x: 1612
+        y: 1429
+        width: 174
+        height: 126
+      alignment: 9
+      pivot: {x: 0.08643771, y: 0.8060845}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b165c86e88ab2b910800000000000000
+      internalID: 1851747493948970523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Magneter_mustache
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 1084
+        width: 455
+        height: 223
+      alignment: 9
+      pivot: {x: 0.47932613, y: 0.80370766}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7bb57db22f44c850800000000000000
+      internalID: 6396324381399038845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Magneter_left_leg
+      rect:
+        serializedVersion: 2
+        x: 1683
+        y: 867
+        width: 127
+        height: 175
+      alignment: 9
+      pivot: {x: 0.65392876, y: 0.949375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a89d879989b86230800000000000000
+      internalID: 3632357100078602403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Magneter_body
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 33
+        width: 790
+        height: 817
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71e81d6742b3de940800000000000000
+      internalID: 5326978962047471127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 8555c7e3b562e164dbc19b23a1cdff23
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Boss_Magneter_body: 5326978962047471127
+      Boss_Magneter_damaged_eye: -5876309126287359881
+      Boss_Magneter_hair: -6984279611775973264
+      Boss_Magneter_left_antenna: 2930782086161134343
+      Boss_Magneter_left_eye: 90913853215834632
+      Boss_Magneter_left_eyeball: -7642753372912769491
+      Boss_Magneter_left_eyebrow: -839093438873151976
+      Boss_Magneter_left_leg: 3632357100078602403
+      Boss_Magneter_mouth: -4948518820865697887
+      Boss_Magneter_mustache: 6396324381399038845
+      Boss_Magneter_right_antenna: 4203900398598204144
+      Boss_Magneter_right_eye: -2244583462055342189
+      Boss_Magneter_right_eyeball: -2642250437301201246
+      Boss_Magneter_right_eyebrow: 1851747493948970523
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

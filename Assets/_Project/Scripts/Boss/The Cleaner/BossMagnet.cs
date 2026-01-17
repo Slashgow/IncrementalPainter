@@ -7,6 +7,7 @@ public class BossMagnet : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private SimpleDamageable damageable;
+    [SerializeField] private Animator animator;
 
     [Header("Boss Magnet Configuration")]
     [SerializeField] private MagnetData normalMagnetData;
@@ -16,6 +17,10 @@ public class BossMagnet : MonoBehaviour
     [Header("Phase 2 Settings")]
     [SerializeField][Range(0f, 1f)] private float phase2HealthThreshold = 0.5f;
     [SerializeField, Range(0f,10f)] private float positionSwitchTimeInterval = 3f;
+
+    [Header("Dash Settings")]
+    [SerializeField] private float dashSpeed = 20f;
+    [SerializeField] private AnimationCurve dashCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
 
     [Header("Boss Positions")]
     [SerializeField] private Vector3 bossPosition1 = new Vector3(-5f, 3f, 0f);
@@ -31,12 +36,21 @@ public class BossMagnet : MonoBehaviour
     [SerializeField, Range(0f,5f)] private float healCheckInterval = 0.5f;
     [SerializeField] private LayerMask magnetableLayers = ~0;
 
+    [Header("Animation Parameters")]
+    private readonly int DASH_TRIGGER_HASH = Animator.StringToHash("Dash");
+    private readonly int IDLE_TRIGGER_HASH = Animator.StringToHash("Idle");
+
     private Magneter magnet1;
     private Magneter magnet2;
     private bool isPhase2 = false;
     private Timer positionSwitchTimer;
     private Timer healTimer;
     private int currentPositionIndex = 0; // 0 = position1, 1 = position2
+
+    private bool isDashing = false;
+    private Vector3 dashStartPosition;
+    private Vector3 dashTargetPosition;
+    private float dashProgress = 0f;
 
     private void OnEnable()
     {
@@ -54,6 +68,11 @@ public class BossMagnet : MonoBehaviour
     {
         SpawnFirstMagnet();
         StartHealTimer();
+    }
+    private void Update()
+    {
+        if (isDashing)
+            UpdateDash();
     }
 
     private Magneter SpawnMagneter(Vector3 position, Quaternion quaternion, string name, MagnetData magnetData)
@@ -105,13 +124,53 @@ public class BossMagnet : MonoBehaviour
 
     private void SwitchPosition()
     {
-        if (!isPhase2)
+        if (!isPhase2 || isDashing)
             return;
 
         currentPositionIndex = (currentPositionIndex + 1) % 2;
-        transform.position = currentPositionIndex == 0 ? bossPosition1 : bossPosition2;
+        Vector3 targetPosition = currentPositionIndex == 0 ? bossPosition1 : bossPosition2;
+
+        StartDash(targetPosition);
+    }
+    private void StartDash(Vector3 targetPosition)
+    {
+        isDashing = true;
+        dashProgress = 0f;
+        dashStartPosition = transform.position;
+        dashTargetPosition = targetPosition;
+        animator.SetTrigger(DASH_TRIGGER_HASH);
     }
 
+    private void UpdateDash()
+    {
+        float distance = Vector3.Distance(dashStartPosition, dashTargetPosition);
+        if (distance < 0.01f)
+        {
+            EndDash();
+            return;
+        }
+
+        dashProgress += (dashSpeed / distance) * Time.deltaTime;
+
+        if (dashProgress >= 1f)
+        {
+            transform.position = dashTargetPosition;
+            EndDash();
+        }
+        else
+        {
+            float curvedProgress = dashCurve.Evaluate(dashProgress);
+            transform.position = Vector3.Lerp(dashStartPosition, dashTargetPosition, curvedProgress);
+        }
+    }
+
+    private void EndDash()
+    {
+        isDashing = false;
+        dashProgress = 0f;
+        transform.position = dashTargetPosition;
+        animator.SetTrigger(IDLE_TRIGGER_HASH);
+    }
     private void StartHealTimer()
     {
         healTimer = Timer.Register(healCheckInterval, onComplete: TryHealFromMagnetables, isLooped: true);
