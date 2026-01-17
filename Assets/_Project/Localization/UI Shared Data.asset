@@ -263,6 +263,22 @@ MonoBehaviour:
     m_Key: ACHIEVEMENTS
     m_Metadata:
       m_Items: []
+  - m_Id: 18098470705819648
+    m_Key: BOSS_CLEANER_NAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18098719922974720
+    m_Key: BOSS_CLEANER_DESCRIPTION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18099723431178240
+    m_Key: BOSS_MAGNETER_NAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18100162713219072
+    m_Key: BOSS_MAGNETER_DESCRIPTION
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -45,6 +45,9 @@ public class HealingPaint : MonoBehaviour
             healer.PerformHeal(target);
         }
 
-        this.pool.AddToPool(gameObject);
+        if(this.pool != null)
+            this.pool.AddToPool(gameObject);
+        else
+            Destroy(gameObject);
     }
 }

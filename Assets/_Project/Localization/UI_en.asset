@@ -267,6 +267,22 @@ MonoBehaviour:
     m_Localized: Achievements
     m_Metadata:
       m_Items: []
+  - m_Id: 18098470705819648
+    m_Localized: The Cleaner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18098719922974720
+    m_Localized: Aka Mr Scrub Scrub
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18099723431178240
+    m_Localized: The Magneter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18100162713219072
+    m_Localized: Aka the paint drainer
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

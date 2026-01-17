@@ -23,6 +23,26 @@ MonoBehaviour:
   spawnOffset: {x: 0, y: 0, z: 0}
   isBossLevel: 1
   bossLevelPrefab: {fileID: 1878125376689745335, guid: 3781a706a43fa59448ca22012f021bc7, type: 3}
+  bossName:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 18099723431178240
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  bossDescription:
+    m_TableReference:
+      m_TableCollectionName: GUID:6b4daf4d317ca5949961bf6b813abfb5
+    m_TableEntryReference:
+      m_KeyId: 18100162713219072
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  bossUISprite: {fileID: 21300000, guid: 9cb40ebca163bed4eac345b89253ac8b, type: 3}
+  bossAnouncementAudioClip: {fileID: 8300000, guid: 0d23fcd48a370c9429fd962d63f025d9, type: 3}
   rankThresholds:
     sRankDays: 1
     aRankDays: 5
@@ -39,3 +59,6 @@ MonoBehaviour:
     bRankCurrency: 30000
     cRankCurrency: 20000
     dRankCurrency: 10000
+  references:
+    version: 2
+    RefIds: []

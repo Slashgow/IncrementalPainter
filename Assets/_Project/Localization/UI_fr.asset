@@ -267,6 +267,22 @@ MonoBehaviour:
     m_Localized: "Succ\xE8s"
     m_Metadata:
       m_Items: []
+  - m_Id: 18098470705819648
+    m_Localized: "Le d\xE9poussi\xE9reur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18098719922974720
+    m_Localized: Aka Monsieur Frotte-Fort
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18100162713219072
+    m_Localized: Aka le vidangeur de peinture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18099723431178240
+    m_Localized: "Le Magn\xE9tiseur"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

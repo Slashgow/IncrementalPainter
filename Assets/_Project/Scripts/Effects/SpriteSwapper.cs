@@ -24,4 +24,9 @@ public class SpriteSwapper : Effect
     }
 
     public void ShowOriginalSprite() => targetSpriteRenderer.sprite = oldSprite;
+
+    private void OnDestroy()
+    {
+        swapTimer?.Cancel();
+    }
 }

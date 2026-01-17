@@ -1,5 +1,6 @@
 ﻿using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Localization;
 
 [CreateAssetMenu(fileName = "New Level", menuName = "InkolorGames/Level")]
 public class LevelData : ScriptableObject
@@ -15,6 +16,10 @@ public class LevelData : ScriptableObject
     [SerializeField] private Vector3 spawnOffset;
     [SerializeField] private bool isBossLevel = false;
     [SerializeField, ShowIf("isBossLevel")] private GameObject bossLevelPrefab;
+    [SerializeField, ShowIf("isBossLevel")] private LocalizedString bossName;
+    [SerializeField, ShowIf("isBossLevel")] private LocalizedString bossDescription;
+    [SerializeField, ShowIf("isBossLevel")] private Sprite bossUISprite;
+    [SerializeField, ShowIf("isBossLevel")] private AudioClip bossAnouncementAudioClip;
 
     [Header("Ranking System")]
     [SerializeField] private LevelRankThresholds rankThresholds = new LevelRankThresholds();
@@ -35,4 +40,8 @@ public class LevelData : ScriptableObject
     public Vector3 SpawnOffset => spawnOffset;
     public bool IsBossLevel => isBossLevel;
     public GameObject BossLevelPrefab => bossLevelPrefab;
+    public LocalizedString BossName => bossName;
+    public LocalizedString BossDescription => bossDescription;
+    public Sprite BossUISprite => bossUISprite;
+    public AudioClip BossAnouncementAudioClip => bossAnouncementAudioClip;
 }
