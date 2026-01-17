@@ -21,6 +21,8 @@ MonoBehaviour:
   levelPrefab: {fileID: 8944416080909895153, guid: 919657ce69b05d348a9d94a465334555, type: 3}
   cameraPaintZoom: 9
   spawnOffset: {x: 0, y: 0, z: 0}
+  isBossLevel: 1
+  bossLevelPrefab: {fileID: 1878125376689745335, guid: 9e5409085d436e540b7f229b1e117223, type: 3}
   rankThresholds:
     sRankDays: 2
     aRankDays: 6

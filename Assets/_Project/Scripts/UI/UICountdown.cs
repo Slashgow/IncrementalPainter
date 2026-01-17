@@ -9,7 +9,7 @@ public class UICountdown : MonoBehaviour
     [SerializeField] private TMP_Text textCountdown;
 
     [Header("Time added")]
-    [SerializeField] private TextMeshProUGUI timeAddedText;
+    [SerializeField] private TextMeshProUGUI timeChangedText;
     [SerializeField, Range(0f,5f)] private float showDurationTimeAdded;
 
     [Header("Threshold Visual Changes")]
@@ -19,20 +19,22 @@ public class UICountdown : MonoBehaviour
 
     public UnityEvent OnTickLessThanThreshold;
     public UnityEvent OnTimeAdded;
-    private Timer timeAddedTimer;
+    private Timer timeChangedTimer;
 
     private void Awake()
     {
-        timeAddedText.gameObject.SetActive(false);
+        timeChangedText.gameObject.SetActive(false);
         PaintStateManager.OnStartPaintState += HandleStartPaintState;
         PaintStateManager.OnAddedTimeToCountdown += HandleTimeAdded;
+        PaintStateManager.OnRemovedTimeFromCountdown += HandleTimeRemoved;
     }
 
     private void OnDestroy()
     {
-        timeAddedTimer?.Cancel();
+        timeChangedTimer?.Cancel();
         PaintStateManager.OnStartPaintState -= HandleStartPaintState;
-        PaintStateManager.OnAddedTimeToCountdown -= HandleTimeAdded;       
+        PaintStateManager.OnAddedTimeToCountdown -= HandleTimeAdded;
+        PaintStateManager.OnRemovedTimeFromCountdown -= HandleTimeRemoved;
     }
 
     private void UpdateCountdownText(float timeRemaining)
@@ -57,11 +59,19 @@ public class UICountdown : MonoBehaviour
 
     private void HandleTimeAdded(float timeAdded)
     {
-        timeAddedTimer?.Cancel();
-        timeAddedText.gameObject.SetActive(true);
-        timeAddedText.text = $"+{timeAdded} s";
+        timeChangedTimer?.Cancel();
+        timeChangedText.gameObject.SetActive(true);
+        timeChangedText.text = $"+{timeAdded} s";
         OnTimeAdded?.Invoke();
-        timeAddedTimer = Timer.Register(showDurationTimeAdded, onComplete: () => timeAddedText.gameObject.SetActive(false));
+        timeChangedTimer = Timer.Register(showDurationTimeAdded, onComplete: () => timeChangedText.gameObject.SetActive(false));
+    }
+    private void HandleTimeRemoved(float timeRemoved)
+    {
+        timeChangedTimer?.Cancel();
+        timeChangedText.gameObject.SetActive(true);
+        timeChangedText.text = $"-{timeRemoved} s";
+        OnTimeAdded?.Invoke();
+        timeChangedTimer = Timer.Register(showDurationTimeAdded, onComplete: () => timeChangedText.gameObject.SetActive(false));
     }
 
     private void HandleStartPaintState()

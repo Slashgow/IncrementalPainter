@@ -936,7 +936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textCountdown: {fileID: 1928772955888236242}
-  timeAddedText: {fileID: 1629928636884089089}
+  timeChangedText: {fileID: 1629928636884089089}
   showDurationTimeAdded: 1.5
   threshold: 10
   thresholdColorId: 12

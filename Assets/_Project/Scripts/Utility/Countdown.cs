@@ -91,6 +91,44 @@ public class Countdown
             mainTimer.Pause();
     }
 
+    public void ReduceTime(float amount)
+    {
+        if (!IsRunning)
+        {
+            Debug.LogWarning("Cannot reduce time - countdown is not running!");
+            return;
+        }
+
+        if (amount <= 0)
+        {
+            Debug.LogWarning("Reduce amount must be positive!");
+            return;
+        }
+
+        float actualReduce = Mathf.Min(amount, TimeRemaining);
+        elapsedTime += actualReduce;
+        TimeRemaining -= actualReduce;
+
+        bool wasPaused = IsPaused;
+        Timer.Cancel(mainTimer);
+
+        if (TimeRemaining <= 0)
+        {
+            HandleComplete();
+            return;
+        }
+
+        float offset = elapsedTime;
+        float newDuration = TimeRemaining;
+
+        if (attachedMonoBehaviour != null)
+            mainTimer = attachedMonoBehaviour.AttachTimer(newDuration, onComplete: HandleComplete, onUpdate: (secondsElapsed) => UpdateTimeRemainingWithOffset(secondsElapsed, offset));
+        else
+            mainTimer = Timer.Register(newDuration, onComplete: HandleComplete, onUpdate: (secondsElapsed) => UpdateTimeRemainingWithOffset(secondsElapsed, offset));
+
+        if (wasPaused)
+            mainTimer.Pause();
+    }
     public void Pause()
     {
         if (!IsRunning || IsPaused)

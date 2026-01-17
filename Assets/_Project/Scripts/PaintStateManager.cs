@@ -20,6 +20,7 @@ public class PaintStateManager : MonoSingleton<PaintStateManager>
 
     public static event Action OnStartPaintState;
     public static event Action<float> OnAddedTimeToCountdown;
+    public static event Action<float> OnRemovedTimeFromCountdown;
     protected override void Awake()
     {
         base.Awake();
@@ -66,5 +67,17 @@ public class PaintStateManager : MonoSingleton<PaintStateManager>
             countDownPaintState.AddTime(timeToAddOnIncreasePerLevel.GetCurrentLevelData());
             OnAddedTimeToCountdown?.Invoke(timeToAddOnIncreasePerLevel.GetCurrentLevelData());
         }
+    }
+
+    public void AddTimeToCountdown(float timeToAdd)
+    {
+        countDownPaintState.AddTime(timeToAdd);
+        OnAddedTimeToCountdown?.Invoke(timeToAdd);
+    }
+
+    public void RemoveTimeFromCountdown(float timeToRemove)
+    {
+        countDownPaintState.ReduceTime(timeToRemove);
+        OnRemovedTimeFromCountdown?.Invoke(timeToRemove);
     }
 }
