@@ -21,8 +21,28 @@ MonoBehaviour:
   levelPrefab: {fileID: 8944416080909895153, guid: 919657ce69b05d348a9d94a465334555, type: 3}
   cameraPaintZoom: 9
   spawnOffset: {x: 0, y: 0, z: 0}
-  isBossLevel: 1
+  isBossLevel: 0
   bossLevelPrefab: {fileID: 1878125376689745335, guid: 9e5409085d436e540b7f229b1e117223, type: 3}
+  bossName:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  bossDescription:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  bossUISprite: {fileID: 0}
+  bossAnouncementAudioClip: {fileID: 0}
   rankThresholds:
     sRankDays: 2
     aRankDays: 6
@@ -39,3 +59,6 @@ MonoBehaviour:
     bRankCurrency: 30000
     cRankCurrency: 10000
     dRankCurrency: 5000
+  references:
+    version: 2
+    RefIds: []
