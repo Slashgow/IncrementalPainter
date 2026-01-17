@@ -37,8 +37,8 @@ MonoBehaviour:
       requiredLevel: 1
   unitValue: 3
   effectValue:
-    a: 1
-    b: 1
+    a: 0.5
+    b: 0.5
   references:
     version: 2
     RefIds: []

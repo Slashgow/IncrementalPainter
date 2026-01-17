@@ -1,4 +1,5 @@
-﻿using inkolorgames;
+﻿using System.Collections.Generic;
+using inkolorgames;
 using UnityEngine;
 
 public class MagneterManager : MonoSingleton<MagneterManager>
@@ -22,6 +23,7 @@ public class MagneterManager : MonoSingleton<MagneterManager>
 
     public int MagneterCountToSpawn => Mathf.FloorToInt(magneterCountPerLevel.GetCurrentLevelData());
 
+    private List<Magneter> playerMagneters = new List<Magneter>();
     private SpriteRenderer frameRenderer;
     void Start()
     {
@@ -42,14 +44,19 @@ public class MagneterManager : MonoSingleton<MagneterManager>
 
     private void MagneterCountPerLevel_OnLevelDown()
     {
-        var currentMagneters = FindObjectsByType<Magneter>(FindObjectsSortMode.None);
+        playerMagneters.RemoveAll(magneter => magneter == null);
 
-        int magneterToDestroy = currentMagneters.Length - MagneterCountToSpawn;
+        int magneterToDestroy = playerMagneters.Count - MagneterCountToSpawn;
         if (magneterToDestroy > 0)
         {
-            for (int i = magneterToDestroy-1; i >= 0; i--)
+            for (int i = 0; i < magneterToDestroy; i++)
             {
-                Destroy(currentMagneters[i].gameObject);
+                int lastIndex = playerMagneters.Count - 1;
+                if (lastIndex >= 0)
+                {
+                    Destroy(playerMagneters[lastIndex].gameObject);
+                    playerMagneters.RemoveAt(lastIndex);
+                }
             }
         }
     }
@@ -57,10 +64,10 @@ public class MagneterManager : MonoSingleton<MagneterManager>
 
     private void MagneterManager_OnLevelUp()
     {
-        int currentMagneterCount = FindObjectsByType<Magneter>(FindObjectsSortMode.None).Length;
+        playerMagneters.RemoveAll(magneter => magneter == null);
 
-        int magneterToSpawn = MagneterCountToSpawn - currentMagneterCount;
-        if(magneterToSpawn > 0)
+        int magneterToSpawn = MagneterCountToSpawn - playerMagneters.Count;
+        if (magneterToSpawn > 0)
             SpawnAdditionalMagneters(magneterToSpawn);
     }
 
@@ -73,6 +80,9 @@ public class MagneterManager : MonoSingleton<MagneterManager>
 
             GameObject magneterObj = Instantiate(magneterPrefab.gameObject, spawnPos, Quaternion.identity, magneterParent);
             magneterObj.name = $"Magneter_{i + 1}";
+
+            Magneter magneter = magneterObj.GetComponent<Magneter>();
+            playerMagneters.Add(magneter);
         }
     }
 
@@ -83,7 +93,12 @@ public class MagneterManager : MonoSingleton<MagneterManager>
             Vector3 spawnPos = SpriteUtility.GetRandomPositionInSprite(frameRenderer.transform, frameRenderer, true);
             spawnPos.z = 0f;
 
-            Instantiate(magneterPrefab, spawnPos, Quaternion.identity, magneterParent);
+            GameObject magneterObj = Instantiate(magneterPrefab.gameObject, spawnPos, Quaternion.identity, magneterParent);
+
+            Magneter magneter = magneterObj.GetComponent<Magneter>();
+            playerMagneters.Add(magneter);
         }
     }
+
+    public bool IsPlayerMagneter(Magneter magneter) => playerMagneters.Contains(magneter);
 }
