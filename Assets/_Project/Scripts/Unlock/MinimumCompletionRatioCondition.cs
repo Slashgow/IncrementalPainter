@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Localization;
 
@@ -16,5 +17,19 @@ public class MinimumCompletionRatioCondition : UnlockCondition
         return saveData != null && saveData.completionRatio >= minimumRatio;
     }
 
-    public override string GetDescription() => $"{beginSentenceLocalizedString.GetLocalizedString()} '{requiredLevelTitle}' {endSentenceLocalizedString.GetLocalizedString()} {minimumRatio * 100}%";
+    public override string GetDescription() => GetDescriptionAsync().Result;
+
+    private async Task<string> GetDescriptionAsync()
+    {
+#if UNITY_WEBGL && !UNITY_EDITOR
+    string begin = await beginSentenceLocalizedString.GetLocalizedStringAsync();
+    string end = await endSentenceLocalizedString.GetLocalizedStringAsync();
+#else
+        string begin = beginSentenceLocalizedString.GetLocalizedString();
+        string end = endSentenceLocalizedString.GetLocalizedString();
+#endif
+
+        return $"{begin} '{requiredLevelTitle}' {end} {minimumRatio * 100}%";
+    }
+
 }

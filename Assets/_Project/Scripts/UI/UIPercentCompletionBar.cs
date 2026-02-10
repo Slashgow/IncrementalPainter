@@ -25,7 +25,7 @@ public class UIPercentCompletionBar : MonoBehaviour
             GameManager.OnStartGameState -= GameManager_OnStartGameState;
     }
 
-    private void GameManager_OnStartGameState(GameManager.GameState gameState)
+    private async void GameManager_OnStartGameState(GameManager.GameState gameState)
     {
         if (gameState != GameManager.GameState.DAY_SUMMARY)
             return;
@@ -34,6 +34,15 @@ public class UIPercentCompletionBar : MonoBehaviour
         var count = CwChangeCounter.GetCount(counters);
         var percent = CwCommon.RatioToPercentage(CwHelper.Divide(count, total), 1);
 
-        percentCompletionText.text = $"{beforePercentage.GetLocalizedString()} {percent.ToString()}% {afterPercentage.GetLocalizedString()}";
+#if UNITY_WEBGL && !UNITY_EDITOR
+    // WebGL - use async
+    string before = await beforePercentage.GetLocalizedStringAsync();
+    string after = await afterPercentage.GetLocalizedStringAsync();
+#else
+        string before = beforePercentage.GetLocalizedString();
+        string after = afterPercentage.GetLocalizedString();
+#endif
+
+        percentCompletionText.text = $"{before} {percent.ToString()}% {after}";
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Localization;
 
@@ -14,5 +15,19 @@ public class CompletePreviousLevelCondition : UnlockCondition
         return saveData != null && saveData.bestRank != LevelRank.None;
     }
 
-    public override string GetDescription() => $"{beginSentenceLocalizedString.GetLocalizedString()} '{requiredLevelData.LevelTitle}' {endSentenceLocalizedString.GetLocalizedString()} {requiredLevelData.LevelAuthor}";
+    public override string GetDescription() => GetDescriptionAsync().Result;
+
+    private async Task<string> GetDescriptionAsync()
+    {
+#if UNITY_WEBGL && !UNITY_EDITOR
+    string begin = await beginSentenceLocalizedString.GetLocalizedStringAsync();
+    string end = await endSentenceLocalizedString.GetLocalizedStringAsync();
+#else
+        string begin = beginSentenceLocalizedString.GetLocalizedString();
+        string end = endSentenceLocalizedString.GetLocalizedString();
+#endif
+
+        return $"{begin} '{requiredLevelData.LevelTitle}' {end} {requiredLevelData.LevelAuthor}";
+    }
+
 }

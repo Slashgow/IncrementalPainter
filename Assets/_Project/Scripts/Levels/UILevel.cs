@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -63,7 +64,7 @@ public class UILevel : MonoBehaviour, IUISelectable<LevelData>, IColorChanger
 
     public LevelData GetSelectableData() => unlockableLevel.LevelData;
 
-    private void UpdateLevelInfo()
+    private async void UpdateLevelInfo()
     {
         textTitle.text = unlockableLevel.LevelData.LevelTitle;
         textAuthor.text = $"{unlockableLevel.LevelData.LevelAuthor} - {unlockableLevel.LevelData.LevelDate}";
@@ -77,12 +78,9 @@ public class UILevel : MonoBehaviour, IUISelectable<LevelData>, IColorChanger
         {
             textRewardLeftToGet.gameObject.SetActive(true);
 
-            textRewardLeftToGet.text = $"{rewardLeftLocalizedString.GetLocalizedString()} " +
-                $"{(remainingCurrencyReward > 0 ? $"<color=#{currencyColorHex}>{FormatUtility.FormatValue(remainingCurrencyReward)} $</color>" : "")} & " +
-                $"{(remainingSPReward > 0 ? $"<color=#{skillPointHex}>{remainingSPReward} SP</color>" : "")} " +
-                $"{rewardRightLocalizedString.GetLocalizedString()}";
-        } 
-        
+            await UpdateRewardText();
+        }
+
         levelDrawing.sprite = unlockableLevel.LevelData.LevelDrawing;
 
         LevelSaveData levelSaveData = GameSaveManager.Instance.LoadLevelData(unlockableLevel.LevelData.LevelAuthor, unlockableLevel.LevelData.LevelTitle);
@@ -91,14 +89,49 @@ public class UILevel : MonoBehaviour, IUISelectable<LevelData>, IColorChanger
         TryDisplayUnlockConditions();
     }
 
+    private async Task UpdateRewardText() // or async Task
+    {
+#if UNITY_WEBGL
+        string rewardLeft = await rewardLeftLocalizedString.GetLocalizedStringAsync();
+        string rewardRight = await rewardRightLocalizedString.GetLocalizedStringAsync();
+#else
+        string rewardLeft = rewardLeftLocalizedString.GetLocalizedString();
+        string rewardRight = rewardRightLocalizedString.GetLocalizedString();
+#endif
+
+        textRewardLeftToGet.text = $"{rewardLeft} " +
+            $"{(remainingCurrencyReward > 0 ? $"<color=#{currencyColorHex}>{FormatUtility.FormatValue(remainingCurrencyReward)} $</color>" : "")} & " +
+            $"{(remainingSPReward > 0 ? $"<color=#{skillPointHex}>{remainingSPReward} SP</color>" : "")} " +
+            $"{rewardRight}";
+    }
+
+
     private void TryDisplayOnGoingInfo(LevelSaveData levelSaveData)
     {
         if(!levelSaveData.isDone && levelSaveData.completionRatio > 0f)
         {
             onGoingParent.SetActive(true);
+
+
+#if !UNITY_WEBGL
             onGoingText.text = $"{dayLocalizedString.GetLocalizedString()} {levelSaveData.levelStats.CurrentDay} \n " +
-                $"{Mathf.RoundToInt(levelSaveData.completionRatio * 100f)}/" +
-                $"{Mathf.RoundToInt(unlockableLevel.LevelData.PercentCompletionCondition * 100f)} %";
+            $"{Mathf.RoundToInt(levelSaveData.completionRatio * 100f)}/" +
+            $"{Mathf.RoundToInt(unlockableLevel.LevelData.PercentCompletionCondition * 100f)} %";
+#endif
+
+#if UNITY_WEBGL
+
+        dayLocalizedString.GetLocalizedStringAsync().Completed += (handle) =>
+        {
+            if (handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+            {
+                  onGoingText.text = $"{handle.Result} {levelSaveData.levelStats.CurrentDay} \n " +
+            $"{Mathf.RoundToInt(levelSaveData.completionRatio * 100f)}/" +
+            $"{Mathf.RoundToInt(unlockableLevel.LevelData.PercentCompletionCondition * 100f)} %";
+            }
+        };
+#endif
+
         }
         else
         {

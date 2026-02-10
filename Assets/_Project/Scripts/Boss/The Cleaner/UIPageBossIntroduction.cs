@@ -33,8 +33,30 @@ public class UIPageBossIntroduction : UIPage
 
     public void SetupPage(LevelData bossLevelData)
     {
+#if !UNITY_WEBGL
         bossNameText.text = bossLevelData.BossName.GetLocalizedString();
         bossDescriptionText.text = bossLevelData.BossDescription.GetLocalizedString();
+#endif
+
+#if UNITY_WEBGL
+
+        bossLevelData.BossName.GetLocalizedStringAsync().Completed += (handle) =>
+        {
+            if (handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+            {
+                 bossNameText.text = handle.Result;
+            }
+        };
+
+        bossLevelData.BossDescription.GetLocalizedStringAsync().Completed += (handle) =>
+        {
+            if (handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+            {
+                bossDescriptionText.text = handle.Result;
+            }
+        };
+#endif
+
         bossImage.sprite = bossLevelData.BossUISprite;
         audioSource.clip = bossLevelData.BossAnouncementAudioClip;
         audioSource.Play();

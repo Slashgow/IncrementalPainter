@@ -68,7 +68,23 @@ public class SkillNodeDetail : MonoBehaviour, IColorChanger
         UpdateCurrentColor();
 
         if (descriptionText)
+        {
+#if !UNITY_WEBGL
             descriptionText.text = skillNode.SkillDataBase.Description.GetLocalizedString();
+#endif
+
+#if UNITY_WEBGL
+
+        skillNode.SkillDataBase.Description.GetLocalizedStringAsync().Completed += (handle) =>
+        {
+            if (handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+            {
+                    descriptionText.text = handle.Result;
+            }
+        };
+#endif
+        }
+
 
         if (currentLevelText)
             currentLevelText.text = $"Level <color=#{currentHexaColor}>{currentLevel}</color> / {maxLevel}";

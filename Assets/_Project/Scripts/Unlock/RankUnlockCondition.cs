@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Globalization;
+using System.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.Localization;
 
 public class RankUnlockCondition : UnlockCondition
@@ -35,9 +37,22 @@ public class RankUnlockCondition : UnlockCondition
         if (requiredLevel == null)
             return "No level requirement";
 
-        return $"{beginSentenceLocalizedString.GetLocalizedString()} '{requiredLevel.LevelTitle}' " +
-            $"{midSentenceLocalizedString.GetLocalizedString()} {minimumRank.GetDisplayName()} {endSentenceLocalizedString.GetLocalizedString()}";
+        return GetDescriptionAsync().Result;
     }
 
- 
+    private async Task<string> GetDescriptionAsync()
+    {
+#if UNITY_WEBGL && !UNITY_EDITOR
+    string begin = await beginSentenceLocalizedString.GetLocalizedStringAsync();
+    string mid = await midSentenceLocalizedString.GetLocalizedStringAsync();
+    string end = await endSentenceLocalizedString.GetLocalizedStringAsync();
+#else
+        string begin = beginSentenceLocalizedString.GetLocalizedString();
+        string mid = midSentenceLocalizedString.GetLocalizedString();
+        string end = endSentenceLocalizedString.GetLocalizedString();
+#endif
+
+        return $"{begin} ''{requiredLevel.LevelTitle}' {mid} {minimumRank.GetDisplayName()} {end}";
+    }
+
 }

@@ -20,7 +20,22 @@ public class UnlockThemePopup : PopUp
         unlockedTheme = theme;
         parentCanvas = parent;
 
+
+#if !UNITY_WEBGL
         themeNameText.text = $"{theme.ThemeName} {unlockLocalizedString.GetLocalizedString()}";
+#endif
+
+#if UNITY_WEBGL
+
+        unlockLocalizedString.GetLocalizedStringAsync().Completed += (handle) =>
+        {
+            if (handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+            {
+                     themeNameText.text = $"{theme.ThemeName} {handle.Result}";
+            }
+        };
+#endif
+
         previewImage.color = theme.GetColor(ColorId.PRIMARY);
 
         GenerateColorPalette(theme);

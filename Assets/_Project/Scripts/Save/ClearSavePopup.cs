@@ -10,7 +10,23 @@ public class ClearSavePopup : PopUp
     protected override void OnEnable()
     {
         base.OnEnable();
+
+
+#if !UNITY_WEBGL
         warningText.text = warningLocalizedString.GetLocalizedString();
+#endif
+
+#if UNITY_WEBGL
+
+        warningLocalizedString.GetLocalizedStringAsync().Completed += (handle) =>
+        {
+            if (handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+            {
+                    warningText.text = handle.Result;
+            }
+        };
+#endif
+
     }
 
     protected override void OnClickDoActionButton()

@@ -23,7 +23,22 @@ public class UICurrentDay : MonoBehaviour, IColorChanger
     private void OnDayEnded(DayStats dayStats, int currentDay)
     {
         dayElapsedText.color = LevelManager.Instance.GetCurrentProjectedRankColor();
-        dayElapsedText.text = $"{dayLocalized.GetLocalizedString()} {(showCurrentDay ? currentDay: currentDay - 1)}";
+
+#if !UNITY_WEBGL
+        dayElapsedText.text = $"{dayLocalized.GetLocalizedString()} {(showCurrentDay ? currentDay : currentDay - 1)}";
+#endif
+
+#if UNITY_WEBGL
+
+        dayLocalized.GetLocalizedStringAsync().Completed += (handle) =>
+        {
+            if (handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+            {
+                    dayElapsedText.text = $"{handle.Result} {(showCurrentDay ? currentDay : currentDay - 1)}";
+            }
+        };
+#endif
+
     }
 
     public void OnThemeChanged(ColorTheme newTheme) => UpdateColor();
