@@ -287,6 +287,22 @@ MonoBehaviour:
     m_Localized: Images
     m_Metadata:
       m_Items: []
+  - m_Id: 26801144007618560
+    m_Localized: Add to your wishlist
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26801510573010944
+    m_Localized: Join the discord
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26801567481327616
+    m_Localized: Give a feedback
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26807469051604992
+    m_Localized: Available in the full version
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

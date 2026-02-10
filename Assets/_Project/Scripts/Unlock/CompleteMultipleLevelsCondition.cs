@@ -22,11 +22,9 @@ public class CompleteMultipleLevelsCondition : UnlockCondition
     private async Task<string> GetDescriptionAsync()
     {
 #if UNITY_WEBGL && !UNITY_EDITOR
-    // WebGL - use async
     string begin = await beginSentenceLocalizedString.GetLocalizedStringAsync();
     string end = await endSentenceLocalizedString.GetLocalizedStringAsync();
 #else
-        // Non-WebGL - use sync
         string begin = beginSentenceLocalizedString.GetLocalizedString();
         string end = endSentenceLocalizedString.GetLocalizedString();
 #endif
