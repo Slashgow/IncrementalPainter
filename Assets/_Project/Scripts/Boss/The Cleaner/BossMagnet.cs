@@ -2,11 +2,11 @@
 using UnityEngine;
 using UnityTimer;
 
+
 [RequireComponent(typeof(SimpleDamageable))]
-public class BossMagnet : MonoBehaviour
+public class BossMagnet : BossPhased
 {
     [Header("References")]
-    [SerializeField] private SimpleDamageable damageable;
     [SerializeField] private Animator animator;
 
     [Header("Boss Magnet Configuration")]
@@ -15,7 +15,6 @@ public class BossMagnet : MonoBehaviour
     [SerializeField] private Magneter magneterPrefab;
 
     [Header("Phase 2 Settings")]
-    [SerializeField][Range(0f, 1f)] private float phase2HealthThreshold = 0.5f;
     [SerializeField, Range(0f,10f)] private float positionSwitchTimeInterval = 3f;
 
     [Header("Dash Settings")]
@@ -42,7 +41,6 @@ public class BossMagnet : MonoBehaviour
 
     private Magneter magnet1;
     private Magneter magnet2;
-    private bool isPhase2 = false;
     private Timer positionSwitchTimer;
     private Timer healTimer;
     private int currentPositionIndex = 0; // 0 = position1, 1 = position2
@@ -51,18 +49,6 @@ public class BossMagnet : MonoBehaviour
     private Vector3 dashStartPosition;
     private Vector3 dashTargetPosition;
     private float dashProgress = 0f;
-
-    private void OnEnable()
-    {
-        damageable.OnTakeDamage += CheckPhaseTransition;
-        LevelManager.OnMidLevel += EnterPhase2;
-    }
-
-    private void OnDisable()
-    {
-        damageable.OnTakeDamage -= CheckPhaseTransition;
-        LevelManager.OnMidLevel -= EnterPhase2;
-    }
 
     private void Start()
     {
@@ -93,24 +79,11 @@ public class BossMagnet : MonoBehaviour
         transform.position = bossPosition1;
     }
 
-    private void CheckPhaseTransition(float currentHealth)
-    {
-        if (isPhase2)
+
+    protected override void EnterPhase2()
+    {   
+        if(isPhase2)
             return;
-
-        float healthPercentage = currentHealth / damageable.MaxHealth;
-
-        if (healthPercentage <= phase2HealthThreshold)
-            EnterPhase2();
-    }
-
-    private void EnterPhase2()
-    {
-        if (isPhase2)
-            return;
-
-        isPhase2 = true;
-        //Debug.Log("Boss entering Phase 2!");
 
         if (magnet1 != null)
             magnet1.SetCustomMagnetData(enragedMagnetData);
@@ -118,6 +91,8 @@ public class BossMagnet : MonoBehaviour
         magnet2 = SpawnMagneter(magnetPosition2, magnetRotation2, "magneter_2", enragedMagnetData);
 
         StartPositionSwitching();
+
+        isPhase2 = true;
     }
 
     private void StartPositionSwitching() => positionSwitchTimer = Timer.Register(positionSwitchTimeInterval, onComplete: SwitchPosition, isLooped: true);

@@ -1,22 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using inkolorgames;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityTimer;
 
-public class BossCleaner : MonoBehaviour
+public class BossCleaner : BossPhased
 {
-    [Header("Boss Stats")]
-    [SerializeField] private SimpleDamageable damageable;
+    [Header("References")]
+    [SerializeField] private PoolingSystem waterTargetPreviewPool;
+    [SerializeField] private Transform guntipTransform;
 
     [Header("Water Attack Settings")]
+    [Header("Phase 1 Settings")]
     [SerializeField] private PoolingSystem waterProjectilePool;
     [SerializeField, Range(0f,20f)] private float waterAttackInterval = 5f;
     [SerializeField, Range(0, 6)] private int waterProjectilesPerAttack = 3;
-    [SerializeField] private PoolingSystem waterTargetPreviewPool;
-    [SerializeField] private Transform guntipTransform;
+
+    [Header("Phase 2 Settings")]
+    [SerializeField] private PoolingSystem waterProjectilePoolPhase2;
+    [SerializeField, Range(1, 10)] private int shotsPerBurst = 3;
+    [SerializeField, Range(0f, 2f)] private float timeBetweenShots = 0.5f;
+    [SerializeField, Range(0f, 10f)] private float reloadTime = 4f;
+
     [SerializeField] private UnityEvent<Vector3> OnLaunchWaterAttack; 
 
     [Header("Healing Settings")]
@@ -26,34 +32,87 @@ public class BossCleaner : MonoBehaviour
     [SerializeField, Range(0f,20f)] private float healAmountPerPaint = 5f;
 
     private Timer attackTimer;
+    private Timer burstTimer;
+    private Timer reloadTimer;
+    private int currentBurstCount = 0;
     private List<GameObject> activeWaterProjectiles = new List<GameObject>();
 
     private SpriteRenderer frameRenderer;
-
+    private bool isCurrentlyFiringPhase2 = false;
     private void Start()
     {
         if (frameRenderer == null)
             frameRenderer = LevelManager.Instance.CurrentLevelInstance.FrameRenderer;
+
+        if (isPhase2)
+            return;
 
         StartWaterAttacks();
     }
 
     private void StartWaterAttacks()
     {
-        attackTimer = Timer.Register(waterAttackInterval, onComplete: () => PerformWaterAttack(), isLooped: true,useRealTime: false);
+        attackTimer = Timer.Register(waterAttackInterval, onComplete: () => PerformWaterAttack(waterProjectilesPerAttack, waterProjectilePool), 
+            isLooped: true,useRealTime: false);
     }
 
-    public void StopWaterAttacks() => attackTimer?.Cancel();
+    private void StartWaterAttackPhase2()
+    {
+        isCurrentlyFiringPhase2 = true;
 
-    private void PerformWaterAttack()
+        currentBurstCount = 0;
+        StopAllAttackTimers();
+        FireBurst();
+    }
+
+    private void FireBurst()
+    {
+        PerformWaterAttack(1, waterProjectilePoolPhase2);
+        OnLaunchWaterAttack?.Invoke(guntipTransform.position);
+        currentBurstCount++;
+
+        if (currentBurstCount < shotsPerBurst)
+        {
+            burstTimer = Timer.Register(timeBetweenShots, onComplete: FireBurst, useRealTime: false);
+        }
+        else
+        {
+            currentBurstCount = 0;
+            reloadTimer = Timer.Register(reloadTime, onComplete: FireBurst, useRealTime: false);
+        }
+    }
+
+    protected override void EnterPhase2()
+    {
+        base.EnterPhase2();
+
+        if (isCurrentlyFiringPhase2)
+            return;
+
+        StopAllAttackTimers();
+        StartWaterAttackPhase2();
+    }
+
+    private void StopAllAttackTimers()
+    {
+        attackTimer?.Cancel();
+        burstTimer?.Cancel();
+        reloadTimer?.Cancel();
+      
+        // Optional: clear state
+        currentBurstCount = 0;
+    }
+
+    private void PerformWaterAttack(int numberOfWaterProjectilePerAttack, PoolingSystem pool)
     {
         OnLaunchWaterAttack?.Invoke(guntipTransform.position);
-        for (int i = 0; i < waterProjectilesPerAttack; i++)
+        for (int i = 0; i < numberOfWaterProjectilePerAttack; i++)
         {
             Vector3 targetPosition = SpriteUtility.GetRandomPositionInSprite(frameRenderer.transform, frameRenderer, true);
             SpawnWaterTargetPreview(targetPosition);
-            SpawnWaterProjectile(targetPosition);
+            SpawnWaterProjectile(targetPosition, pool);
         }
+
     }
 
     private void SpawnWaterTargetPreview(Vector3 targetPosition)
@@ -66,13 +125,13 @@ public class BossCleaner : MonoBehaviour
         }
     }
 
-    private void SpawnWaterProjectile(Vector3 targetPosition)
+    private void SpawnWaterProjectile(Vector3 targetPosition, PoolingSystem pool)
     {
-        GameObject waterInstance = waterProjectilePool.GetPrefabFromPool(guntipTransform.position,null, true);
+        GameObject waterInstance = pool.GetPrefabFromPool(guntipTransform.position,null, true);
 
         if (waterInstance.TryGetComponent<WaterProjectile>(out var waterProjectile))
         {
-            waterProjectile.Initialize(waterProjectilePool,this, targetPosition);
+            waterProjectile.Initialize(pool, this, targetPosition);
             activeWaterProjectiles.Add(waterInstance);
         }
     }
@@ -94,8 +153,7 @@ public class BossCleaner : MonoBehaviour
 
     private void OnDestroy()
     {
-        attackTimer?.Cancel();
-
+        StopAllAttackTimers();
         foreach (var projectile in activeWaterProjectiles)
         {
             if (projectile != null)

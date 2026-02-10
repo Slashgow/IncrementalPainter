@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 2689734407732949331}
   - component: {fileID: 4760446406402888247}
   - component: {fileID: 7206012203790312751}
+  - component: {fileID: 8163236618907372849}
   - component: {fileID: 3291649671681297148}
   - component: {fileID: 6971480936930111506}
   - component: {fileID: 1954061290437738394}
@@ -325,11 +326,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageable: {fileID: 4818058784100310057}
-  waterProjectilePool: {fileID: 7206012203790312751}
-  waterAttackInterval: 8
-  waterProjectilesPerAttack: 6
+  phase2HealthThreshold: 0.5
   waterTargetPreviewPool: {fileID: 6971480936930111506}
   guntipTransform: {fileID: 3246125799518172320}
+  waterProjectilePool: {fileID: 7206012203790312751}
+  waterAttackInterval: 8
+  waterProjectilesPerAttack: 3
+  waterProjectilePoolPhase2: {fileID: 8163236618907372849}
+  shotsPerBurst: 5
+  timeBetweenShots: 0.3
+  reloadTime: 6
   OnLaunchWaterAttack:
     m_PersistentCalls:
       m_Calls:
@@ -451,6 +457,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 3907796742143444475, guid: 12b23f51cddf75b4eb012f4b1b54e2bd, type: 3}
+  growPoolSize: 10
+--- !u!114 &8163236618907372849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878125376689745335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6869d1947bdee49a545215e6121ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3611438148628973626, guid: f1e622e689a3c2a449e07d3a02c6e994, type: 3}
   growPoolSize: 10
 --- !u!114 &3291649671681297148
 MonoBehaviour:
