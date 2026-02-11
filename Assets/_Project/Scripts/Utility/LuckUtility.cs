@@ -14,6 +14,11 @@ public static class LuckUtility
         return randomValue <= chancePercentage;
     }
 
+    public static bool RollLuck01(float chancePercentage)
+    {
+        return RollLuck(chancePercentage * 100f);
+    }
+
     public static bool TryLuck(float chancePercentage, System.Action onSuccess)
     {
         bool success = RollLuck(chancePercentage);

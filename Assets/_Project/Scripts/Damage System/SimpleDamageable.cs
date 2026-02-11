@@ -30,18 +30,22 @@ public class SimpleDamageable : MonoBehaviour, IDamageable, IHealable
     public event Action<float, float> OnHeal;
     public static event Action<IHealable, float> OnAnyHeal;
 
+    public event Action OnInitialize;
+
     private void OnEnable() => isDead = false;
     public void Initialize(PoolingSystem pool, float maxHealth)
     {
         this.maxHealth = maxHealth;
         currentHealth = maxHealth;
         this.pool = pool;
+        OnInitialize?.Invoke();
     }
 
     public void Initialize(float maxHealth)
     {
         this.maxHealth = maxHealth;
         currentHealth = maxHealth;
+        OnInitialize?.Invoke();
     }
 
     public void TakeDamage(float amount)
@@ -102,4 +106,6 @@ public class SimpleDamageable : MonoBehaviour, IDamageable, IHealable
             OnAnyHeal?.Invoke(this, actualHealAmount);
         }
     }
+
+    public float GetHealthPercentage() => maxHealth > 0f ? currentHealth / maxHealth : 0f;
 }

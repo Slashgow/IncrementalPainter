@@ -165,6 +165,15 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
         if (spawned.TryGetComponent<SimpleDamageable>(out var damageable))
             damageable.Initialize(pool, enemyData.MaxHealth);
 
+        if(spawned.TryGetComponent<SimpleShieldable>(out var shieldable))
+        {
+            if (LuckUtility.RollLuck(enemyData.ChancePercentageToHaveShield))
+                shieldable.Initialize(enemyData.MaxShield, enemyData.ShieldArmor, 
+                    enemyData.CanRegenerateShield, enemyData.ShieldRegenerationRate, enemyData.ShieldRegenerationDelay);
+            else
+                shieldable.enabled = false;
+        }
+
         if (spawned.TryGetComponent<PaintBlob>(out var paintBlob))
             paintBlob.Initialize(paintType);
 

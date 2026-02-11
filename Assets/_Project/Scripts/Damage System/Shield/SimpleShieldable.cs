@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityTimer;
@@ -6,6 +7,8 @@ using UnityTimer;
 public class SimpleShieldable : MonoBehaviour, IShieldable
 {
     [SerializeField] private inkolorgames.Logger logger;
+
+    [SerializeField] private ShieldableVisual shieldableVisual;
 
     [Header("Shield Configuration")]
     [SerializeField, Range(0f,300f)] private float maxShield = 100f;
@@ -37,14 +40,26 @@ public class SimpleShieldable : MonoBehaviour, IShieldable
 
     private Timer regenDisableTimer;
 
-    private void Awake()
+    public void Initialize(float maxShield, float shieldArmor, bool canRegenerate, float regenRate, float regenDelay)
     {
-        Initialize(maxShield, shieldArmor);
+        this.maxShield = maxShield;
+        this.shieldArmor = Mathf.Clamp01(shieldArmor);
+        this.canRegenerate = canRegenerate;
+        this.regenRate = regenRate;
+        this.regenDelay = regenDelay;
+        currentShield = maxShield;
+
+        timeSinceLastDamage = 0f;
+        isRegenerating = false;
+
+        shieldableVisual.enabled = true;
+        shieldableVisual.Initialize();
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         regenDisableTimer?.Cancel();
+        shieldableVisual.enabled = false;
     }
 
     private void Update()
@@ -66,14 +81,6 @@ public class SimpleShieldable : MonoBehaviour, IShieldable
         }
     }
 
-    public void Initialize(float maxShield, float shieldArmor = 0.5f)
-    {
-        this.maxShield = maxShield;
-        this.shieldArmor = Mathf.Clamp01(shieldArmor);
-        currentShield = maxShield;
-        timeSinceLastDamage = 0f;
-        isRegenerating = false;
-    }
 
     public float DamageShield(float baseDamage, float shieldPenetration = 0f, float shieldBreakBonus = 0f, float shieldArmorReduction = 0f)
     {

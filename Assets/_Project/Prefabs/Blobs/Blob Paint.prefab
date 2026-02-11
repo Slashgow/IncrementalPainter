@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5813030077171290011}
   - component: {fileID: 9222135517614945112}
   - component: {fileID: 9031172547328476400}
+  - component: {fileID: 8910802019378319382}
+  - component: {fileID: 9050438732901727460}
   - component: {fileID: 5512736815637105741}
   - component: {fileID: 213876596640617962}
   - component: {fileID: 8169414735138754520}
@@ -44,6 +46,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2873845670271506328}
+  - {fileID: 1854116408795974250}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4851496448578494296
@@ -158,6 +161,62 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDieUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHealUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8910802019378319382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798080866972570822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f18f295fabe6c4693cc8970aa58eb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetSpriteRenderer: {fileID: 4851496448578494296}
+  spritePercentageManager:
+    spriteByPercentages:
+    - minPercentage: 0.66
+      sprite: {fileID: -640246144, guid: 54161b0d0b56ca04390675ee4f794f8d, type: 3}
+    - minPercentage: 0.33
+      sprite: {fileID: 563786212, guid: e5d32b0d3af324541b2ccb2fc3aa7fb4, type: 3}
+    - minPercentage: 0
+      sprite: {fileID: 1888101637, guid: e5d32b0d3af324541b2ccb2fc3aa7fb4, type: 3}
+  damageable: {fileID: 9031172547328476400}
+--- !u!114 &9050438732901727460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798080866972570822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c8611bf6eee554ea425944d77bcb8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logger: {fileID: 9026611392134758459}
+  shieldableVisual: {fileID: 4116394243729175311}
+  maxShield: 100
+  shieldArmor: 0.5
+  canRegenerate: 1
+  regenRate: 10
+  regenDelay: 10
+  OnShieldDamagedUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShieldBrokenUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShieldRegeneratedUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5512736815637105741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,6 +229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ffaa5e0d35057040bd5aed9b398f539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useRandomColorOnEnable: 1
+  customColor: {r: 0, g: 0, b: 0, a: 0}
   spriteRenderer: {fileID: 4851496448578494296}
 --- !u!114 &213876596640617962
 MonoBehaviour:
@@ -226,6 +287,7 @@ MonoBehaviour:
   loopType: 1
   useRealTime: 1
   isRelative: 0
+  forceReturnToOriginRotation: 0
 --- !u!114 &4737093201181522113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca978659736ab349b473f6f3aa6bb1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showLogs: 1
+  showLogs: 0
   prefix: Blob
   prefixColor: {r: 0, g: 1, b: 0.96936965, a: 1}
 --- !u!114 &8852713612483524975
@@ -478,3 +540,113 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &4055352323238320293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1854116408795974250}
+  - component: {fileID: 6505877168116930252}
+  - component: {fileID: 4116394243729175311}
+  m_Layer: 0
+  m_Name: Shield Sprite Renderer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1854116408795974250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4055352323238320293}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.114, z: 0}
+  m_LocalScale: {x: 0.76, y: 0.76, z: 0.76}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1936339041318593411}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &6505877168116930252
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4055352323238320293}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 7
+  m_Sprite: {fileID: -1964825528, guid: e5d32b0d3af324541b2ccb2fc3aa7fb4, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &4116394243729175311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4055352323238320293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41c7467d2cb66746958fd7a0d040d45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetSpriteRenderer: {fileID: 6505877168116930252}
+  spritePercentageManager:
+    spriteByPercentages:
+    - minPercentage: 0.66
+      sprite: {fileID: -1964825528, guid: e5d32b0d3af324541b2ccb2fc3aa7fb4, type: 3}
+    - minPercentage: 0.33
+      sprite: {fileID: 1756117740, guid: e5d32b0d3af324541b2ccb2fc3aa7fb4, type: 3}
+    - minPercentage: 0
+      sprite: {fileID: -1755437132, guid: e5d32b0d3af324541b2ccb2fc3aa7fb4, type: 3}
+  shieldable: {fileID: 9050438732901727460}

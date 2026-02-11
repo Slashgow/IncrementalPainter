@@ -83,6 +83,12 @@ MonoBehaviour:
     maxHealth: 9
     cost: 10
     scale: 0.2
+    chancePercentageToHaveShield: 10
+    maxShield: 20
+    shieldArmor: 0.1
+    canRegenerateShield: 0
+    shieldRegenerationRate: 0
+    shieldRegenerationDelay: 0
     baseWeight: 1
     upgradeInfluenceCoefficient: 0
     levelThreshold: 10
@@ -90,6 +96,12 @@ MonoBehaviour:
     maxHealth: 19
     cost: 20
     scale: 0.4
+    chancePercentageToHaveShield: 20
+    maxShield: 40
+    shieldArmor: 0.25
+    canRegenerateShield: 0
+    shieldRegenerationRate: 0
+    shieldRegenerationDelay: 0
     baseWeight: 1
     upgradeInfluenceCoefficient: 0.1
     levelThreshold: 15
@@ -97,6 +109,12 @@ MonoBehaviour:
     maxHealth: 29
     cost: 30
     scale: 0.6
+    chancePercentageToHaveShield: 35
+    maxShield: 70
+    shieldArmor: 0.4
+    canRegenerateShield: 1
+    shieldRegenerationRate: 5
+    shieldRegenerationDelay: 10
     baseWeight: 1
     upgradeInfluenceCoefficient: 0.2
     levelThreshold: 20
@@ -104,6 +122,12 @@ MonoBehaviour:
     maxHealth: 39
     cost: 40
     scale: 0.8
+    chancePercentageToHaveShield: 50
+    maxShield: 100
+    shieldArmor: 1
+    canRegenerateShield: 1
+    shieldRegenerationRate: 5
+    shieldRegenerationDelay: 15
     baseWeight: 1
     upgradeInfluenceCoefficient: 0.4
     levelThreshold: 0

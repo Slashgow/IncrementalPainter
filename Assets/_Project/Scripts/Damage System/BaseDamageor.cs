@@ -59,7 +59,7 @@ public abstract class BaseDamageor : MonoBehaviour, IDamageor
 
             float damageAmount = CalculateDamage(out bool isCritical);
 
-            bool bypassedShield = LuckUtility.RollLuck(ShieldBypassLuck);
+            bool bypassedShield = LuckUtility.RollLuck01(ShieldBypassLuck);
 
             var shieldable = collider.GetComponentInParent<IShieldable>();
             float remainingDamage = damageAmount;
