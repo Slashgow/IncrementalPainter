@@ -260,6 +260,10 @@ MonoBehaviour:
     m_Localized: "Pourcentage de chance d'ignorer compl\xE8tement le bouclier"
     m_Metadata:
       m_Items: []
+  - m_Id: 27513885139791872
+    m_Localized: "Chance de peindre le bouclier sur la toile lorsqu'il est bris\xE9"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

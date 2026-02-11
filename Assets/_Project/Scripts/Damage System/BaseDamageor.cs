@@ -1,4 +1,5 @@
 using System;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,11 +12,12 @@ public abstract class BaseDamageor : MonoBehaviour, IDamageor
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> damageRadiusSkillDataPerLevel;
 
     [Header("Shield Breaking Upgrades")]
-    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> shieldPenetrationSkillDataPerLevel; // 0-1 (0-100%)
-    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> shieldBreakBonusSkillDataPerLevel; // Flat bonus damage vs shields
-    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> shieldShredderSkillDataPerLevel; // 0-1 armor reduction
-    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> overloadDamageMultiplierSkillDataPerLevel; // x1.2
-    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> shieldBypassLuckSkillDataPerLevel; // 0-1 chance to ignore shield
+    [SerializeField] private bool useShieldBreakingUpgrades = false;
+    [SerializeField, ShowIf("useShieldBreakingUpgrades")] private SkillDataPerLevelOfType<FunctionAffine> shieldPenetrationSkillDataPerLevel; // 0-1 (0-100%)
+    [SerializeField, ShowIf("useShieldBreakingUpgrades")] private SkillDataPerLevelOfType<FunctionAffine> shieldBreakBonusSkillDataPerLevel; // Flat bonus damage vs shields
+    [SerializeField, ShowIf("useShieldBreakingUpgrades")] private SkillDataPerLevelOfType<FunctionAffine> shieldShredderSkillDataPerLevel; // 0-1 armor reduction
+    [SerializeField, ShowIf("useShieldBreakingUpgrades")] private SkillDataPerLevelOfType<FunctionAffine> overloadDamageMultiplierSkillDataPerLevel; // x1.2
+    [SerializeField, ShowIf("useShieldBreakingUpgrades")] private SkillDataPerLevelOfType<FunctionAffine> shieldBypassLuckSkillDataPerLevel; // 0-1 chance to ignore shield
     public SkillDataPerLevelOfType<FunctionAffine> DamageSkillDataPerLevel => damageSkillDataPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> CriticalDamageMultiplierSkillDataPerLevel => criticalDamageMultiplierSkillDataPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> CriticalHitLuckSkillDataPerLevel => criticalHitLuckSkillDataPerLevel;
@@ -59,16 +61,18 @@ public abstract class BaseDamageor : MonoBehaviour, IDamageor
 
             float damageAmount = CalculateDamage(out bool isCritical);
 
-            bool bypassedShield = LuckUtility.RollLuck01(ShieldBypassLuck);
+            bool bypassedShield = useShieldBreakingUpgrades ? LuckUtility.RollLuck01(ShieldBypassLuck) : false;
 
             var shieldable = collider.GetComponentInParent<IShieldable>();
             float remainingDamage = damageAmount;
 
             if (shieldable != null && shieldable.IsShieldActive && !bypassedShield)
             {
-                float overflowDamage = shieldable.DamageShield(damageAmount, ShieldPenetration, ShieldBreakBonus, ShieldShredder);
+                float overflowDamage = useShieldBreakingUpgrades ? 
+                    shieldable.DamageShield(damageAmount, ShieldPenetration, ShieldBreakBonus, ShieldShredder) :
+                    shieldable.DamageShield(damageAmount);
 
-                remainingDamage = overflowDamage * OverloadDamageMultiplier;
+                remainingDamage = overflowDamage * (useShieldBreakingUpgrades ? OverloadDamageMultiplier : 1f);
 
                 anyDamageDealt = true;
                 OnAnyDamageorAttack?.Invoke(damageAmount, collider.transform.position, isCritical);

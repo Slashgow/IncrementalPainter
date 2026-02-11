@@ -247,6 +247,10 @@ MonoBehaviour:
     m_Key: SHIELD_BYPASS_LUCK
     m_Metadata:
       m_Items: []
+  - m_Id: 27513885139791872
+    m_Key: SHIELD_CHANCE_PAINT
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

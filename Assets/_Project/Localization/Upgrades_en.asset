@@ -253,6 +253,10 @@ MonoBehaviour:
     m_Localized: Chance percentage to completely ignore shield
     m_Metadata:
       m_Items: []
+  - m_Id: 27513885139791872
+    m_Localized: Chance of painting the shield on the canvas when broken
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

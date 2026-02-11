@@ -948,6 +948,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: shield_chance_paint
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 748599e5ca953734d85c85a3dee9c3c5
+      internalID: -1472305821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -993,6 +1015,7 @@ TextureImporter:
       shield_2: -1755437132
       shield_break_bonus: 224538546
       shield_bypass_luck: 2123692084
+      shield_chance_paint: -1472305821
       shield_overload_damage: -301468365
       shield_penetration: 145591233
       shield_shredder: -15474910

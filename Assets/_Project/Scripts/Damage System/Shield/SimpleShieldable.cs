@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityTimer;
@@ -7,7 +6,7 @@ using UnityTimer;
 public class SimpleShieldable : MonoBehaviour, IShieldable
 {
     [SerializeField] private inkolorgames.Logger logger;
-
+    [SerializeField] private SimpleColorable colorable;
     [SerializeField] private ShieldableVisual shieldableVisual;
 
     [Header("Shield Configuration")]
@@ -36,7 +35,7 @@ public class SimpleShieldable : MonoBehaviour, IShieldable
     public UnityEvent OnShieldBrokenUnityEvent;
     public UnityEvent<float> OnShieldRegeneratedUnityEvent;
 
-    public static event Action<Vector3, float> OnAnyShieldBroken; // (position, maxShield)
+    public static event Action<Vector3, Color, float> OnAnyShieldBroken; // (position, Color, scale)
 
     private Timer regenDisableTimer;
 
@@ -129,7 +128,7 @@ public class SimpleShieldable : MonoBehaviour, IShieldable
         {
             OnShieldBroken?.Invoke();
             OnShieldBrokenUnityEvent?.Invoke();
-            OnAnyShieldBroken?.Invoke(transform.position, maxShield);
+            OnAnyShieldBroken?.Invoke(transform.position, colorable.Color, this.transform.localScale.x);
 
             logger.Log($"Shield broken on {gameObject.name}! Overflow damage: {totalOverflowDamage}", this);
         }

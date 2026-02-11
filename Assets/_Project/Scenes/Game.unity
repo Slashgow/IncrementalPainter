@@ -599,6 +599,141 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6827644062952734603, guid: 4069eaf74b7af7c4696bb831f59bfaef, type: 3}
   m_PrefabInstance: {fileID: 5079289656049626035}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &580522790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 580522795}
+  - component: {fileID: 580522794}
+  - component: {fileID: 580522792}
+  - component: {fileID: 580522791}
+  - component: {fileID: 580522797}
+  - component: {fileID: 580522798}
+  m_Layer: 0
+  m_Name: Shieldable Listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &580522791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580522790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6869d1947bdee49a545215e6121ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 5875405173272680704, guid: eeec8a255e152cd498a8ca6e7c47f56c, type: 3}
+  growPoolSize: 10
+--- !u!114 &580522792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580522790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2afd04775eaa049bffaa83641e90e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  poolSystems:
+  - {fileID: 580522791}
+  numberOfEffectToSpawn: 1
+  instantiateFirstOnExactPosition: 1
+  spawnMinOffset: {x: 0, y: 0, z: 0}
+  spawnMaxOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &580522794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580522790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7c083ef8365af449d1c60e78b114e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onAnyShieldBroken:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 580522792}
+        m_TargetAssemblyTypeName: PoolInstantiatedEffect, Assembly-CSharp
+        m_MethodName: DoEffect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &580522795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580522790}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &580522797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580522790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64df80c7d3d6b44fb2de900c5cd716c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects:
+  - {fileID: 580522798}
+--- !u!114 &580522798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580522790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5eda5c5002d44f43b2f2ddcf6544eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  audioClips:
+  - {fileID: 8300000, guid: d9349517f141eb14abd0fec85e47597e, type: 3}
+  - {fileID: 8300000, guid: 464db17b3e5026442af427e8491b2bb2, type: 3}
+  - {fileID: 8300000, guid: b7d4927423907ce4c81f9a2eea2cd774, type: 3}
+  - {fileID: 8300000, guid: 1ef755673d5e9d848a287bb1d7c04b5f, type: 3}
+  - {fileID: 8300000, guid: 5eb4969d257081241b32e3c8cafb54cd, type: 3}
+  - {fileID: 8300000, guid: f472c5f9e3d699148b1fa22cca00cffb, type: 3}
+  - {fileID: 8300000, guid: a363d2f20db5f3e47a7e1d5295007136, type: 3}
+  - {fileID: 8300000, guid: 22202638d6803e447bd06d90a87f9f2c, type: 3}
+  - {fileID: 8300000, guid: 692d58f56cbded2429e32276f3f34d87, type: 3}
+  - {fileID: 8300000, guid: d5e3438162eb415498761e2ea222373b, type: 3}
+  luckPercentage: 50
 --- !u!1 &595230174
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,6 +919,17 @@ MonoBehaviour:
   criticalHitLuckSkillDataPerLevel:
     skillData: {fileID: 11400000, guid: f8b6ed9ca9a8e8b479fe853497c57977, type: 2}
   damageRadiusSkillDataPerLevel:
+    skillData: {fileID: 0}
+  useShieldBreakingUpgrades: 0
+  shieldPenetrationSkillDataPerLevel:
+    skillData: {fileID: 0}
+  shieldBreakBonusSkillDataPerLevel:
+    skillData: {fileID: 0}
+  shieldShredderSkillDataPerLevel:
+    skillData: {fileID: 0}
+  overloadDamageMultiplierSkillDataPerLevel:
+    skillData: {fileID: 0}
+  shieldBypassLuckSkillDataPerLevel:
     skillData: {fileID: 0}
   damageableLayers:
     serializedVersion: 2
@@ -1014,6 +1160,17 @@ MonoBehaviour:
     skillData: {fileID: 11400000, guid: 5f5917714708bc34c8c2712241fc9155, type: 2}
   damageRadiusSkillDataPerLevel:
     skillData: {fileID: 11400000, guid: 2d36623e14a9c6b4fad9c23270d91400, type: 2}
+  useShieldBreakingUpgrades: 0
+  shieldPenetrationSkillDataPerLevel:
+    skillData: {fileID: 0}
+  shieldBreakBonusSkillDataPerLevel:
+    skillData: {fileID: 0}
+  shieldShredderSkillDataPerLevel:
+    skillData: {fileID: 0}
+  overloadDamageMultiplierSkillDataPerLevel:
+    skillData: {fileID: 0}
+  shieldBypassLuckSkillDataPerLevel:
+    skillData: {fileID: 0}
   damageableLayers:
     serializedVersion: 2
     m_Bits: 1
@@ -2456,6 +2613,17 @@ MonoBehaviour:
     skillData: {fileID: 11400000, guid: 79030393800e50949a0ad596380f6c31, type: 2}
   damageRadiusSkillDataPerLevel:
     skillData: {fileID: 11400000, guid: df3177998c29e444b84e9d608ef4d492, type: 2}
+  useShieldBreakingUpgrades: 0
+  shieldPenetrationSkillDataPerLevel:
+    skillData: {fileID: 0}
+  shieldBreakBonusSkillDataPerLevel:
+    skillData: {fileID: 0}
+  shieldShredderSkillDataPerLevel:
+    skillData: {fileID: 0}
+  overloadDamageMultiplierSkillDataPerLevel:
+    skillData: {fileID: 0}
+  shieldBypassLuckSkillDataPerLevel:
+    skillData: {fileID: 0}
   damageableLayers:
     serializedVersion: 2
     m_Bits: 1
@@ -2812,6 +2980,7 @@ GameObject:
   - component: {fileID: 1434425234}
   - component: {fileID: 1434425233}
   - component: {fileID: 1434425235}
+  - component: {fileID: 1434425236}
   m_Layer: 0
   m_Name: Death Painter
   m_TagString: Untagged
@@ -2954,7 +3123,99 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splatterScalePerLevel:
     skillData: {fileID: 11400000, guid: 5e224ad3a10f96648bde8677b3e0fb75, type: 2}
+  chancePercentageOfPaintingOnShieldBreakPerLevel:
+    skillData: {fileID: 11400000, guid: e5b2f34bcea668747a2130d02a0504bf, type: 2}
   paintDecal: {fileID: 1434425233}
+  paintDecalShield: {fileID: 1434425236}
+--- !u!114 &1434425236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434425231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b3367c8ecf4564da8edd2725e30e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  targetModel: {fileID: 0}
+  group:
+    index: 0
+  targetTexture: {fileID: 0}
+  blendMode:
+    Index: 0
+    Color: {r: 1, g: 1, b: 1, a: 1}
+    Texture: {fileID: 0}
+    Kernel: 1
+    Channels: {x: 1, y: 1, z: 1, w: 0}
+  texture: {fileID: 2800000, guid: f1d7a85c39a1e6c43be4d26b4c700bed, type: 3}
+  shape: {fileID: 0}
+  shapeChannel: 3
+  color: {r: 1, g: 1, b: 1, a: 1}
+  opacity: 1
+  angle: 0
+  scale: {x: 12, y: 12, z: 1}
+  radius: 0.1
+  tileTexture: {fileID: 0}
+  tileTransform: {fileID: 0}
+  tileOpacity: 1
+  tileTransition: 4
+  findMask: 1
+  modifiers:
+    modifiers:
+    - rid: 6967823147179966588
+    - rid: 6967823147179966589
+  references:
+    version: 2
+    RefIds:
+    - rid: 6967823147179966588
+      type: {class: CwModifyAngleRandom, ns: PaintCore, asm: PaintCore}
+      data:
+        preview: 1
+        unique: 1
+        min: -180
+        max: 180
+        blend: 0
+    - rid: 6967823147179966589
+      type: {class: CwModifyColorRandom, ns: PaintCore, asm: PaintCore}
+      data:
+        preview: 1
+        unique: 1
+        gradient:
+          serializedVersion: 2
+          key0: {r: 1, g: 1, b: 1, a: 1}
+          key1: {r: 1, g: 1, b: 1, a: 1}
+          key2: {r: 0, g: 0, b: 0, a: 0}
+          key3: {r: 0, g: 0, b: 0, a: 0}
+          key4: {r: 0, g: 0, b: 0, a: 0}
+          key5: {r: 0, g: 0, b: 0, a: 0}
+          key6: {r: 0, g: 0, b: 0, a: 0}
+          key7: {r: 0, g: 0, b: 0, a: 0}
+          ctime0: 0
+          ctime1: 65535
+          ctime2: 0
+          ctime3: 0
+          ctime4: 0
+          ctime5: 0
+          ctime6: 0
+          ctime7: 0
+          atime0: 0
+          atime1: 65535
+          atime2: 0
+          atime3: 0
+          atime4: 0
+          atime5: 0
+          atime6: 0
+          atime7: 0
+          m_Mode: 0
+          m_ColorSpace: -1
+          m_NumColorKeys: 2
+          m_NumAlphaKeys: 2
+        blend: 1
 --- !u!1 &1562959400
 GameObject:
   m_ObjectHideFlags: 0
@@ -2997,6 +3258,17 @@ MonoBehaviour:
     skillData: {fileID: 11400000, guid: 092aeaea57f44a34eaf2381d9d561226, type: 2}
   damageRadiusSkillDataPerLevel:
     skillData: {fileID: 11400000, guid: b1c1578cbdf3d2747bacda5fdf1b50c2, type: 2}
+  useShieldBreakingUpgrades: 0
+  shieldPenetrationSkillDataPerLevel:
+    skillData: {fileID: 0}
+  shieldBreakBonusSkillDataPerLevel:
+    skillData: {fileID: 0}
+  shieldShredderSkillDataPerLevel:
+    skillData: {fileID: 0}
+  overloadDamageMultiplierSkillDataPerLevel:
+    skillData: {fileID: 0}
+  shieldBypassLuckSkillDataPerLevel:
+    skillData: {fileID: 0}
   damageableLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -4564,7 +4836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2445741157657174601, guid: 4069eaf74b7af7c4696bb831f59bfaef, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0009999516
+      value: -0.0000054443553
       objectReference: {fileID: 0}
     - target: {fileID: 2486604928058106836, guid: 4069eaf74b7af7c4696bb831f59bfaef, type: 3}
       propertyPath: OnHideUnityEvent.m_PersistentCalls.m_Calls.Array.size
@@ -6903,6 +7175,7 @@ SceneRoots:
   - {fileID: 698057022}
   - {fileID: 1125193054}
   - {fileID: 1562959402}
+  - {fileID: 580522795}
   - {fileID: 1988011186}
   - {fileID: 1563423799}
   - {fileID: 836908327}

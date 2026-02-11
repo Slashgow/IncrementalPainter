@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logger: {fileID: 9026611392134758459}
+  colorable: {fileID: 5512736815637105741}
   shieldableVisual: {fileID: 4116394243729175311}
   maxShield: 100
   shieldArmor: 0.5
