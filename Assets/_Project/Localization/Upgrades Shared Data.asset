@@ -227,6 +227,26 @@ MonoBehaviour:
     m_Key: TIME_INTERVAL_CHECK_BURST
     m_Metadata:
       m_Items: []
+  - m_Id: 27432898695393280
+    m_Key: SHIELD_PENETRATION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27433483716915200
+    m_Key: SHIELD_BREAK_BONUS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27433978435072000
+    m_Key: SHIELD_SHREDDER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27434697376526336
+    m_Key: SHIELD_OVERLOAD_DAMAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27436112400478208
+    m_Key: SHIELD_BYPASS_LUCK
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

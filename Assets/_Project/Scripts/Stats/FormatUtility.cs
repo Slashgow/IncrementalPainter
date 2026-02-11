@@ -21,6 +21,8 @@ public static class FormatUtility
                 return new StringBuilder($"x {value}").ToString();
             case UnitValue.BOOLEAN:
                 return new StringBuilder($"{(value > 0  ? "unlocked" : "locked")}").ToString();
+            case UnitValue.PERCENTAGE_0_1:
+                return new StringBuilder($"{Mathf.Round(value * 100)} %").ToString();
             default:
                 return FormatValue(value);
         }

@@ -6,5 +6,6 @@ public enum UnitValue
     SECOND,
     METER,
     MULTIPLIER,
-    BOOLEAN
+    BOOLEAN,
+    PERCENTAGE_0_1
 }

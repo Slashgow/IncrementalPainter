@@ -97,6 +97,16 @@ MonoBehaviour:
     skillData: {fileID: 11400000, guid: 1604633f8a5cb034e87660ca5b39c2e7, type: 2}
   damageRadiusSkillDataPerLevel:
     skillData: {fileID: 11400000, guid: 82d28b684a6199b41a746ce6c582cf8c, type: 2}
+  shieldPenetrationSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: d0f02af06418ecf4bbc19884eb49be14, type: 2}
+  shieldBreakBonusSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 0880225888a00af4eb7dd4cd30e8d821, type: 2}
+  shieldShredderSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 4662006e28e34fb42a214ef4dab59d07, type: 2}
+  overloadDamageMultiplierSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 04c6581437e5d1a4b9bb7f8b7bf1f4a7, type: 2}
+  shieldBypassLuckSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 0fe4d12e285dc6a4ebd91e8db308bae2, type: 2}
   damageableLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -200,6 +210,7 @@ MonoBehaviour:
   loopType: 0
   useRealTime: 1
   isRelative: 1
+  forceReturnToOriginRotation: 0
 --- !u!114 &3259481533902010852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,6 +487,7 @@ MonoBehaviour:
   loopType: 0
   useRealTime: 1
   isRelative: 0
+  forceReturnToOriginRotation: 0
 --- !u!114 &6422027767927814334
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -238,6 +238,28 @@ MonoBehaviour:
     m_Localized: "Intervalle de temps entre deux essais d'apparition en d\xE9ferlement"
     m_Metadata:
       m_Items: []
+  - m_Id: 27432898695393280
+    m_Localized: "Pourcentage de p\xE9n\xE9tration du bouclier"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27433483716915200
+    m_Localized: "D\xE9g\xE2ts suppl\xE9mentaires inflig\xE9s uniquement lors d'attaques
+      contre des boucliers"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27433978435072000
+    m_Localized: "R\xE9duit l'armure du bouclier de l'ennemi \xE0 chaque coup port\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27434697376526336
+    m_Localized: "Multiplicateur des d\xE9g\xE2ts de d\xE9bordement lorsque le bouclier
+      se brise"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27436112400478208
+    m_Localized: "Pourcentage de chance d'ignorer compl\xE8tement le bouclier"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

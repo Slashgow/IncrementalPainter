@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33731296d6af78e4d974e1768760d497, type: 3}
+  m_Name: AutoClicker_Shield_Break_Bonus
+  m_EditorClassIdentifier: 
+  skillID: AutoClicker_Shield_Break_Bonus
+  skillName: AutoClicker_Shield_Break_Bonus
+  description:
+    m_TableReference:
+      m_TableCollectionName: GUID:c2cb2738a056b164bb9bace0f5b339ba
+    m_TableEntryReference:
+      m_KeyId: 27433483716915200
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  icon: {fileID: 224538546, guid: e5d32b0d3af324541b2ccb2fc3aa7fb4, type: 3}
+  costFunction:
+    a: 100
+    b: 10
+  startingLevel: 0
+  maxLevel: 5
+  levelRequirements:
+  - level: 1
+    skillPointCost: 0
+    requiredSkills:
+    - skillData: {fileID: 11400000, guid: 82d28b684a6199b41a746ce6c582cf8c, type: 2}
+      requiredLevel: 1
+  unitValue: 0
+  effectValue:
+    a: 8
+    b: 2
+  references:
+    version: 2
+    RefIds: []

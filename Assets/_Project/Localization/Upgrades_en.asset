@@ -233,6 +233,26 @@ MonoBehaviour:
     m_Localized: Time interval between each spawn burst try
     m_Metadata:
       m_Items: []
+  - m_Id: 27432898695393280
+    m_Localized: Percentage of shield penetration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27433483716915200
+    m_Localized: Extra damage added when attacking shields only
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27433978435072000
+    m_Localized: Reduce enemy shield armor with each hit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27434697376526336
+    m_Localized: Overflow damage multiplier when shield breaks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27436112400478208
+    m_Localized: Chance percentage to completely ignore shield
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

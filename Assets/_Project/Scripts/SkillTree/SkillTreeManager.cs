@@ -70,6 +70,11 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[autoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel.SkillID] = autoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel;
         leveledSkills[autoClickerDamageor.CriticalHitLuckSkillDataPerLevel.SkillID] = autoClickerDamageor.CriticalHitLuckSkillDataPerLevel;
         leveledSkills[autoClickerDamageor.DamageRadiusSkillDataPerLevel.SkillID] = autoClickerDamageor.DamageRadiusSkillDataPerLevel;
+        leveledSkills[autoClickerDamageor.ShieldPenetrationSkillDataPerLevel.SkillID] = autoClickerDamageor.ShieldPenetrationSkillDataPerLevel;
+        leveledSkills[autoClickerDamageor.ShieldBreakBonusSkillDataPerLevel.SkillID] = autoClickerDamageor.ShieldBreakBonusSkillDataPerLevel;
+        leveledSkills[autoClickerDamageor.ShieldShredderSkillDataPerLevel.SkillID] = autoClickerDamageor.ShieldShredderSkillDataPerLevel;
+        leveledSkills[autoClickerDamageor.OverloadDamageMultiplierSkillDataPerLevel.SkillID] = autoClickerDamageor.OverloadDamageMultiplierSkillDataPerLevel;
+        leveledSkills[autoClickerDamageor.ShieldBypassLuckSkillDataPerLevel.SkillID] = autoClickerDamageor.ShieldBypassLuckSkillDataPerLevel;
         leveledSkills[paintStateManager.TimeOfPaintStatePerLevel.SkillID] = paintStateManager.TimeOfPaintStatePerLevel;
         leveledSkills[paintStateManager.ChanceOfIncreasingTimerPerLevel.SkillID] = paintStateManager.ChanceOfIncreasingTimerPerLevel;
         leveledSkills[paintStateManager.TimeToAddOnIncreasePerLevel.SkillID] = paintStateManager.TimeToAddOnIncreasePerLevel;
@@ -123,6 +128,11 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         autoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
         autoClickerDamageor.CriticalHitLuckSkillDataPerLevel.Initialize();
         autoClickerDamageor.DamageRadiusSkillDataPerLevel.Initialize();
+        autoClickerDamageor.ShieldPenetrationSkillDataPerLevel.Initialize();
+        autoClickerDamageor.ShieldBreakBonusSkillDataPerLevel.Initialize();
+        autoClickerDamageor.ShieldShredderSkillDataPerLevel.Initialize();
+        autoClickerDamageor.OverloadDamageMultiplierSkillDataPerLevel.Initialize();
+        autoClickerDamageor.ShieldBypassLuckSkillDataPerLevel.Initialize();
         paintStateManager.TimeOfPaintStatePerLevel.Initialize();
         paintStateManager.ChanceOfIncreasingTimerPerLevel.Initialize();
         paintStateManager.TimeToAddOnIncreasePerLevel.Initialize();
