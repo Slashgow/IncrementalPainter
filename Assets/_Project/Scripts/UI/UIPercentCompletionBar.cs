@@ -34,10 +34,10 @@ public class UIPercentCompletionBar : MonoBehaviour
         var count = CwChangeCounter.GetCount(counters);
         var percent = CwCommon.RatioToPercentage(CwHelper.Divide(count, total), 1);
 
-#if UNITY_WEBGL && !UNITY_EDITOR
+#if UNITY_WEBGL
     // WebGL - use async
-    string before = await beforePercentage.GetLocalizedStringAsync();
-    string after = await afterPercentage.GetLocalizedStringAsync();
+    string before = await beforePercentage.GetLocalizedStringAsync().Task;
+    string after = await afterPercentage.GetLocalizedStringAsync().Task;
 #else
         string before = beforePercentage.GetLocalizedString();
         string after = afterPercentage.GetLocalizedString();

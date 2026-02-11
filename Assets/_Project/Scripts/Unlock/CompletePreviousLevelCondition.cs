@@ -19,9 +19,9 @@ public class CompletePreviousLevelCondition : UnlockCondition
 
     private async Task<string> GetDescriptionAsync()
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
-    string begin = await beginSentenceLocalizedString.GetLocalizedStringAsync();
-    string end = await endSentenceLocalizedString.GetLocalizedStringAsync();
+#if UNITY_WEBGL 
+    string begin = await beginSentenceLocalizedString.GetLocalizedStringAsync().Task;
+    string end = await endSentenceLocalizedString.GetLocalizedStringAsync().Task;
 #else
         string begin = beginSentenceLocalizedString.GetLocalizedString();
         string end = endSentenceLocalizedString.GetLocalizedString();

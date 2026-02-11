@@ -92,8 +92,8 @@ public class UILevel : MonoBehaviour, IUISelectable<LevelData>, IColorChanger
     private async Task UpdateRewardText() // or async Task
     {
 #if UNITY_WEBGL
-        string rewardLeft = await rewardLeftLocalizedString.GetLocalizedStringAsync();
-        string rewardRight = await rewardRightLocalizedString.GetLocalizedStringAsync();
+        string rewardLeft = await rewardLeftLocalizedString.GetLocalizedStringAsync().Task;
+        string rewardRight = await rewardRightLocalizedString.GetLocalizedStringAsync().Task;
 #else
         string rewardLeft = rewardLeftLocalizedString.GetLocalizedString();
         string rewardRight = rewardRightLocalizedString.GetLocalizedString();

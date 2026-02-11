@@ -1,26 +1,20 @@
-﻿using UnityEngine;
+﻿using System.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.Localization;
 
 public class DemoUnlockedCondition : UnlockCondition
 {
     [SerializeField] private LocalizedString sentenceLocalizedString;
     public override bool IsMet() => false;
-    public override string GetDescription()
+
+    public override string GetDescription() => GetDescriptionAsync().Result;
+
+    private async Task<string> GetDescriptionAsync()
     {
-#if !UNITY_WEBGL
-        return sentenceLocalizedString.GetLocalizedString();
-#endif
-
 #if UNITY_WEBGL
-
-        sentenceLocalizedString.GetLocalizedStringAsync().Completed += (handle) =>
-        {
-            if (handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
-            {
-                    return handle.Result;
-            }
-        };
+        return await sentenceLocalizedString.GetLocalizedStringAsync().Task;
+#else
+       return sentenceLocalizedString.GetLocalizedString();
 #endif
-
     }
 }
