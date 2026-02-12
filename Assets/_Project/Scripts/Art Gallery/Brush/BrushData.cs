@@ -9,6 +9,7 @@ public class BrushData : ScriptableObject, IUnlockableItem
     [SerializeField] private string brushId;
 
     [Header("Visual")]
+    [SerializeField] private Texture brushTexture;
     [SerializeField] private Sprite brushSprite;
 
     [Header("Properties")]
@@ -16,7 +17,6 @@ public class BrushData : ScriptableObject, IUnlockableItem
     [SerializeField] private float minSize = 1f;
     [SerializeField] private float maxSize = 100f;
     [SerializeField] private float defaultOpacity = 1f;
-    [SerializeField] private bool supportsColorChange = true;
 
     [Header("Description")]
     [TextArea(2, 4)]
@@ -27,15 +27,15 @@ public class BrushData : ScriptableObject, IUnlockableItem
     public string ItemName => brushName;
     public string ItemType => "Brush";
 
-    // Public properties
+
     public string BrushName => brushName;
     public string BrushId => ItemId;
     public Sprite BrushSprite => brushSprite;
+    public Texture BrushTexture => brushTexture;
     public float DefaultSize => defaultSize;
     public float MinSize => minSize;
     public float MaxSize => maxSize;
     public float DefaultOpacity => defaultOpacity;
-    public bool SupportsColorChange => supportsColorChange;
     public string Description => description;
 
     // Validation

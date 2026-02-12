@@ -9,11 +9,18 @@
     public override void EnterState()
     {
         base.EnterState();
-        // Initialize brush-specific settings (size, opacity, etc.)
+        UIArtGalleryPanelManager.Instance.ShowBrushPanel();
+        BrushManager.Instance.EnableBrushPainting();
     }
 
     public override void UpdateState()
     {
         // Handle brush drawing logic
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+        BrushManager.Instance.DisableBrushPainting();
     }
 }

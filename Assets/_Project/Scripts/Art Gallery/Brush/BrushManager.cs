@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using inkolorgames;
+using Newtonsoft.Json.Bson;
+using PaintIn2D;
 using UnityEngine;
-/// <summary>
-/// Manages brush selection and properties, integrates with unlock system
-/// </summary>
-public class BrushManager : MonoBehaviour
+
+public class BrushManager : PersistentMonoSingleton<BrushManager>
 {
     [Header("References")]
     [SerializeField] private BrushUnlockManager unlockManager;
+    [SerializeField] private CwPaintDecal2D paintDecal2D;
 
-    [Header("Current Brush")]
-    [SerializeField] private BrushData currentBrush;
+    [Header("Default Brush")]
     [SerializeField] private BrushData defaultBrush;
 
     [Header("Current Properties")]
@@ -18,32 +19,26 @@ public class BrushManager : MonoBehaviour
     [SerializeField] private Color currentColor = Color.black;
     [SerializeField] private float currentOpacity = 1f;
 
-    // Events
     public static event Action<BrushData> OnBrushChanged;
+    public static event Action<Texture> OnBrushTextureChanged;
     public static event Action<float> OnBrushSizeChanged;
     public static event Action<Color> OnBrushColorChanged;
     public static event Action<float> OnBrushOpacityChanged;
 
-    // Properties
+    private BrushData currentBrush;
     public BrushData CurrentBrush => currentBrush;
     public BrushData DefaultBrush => defaultBrush;
     public float CurrentSize => currentSize;
     public Color CurrentColor => currentColor;
     public float CurrentOpacity => currentOpacity;
 
-    private void Awake()
-    {
-        if (unlockManager == null)
-        {
-            unlockManager = FindObjectOfType<BrushUnlockManager>();
-        }
-    }
+    public void EnableBrushPainting() => paintDecal2D.gameObject.SetActive(true);
+    public void DisableBrushPainting() => paintDecal2D.gameObject.SetActive(false);
 
     private void Start()
     {
         LoadBrushData();
 
-        // Ensure we have a brush selected
         if (currentBrush == null)
         {
             SetDefaultBrush();
@@ -96,7 +91,6 @@ public class BrushManager : MonoBehaviour
             return;
         }
 
-        // Check if brush is unlocked
         if (!unlockManager.IsItemUnlocked(brush.ItemId))
         {
             Debug.LogWarning($"Brush '{brush.BrushName}' is locked!");
@@ -105,11 +99,11 @@ public class BrushManager : MonoBehaviour
 
         currentBrush = brush;
 
-        // Reset properties to brush defaults
+        SetTexture(brush.BrushTexture, false);
         SetSize(brush.DefaultSize, false);
         SetOpacity(brush.DefaultOpacity, false);
 
-        // Save to file
+
         if (saveToFile)
         {
             BrushSaveData saveData = GameSaveManager.Instance.LoadBrushData();
@@ -134,37 +128,28 @@ public class BrushManager : MonoBehaviour
         }
     }
 
-    public void SetSize(float size, bool notifyListeners = true)
+    public void SetTexture(Texture texture, bool notifyListeners = true)
     {
-        if (currentBrush != null)
-        {
-            currentSize = Mathf.Clamp(size, currentBrush.MinSize, currentBrush.MaxSize);
-        }
-        else
-        {
-            currentSize = Mathf.Max(1f, size);
-        }
+        paintDecal2D.Texture = texture;
 
         if (notifyListeners)
-        {
+            OnBrushTextureChanged?.Invoke(texture);
+    }
+
+    public void SetSize(float size, bool notifyListeners = true)
+    {
+        currentSize = Mathf.Clamp(size, currentBrush.MinSize, currentBrush.MaxSize);
+
+        if (notifyListeners)
             OnBrushSizeChanged?.Invoke(currentSize);
-        }
     }
 
     public void SetColor(Color color, bool notifyListeners = true)
     {
-        if (currentBrush != null && !currentBrush.SupportsColorChange)
-        {
-            Debug.LogWarning($"Brush '{currentBrush.BrushName}' does not support color changes!");
-            return;
-        }
-
         currentColor = color;
 
         if (notifyListeners)
-        {
             OnBrushColorChanged?.Invoke(currentColor);
-        }
     }
 
     public void SetOpacity(float opacity, bool notifyListeners = true)
@@ -172,12 +157,9 @@ public class BrushManager : MonoBehaviour
         currentOpacity = Mathf.Clamp01(opacity);
 
         if (notifyListeners)
-        {
             OnBrushOpacityChanged?.Invoke(currentOpacity);
-        }
     }
 
-    // Query methods
     public bool IsBrushUnlocked(string brushId) => unlockManager.IsItemUnlocked(brushId);
     public bool IsBrushUnlocked(BrushData brush) => brush != null && IsBrushUnlocked(brush.ItemId);
 
