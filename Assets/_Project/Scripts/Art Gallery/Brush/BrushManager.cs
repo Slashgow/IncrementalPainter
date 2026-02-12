@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using inkolorgames;
-using Newtonsoft.Json.Bson;
 using PaintIn2D;
 using UnityEngine;
-
 public class BrushManager : PersistentMonoSingleton<BrushManager>
 {
     [Header("References")]
@@ -13,11 +11,9 @@ public class BrushManager : PersistentMonoSingleton<BrushManager>
 
     [Header("Default Brush")]
     [SerializeField] private BrushData defaultBrush;
-
-    [Header("Current Properties")]
-    [SerializeField] private float currentSize = 10f;
-    [SerializeField] private Color currentColor = Color.black;
-    [SerializeField] private float currentOpacity = 1f;
+    [SerializeField, Range(0f, 100f)] private float defaultSize;
+    [SerializeField, Range(0f, 100f)] private float minSize;
+    [SerializeField, Range(0f, 100f)] private float maxSize;
 
     public static event Action<BrushData> OnBrushChanged;
     public static event Action<Texture> OnBrushTextureChanged;
@@ -25,15 +21,26 @@ public class BrushManager : PersistentMonoSingleton<BrushManager>
     public static event Action<Color> OnBrushColorChanged;
     public static event Action<float> OnBrushOpacityChanged;
 
+    private float currentSize = 10f;
+    private Color currentColor = Color.black;
+    private float currentOpacity = 1f;
     private BrushData currentBrush;
     public BrushData CurrentBrush => currentBrush;
     public BrushData DefaultBrush => defaultBrush;
+    public float MinSize => minSize;
+    public float MaxSize => maxSize;
     public float CurrentSize => currentSize;
     public Color CurrentColor => currentColor;
     public float CurrentOpacity => currentOpacity;
 
     public void EnableBrushPainting() => paintDecal2D.gameObject.SetActive(true);
     public void DisableBrushPainting() => paintDecal2D.gameObject.SetActive(false);
+
+    protected override void Awake()
+    {
+        base.Awake();
+        SetSize(defaultSize, false);
+    }
 
     private void Start()
     {
@@ -98,10 +105,7 @@ public class BrushManager : PersistentMonoSingleton<BrushManager>
         }
 
         currentBrush = brush;
-
         SetTexture(brush.BrushTexture, false);
-        SetSize(brush.DefaultSize, false);
-        SetOpacity(brush.DefaultOpacity, false);
 
 
         if (saveToFile)
@@ -138,7 +142,8 @@ public class BrushManager : PersistentMonoSingleton<BrushManager>
 
     public void SetSize(float size, bool notifyListeners = true)
     {
-        currentSize = Mathf.Clamp(size, currentBrush.MinSize, currentBrush.MaxSize);
+        currentSize = Mathf.Clamp(size, minSize, maxSize);
+        paintDecal2D.Scale = Vector3.one * currentSize;
 
         if (notifyListeners)
             OnBrushSizeChanged?.Invoke(currentSize);
@@ -147,6 +152,7 @@ public class BrushManager : PersistentMonoSingleton<BrushManager>
     public void SetColor(Color color, bool notifyListeners = true)
     {
         currentColor = color;
+        paintDecal2D.Color = color;
 
         if (notifyListeners)
             OnBrushColorChanged?.Invoke(currentColor);
@@ -155,6 +161,7 @@ public class BrushManager : PersistentMonoSingleton<BrushManager>
     public void SetOpacity(float opacity, bool notifyListeners = true)
     {
         currentOpacity = Mathf.Clamp01(opacity);
+        paintDecal2D.Opacity = opacity;
 
         if (notifyListeners)
             OnBrushOpacityChanged?.Invoke(currentOpacity);

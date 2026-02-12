@@ -5,8 +5,6 @@ public class ToolSelectionManager : MonoBehaviour
 {
     [SerializeField] private ToolButton[] toolButtons;
 
-    [SerializeField] private CwPaintDecal2D paintDecal2D;
-
     private ToolStateMachine toolStateMachine;
     private ToolButton currentlySelectedButton;
 
@@ -20,6 +18,8 @@ public class ToolSelectionManager : MonoBehaviour
         }
 
         toolStateMachine.OnToolChanged += OnToolChangedInStateMachine;
+
+        UpdateButtonVisuals(toolStateMachine.CurrentState.ToolType);
     }
 
     private void OnDestroy()

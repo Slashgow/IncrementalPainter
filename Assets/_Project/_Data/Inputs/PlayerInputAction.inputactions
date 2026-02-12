@@ -25,6 +25,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "DragCameraStart1",
+                    "type": "Button",
+                    "id": "12781a4f-5d6b-431c-8ba4-4b82135e4f1f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Drag",
                     "type": "Value",
                     "id": "681a9a34-18a3-4339-80df-e11d45b0d4b8",
@@ -81,6 +90,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "DragCameraStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6fe0b634-cbd1-42a4-a13f-e58bf705deec",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DragCameraStart1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

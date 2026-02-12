@@ -9,11 +9,20 @@
     public override void EnterState()
     {
         base.EnterState();
-        // Initialize eraser-specific settings
+        UIArtGalleryPanelManager.Instance.HideAllPanel();
+        UIArtGalleryPanelManager.Instance.ShowEraserSideBar();
+        ErasureManager.Instance.EnableEraser();
     }
 
     public override void UpdateState()
     {
         // Handle eraser logic
+    }
+
+    override public void ExitState()
+    {
+        base.ExitState();
+        UIArtGalleryPanelManager.Instance.HideEraserSideBar();
+        ErasureManager.Instance.DisableEraser();
     }
 }

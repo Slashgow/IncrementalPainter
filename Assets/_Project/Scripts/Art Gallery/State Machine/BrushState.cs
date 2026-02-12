@@ -1,4 +1,6 @@
-﻿public class BrushState : ToolState
+﻿using System;
+
+public class BrushState : ToolState
 {
     public BrushState(ToolStateMachine stateMachine) : base(stateMachine)
     {
@@ -10,6 +12,7 @@
     {
         base.EnterState();
         UIArtGalleryPanelManager.Instance.ShowBrushPanel();
+        UIArtGalleryPanelManager.Instance.ShowBrushSideBar();
         BrushManager.Instance.EnableBrushPainting();
     }
 
@@ -21,6 +24,7 @@
     public override void ExitState()
     {
         base.ExitState();
+        UIArtGalleryPanelManager.Instance.HideBrushSideBar();
         BrushManager.Instance.DisableBrushPainting();
     }
 }

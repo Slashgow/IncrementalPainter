@@ -9,10 +9,6 @@ public class ToolButton : MonoBehaviour, IUISelectable<ToolType>
     [SerializeField] private Button button;
 
     public event Action<ToolType> OnSelectEvent;
-    private void Awake()
-    {
-        selectedIndicator.SetActive(false);
-    }
 
     private void OnEnable() => button.onClick.AddListener(OnButtonClicked);
     private void OnDisable() => button.onClick.RemoveListener(OnButtonClicked);
