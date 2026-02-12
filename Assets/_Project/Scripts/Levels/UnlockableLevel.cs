@@ -46,4 +46,23 @@ public class UnlockableLevel : IUnlockable
             levelData.LevelAuthor, levelData.LevelTitle, true);
         
     }
+
+    public string GetUnlockDescription()
+    {
+        if (unlockConditions == null || unlockConditions.Count == 0)
+            return "Already unlocked";
+
+        if (IsUnlocked)
+            return "Unlocked";
+
+        string description = "Unlock conditions:\n";
+        for (int i = 0; i < unlockConditions.Count; i++)
+        {
+            description += $"- {unlockConditions[i].GetDescription()}";
+            if (i < unlockConditions.Count - 1)
+                description += "\n";
+        }
+
+        return description;
+    }
 }

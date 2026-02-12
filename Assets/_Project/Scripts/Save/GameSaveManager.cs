@@ -137,6 +137,21 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
         }
         return gameSaveData.colorThemes;
     }
+
+    public BrushSaveData LoadBrushData() 
+    {
+        if (gameSaveData.brushSaveData == null)
+        {
+            gameSaveData.brushSaveData = new BrushSaveData();
+        }
+        return gameSaveData.brushSaveData;
+    }
+    public void SaveBrushData(BrushSaveData data) 
+    {
+        gameSaveData.brushSaveData = data;
+        SaveGameData();
+        logger.Log("Brush data saved", this);
+    }
     public void ClearAllSaves()
     {
         gameSaveData = new GameSaveData();

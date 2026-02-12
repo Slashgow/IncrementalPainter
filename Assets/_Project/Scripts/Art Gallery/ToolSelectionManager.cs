@@ -1,0 +1,62 @@
+﻿using PaintIn2D;
+using UnityEngine;
+
+public class ToolSelectionManager : MonoBehaviour
+{
+    [SerializeField] private ToolButton[] toolButtons;
+
+    [SerializeField] private CwPaintDecal2D paintDecal2D;
+
+    private ToolStateMachine toolStateMachine;
+    private ToolButton currentlySelectedButton;
+
+    private void Awake()
+    {
+        toolStateMachine = new ToolStateMachine();
+ 
+        foreach (var button in toolButtons)
+        {
+            button.OnSelectEvent += OnToolSelected;
+        }
+
+        toolStateMachine.OnToolChanged += OnToolChangedInStateMachine;
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var button in toolButtons)
+        {
+            button.OnSelectEvent -= OnToolSelected;
+        }
+
+        toolStateMachine.OnToolChanged -= OnToolChangedInStateMachine;
+    }
+
+    private void Update()
+    {
+        toolStateMachine.Update();
+    }
+
+    private void OnToolSelected(ToolType selectedTool)
+    {
+        toolStateMachine.TransitionToTool(selectedTool);
+    }
+
+    private void OnToolChangedInStateMachine(ToolType newTool)
+    {
+        // Update UI to reflect current selection
+        UpdateButtonVisuals(newTool);
+    }
+
+    private void UpdateButtonVisuals(ToolType selectedTool)
+    {
+        foreach (var button in toolButtons)
+        {
+            bool isSelected = button.GetSelectableData() == selectedTool;
+            button.SetSelected(isSelected);
+        }
+    }
+
+    public ToolType GetCurrentTool() => toolStateMachine.CurrentState.ToolType;
+    public void SelectTool(ToolType tool) => toolStateMachine.TransitionToTool(tool);
+}

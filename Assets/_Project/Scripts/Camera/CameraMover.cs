@@ -7,10 +7,6 @@ public class CameraMover : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
 
-    [SerializeField] private Transform paintCameraTransform;
-    [SerializeField] private Transform skillTreeCameraTransform;
-    [SerializeField, Range(0f,30f)] private float upgradeStateZoom = 10f;
-
     [Header("Camera Movement Settings")]
     [SerializeField, Range(0f, 10f)] private float dragMoveSpeed = 5f;
     [SerializeField, Range(0f, 100f)] private float keyMoveSpeed = 5f;
@@ -22,6 +18,7 @@ public class CameraMover : MonoBehaviour
     [SerializeField] private Vector2 maxBounds = new Vector2(10f, 5f);
     [SerializeField, Range(0f, 2f)] private float recenterDuration = 0.5f;
     [SerializeField] private Ease recenterEasing;
+    [SerializeField] private bool lockMovementOnAwake = true;
 
     [SerializeField] private Camera cam;
 
@@ -47,46 +44,19 @@ public class CameraMover : MonoBehaviour
         IsMovingWithWASD = true;
         IsMovementLocked = false;
 
-        LockMovement();
+        if(lockMovementOnAwake)
+            LockMovement();
+        else
+            UnlockMovement();
     }
 
-    private void OnEnable()
-    {
-        inputHandler.OnRecenterCamera += InputHandler_OnRecenterCamera;
-        GameManager.OnStartGameState += GameManager_OnStartGameState;
-    }
-
-    private void OnDisable()
-    {
-        inputHandler.OnRecenterCamera -= InputHandler_OnRecenterCamera;
-        GameManager.OnStartGameState -= GameManager_OnStartGameState;
-    }
+    protected virtual void OnEnable() => inputHandler.OnRecenterCamera += InputHandler_OnRecenterCamera;
+    protected virtual void OnDisable() => inputHandler.OnRecenterCamera -= InputHandler_OnRecenterCamera;
 
     private void Start()
     { 
         targetPosition = transform.position;
         targetZoom = cam.orthographicSize;
-    }
-
-    private void GameManager_OnStartGameState(GameManager.GameState state)
-    {
-        switch (state)
-        {
-            case GameManager.GameState.PAINT:
-                LockMovement();
-                MoveAndZoomToSameTime(0f, 0f, LevelManager.Instance.CurrentLevelData.CameraPaintZoom, paintCameraTransform.position);
-                break;
-            case GameManager.GameState.DAY_SUMMARY:
-                break;
-            case GameManager.GameState.UPGRADE:
-                MoveAndZoomToSameTime(0f, 0f, upgradeStateZoom, skillTreeCameraTransform.position);
-                UnlockMovement();
-                break;
-            case GameManager.GameState.GALLERY:
-                break;
-            default:
-                break;
-        }
     }
 
     public void ZoomInstantTo(float targetZoom) => this.cam.orthographicSize = targetZoom;

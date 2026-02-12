@@ -7,6 +7,7 @@ public class ThemeColorManager : PersistentMonoSingleton<ThemeColorManager>
 {
     [Header("Unlock System")]
     [SerializeField] private ColorThemeUnlockManager unlockManager;
+    public ColorThemeUnlockManager UnlockManager => unlockManager;
 
     [Header("Color Themes")]
     [SerializeField] private List<ColorTheme> availableThemes;
@@ -177,12 +178,12 @@ public class ThemeColorManager : PersistentMonoSingleton<ThemeColorManager>
     public int GetCurrentThemeIndex() => GetThemeIndex(currentTheme);
     public List<ColorTheme> GetAvailableThemes() => new List<ColorTheme>(availableThemes);
     public void OverrideColor(ColorId id, Color color) => OnColorChanged?.Invoke(id, color);
-    public bool IsThemeUnlocked(string themeId) => unlockManager != null && unlockManager.IsThemeUnlocked(themeId);
+    public bool IsThemeUnlocked(string themeId) => unlockManager != null && unlockManager.IsItemUnlocked(themeId);
     public bool IsThemeUnlocked(ColorTheme theme) => theme != null && IsThemeUnlocked(theme.ThemeId);
     public void UnlockTheme(string themeId)
     {
         if (unlockManager != null)
-            unlockManager.UnlockTheme(themeId);
+            unlockManager.UnlockItem(themeId);
     }
     public void UnlockTheme(ColorTheme theme)
     {
@@ -193,7 +194,7 @@ public class ThemeColorManager : PersistentMonoSingleton<ThemeColorManager>
     public void LockTheme(string themeId)
     {
         if (unlockManager != null)
-            unlockManager.LockTheme(themeId);
+            unlockManager.LockItem(themeId);
     }
 
     public string GetUnlockDescription(string themeId)
@@ -203,18 +204,18 @@ public class ThemeColorManager : PersistentMonoSingleton<ThemeColorManager>
                "Unlock system not available";
     }
 
-    public List<UnlockableColorTheme> GetLockedUnlockableThemes()
+    public List<Unlockable<ColorTheme>> GetLockedUnlockableThemes()
     {
         return unlockManager != null ?
-               unlockManager.GetLockedUnlockableThemes() :
-               new List<UnlockableColorTheme>();
+               unlockManager.GetLockedUnlockables() :
+               new List<Unlockable<ColorTheme>>();
     }
 
-    public List<UnlockableColorTheme> GetUnlockedThemes()
+    public List<Unlockable<ColorTheme>> GetUnlockedThemes()
     {
         return unlockManager != null ?
-               unlockManager.GetUnlockedUnlockableThemes() :
-               new List<UnlockableColorTheme>();
+               unlockManager.GetUnlockedUnlockables() :
+               new List<Unlockable<ColorTheme>>();
     }
 
 #if UNITY_EDITOR

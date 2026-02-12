@@ -267,7 +267,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blob_0
+      name: arrow_down
       rect:
         serializedVersion: 2
         x: 1792
@@ -957,7 +957,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -966,6 +966,182 @@ TextureImporter:
       bones: []
       spriteID: 748599e5ca953734d85c85a3dee9c3c5
       internalID: -1472305821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: save
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6da2714e2bc8dd40be2db30d48851fa
+      internalID: -951021947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redo
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1127b93a8f38549429bbd917003f6eaf
+      internalID: -1567372201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: undo
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0da2cd24d6e385347adf2e7fee8636cb
+      internalID: -1105220600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eraser
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29e84341e4e6aca44819568649c7febe
+      internalID: 292203652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brush
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef6541b3695c7dc4495b3f35d3f52df7
+      internalID: -1234387223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tampon
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cec58bf258a9d2344b3c4b26a29f692c
+      internalID: -44188041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: painting
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b50a07bde4b4e024987aee25c5991e55
+      internalID: 1603510872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15476a26d17826d4fac95588e7127815
+      internalID: 455029149
       vertices: []
       indices: 
       edges: []
@@ -984,22 +1160,26 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      arrow_down: -1132794835
       audio_settings: -1714364884
       autoclicker_toggle: -794831038
-      blob_0: -1132794835
+      background: 455029149
       blob_1: 563786212
       blob_2: 1888101637
+      brush: -1234387223
       burst_chance: -1943153380
       burst_spawn_amount: -1885373379
       burst_threshold: -309878703
       burst_timeinterval_check: -390775335
       eponge: -802391233
       eponge_white: 982768548
+      eraser: 292203652
       home_settings: 20227486
       magnet_item: 575287064
       magnet_item_upgrade: 354743924
       nuke: -1137438758
       nuke_upgrade: -1084543492
+      painting: 1603510872
       poison: 1900259929
       poison_critical_luck: 1849584884
       poison_critical_multiplier: 217312548
@@ -1008,7 +1188,9 @@ TextureImporter:
       poison_radius: 699352253
       poison_spawn_chance: -146580394
       poison_tick_interval: -1886809872
+      redo: -1567372201
       retry: -1101837135
+      save: -951021947
       settings: 7609018768930029109
       shield_0: -1964825528
       shield_1: 1756117740
@@ -1019,6 +1201,8 @@ TextureImporter:
       shield_overload_damage: -301468365
       shield_penetration: 145591233
       shield_shredder: -15474910
+      tampon: -44188041
+      undo: -1105220600
       upgrades_1: -2052557411
       upgrades_2: 101409961
       validation_arrow: -64133392

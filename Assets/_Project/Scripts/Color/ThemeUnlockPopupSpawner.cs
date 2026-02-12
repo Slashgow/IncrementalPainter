@@ -2,12 +2,13 @@
 
 public class ThemeUnlockPopupSpawner : MonoBehaviour
 {
+    [SerializeField] private ColorThemeUnlockManager colorThemeUnlockManager;
     [SerializeField] private UnlockThemePopup unlockThemePopupPrefab;
     [SerializeField] private Canvas popupParent;
 
     private void Awake() => popupParent.gameObject.SetActive(false);
-    private void OnEnable() => ColorThemeUnlockManager.OnThemeUnlocked += OnThemeUnlocked;
-    private void OnDisable() => ColorThemeUnlockManager.OnThemeUnlocked -= OnThemeUnlocked;
+    private void OnEnable() => colorThemeUnlockManager.OnItemUnlocked += OnThemeUnlocked;
+    private void OnDisable() => colorThemeUnlockManager.OnItemUnlocked -= OnThemeUnlocked;
 
     private void OnThemeUnlocked(string themeId)
     {

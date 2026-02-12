@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1872523422823072059}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7988fbf4e1c9e154fa4c4f5b5fa917c9, type: 3}
+  m_Script: {fileID: 11500000, guid: bf02fcda8823c274289f9771c321e7a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3096846865214319430
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3096846865214319430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b8121427c4a95e42a97122ac00bd1cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ecce37366bf5d140bafd3363b2ced9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   beginSentenceLocalizedString:
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4734106223821845999}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d0b2d0ba53eaa74dad2f8b1cd0023f0, type: 3}
+  m_Script: {fileID: 11500000, guid: f247fc624a33f01468a105082d91de4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   beginSentenceLocalizedString:
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5795751504168227933}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d0b2d0ba53eaa74dad2f8b1cd0023f0, type: 3}
+  m_Script: {fileID: 11500000, guid: f247fc624a33f01468a105082d91de4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   beginSentenceLocalizedString:
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6020163229033544254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d0b2d0ba53eaa74dad2f8b1cd0023f0, type: 3}
+  m_Script: {fileID: 11500000, guid: f247fc624a33f01468a105082d91de4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   beginSentenceLocalizedString:
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6313873685380076016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d0b2d0ba53eaa74dad2f8b1cd0023f0, type: 3}
+  m_Script: {fileID: 11500000, guid: f247fc624a33f01468a105082d91de4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   beginSentenceLocalizedString:
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6648957538030839704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d0b2d0ba53eaa74dad2f8b1cd0023f0, type: 3}
+  m_Script: {fileID: 11500000, guid: f247fc624a33f01468a105082d91de4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   beginSentenceLocalizedString:
@@ -531,7 +531,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7296328781993728028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b8121427c4a95e42a97122ac00bd1cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ecce37366bf5d140bafd3363b2ced9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   beginSentenceLocalizedString:
@@ -635,30 +635,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7a3d8424c1e9154983825459965a004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockableThemes:
-  - colorTheme: {fileID: 11400000, guid: f8544aaa53610374181484648e88f8cd, type: 2}
+  unlockableItems:
+  - item: {fileID: 11400000, guid: f8544aaa53610374181484648e88f8cd, type: 2}
     unlockConditions:
     - {fileID: 8976108481581896897}
-  - colorTheme: {fileID: 11400000, guid: a54e84dc2bdfb6c4a991250f5b37761f, type: 2}
-    unlockConditions:
-    - {fileID: 3342738361195907308}
-  - colorTheme: {fileID: 11400000, guid: b518250058a6ad44db56ee17d2133d43, type: 2}
+  - item: {fileID: 11400000, guid: a54e84dc2bdfb6c4a991250f5b37761f, type: 2}
     unlockConditions:
     - {fileID: 2582276170416962410}
-  - colorTheme: {fileID: 11400000, guid: 010ea9c745b78934083bdb4b9fcb9325, type: 2}
+  - item: {fileID: 11400000, guid: b518250058a6ad44db56ee17d2133d43, type: 2}
     unlockConditions:
-    - {fileID: 3504898211181953514}
-  - colorTheme: {fileID: 11400000, guid: bffeeb5126bc33444bef839a23ff387e, type: 2}
+    - {fileID: 3901121109651188060}
+  - item: {fileID: 11400000, guid: 010ea9c745b78934083bdb4b9fcb9325, type: 2}
+    unlockConditions:
+    - {fileID: 3342738361195907308}
+  - item: {fileID: 11400000, guid: bffeeb5126bc33444bef839a23ff387e, type: 2}
     unlockConditions:
     - {fileID: 4039841799859514325}
-  - colorTheme: {fileID: 11400000, guid: b17bf095990f36e4aa7cb4a740b7b62c, type: 2}
-    unlockConditions:
-    - {fileID: 4980808664685889398}
-  - colorTheme: {fileID: 11400000, guid: b1d48bf183c38f74e9aa928b7955caba, type: 2}
+  - item: {fileID: 11400000, guid: b17bf095990f36e4aa7cb4a740b7b62c, type: 2}
     unlockConditions:
     - {fileID: 7569694968742204663}
+  - item: {fileID: 11400000, guid: b1d48bf183c38f74e9aa928b7955caba, type: 2}
+    unlockConditions:
+    - {fileID: 2901073798376606344}
   checkUnlocksOnStart: 1
-  autoUnlockThemes: 1
+  autoUnlockItems: 1
 --- !u!114 &2873427735866140567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,6 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f81a1cc87048cd43bb8bbc0bac35bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorThemeUnlockManager: {fileID: 9083568608195226659}
   unlockThemePopupPrefab: {fileID: 2161673071065035522, guid: 14f4f7b9adaab7f429cbc4862366992c, type: 3}
   popupParent: {fileID: 3553634817349462288}
 --- !u!1 &7796465828335806171
@@ -789,7 +790,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8665918570936765630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b8121427c4a95e42a97122ac00bd1cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ecce37366bf5d140bafd3363b2ced9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   beginSentenceLocalizedString:

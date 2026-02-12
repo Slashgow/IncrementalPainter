@@ -8,11 +8,11 @@ public class UIThemeColorManager : MonoBehaviour
 
     private void Start()
     {
+        ThemeColorManager.Instance.UnlockManager.OnItemUnlocked += OnThemeUnlocked;
         PopulateDropdown();
         LoadSettings();
     }
-    private void OnEnable() => ColorThemeUnlockManager.OnThemeUnlocked += OnThemeUnlocked;
-    private void OnDisable() => ColorThemeUnlockManager.OnThemeUnlocked -= OnThemeUnlocked;
+    private void OnDisable() => ThemeColorManager.Instance.UnlockManager.OnItemUnlocked -= OnThemeUnlocked;
     private void OnThemeUnlocked(string themeId) => PopulateDropdown();
 
     public void PopulateDropdown()
@@ -22,7 +22,7 @@ public class UIThemeColorManager : MonoBehaviour
         var unlockedThemes = ThemeColorManager.Instance.GetUnlockedThemes();
         foreach (var theme in unlockedThemes)
         {
-            themeOptions.Add(theme.ColorTheme.ThemeName);
+            themeOptions.Add(theme.Item.ThemeName);
         }
         themeDropdown.AddOptions(themeOptions);
     }

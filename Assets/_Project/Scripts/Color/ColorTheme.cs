@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ColorTheme", menuName = "InkolorGames/Color Theme")]
-public class ColorTheme : ScriptableObject
+public class ColorTheme : ScriptableObject, IUnlockableItem
 {
     [SerializeField] private string themeName;
     [SerializeField] private List<ColorEntry> colors = new List<ColorEntry>();
 
     public string ThemeName => themeName;
     public string ThemeId => themeName.Replace(" ", "_").ToLower();
+
+    public string ItemId => ThemeId;
+    public string ItemName => ThemeName;
+    public string ItemType => "ColorTheme";
+
 
     [Serializable]
     public class ColorEntry
