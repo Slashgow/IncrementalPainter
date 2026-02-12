@@ -7,12 +7,15 @@ public class SpriteRendererColorChanger : MonoBehaviour, IColorChanger
     [SerializeField] private bool updateOnStart = true;
     [SerializeField] private bool listenToThemeChanges = true;
 
-    private SpriteRenderer targetRenderer;
+    [SerializeField] private SpriteRenderer targetRenderer;
 
     public ColorId ColorId => colorId;
 
     private void Awake()
     {
+        if (targetRenderer != null)
+            return;
+
         targetRenderer = GetComponent<SpriteRenderer>();
     }
 

@@ -390,6 +390,7 @@ MonoBehaviour:
   colorId: 14
   updateOnStart: 1
   listenToThemeChanges: 1
+  targetRenderer: {fileID: 4068372300412557609}
 --- !u!1 &4899602361938077623
 GameObject:
   m_ObjectHideFlags: 0
