@@ -303,6 +303,18 @@ MonoBehaviour:
     m_Localized: "Disponible dans la version compl\xE8te"
     m_Metadata:
       m_Items: []
+  - m_Id: 27850104352665600
+    m_Localized: Pinceau
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27850194920271872
+    m_Localized: "D\xE9grad\xE9 de couleurs al\xE9atoire"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27850599582527488
+    m_Localized: Couleurs
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

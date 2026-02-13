@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using inkolorgames;
+using PaintCore;
 using PaintIn2D;
 using UnityEngine;
 public class BrushManager : PersistentMonoSingleton<BrushManager>
@@ -18,11 +19,9 @@ public class BrushManager : PersistentMonoSingleton<BrushManager>
     public static event Action<BrushData> OnBrushChanged;
     public static event Action<Texture> OnBrushTextureChanged;
     public static event Action<float> OnBrushSizeChanged;
-    public static event Action<Color> OnBrushColorChanged;
     public static event Action<float> OnBrushOpacityChanged;
 
     private float currentSize = 10f;
-    private Color currentColor = Color.black;
     private float currentOpacity = 1f;
     private BrushData currentBrush;
     public BrushData CurrentBrush => currentBrush;
@@ -30,7 +29,6 @@ public class BrushManager : PersistentMonoSingleton<BrushManager>
     public float MinSize => minSize;
     public float MaxSize => maxSize;
     public float CurrentSize => currentSize;
-    public Color CurrentColor => currentColor;
     public float CurrentOpacity => currentOpacity;
 
     public void EnableBrushPainting() => paintDecal2D.gameObject.SetActive(true);
@@ -40,6 +38,16 @@ public class BrushManager : PersistentMonoSingleton<BrushManager>
     {
         base.Awake();
         SetSize(defaultSize, false);
+        ArtGalleryColorManager.OnColorChanged += SetColor;
+        ArtGalleryColorManager.OnApplyColorRandomModifier += SetColorModifier;
+        ArtGalleryColorManager.OnRemoveColorRandomModifier += RemoveColorModifier;
+    }
+
+    private void OnDestroy()
+    {
+        ArtGalleryColorManager.OnColorChanged -= SetColor;
+        ArtGalleryColorManager.OnApplyColorRandomModifier -= SetColorModifier;
+        ArtGalleryColorManager.OnRemoveColorRandomModifier -= RemoveColorModifier;
     }
 
     private void Start()
@@ -149,13 +157,19 @@ public class BrushManager : PersistentMonoSingleton<BrushManager>
             OnBrushSizeChanged?.Invoke(currentSize);
     }
 
-    public void SetColor(Color color, bool notifyListeners = true)
+    public void SetColor(Color color)
     {
-        currentColor = color;
         paintDecal2D.Color = color;
+    }
 
-        if (notifyListeners)
-            OnBrushColorChanged?.Invoke(currentColor);
+    public void SetColorModifier(CwModifyColorRandom colorModifier = null)
+    {
+        paintDecal2D.Modifiers.Instances.Add(colorModifier);
+    }
+
+    public void RemoveColorModifier(CwModifyColorRandom colorModifier)
+    {
+        paintDecal2D.Modifiers.Instances.Remove(colorModifier);
     }
 
     public void SetOpacity(float opacity, bool notifyListeners = true)
@@ -181,12 +195,6 @@ public class BrushManager : PersistentMonoSingleton<BrushManager>
 
     public Sprite GetCurrentBrushSprite() => currentBrush?.BrushSprite;
 
-    public Color GetCurrentColorWithOpacity()
-    {
-        Color color = currentColor;
-        color.a = currentOpacity;
-        return color;
-    }
 
 #if UNITY_EDITOR
     [ContextMenu("Reset to Default Brush")]

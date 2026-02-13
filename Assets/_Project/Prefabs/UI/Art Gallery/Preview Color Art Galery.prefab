@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 6616731087780561101}
   - component: {fileID: 5029701097363185938}
   - component: {fileID: 2586483671885267499}
-  - component: {fileID: 955421419814836019}
-  - component: {fileID: 3025265300025469261}
-  - component: {fileID: 1782590415704957410}
+  - component: {fileID: 5327377491659400180}
+  - component: {fileID: 6393737067741102694}
   m_Layer: 0
   m_Name: Preview Color Art Galery
   m_TagString: Untagged
@@ -68,8 +67,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 03d7cc313500f374da5e2d74d93ebd63, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 9066799851494500558, guid: a80cfdb1612d39f4f8a6825207f61046, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -78,51 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &955421419814836019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2751096011336625336}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1ec93447fa0c14795a962f9bcae572, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doEffectOnEnable: 1
-  rotationDuration: 3
-  ease: 4
-  rotationAxis: {x: 0, y: 0, z: 1}
-  startAngle: 0
-  endAngle: 360
-  rotateMode: 3
-  loopCount: -1
-  loopType: 0
-  useRealTime: 1
-  isRelative: 0
-  forceReturnToOriginRotation: 0
---- !u!114 &3025265300025469261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2751096011336625336}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b36c2c984250a24692f44d2eef5dc81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doEffectOnEnable: 1
-  changeStartScale: 0
-  startScale: 1
-  endScale: 1.1
-  duration: 0.3
-  easing: 10
-  loops: -1
-  loopType: 1
---- !u!114 &1782590415704957410
+--- !u!114 &5327377491659400180
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,7 +86,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 2751096011336625336}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e77b3297c4a1b0a49899b8519c0b7f12, type: 3}
+  m_Script: {fileID: 11500000, guid: 5daa763daec693944bfaafc3df59d38e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2586483671885267499}
+--- !u!114 &6393737067741102694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2751096011336625336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d0631175ebc42441a153cce8a13c657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endScale: 1.1
+  duration: 0.15
+  easing: 4
+  useSelectableInteractability: 0

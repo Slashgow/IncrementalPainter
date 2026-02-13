@@ -61,7 +61,6 @@ public class UIArtGalleryPanelManager : MonoSingleton<UIArtGalleryPanelManager>
     }
     public void ShowBrushPanel() => ShowPanel(brushPanel);
     public void ShowBrushSideBar() => ShowSideBar(brushSideBar);
-    //public void HideBrushSideBar() => brushSideBar.SetActive(false);
     public void ShowEraserSideBar() => ShowSideBar(erasureSideBar);
-    //public void HideEraserSideBar() => erasureSideBar.SetActive(false);
+    public void ShowColorPanel() => ShowPanel(colorPanel);
 }

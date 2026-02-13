@@ -23,6 +23,7 @@ public class UIBrushLoader : MonoBehaviour
         {
             UIBrush uibrushInstance = Instantiate(brushUIPrefab, parent);
             uibrushInstance.Initialize(brush);
+            uiBrushes.Add(uibrushInstance);
             uibrushInstance.OnSelectEvent += OnSelectBrush;
         }
     }

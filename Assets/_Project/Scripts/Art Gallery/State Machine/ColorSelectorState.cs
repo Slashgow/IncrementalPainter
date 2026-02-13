@@ -9,7 +9,7 @@
     public override void EnterState()
     {
         base.EnterState();
-        // Initialize color picker
+        UIArtGalleryPanelManager.Instance.ShowColorPanel();
     }
 
     public override void UpdateState()

@@ -8,6 +8,7 @@ public class ColorTheme : ScriptableObject, IUnlockableItem
     [SerializeField] private string themeName;
     [SerializeField] private List<ColorEntry> colors = new List<ColorEntry>();
 
+    public IReadOnlyList<ColorEntry> Colors => colors;
     public string ThemeName => themeName;
     public string ThemeId => themeName.Replace(" ", "_").ToLower();
 

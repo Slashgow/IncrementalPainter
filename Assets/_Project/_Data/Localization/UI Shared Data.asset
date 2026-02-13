@@ -299,6 +299,18 @@ MonoBehaviour:
     m_Key: AVAILABLE_IN_FULL
     m_Metadata:
       m_Items: []
+  - m_Id: 27850104352665600
+    m_Key: BRUSH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27850194920271872
+    m_Key: ENABLE_COLOR_MODIFIER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27850599582527488
+    m_Key: COLORS
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
