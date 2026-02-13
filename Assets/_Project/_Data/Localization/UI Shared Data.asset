@@ -311,6 +311,10 @@ MonoBehaviour:
     m_Key: COLORS
     m_Metadata:
       m_Items: []
+  - m_Id: 27895646973718528
+    m_Key: TAMPON
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

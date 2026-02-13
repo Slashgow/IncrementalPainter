@@ -1823,7 +1823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1779591172749074972, guid: 667efa263d3c6f44b8d1d9de78bd11f1, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
-      value: 27850104352665600
+      value: 27895646973718528
       objectReference: {fileID: 0}
     - target: {fileID: 1779591172749074972, guid: 667efa263d3c6f44b8d1d9de78bd11f1, type: 3}
       propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
@@ -3611,6 +3611,52 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2907351742880800957, guid: f24a59f8414e5d24e8efd29558017ceb, type: 3}
   m_PrefabInstance: {fileID: 1008635723}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1065104107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1065104109}
+  - component: {fileID: 1065104108}
+  m_Layer: 0
+  m_Name: Input
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1065104108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065104107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf24437daef1535478c8fad77b0cb7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputActionAsset: {fileID: -944628639613478452, guid: 36a53b2e84799364fbb83b6ebfc8ceac, type: 3}
+  rotateInputActionReference: {fileID: 7906872102793003296, guid: 36a53b2e84799364fbb83b6ebfc8ceac, type: 3}
+--- !u!4 &1065104109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065104107}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1068037355 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 61453132652415610, guid: ed5cd6985490ae3459b6ebf554456771, type: 3}
@@ -5689,12 +5735,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d30b12f81d596b4cbb748d1e1678d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  artGaleryInput: {fileID: 1065104108}
   unlockManager: {fileID: 1823666716}
   paintDecal2D: {fileID: 1860677669}
   defaultTampon: {fileID: 11400000, guid: 799f39194f9c4c64bbfb4f1bb5f1123d, type: 2}
   defaultSize: 1
   minSize: 10
   maxSize: 50
+  rotationIncrement: 10
 --- !u!4 &1823666718
 Transform:
   m_ObjectHideFlags: 0
@@ -6668,3 +6716,4 @@ SceneRoots:
   - {fileID: 2050123059}
   - {fileID: 856260809}
   - {fileID: 1334165638}
+  - {fileID: 1065104109}

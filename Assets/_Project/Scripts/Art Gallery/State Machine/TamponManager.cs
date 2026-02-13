@@ -8,6 +8,7 @@ using UnityEngine;
 public class TamponManager : MonoSingleton<TamponManager>
 {
     [Header("References")]
+    [SerializeField] private ArtGaleryInput artGaleryInput;
     [SerializeField] private TamponUnlockManager unlockManager;
     [SerializeField] private CwPaintDecal2D paintDecal2D;
 
@@ -16,6 +17,9 @@ public class TamponManager : MonoSingleton<TamponManager>
     [SerializeField, Range(0f, 100f)] private float defaultSize;
     [SerializeField, Range(0f, 100f)] private float minSize;
     [SerializeField, Range(0f, 100f)] private float maxSize;
+
+    [Header("Rotation Settings")]
+    [SerializeField, Range(0f, 180f)] private float rotationIncrement = 10f; 
 
     public static event Action<TamponData> OnTamponChanged;
     public static event Action<Texture> OnTamponTextureChanged;
@@ -42,6 +46,7 @@ public class TamponManager : MonoSingleton<TamponManager>
         ArtGalleryColorManager.OnColorChanged += SetColor;
         ArtGalleryColorManager.OnApplyColorRandomModifier += SetColorModifier;
         ArtGalleryColorManager.OnRemoveColorRandomModifier += RemoveColorModifier;
+        DisableTamponPainting();
     }
 
     private void OnDestroy()
@@ -50,6 +55,15 @@ public class TamponManager : MonoSingleton<TamponManager>
         ArtGalleryColorManager.OnApplyColorRandomModifier -= SetColorModifier;
         ArtGalleryColorManager.OnRemoveColorRandomModifier -= RemoveColorModifier;
     }
+
+    private void Update()
+    {
+        if (artGaleryInput.RotateInput == 0f)
+            return;
+
+        paintDecal2D.IncrementAngle(rotationIncrement * artGaleryInput.RotateInput);
+    }
+
 
     private void Start()
     {
