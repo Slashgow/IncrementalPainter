@@ -10,6 +10,7 @@ public class UIArtGalleryPanelManager : MonoSingleton<UIArtGalleryPanelManager>
     private GameObject currentActivePanel;
 
     [SerializeField] private List<GameObject> allPanels;
+    [SerializeField] private List<GameObject> allSideBars;
 
     private void ShowPanel(GameObject panel)
     {
@@ -47,9 +48,20 @@ public class UIArtGalleryPanelManager : MonoSingleton<UIArtGalleryPanelManager>
             panel.SetActive(false);
         }
     }
+
+    public void ShowSideBar(GameObject sideBar)
+    {
+        foreach (GameObject sb in allSideBars)
+        {
+            if (sb == sideBar)
+                continue;
+            sb.SetActive(false);
+        }
+        sideBar.SetActive(true); 
+    }
     public void ShowBrushPanel() => ShowPanel(brushPanel);
-    public void ShowBrushSideBar() => brushSideBar.SetActive(true);
-    public void HideBrushSideBar() => brushSideBar.SetActive(false);
-    public void ShowEraserSideBar() => erasureSideBar.SetActive(true);
-    public void HideEraserSideBar() => erasureSideBar.SetActive(false);
+    public void ShowBrushSideBar() => ShowSideBar(brushSideBar);
+    //public void HideBrushSideBar() => brushSideBar.SetActive(false);
+    public void ShowEraserSideBar() => ShowSideBar(erasureSideBar);
+    //public void HideEraserSideBar() => erasureSideBar.SetActive(false);
 }

@@ -22,6 +22,7 @@ public class ErasureManager : PersistentMonoSingleton<ErasureManager>
     {
         base.Awake();
         SetSize(defaultSize, false);
+        DisableEraser();
     }
 
     public void EnableEraser() => paintDecal2D.gameObject.SetActive(true);

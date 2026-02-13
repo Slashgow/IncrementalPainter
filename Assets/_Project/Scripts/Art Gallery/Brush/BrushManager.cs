@@ -105,7 +105,7 @@ public class BrushManager : PersistentMonoSingleton<BrushManager>
         }
 
         currentBrush = brush;
-        SetTexture(brush.BrushTexture, false);
+        SetTexture(brush.BrushTexture, true);
 
 
         if (saveToFile)

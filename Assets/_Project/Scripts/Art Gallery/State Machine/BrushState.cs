@@ -24,7 +24,6 @@ public class BrushState : ToolState
     public override void ExitState()
     {
         base.ExitState();
-        UIArtGalleryPanelManager.Instance.HideBrushSideBar();
         BrushManager.Instance.DisableBrushPainting();
     }
 }

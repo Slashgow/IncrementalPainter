@@ -22,7 +22,6 @@
     override public void ExitState()
     {
         base.ExitState();
-        UIArtGalleryPanelManager.Instance.HideEraserSideBar();
         ErasureManager.Instance.DisableEraser();
     }
 }
