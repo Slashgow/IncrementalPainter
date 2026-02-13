@@ -32,10 +32,7 @@ public class BrushUnlockManager : UnlockManager<BrushData>
         // Unsubscribe from game events
     }
 
-    protected override string GetSaveKey()
-    {
-        return SAVE_KEY;
-    }
+    protected override string GetSaveKey() => SAVE_KEY;
 
     protected override UnlockableSaveData LoadSaveData()
     {

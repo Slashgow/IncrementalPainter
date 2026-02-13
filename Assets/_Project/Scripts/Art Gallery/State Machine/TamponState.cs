@@ -9,11 +9,19 @@
     public override void EnterState()
     {
         base.EnterState();
-        // Initialize tampon/stamp tool settings
+        UIArtGalleryPanelManager.Instance.ShowTamponPanel();
+        UIArtGalleryPanelManager.Instance.ShowTamponSideBar();
+        TamponManager.Instance.EnableTamponPainting();
     }
 
     public override void UpdateState()
     {
         // Handle tampon/stamp logic
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+        TamponManager.Instance.DisableTamponPainting();
     }
 }

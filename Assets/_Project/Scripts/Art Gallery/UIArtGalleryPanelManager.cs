@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class UIArtGalleryPanelManager : MonoSingleton<UIArtGalleryPanelManager>
 {
-    [SerializeField] private GameObject brushPanel, colorPanel;
-    [SerializeField] private GameObject brushSideBar, erasureSideBar;
+    [SerializeField] private GameObject brushPanel, colorPanel, tamponPanel;
+    [SerializeField] private GameObject brushSideBar, erasureSideBar, tamponSideBar;
 
     private GameObject currentActivePanel;
 
@@ -63,4 +63,6 @@ public class UIArtGalleryPanelManager : MonoSingleton<UIArtGalleryPanelManager>
     public void ShowBrushSideBar() => ShowSideBar(brushSideBar);
     public void ShowEraserSideBar() => ShowSideBar(erasureSideBar);
     public void ShowColorPanel() => ShowPanel(colorPanel);
+    public void ShowTamponPanel() => ShowPanel(tamponPanel);
+    public void ShowTamponSideBar() => ShowSideBar(tamponSideBar);
 }

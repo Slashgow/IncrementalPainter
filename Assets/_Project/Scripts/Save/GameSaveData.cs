@@ -10,6 +10,7 @@ public class GameSaveData
     public int currency = 0;
     public ColorThemeSaveData colorThemes;
     public BrushSaveData brushSaveData;
+    public TamponSaveData tamponSaveData;
 
     public GameSaveData()
     {
@@ -17,6 +18,7 @@ public class GameSaveData
         skillTree = new SkillTreeSaveData();
         colorThemes = new ColorThemeSaveData();
         brushSaveData = new BrushSaveData();
+        tamponSaveData = new TamponSaveData();
         skillPoints = 0;
         currency = 0;
     }

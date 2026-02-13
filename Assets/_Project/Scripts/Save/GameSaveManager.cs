@@ -152,6 +152,23 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
         SaveGameData();
         logger.Log("Brush data saved", this);
     }
+
+    public TamponSaveData LoadTamponData()
+    {
+        if (gameSaveData.tamponSaveData == null)
+        {
+            gameSaveData.tamponSaveData = new TamponSaveData();
+        }
+        return gameSaveData.tamponSaveData;
+    }
+
+    public void SaveTamponData(TamponSaveData data)
+    {
+        gameSaveData.tamponSaveData = data;
+        SaveGameData();
+        logger.Log("Tampon data saved", this);
+    }
+
     public void ClearAllSaves()
     {
         gameSaveData = new GameSaveData();
