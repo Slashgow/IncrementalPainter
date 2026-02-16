@@ -227,6 +227,7 @@ public class TransformController : MonoBehaviour, IPointerEnterHandler, IPointer
         }
     }
 
+
     public void SetGizmosVisible(bool visible)
     {
         gizmosVisible = visible;
@@ -316,5 +317,11 @@ public class TransformController : MonoBehaviour, IPointerEnterHandler, IPointer
     }
 
     public void OnPointerExit(PointerEventData eventData) => SetGizmosVisible(false);
-    public void OnPointerEnter(PointerEventData eventData) => SetGizmosVisible(true);
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (ToolStateMachine.CurrentState.ToolType != ToolType.Painting)
+            return;
+
+        SetGizmosVisible(true);
+    }
 }

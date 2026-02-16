@@ -1,10 +1,14 @@
 using System;
 using System.Collections.Generic;
 using inkolorgames;
+using PaintCore;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CommandHistory : MonoSingleton<CommandHistory>
 {
+    [SerializeField] private CwPaintableTexture paintableTexture;
+
     private Stack<ICommand> undoStack = new Stack<ICommand>();
     private Stack<ICommand> redoStack = new Stack<ICommand>();
 
@@ -19,12 +23,25 @@ public class CommandHistory : MonoSingleton<CommandHistory>
     {
         ArtGaleryInput.OnUndoPerformed += Undo;
         ArtGaleryInput.OnRedoPerformed += Redo;
+        CwPaintableTexture.OnAddCommandGlobal += RecordPaintingCommand;
     }
 
     private void OnDisable()
     {
         ArtGaleryInput.OnUndoPerformed -= Undo;
         ArtGaleryInput.OnRedoPerformed -= Redo;
+        CwPaintableTexture.OnAddCommandGlobal -= RecordPaintingCommand;
+    }
+    private void RecordPaintingCommand(CwPaintableTexture texture, CwCommand command)
+    {
+        if (command.Preview)
+            return;
+
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            Debug.Log("Recording painting command: ");
+            RegisterCommandWithoutExecuting(new PaintCommandWrapper());
+        }
     }
 
     public void ExecuteCommand(ICommand command)
@@ -40,6 +57,18 @@ public class CommandHistory : MonoSingleton<CommandHistory>
             TrimUndoStack();
         }
 
+        OnExecutedCommand?.Invoke();
+    }
+
+    public void RegisterCommandWithoutExecuting(ICommand command)
+    {
+        undoStack.Push(command);
+    
+        redoStack.Clear();
+        if (undoStack.Count > maxHistorySize)
+        {
+            TrimUndoStack();
+        }
         OnExecutedCommand?.Invoke();
     }
 

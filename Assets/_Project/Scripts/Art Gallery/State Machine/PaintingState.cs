@@ -1,4 +1,6 @@
-﻿public class PaintingState : ToolState
+﻿using UnityEngine;
+
+public class PaintingState : ToolState
 {
     public PaintingState(ToolStateMachine stateMachine) : base(stateMachine)
     {
@@ -8,6 +10,7 @@
     {
         base.EnterState();
         UIArtGalleryPanelManager.Instance.ShowPaintingPanel();
+        Draggable.EnableDrag();
     }
     public override void UpdateState()
     {
@@ -16,6 +19,11 @@
     public override void ExitState()
     {
         base.ExitState();
-        // Hide painting UI, disable painting mode
+        Draggable.DisableDrag();
+        var transformControllers = GameObject.FindObjectsByType<TransformController>(FindObjectsSortMode.None);
+        foreach (var transformController in transformControllers)
+        {
+            transformController.SetGizmosVisible(false);
+        }
     }
 }

@@ -19,7 +19,7 @@ public class ToolSelectionManager : MonoBehaviour
 
         toolStateMachine.OnToolChanged += OnToolChangedInStateMachine;
 
-        UpdateButtonVisuals(toolStateMachine.CurrentState.ToolType);
+        UpdateButtonVisuals(ToolStateMachine.CurrentState.ToolType);
     }
 
     private void OnDestroy()
@@ -57,6 +57,6 @@ public class ToolSelectionManager : MonoBehaviour
         }
     }
 
-    public ToolType GetCurrentTool() => toolStateMachine.CurrentState.ToolType;
+    public ToolType GetCurrentTool() => ToolStateMachine.CurrentState.ToolType;
     public void SelectTool(ToolType tool) => toolStateMachine.TransitionToTool(tool);
 }

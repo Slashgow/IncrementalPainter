@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("Drag Settings")]
-    [SerializeField] private bool enableDrag = true;
+
     [SerializeField] private float dragSmoothness = 1f;
     [SerializeField] private bool constrainToBounds = false;
     [SerializeField] private Bounds dragBounds;
@@ -16,6 +16,10 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private bool isDragging = false;
 
     private float dragThreshold = 0.01f;
+
+    private static bool enableDrag = true;
+    public static void EnableDrag() => enableDrag = true;
+    public static void DisableDrag() => enableDrag = false;
 
     private void Awake()
     {

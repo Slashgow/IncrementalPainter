@@ -3132,7 +3132,7 @@ MonoBehaviour:
   coord: 0
   group:
     index: 0
-  undoRedo: 0
+  undoRedo: 1
   stateLimit: 10
   saveLoad: 0
   saveName: 
@@ -5989,6 +5989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddac2fbe2b8700440b94f6781533edf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paintableTexture: {fileID: 856260810}
   maxHistorySize: 50
 --- !u!4 &1774223844
 Transform:

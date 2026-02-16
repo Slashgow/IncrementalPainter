@@ -2,7 +2,7 @@
 
 public class ToolStateMachine
 {
-    private ToolState currentState;
+    private static ToolState currentState;
     private BrushState brushState;
     private EraserState eraserState;
     private TamponState tamponState;
@@ -10,7 +10,7 @@ public class ToolStateMachine
     private PaintingState paintingState;
 
     public event Action<ToolType> OnToolChanged;
-    public ToolState CurrentState => currentState;
+    public static ToolState CurrentState => currentState;
 
     public ToolStateMachine()
     {
