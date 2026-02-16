@@ -50,6 +50,16 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
         CurrentLevelIndex = currentUnlockableLevel != null ? Array.IndexOf(unlockableSortedLevels, currentUnlockableLevel) : -1;
     }
 
+    public void ShowPreviewLevelArtGallery()
+    {
+        currentLevelInstance = null;
+        this.transform.DestroyAllChildrenWithComponent<Level>();
+
+        GameObject levelGOInstance = Instantiate(CurrentLevelData.LevelPrefab, CurrentLevelData.SpawnOffset, Quaternion.identity);
+        currentLevelInstance = levelGOInstance.GetComponent<Level>();
+        currentLevelInstance.Initialize(CurrentLevelData, true);
+    }
+
     public void SetCurrentLevel(int levelIndex)
     {
         currentUnlockableLevel = unlockableSortedLevels[levelIndex];
@@ -71,7 +81,7 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
 
         GameObject levelGOInstance = Instantiate(CurrentLevelData.LevelPrefab, CurrentLevelData.SpawnOffset, Quaternion.identity, this.transform);
         currentLevelInstance = levelGOInstance.GetComponent<Level>();
-        currentLevelInstance.Initialize(CurrentLevelData);
+        currentLevelInstance.Initialize(CurrentLevelData, false);
 
         if(CurrentLevelData.IsBossLevel && CurrentLevelData.BossLevelPrefab != null)
         {

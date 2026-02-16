@@ -18,6 +18,18 @@ public class ColorAdjustmentEffect : SpriteCompletionEffect
 
         globalVolume = FindAnyObjectByType<Volume>();
 
+        if(globalVolume == null)
+        {
+            Debug.LogError("No global volume found in the scene. ColorAdjustmentEffect requires a global volume to function.");
+            return;
+        }
+
+        if (!GameManager.HasInstance)
+        {
+            this.enabled = false;
+            return;
+        }
+
         if (globalVolume.profile.TryGet(out colorAdjustement))
         {
             UpdateColorBasedOnRatio();

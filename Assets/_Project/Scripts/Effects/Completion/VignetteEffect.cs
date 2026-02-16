@@ -36,6 +36,18 @@ public class VignetteEffect : SpriteCompletionEffect
 
         globalVolume = FindAnyObjectByType<Volume>();
 
+        if(globalVolume == null)
+        {
+            Debug.LogError("No global volume found in the scene. VignetteEffect requires a global volume to function.");
+            return;
+        }
+
+        if (!GameManager.HasInstance)
+        {
+            this.enabled = false;
+            return;
+        }
+
         if (globalVolume.profile.TryGet(out vignette))
         {
             UpdateVignetteBasedOnRatio();

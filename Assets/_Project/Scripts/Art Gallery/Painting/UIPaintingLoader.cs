@@ -28,7 +28,7 @@ public class UIPaintingLoader : MonoBehaviour
             UILevelArtGallery uiLevelInstance = Instantiate(levelUIPrefab, parent);
             uiLevelInstance.Initialize(level);
             uiLevels.Add(uiLevelInstance);
-            uiLevelInstance.OnSelectEvent += OnSelectBrush;
+            uiLevelInstance.OnSelectEvent += OnSelectPainting;
         }
     }
 
@@ -36,12 +36,14 @@ public class UIPaintingLoader : MonoBehaviour
     {
         foreach (UILevelArtGallery uiLevel in uiLevels)
         {
-            uiLevel.OnSelectEvent -= OnSelectBrush;
+            uiLevel.OnSelectEvent -= OnSelectPainting;
         }
     }
 
-    private void OnSelectBrush(LevelData levelData)
+    private void OnSelectPainting(LevelData levelData)
     {
         //TamponManager.Instance.SetTampon(levelData);
+        LevelManager.Instance.SetCurrentLevel(levelData);
+        LevelManager.Instance.ShowPreviewLevelArtGallery();
     }
 }
