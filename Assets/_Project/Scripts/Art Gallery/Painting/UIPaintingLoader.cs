@@ -44,6 +44,6 @@ public class UIPaintingLoader : MonoBehaviour
     {
         //TamponManager.Instance.SetTampon(levelData);
         LevelManager.Instance.SetCurrentLevel(levelData);
-        LevelManager.Instance.ShowPreviewLevelArtGallery();
+        LevelManager.Instance.InstantiateLevelArtGallery();
     }
 }

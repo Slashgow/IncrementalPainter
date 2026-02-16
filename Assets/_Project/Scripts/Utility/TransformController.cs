@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,6 +8,7 @@ public class TransformController : MonoBehaviour, IPointerEnterHandler, IPointer
     [Header("Gizmo Prefabs")]
     [SerializeField] private GameObject scaleGizmoPrefab;
     [SerializeField] private GameObject rotateGizmoPrefab;
+    [SerializeField] private GameObject destroyGizmoPrefab;
 
     [Header("Gizmo Settings")]
     [SerializeField] private float gizmoSize = 0.3f;
@@ -32,6 +34,7 @@ public class TransformController : MonoBehaviour, IPointerEnterHandler, IPointer
     [SerializeField] private Transform targetTransform;
 
     private List<TransformGizmo> scaleGizmos = new List<TransformGizmo>();
+    private TransformGizmo destroyGizmo;
     private TransformGizmo rotateGizmo;
     private bool gizmosVisible = true;
     private Bounds targetBounds;
@@ -68,9 +71,23 @@ public class TransformController : MonoBehaviour, IPointerEnterHandler, IPointer
         if (!useManualGizmoPositions)
             CalculateTargetBounds();
 
-
+        CreateDestroyGizmo();
         CreateCornerGizmos();
         CreateRotateGizmo();
+    }
+
+    private void CreateDestroyGizmo()
+    {
+        GameObject destroyGO = Instantiate(destroyGizmoPrefab, targetTransform);
+        destroyGO.name = "DestroyGizmo";
+
+        Vector3 localPos = useManualGizmoPositions ? gizmosPositions.DestroyGizmoPosition : new Vector3(0, -targetBounds.extents.y - rotateHandleDistance, 0);
+        destroyGO.transform.localPosition = localPos;
+        destroyGO.transform.localRotation = Quaternion.identity;
+
+        destroyGizmo = destroyGO.GetComponent<TransformGizmo>();
+
+        destroyGizmo.Initialize(targetTransform, this, TransformGizmo.GizmoType.Destroy);
     }
 
     private void CreateRotateGizmo()
@@ -184,6 +201,9 @@ public class TransformController : MonoBehaviour, IPointerEnterHandler, IPointer
 
             if (rotateGizmo != null)
                 rotateGizmo.transform.localPosition = gizmosPositions.RotateGizmoPosition;
+
+            if(destroyGizmo != null)
+                destroyGizmo.transform.localPosition = gizmosPositions.DestroyGizmoPosition;
         }
         else
         {
@@ -244,6 +264,11 @@ public class TransformController : MonoBehaviour, IPointerEnterHandler, IPointer
         {
             rotateGizmo.SetVisibility(visible);
         }
+
+        if(destroyGizmo != null)
+        {
+            destroyGizmo.SetVisibility(visible);
+        }
     }
 
     public void ClearGizmos()
@@ -261,6 +286,12 @@ public class TransformController : MonoBehaviour, IPointerEnterHandler, IPointer
         {
             Destroy(rotateGizmo.gameObject);
             rotateGizmo = null;
+        }
+
+        if(destroyGizmo != null)
+        {
+            Destroy(destroyGizmo.gameObject);
+            destroyGizmo = null;
         }
     }
 
@@ -313,6 +344,7 @@ public class TransformController : MonoBehaviour, IPointerEnterHandler, IPointer
 
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(gizmosPositions.RotateGizmoPosition, 0.1f);
+            Gizmos.DrawWireSphere(gizmosPositions.DestroyGizmoPosition, 0.1f);
         }
     }
 

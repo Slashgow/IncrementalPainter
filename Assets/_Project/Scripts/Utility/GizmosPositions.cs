@@ -9,12 +9,14 @@ public class GizmosPositions : ScriptableObject
    [SerializeField] private Vector3 topRightGizmoPosition = new Vector3(1, 1, 0);
    [SerializeField] private Vector3 topLeftGizmoPosition = new Vector3(-1, 1, 0);
    [SerializeField] private Vector3 rotateGizmoPosition = new Vector3(0, 2, 0);
+    [SerializeField] private Vector3 destroyGizmoPosition = new Vector3(0, -2, 0);
 
     public Vector3 BottomLeftGizmoPosition => bottomLeftGizmoPosition;
     public Vector3 BottomRightGizmoPosition => bottomRightGizmoPosition;
     public Vector3 TopRightGizmoPosition => topRightGizmoPosition;
     public Vector3 TopLeftGizmoPosition => topLeftGizmoPosition;
     public Vector3 RotateGizmoPosition => rotateGizmoPosition;
+    public Vector3 DestroyGizmoPosition => destroyGizmoPosition;
 
     private Vector3[] manualPositions;
 

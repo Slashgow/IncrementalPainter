@@ -363,7 +363,7 @@ MonoBehaviour:
   readAtStart: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 7729110937390697375}
-  cooldown: -4103.0674
+  cooldown: -4103.818
   maskMesh: {fileID: 0}
   maskSubmesh: 0
   maskTexture: {fileID: 0}
@@ -617,7 +617,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dcb399eed6cf0f40a347e3ff1af6d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableDrag: 1
   dragSmoothness: 1
   constrainToBounds: 0
   dragBounds:
@@ -637,6 +636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleGizmoPrefab: {fileID: 6156288672735944139, guid: e1a1a5e839ee7d643ba2112c3b15b404, type: 3}
   rotateGizmoPrefab: {fileID: 2819968999650503403, guid: 99bd232c11d710642bdf52790f3bee20, type: 3}
+  destroyGizmoPrefab: {fileID: 5101277559067257810, guid: 6ca463a098a14614eb1e06feb09211ee, type: 3}
   gizmoSize: 0.3
   rotateHandleDistance: 1.5
   useManualGizmoPositions: 1

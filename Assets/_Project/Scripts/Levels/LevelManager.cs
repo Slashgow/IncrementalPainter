@@ -50,7 +50,7 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
         CurrentLevelIndex = currentUnlockableLevel != null ? Array.IndexOf(unlockableSortedLevels, currentUnlockableLevel) : -1;
     }
 
-    public void ShowPreviewLevelArtGallery()
+    public void InstantiateLevelArtGallery()
     {
         currentLevelInstance = null;
         this.transform.DestroyAllChildrenWithComponent<Level>();

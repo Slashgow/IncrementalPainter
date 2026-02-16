@@ -17,3 +17,4 @@ MonoBehaviour:
   topRightGizmoPosition: {x: 5.5, y: 4.5, z: 0}
   topLeftGizmoPosition: {x: -5.5, y: 4.5, z: 0}
   rotateGizmoPosition: {x: 0, y: 4.5, z: 0}
+  destroyGizmoPosition: {x: 0, y: -3.5, z: 0}

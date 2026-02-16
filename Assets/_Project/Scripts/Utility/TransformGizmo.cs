@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TransformGizmo : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
+public class TransformGizmo : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public enum GizmoType
     {
         ScaleCorner,
-        RotateHandle
+        RotateHandle,
+        Destroy
     }
 
     [Header("Gizmo Settings")]
@@ -191,5 +192,13 @@ public class TransformGizmo : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     {
         if (!isDragging)
             UpdateColor(normalColor);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (Type != GizmoType.Destroy)
+            return;
+
+        CommandHistory.Instance.ExecuteCommand(new DestroyPaintingCommand(controller.gameObject, controller.GetComponent<Level>().LevelData));
     }
 }
