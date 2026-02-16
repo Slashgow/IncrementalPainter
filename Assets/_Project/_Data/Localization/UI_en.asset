@@ -319,6 +319,10 @@ MonoBehaviour:
     m_Localized: Stickers
     m_Metadata:
       m_Items: []
+  - m_Id: 28903269713965056
+    m_Localized: Painting
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

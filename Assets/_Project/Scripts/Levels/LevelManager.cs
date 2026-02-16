@@ -150,4 +150,12 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
         int claimedSkillPoints = levelData.GetSkillPointReward(saveData.claimedRewardRank);
         return Mathf.Max(0, maxSkillPointReward - claimedSkillPoints);
     }
+
+    public LevelData GetLevelDAtaByAuthorAndTitle(string author, string title)
+    {
+        UnlockableLevel unlockableLevel = unlockableSortedLevels.FirstOrDefault(level => 
+        level.LevelData.LevelAuthor == author && 
+        level.LevelData.LevelTitle == title);
+        return unlockableLevel != null ? unlockableLevel.LevelData : null;
+    }
 }

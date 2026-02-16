@@ -315,6 +315,10 @@ MonoBehaviour:
     m_Key: TAMPON
     m_Metadata:
       m_Items: []
+  - m_Id: 28903269713965056
+    m_Key: PAINTING
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

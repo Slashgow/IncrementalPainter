@@ -7,6 +7,7 @@ public class ToolStateMachine
     private EraserState eraserState;
     private TamponState tamponState;
     private ColorSelectorState colorSelectorState;
+    private PaintingState paintingState;
 
     public event Action<ToolType> OnToolChanged;
     public ToolState CurrentState => currentState;
@@ -17,6 +18,7 @@ public class ToolStateMachine
         eraserState = new EraserState(this);
         tamponState = new TamponState(this);
         colorSelectorState = new ColorSelectorState(this);
+        paintingState = new PaintingState(this);
 
         TransitionToState(brushState);
     }
@@ -37,6 +39,7 @@ public class ToolStateMachine
             ToolType.Eraser => eraserState,
             ToolType.Tampon => tamponState,
             ToolType.ColorSelector => colorSelectorState,
+            ToolType.Painting => paintingState,
             _ => brushState
         };
 

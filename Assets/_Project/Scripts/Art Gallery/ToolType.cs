@@ -3,5 +3,6 @@
     Brush,
     Eraser,
     Tampon,
-    ColorSelector
+    ColorSelector,
+    Painting
 }
