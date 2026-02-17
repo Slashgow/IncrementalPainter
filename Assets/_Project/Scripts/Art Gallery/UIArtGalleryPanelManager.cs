@@ -4,48 +4,51 @@ using UnityEngine;
 
 public class UIArtGalleryPanelManager : MonoSingleton<UIArtGalleryPanelManager>
 {
-    [SerializeField] private GameObject brushPanel, colorPanel, tamponPanel, paintingPanel;
+    [SerializeField] private CanvasGroup brushPanel, colorPanel, tamponPanel, paintingPanel;
     [SerializeField] private GameObject brushSideBar, erasureSideBar, tamponSideBar;
 
-    private GameObject currentActivePanel;
+    private CanvasGroup currentActivePanel;
 
-    [SerializeField] private List<GameObject> allPanels;
+    [SerializeField] private List<CanvasGroup> allPanels;
     [SerializeField] private List<GameObject> allSideBars;
 
-    private void ShowPanel(GameObject panel)
+    public void ShowPanel(CanvasGroup canvasGroup)
     {
-        if (currentActivePanel != null && currentActivePanel == panel)
+        if (currentActivePanel != null && currentActivePanel == canvasGroup)
         {
-            HidePanel(panel);
+            HidePanel(canvasGroup);
             return;
         }
-        HideAllExceptThis(panel);
-        panel.SetActive(true);
-        currentActivePanel = panel;
+        HideAllExceptThis(canvasGroup);
+
+        canvasGroup.alpha = 1.0f;
+        canvasGroup.blocksRaycasts = true;
+        currentActivePanel = canvasGroup;
+    }
+    public void HidePanel(CanvasGroup canvasGroup)
+    {
+        canvasGroup.alpha = 0f;
+        canvasGroup.blocksRaycasts = false;
+        currentActivePanel = null;
     }
 
-    private void HideAllExceptThis(GameObject panelToShow)
+    private void HideAllExceptThis(CanvasGroup canvasGroup)
     {
-        foreach (GameObject panel in allPanels)
+        foreach (CanvasGroup panel in allPanels)
         {
-            if(panel == panelToShow)
+            if(panel == canvasGroup)
                 continue;
 
-            panel.SetActive(false);
+            HidePanel(panel);
         }
-    }
-    private void HidePanel(GameObject panel)
-    {
-        panel.SetActive(false);
-        currentActivePanel = null;
     }
 
     public void HideAllPanel()
     {
         currentActivePanel = null;
-        foreach (GameObject panel in allPanels)
+        foreach (CanvasGroup panel in allPanels)
         {
-            panel.SetActive(false);
+            HidePanel(panel);
         }
     }
 

@@ -12,7 +12,12 @@ public class UIThemeColorManager : MonoBehaviour
         PopulateDropdown();
         LoadSettings();
     }
-    private void OnDisable() => ThemeColorManager.Instance.UnlockManager.OnItemUnlocked -= OnThemeUnlocked;
+    private void OnDisable()
+    {
+        if(ThemeColorManager.HasInstance)
+            ThemeColorManager.Instance.UnlockManager.OnItemUnlocked -= OnThemeUnlocked;
+    }
+
     private void OnThemeUnlocked(string themeId) => PopulateDropdown();
 
     public void PopulateDropdown()

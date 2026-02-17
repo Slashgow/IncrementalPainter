@@ -4,6 +4,7 @@ public class PaintingState : ToolState
 {
     public PaintingState(ToolStateMachine stateMachine) : base(stateMachine)
     {
+        
     }
     public override ToolType ToolType => ToolType.Painting;
     public override void EnterState()

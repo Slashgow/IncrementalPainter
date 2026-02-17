@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,6 +23,20 @@ public class ArtGalleryLoader : MonoBehaviour
             var currentLevelInstance = LevelManager.Instance.InstantiateLevelArtGallery();
 
             currentLevelInstance.LoadArtGalleryPaintingSaveData(artGalleryPaintingSaveData);     
+        }
+
+        StartCoroutine(DisableDragAndGizmo());
+    }
+
+    private IEnumerator DisableDragAndGizmo()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        Draggable.DisableDrag();
+        var transformControllers = GameObject.FindObjectsByType<TransformController>(FindObjectsSortMode.None);
+        foreach (var transformController in transformControllers)
+        {
+            transformController.SetGizmosVisible(false);
         }
     }
 }

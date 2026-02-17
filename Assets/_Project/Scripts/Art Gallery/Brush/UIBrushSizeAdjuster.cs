@@ -47,7 +47,13 @@ public class UIBrushSizeAdjuster : MonoBehaviour, IPointerDownHandler, IPointerU
 
     }
 
-    private void OnBrushChanged(BrushData brushData) => sizePreviewImage.sprite = brushData.BrushSprite;
+    private void OnBrushChanged(BrushData brushData)
+    {
+        if(brushData == null)
+            return;
+
+        sizePreviewImage.sprite = brushData.BrushSprite;
+    }
 
     public void OnPointerDown(PointerEventData eventData) => sizePreviewContainer.SetActive(true);
     public void OnPointerUp(PointerEventData eventData) => sizePreviewContainer.SetActive(false);

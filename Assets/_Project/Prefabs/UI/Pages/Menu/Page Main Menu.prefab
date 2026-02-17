@@ -503,10 +503,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7405470498601160913}
     m_Modifications:
-    - target: {fileID: 2733687144379264175, guid: f95f398e65453f443a3e473af7278eb0, type: 3}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3681855004406705911, guid: f95f398e65453f443a3e473af7278eb0, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
       value: 76640808960
@@ -602,8 +598,41 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7317671649672108594, guid: f95f398e65453f443a3e473af7278eb0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2281980635063456690}
   m_SourcePrefab: {fileID: 100100000, guid: f95f398e65453f443a3e473af7278eb0, type: 3}
+--- !u!114 &861021411314771042 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2733687144379264175, guid: f95f398e65453f443a3e473af7278eb0, type: 3}
+  m_PrefabInstance: {fileID: 3315484474529745101}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5444676062108455679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5444676062108455679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7317671649672108594, guid: f95f398e65453f443a3e473af7278eb0, type: 3}
+  m_PrefabInstance: {fileID: 3315484474529745101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2281980635063456690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5444676062108455679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5500d4848ff99ec4abe805fdf7590d36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 861021411314771042}
+  sceneIndex: 2
 --- !u!224 &7013973195793018054 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5716287171811451915, guid: f95f398e65453f443a3e473af7278eb0, type: 3}
