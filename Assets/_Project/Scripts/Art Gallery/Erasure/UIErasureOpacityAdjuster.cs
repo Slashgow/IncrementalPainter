@@ -23,17 +23,24 @@ public class UIErasureOpacityAdjuster : MonoBehaviour, IPointerDownHandler, IPoi
     private void OnEnable()
     {
         opacitySlider.onValueChanged.AddListener(OnOpacityChanged);
+        ErasureManager.OnOpacityChanged += UpdateSlider;
     }
 
     private void OnDisable()
     {
         opacitySlider.onValueChanged.RemoveListener(OnOpacityChanged);
+        ErasureManager.OnOpacityChanged -= UpdateSlider;
     }
 
     public void OnOpacityChanged(float value)
     {
         ErasureManager.Instance.SetOpacity(value);
 
+        UpdatePreview(value);
+    }
+
+    private void UpdatePreview(float value)
+    {
         float t = value / 1f;
         Color color = previewImage.color;
         color.a = Mathf.Lerp(0f, 1f, t);
@@ -41,6 +48,11 @@ public class UIErasureOpacityAdjuster : MonoBehaviour, IPointerDownHandler, IPoi
         previewText.text = $"<b>Opacity</b> {t * 100:F0}%";
     }
 
+    private void UpdateSlider(float value)
+    {
+        opacitySlider.value = value;
+        UpdatePreview(value);
+    }
     public void OnPointerDown(PointerEventData eventData) => previewContainer.SetActive(true);
     public void OnPointerUp(PointerEventData eventData) => previewContainer.SetActive(false);
 }

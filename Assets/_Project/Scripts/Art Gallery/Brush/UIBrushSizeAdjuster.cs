@@ -29,22 +29,34 @@ public class UIBrushSizeAdjuster : MonoBehaviour, IPointerDownHandler, IPointerU
     {
         sizeBrushSlider.onValueChanged.AddListener(OnSizeChanged);
         BrushManager.OnBrushChanged += OnBrushChanged;
+        BrushManager.OnBrushSizeChanged += UpdateSlider;
     }
 
     private void OnDisable()
     {
         sizeBrushSlider.onValueChanged.RemoveListener(OnSizeChanged);
         BrushManager.OnBrushChanged -= OnBrushChanged;
+        BrushManager.OnBrushSizeChanged -= UpdateSlider;
     }
 
     public void OnSizeChanged(float value)
     {
         BrushManager.Instance.SetSize(value);
 
+        UpdatePreview(value);
+    }
+
+    private void UpdatePreview(float value)
+    {
         float t = value / BrushManager.Instance.MaxSize;
         sizePreviewImage.transform.localScale = Vector3.one * Mathf.Lerp(0f, maxPreviewScale, t);
         sizePreviewText.text = $"<b>Size</b> {t * 100:F0}%";
+    }
 
+    private void UpdateSlider(float value)
+    {
+        sizeBrushSlider.value = value;
+        UpdatePreview(value);
     }
 
     private void OnBrushChanged(BrushData brushData)

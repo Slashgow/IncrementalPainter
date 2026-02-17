@@ -1,4 +1,5 @@
-﻿using inkolorgames;
+﻿using System;
+using inkolorgames;
 using PaintIn2D;
 using UnityEngine;
 
@@ -18,6 +19,9 @@ public class ErasureManager : PersistentMonoSingleton<ErasureManager>
     public float CurrentSize => currentSize;
     public float CurrentOpacity => currentOpacity;
 
+    public static event Action<float> OnSizeChanged;
+    public static event Action<float> OnOpacityChanged;
+
     protected override void Awake()
     {
         base.Awake();
@@ -25,20 +29,52 @@ public class ErasureManager : PersistentMonoSingleton<ErasureManager>
         DisableEraser();
     }
 
+    private void OnEnable()
+    {
+        ArtGaleryInput.OnBrushSizeChanged += ChangeSize;
+        ArtGaleryInput.OnBrushOpacityChanged += ChangeOpacity;
+    }
+    private void OnDisable()
+    {
+        ArtGaleryInput.OnBrushSizeChanged -= ChangeSize;
+        ArtGaleryInput.OnBrushOpacityChanged -= ChangeOpacity;
+    }
+
     public void EnableEraser() => paintDecal2D.gameObject.SetActive(true);
     public void DisableEraser() => paintDecal2D.gameObject.SetActive(false);
 
-    public void SetSize(float size, bool notifyListeners = true)
+    private void ChangeSize(float delta)
+    {
+        if(ToolStateMachine.CurrentState.ToolType != ToolType.Eraser)
+            return;
+
+        SetSize(currentSize + delta, true);
+    }
+
+    public void SetSize(float size, bool notifyListeners = false)
     {
         currentSize = Mathf.Clamp(size, minSize, maxSize);
         paintDecal2D.Scale = Vector3.one * currentSize;
+
+        if (notifyListeners)
+            OnSizeChanged?.Invoke(currentSize);
     }
 
+    private void ChangeOpacity(float delta)
+    {
+        if (ToolStateMachine.CurrentState.ToolType != ToolType.Eraser)
+            return;
 
-    public void SetOpacity(float opacity, bool notifyListeners = true)
+        SetOpacity(currentOpacity + delta, true);
+    }
+
+    public void SetOpacity(float opacity, bool notifyListeners = false)
     {
         currentOpacity = Mathf.Clamp01(opacity);
         paintDecal2D.Opacity = opacity;
+
+        if (notifyListeners)
+            OnOpacityChanged?.Invoke(currentOpacity);
     }
 
 }

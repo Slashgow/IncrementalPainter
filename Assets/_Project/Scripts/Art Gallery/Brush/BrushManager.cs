@@ -41,6 +41,8 @@ public class BrushManager : PersistentMonoSingleton<BrushManager>
         ArtGalleryColorManager.OnColorChanged += SetColor;
         ArtGalleryColorManager.OnApplyColorRandomModifier += SetColorModifier;
         ArtGalleryColorManager.OnRemoveColorRandomModifier += RemoveColorModifier;
+        ArtGaleryInput.OnBrushSizeChanged += ChangeSize;
+        ArtGaleryInput.OnBrushOpacityChanged += ChangeOpacity;
     }
 
     private void OnDestroy()
@@ -48,6 +50,8 @@ public class BrushManager : PersistentMonoSingleton<BrushManager>
         ArtGalleryColorManager.OnColorChanged -= SetColor;
         ArtGalleryColorManager.OnApplyColorRandomModifier -= SetColorModifier;
         ArtGalleryColorManager.OnRemoveColorRandomModifier -= RemoveColorModifier;
+        ArtGaleryInput.OnBrushSizeChanged -= ChangeSize;
+        ArtGaleryInput.OnBrushOpacityChanged -= ChangeOpacity;
     }
 
     private void Start()
@@ -148,7 +152,15 @@ public class BrushManager : PersistentMonoSingleton<BrushManager>
             OnBrushTextureChanged?.Invoke(texture);
     }
 
-    public void SetSize(float size, bool notifyListeners = true)
+    public void ChangeSize(float delta)
+    {
+        if(ToolStateMachine.CurrentState.ToolType != ToolType.Brush)
+            return;
+
+        SetSize(currentSize + delta, true);
+    }
+
+    public void SetSize(float size, bool notifyListeners = false)
     {
         currentSize = Mathf.Clamp(size, minSize, maxSize);
         paintDecal2D.Scale = Vector3.one * currentSize;
@@ -172,7 +184,15 @@ public class BrushManager : PersistentMonoSingleton<BrushManager>
         paintDecal2D.Modifiers.Instances.Remove(colorModifier);
     }
 
-    public void SetOpacity(float opacity, bool notifyListeners = true)
+    public void ChangeOpacity(float delta)
+    {
+        if(ToolStateMachine.CurrentState.ToolType != ToolType.Brush)
+            return;
+
+        SetOpacity(currentOpacity + delta, true);
+    }
+
+    public void SetOpacity(float opacity, bool notifyListeners = false)
     {
         currentOpacity = Mathf.Clamp01(opacity);
         paintDecal2D.Opacity = opacity;

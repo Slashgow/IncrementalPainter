@@ -29,24 +29,35 @@ public class UISizeTamponAdjuster : MonoBehaviour, IPointerDownHandler, IPointer
     {
         sizeSlider.onValueChanged.AddListener(OnSizeChanged);
         TamponManager.OnTamponChanged += OnTamponChanged;
+        TamponManager.OnTamponSizeChanged += UpdateSlider;
     }
 
     private void OnDisable()
     {
         sizeSlider.onValueChanged.RemoveListener(OnSizeChanged);
         TamponManager.OnTamponChanged -= OnTamponChanged;
+        TamponManager.OnTamponSizeChanged -= UpdateSlider;
     }
 
     public void OnSizeChanged(float value)
     {
         TamponManager.Instance.SetSize(value);
 
+        UpdatePreview(value);
+    }
+
+    private void UpdatePreview(float value)
+    {
         float t = value / TamponManager.Instance.MaxSize;
         sizePreviewImage.transform.localScale = Vector3.one * Mathf.Lerp(0f, maxPreviewScale, t);
         sizePreviewText.text = $"<b>Size</b> {t * 100:F0}%";
-
     }
 
+    private void UpdateSlider(float value)
+    {
+        sizeSlider.value = value;
+        UpdatePreview(value);
+    }
     private void OnTamponChanged(TamponData tamponData) => sizePreviewImage.sprite = tamponData.TamponSprite;
 
     public void OnPointerDown(PointerEventData eventData)

@@ -1,5 +1,4 @@
-﻿using PaintIn2D;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ToolSelectionManager : MonoBehaviour
 {
@@ -7,6 +6,9 @@ public class ToolSelectionManager : MonoBehaviour
 
     private ToolStateMachine toolStateMachine;
     private ToolButton currentlySelectedButton;
+
+    private void OnEnable() => ArtGaleryInput.OnToolSelected += OnToolSelected;
+    private void OnDisable() => ArtGaleryInput.OnToolSelected -= OnToolSelected;
 
     private void Awake()
     {

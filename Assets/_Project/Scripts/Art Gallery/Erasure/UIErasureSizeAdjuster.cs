@@ -23,15 +23,36 @@ public class UIErasureSizeAdjuster : MonoBehaviour, IPointerDownHandler, IPointe
 
         sizePreviewImage.transform.localScale = Vector3.one * Mathf.Lerp(0f, maxPreviewScale, sizeSlider.value / ErasureManager.Instance.MaxSize);
     }
-    private void OnEnable() => sizeSlider.onValueChanged.AddListener(OnSizeChanged);
-    private void OnDisable() => sizeSlider.onValueChanged.RemoveListener(OnSizeChanged);
+    private void OnEnable()
+    {
+        sizeSlider.onValueChanged.AddListener(OnSizeChanged);
+        ErasureManager.OnSizeChanged += UpdateSlider;
+    }
+
+    private void OnDisable()
+    {
+        sizeSlider.onValueChanged.RemoveListener(OnSizeChanged);
+        ErasureManager.OnSizeChanged -= UpdateSlider;
+    }
+
     public void OnSizeChanged(float value)
     {
         ErasureManager.Instance.SetSize(value);
 
+        UpdatePreview(value);
+    }
+
+    private void UpdatePreview(float value)
+    {
         float t = value / BrushManager.Instance.MaxSize;
         sizePreviewImage.transform.localScale = Vector3.one * Mathf.Lerp(0f, maxPreviewScale, t);
         sizePreviewText.text = $"<b>Size</b> {t * 100:F0}%";
+    }
+
+    private void UpdateSlider(float value)
+    {
+        sizeSlider.value = value;
+        UpdatePreview(value);
     }
     public void OnPointerDown(PointerEventData eventData) => sizePreviewContainer.SetActive(true);
     public void OnPointerUp(PointerEventData eventData) => sizePreviewContainer.SetActive(false);

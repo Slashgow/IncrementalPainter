@@ -24,18 +24,25 @@ public class UIOpacityTamponAdjuster : MonoBehaviour, IPointerDownHandler, IPoin
     {
         opacitySlider.onValueChanged.AddListener(OnOpacityChanged);
         TamponManager.OnTamponChanged += OnTamponChanged;
+        TamponManager.OnTamponOpacityChanged += UpdateSlider;
     }
 
     private void OnDisable()
     {
         opacitySlider.onValueChanged.RemoveListener(OnOpacityChanged);
         TamponManager.OnTamponChanged -= OnTamponChanged;
+        TamponManager.OnTamponOpacityChanged -= UpdateSlider;
     }
 
     public void OnOpacityChanged(float value)
     {
         TamponManager.Instance.SetOpacity(value);
 
+        UpdatePreview(value);
+    }
+
+    private void UpdatePreview(float value)
+    {
         float t = value / 1f;
         Color color = sizePreviewImage.color;
         color.a = Mathf.Lerp(0f, 1f, t);
@@ -43,6 +50,11 @@ public class UIOpacityTamponAdjuster : MonoBehaviour, IPointerDownHandler, IPoin
         sizePreviewText.text = $"<b>Opacity</b> {t * 100:F0}%";
     }
 
+    private void UpdateSlider(float value)
+    {
+        opacitySlider.value = value;
+        UpdatePreview(value);
+    }
     private void OnTamponChanged(TamponData tamponData) => sizePreviewImage.sprite = tamponData.TamponSprite;
 
     public void OnPointerDown(PointerEventData eventData) => sizePreviewContainer.SetActive(true);

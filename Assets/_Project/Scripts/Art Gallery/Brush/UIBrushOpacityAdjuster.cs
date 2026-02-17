@@ -24,18 +24,25 @@ public class UIBrushOpacityAdjuster : MonoBehaviour, IPointerDownHandler, IPoint
     {
         opacityBrushSlider.onValueChanged.AddListener(OnOpacityChanged);
         BrushManager.OnBrushChanged += OnBrushChanged;
+        BrushManager.OnBrushOpacityChanged += UpdateSlider;
     }
 
     private void OnDisable()
     {
         opacityBrushSlider.onValueChanged.RemoveListener(OnOpacityChanged);
         BrushManager.OnBrushChanged -= OnBrushChanged;
+        BrushManager.OnBrushOpacityChanged -= UpdateSlider;
     }
 
     public void OnOpacityChanged(float value)
     {
         BrushManager.Instance.SetOpacity(value);
 
+        UpdatePreview(value);
+    }
+
+    private void UpdatePreview(float value)
+    {
         float t = value / 1f;
         Color color = sizePreviewImage.color;
         color.a = Mathf.Lerp(0f, 1f, t);
@@ -43,6 +50,11 @@ public class UIBrushOpacityAdjuster : MonoBehaviour, IPointerDownHandler, IPoint
         sizePreviewText.text = $"<b>Opacity</b> {t * 100:F0}%";
     }
 
+    private void UpdateSlider(float value)
+    {
+        opacityBrushSlider.value = value;
+        UpdatePreview(value);
+    }
     private void OnBrushChanged(BrushData brushData) => sizePreviewImage.sprite = brushData.BrushSprite;
 
     public void OnPointerDown(PointerEventData eventData) => sizePreviewContainer.SetActive(true);

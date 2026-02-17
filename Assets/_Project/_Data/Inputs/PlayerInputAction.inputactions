@@ -70,15 +70,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "RotateObject",
-                    "type": "Value",
-                    "id": "4e9c271e-ae99-4918-962e-8fde691daded",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Undo",
                     "type": "Button",
                     "id": "9dd8fc47-965b-4225-b97f-52dbbd582d0a",
@@ -95,6 +86,87 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Save",
+                    "type": "Button",
+                    "id": "8a0e7824-48df-419c-bc8c-389e59872b72",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Select Brush",
+                    "type": "Button",
+                    "id": "310ee013-f924-4160-a254-bc3fff315e51",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Select Eraser",
+                    "type": "Button",
+                    "id": "35bdae91-09f1-4c00-a9de-713cad4c6d78",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Select Stickers",
+                    "type": "Button",
+                    "id": "f3e33fcf-2cb0-47f0-a36c-2eb11c778fd3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Select Painting",
+                    "type": "Button",
+                    "id": "ffb7ecb1-e738-498c-aa4c-93b52d346e6e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Select Color",
+                    "type": "Button",
+                    "id": "69133498-1719-458d-8847-6ce2edd85967",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Change Size Brush",
+                    "type": "Value",
+                    "id": "8187d12e-527e-4bac-88f5-8e0c0aadfd8a",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Change Opacity Brush",
+                    "type": "Value",
+                    "id": "bb7e2ad8-f1fa-4158-b0ec-56867b5b85ad",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Rotate Stickers",
+                    "type": "Value",
+                    "id": "4e9c271e-ae99-4918-962e-8fde691daded",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -226,7 +298,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "RotateObject",
+                    "action": "Rotate Stickers",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -237,7 +309,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "RotateObject",
+                    "action": "Rotate Stickers",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -248,7 +320,73 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "RotateObject",
+                    "action": "Rotate Stickers",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "31015b24-eaf8-4f7d-b010-533cb84c6ab5",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change Size Brush",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "d184935f-6bcb-4aaa-8032-f19dc0609648",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change Size Brush",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "e9e254ba-1c83-477d-b35b-a276244e40b5",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change Size Brush",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "f984c385-fda3-4c01-8501-7ad2210b378a",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change Opacity Brush",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "b521cdce-79bf-4ce3-91b6-fc4d48c0ea43",
+                    "path": "<Keyboard>/alt",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change Opacity Brush",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "ca893323-df4a-4b92-8985-8c541adbc570",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change Opacity Brush",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -317,6 +455,94 @@
                     "action": "Redo",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "Button With One Modifier",
+                    "id": "7e389519-544b-4d0a-8085-4582e756c19a",
+                    "path": "ButtonWithOneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Save",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Modifier",
+                    "id": "1d1c3e30-b482-4120-85ee-ee88f7e772c6",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Save",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Button",
+                    "id": "d6a9857e-935b-4a86-a63e-94340847a10c",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Save",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c5df22e2-1e23-42ef-8b03-8d3fcc23b7a8",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select Brush",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fb2903f4-0f39-454a-8db7-166b83fec234",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select Eraser",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bc088f12-8b01-40d9-8ec4-d37e0ebd00b5",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select Stickers",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "061cc500-aad8-49da-91a6-abe856f91135",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select Painting",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ca44dc8f-8e53-4171-a677-388ddcc16963",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select Color",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
