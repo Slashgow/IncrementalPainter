@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class DestroyPaintingCommand : ICommand
@@ -7,6 +8,9 @@ public class DestroyPaintingCommand : ICommand
     private Vector3 worldPosition;
     private Quaternion worldRotation;
     private Vector3 worldScale;
+
+    public static event Action<LevelData> OnDestroyPainting;
+    public static event Action<LevelData> OnUndoDestroyPainting;
 
     public DestroyPaintingCommand(GameObject gameObject, LevelData levelData)
     {
@@ -18,7 +22,12 @@ public class DestroyPaintingCommand : ICommand
         worldScale = gameObject.transform.localScale;
     }
 
-    public void Execute() => GameObject.Destroy(gameObject);
+    public void Execute()
+    {
+        GameObject.Destroy(gameObject);
+        OnDestroyPainting?.Invoke(levelData);
+    }
+
     public void Undo()
     {
         GameObject levelGOInstance = GameObject.Instantiate(levelData.LevelPrefab, levelData.SpawnOffset, Quaternion.identity);
@@ -28,5 +37,7 @@ public class DestroyPaintingCommand : ICommand
         levelGOInstance.transform.localScale = worldScale;
         levelGOInstance.transform.position = worldPosition;
         levelGOInstance.transform.rotation = worldRotation;
+
+        OnUndoDestroyPainting?.Invoke(levelData);
     }
 }

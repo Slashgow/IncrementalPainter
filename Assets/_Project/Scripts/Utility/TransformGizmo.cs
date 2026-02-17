@@ -13,9 +13,9 @@ public class TransformGizmo : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     [Header("Gizmo Settings")]
     [SerializeField] private GizmoType gizmoType = GizmoType.ScaleCorner;
     [SerializeField] private SpriteRenderer gizmoRenderer;
-    [SerializeField] private Color normalColor = Color.white;
-    [SerializeField] private Color hoverColor = Color.yellow;
-    [SerializeField] private Color dragColor = Color.green;
+    [SerializeField] private ColorId normalColor; 
+    [SerializeField] private ColorId hoverColor;
+    [SerializeField] private ColorId dragColor;
 
     private Transform targetTransform;
     private TransformController controller;
@@ -36,7 +36,7 @@ public class TransformGizmo : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     {
         mainCamera = Camera.main;
 
-        gizmoRenderer.color = normalColor;
+        gizmoRenderer.color = ThemeColorManager.Instance.GetColor(normalColor);
     }
 
     public void Initialize(Transform target, TransformController transformController, GizmoType type)
@@ -59,7 +59,7 @@ public class TransformGizmo : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         if (targetTransform == null || controller == null) return;
 
         isDragging = true;
-        UpdateColor(dragColor);
+        UpdateColor(ThemeColorManager.Instance.GetColor(dragColor));
 
         if (gizmoType == GizmoType.ScaleCorner)
         {
@@ -100,7 +100,7 @@ public class TransformGizmo : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             return;
 
         isDragging = false;
-        UpdateColor(normalColor);
+        UpdateColor(ThemeColorManager.Instance.GetColor(normalColor));
 
         if (gizmoType == GizmoType.ScaleCorner)
             controller.OnEndScale(dragStartScale, targetTransform.localScale);
@@ -185,13 +185,13 @@ public class TransformGizmo : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (!isDragging)
-            UpdateColor(hoverColor);
+            UpdateColor(ThemeColorManager.Instance.GetColor(hoverColor));
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         if (!isDragging)
-            UpdateColor(normalColor);
+            UpdateColor(ThemeColorManager.Instance.GetColor(normalColor));
     }
 
     public void OnPointerClick(PointerEventData eventData)

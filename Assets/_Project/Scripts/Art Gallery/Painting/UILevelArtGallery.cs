@@ -10,6 +10,7 @@ public class UILevelArtGallery : MonoBehaviour, IUISelectable<LevelData>, IPoint
     public event Action<LevelData> OnSelectEvent;
 
     private LevelData levelData;
+    public LevelData LevelData => levelData;
     public void Initialize(LevelData levelData)
     {
         this.levelData = levelData;

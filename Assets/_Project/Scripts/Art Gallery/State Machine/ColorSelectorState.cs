@@ -10,6 +10,7 @@
     {
         base.EnterState();
         UIArtGalleryPanelManager.Instance.ShowColorPanel();
+        UIArtGalleryPanelManager.Instance.HideAllSideBar();
     }
 
     public override void UpdateState()

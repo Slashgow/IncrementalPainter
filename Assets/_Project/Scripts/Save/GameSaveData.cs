@@ -11,6 +11,7 @@ public class GameSaveData
     public ColorThemeSaveData colorThemes;
     public BrushSaveData brushSaveData;
     public TamponSaveData tamponSaveData;
+    public Dictionary<string, ArtGalleryPaintingSaveData> artGalleryLayout = new();
 
     public GameSaveData()
     {
@@ -19,6 +20,7 @@ public class GameSaveData
         colorThemes = new ColorThemeSaveData();
         brushSaveData = new BrushSaveData();
         tamponSaveData = new TamponSaveData();
+        artGalleryLayout = new Dictionary<string, ArtGalleryPaintingSaveData>();
         skillPoints = 0;
         currency = 0;
     }

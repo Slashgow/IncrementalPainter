@@ -37,7 +37,7 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
     private void SaveGameData()
     {
         string fullPath = SavePath.FullPathSaveFile;
-        string json = JsonConvert.SerializeObject(gameSaveData);
+        string json = JsonConvert.SerializeObject(gameSaveData, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore} );
         File.WriteAllText(fullPath, json);
     }
 
@@ -167,6 +167,21 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
         gameSaveData.tamponSaveData = data;
         SaveGameData();
         logger.Log("Tampon data saved", this);
+    }
+
+    public void SaveArtGalleryLayout(Dictionary<string, ArtGalleryPaintingSaveData> layout)
+    {
+        gameSaveData.artGalleryLayout = layout;
+        SaveGameData();
+        logger.Log($"Art gallery layout saved ({layout.Count} entries)", this);
+    }
+
+    public Dictionary<string, ArtGalleryPaintingSaveData> LoadArtGalleryLayout()
+    {
+        if (gameSaveData.artGalleryLayout == null)
+            gameSaveData.artGalleryLayout = new Dictionary<string, ArtGalleryPaintingSaveData>();
+
+        return gameSaveData.artGalleryLayout;
     }
 
     public void ClearAllSaves()

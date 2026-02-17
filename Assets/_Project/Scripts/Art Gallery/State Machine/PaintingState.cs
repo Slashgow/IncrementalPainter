@@ -10,6 +10,7 @@ public class PaintingState : ToolState
     {
         base.EnterState();
         UIArtGalleryPanelManager.Instance.ShowPaintingPanel();
+        UIArtGalleryPanelManager.Instance.HideAllSideBar();
         Draggable.EnableDrag();
     }
     public override void UpdateState()

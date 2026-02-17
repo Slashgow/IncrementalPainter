@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using inkolorgames;
+using SaveUtility;
 using UnityEngine;
 
 public class LevelManager : PersistentMonoSingleton<LevelManager>
@@ -16,6 +18,9 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
 
     private Level currentLevelInstance;
     public Level CurrentLevelInstance => currentLevelInstance;
+
+    private List<Level> artGalleryInstances = new List<Level>();
+    public IReadOnlyList<Level> ArtGalleryInstances => artGalleryInstances;
 
     private SimpleDamageable currentBossDamageableInstance;
     public SimpleDamageable CurrentBossDamageableInstance => currentBossDamageableInstance;
@@ -50,14 +55,19 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
         CurrentLevelIndex = currentUnlockableLevel != null ? Array.IndexOf(unlockableSortedLevels, currentUnlockableLevel) : -1;
     }
 
-    public void InstantiateLevelArtGallery()
+    public Level InstantiateLevelArtGallery()
     {
-        currentLevelInstance = null;
-        this.transform.DestroyAllChildrenWithComponent<Level>();
+        string levelID = SavePath.GetLevelID(CurrentLevelData.LevelAuthor, CurrentLevelData.LevelTitle);
+        if (artGalleryInstances.Exists(l => l != null && SavePath.GetLevelID(l.LevelData.LevelAuthor, l.LevelData.LevelTitle) == levelID))
+            return null;
 
         GameObject levelGOInstance = Instantiate(CurrentLevelData.LevelPrefab, CurrentLevelData.SpawnOffset, Quaternion.identity);
         currentLevelInstance = levelGOInstance.GetComponent<Level>();
         currentLevelInstance.Initialize(CurrentLevelData, true);
+
+        artGalleryInstances.Add(currentLevelInstance);
+
+        return currentLevelInstance;
     }
 
     public void SetCurrentLevel(int levelIndex)
@@ -161,11 +171,30 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
         return Mathf.Max(0, maxSkillPointReward - claimedSkillPoints);
     }
 
-    public LevelData GetLevelDAtaByAuthorAndTitle(string author, string title)
+    public LevelData GetLevelDataByAuthorAndTitle(string author, string title)
     {
         UnlockableLevel unlockableLevel = unlockableSortedLevels.FirstOrDefault(level => 
         level.LevelData.LevelAuthor == author && 
         level.LevelData.LevelTitle == title);
         return unlockableLevel != null ? unlockableLevel.LevelData : null;
     }
+
+
+    public void SaveArtGalleryLayout()
+    {
+        Dictionary<string, ArtGalleryPaintingSaveData> layout = new Dictionary<string, ArtGalleryPaintingSaveData>();
+
+        foreach (Level level in artGalleryInstances)
+        {
+            if (level == null) 
+                continue;
+
+            string levelID = SavePath.GetLevelID(level.LevelData.LevelAuthor, level.LevelData.LevelTitle);
+            layout[levelID] = level.GetArtGalleryTransformData();
+        }
+
+        GameSaveManager.Instance.SaveArtGalleryLayout(layout);
+    }
+
+    public void ClearArtGalleryInstances() => artGalleryInstances.Clear();
 }

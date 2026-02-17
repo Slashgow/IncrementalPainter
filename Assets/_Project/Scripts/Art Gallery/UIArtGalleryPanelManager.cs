@@ -49,6 +49,14 @@ public class UIArtGalleryPanelManager : MonoSingleton<UIArtGalleryPanelManager>
         }
     }
 
+    public void HideAllSideBar()
+    {
+        foreach (GameObject sb in allSideBars)
+        {
+            sb.SetActive(false);
+        }
+    }
+
     public void ShowSideBar(GameObject sideBar)
     {
         foreach (GameObject sb in allSideBars)

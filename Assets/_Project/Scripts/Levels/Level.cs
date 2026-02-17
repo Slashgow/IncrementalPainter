@@ -108,4 +108,15 @@ public class Level : MonoBehaviour, ISavable, ILoadable<LevelSaveData>
         GameSaveManager.Instance.SaveLevelData(IsDoneCondition, colorChangeCounter.Ratio,
         levelData.LevelAuthor, levelData.LevelTitle);
     }
+
+    public ArtGalleryPaintingSaveData GetArtGalleryTransformData()
+    {
+        return new ArtGalleryPaintingSaveData(this.transform, this.levelData.LevelAuthor, this.levelData.LevelTitle);
+    }
+
+    public void LoadArtGalleryPaintingSaveData(ArtGalleryPaintingSaveData transformData)
+    {
+        if (transformData != null)
+            transformData.ApplyTo(this.transform);
+    }
 }
