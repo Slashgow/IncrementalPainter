@@ -43,7 +43,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MoveCamera",
+                    "name": "Move Camera",
                     "type": "Value",
                     "id": "6f050d54-f299-410b-a030-d502d7cefa6b",
                     "expectedControlType": "Vector2",
@@ -221,51 +221,51 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveCamera",
+                    "action": "Move Camera",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "up",
                     "id": "dab5729b-fa83-4741-b0a9-b08d4103e285",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveCamera",
+                    "action": "Move Camera",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "down",
                     "id": "cd287f3b-84f6-4dd5-851b-88d2876dc47a",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveCamera",
+                    "action": "Move Camera",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
                     "id": "be736167-1158-4901-b535-c6bdd2755289",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveCamera",
+                    "action": "Move Camera",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
                     "id": "48452242-be81-4ab9-9f27-766ecb5760f2",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveCamera",
+                    "action": "Move Camera",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -404,7 +404,7 @@
                 {
                     "name": "Modifier",
                     "id": "a7340cab-0f2b-479e-a496-98f19e017a89",
-                    "path": "<Keyboard>/x",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -415,7 +415,7 @@
                 {
                     "name": "Button",
                     "id": "024c4304-b73e-4d3d-b930-1d35b697afc7",
-                    "path": "<Keyboard>/v",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -437,7 +437,7 @@
                 {
                     "name": "Modifier",
                     "id": "2d9259a2-469c-4d77-afe5-a44f86f345c5",
-                    "path": "<Keyboard>/c",
+                    "path": "<Keyboard>/alt",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -448,7 +448,7 @@
                 {
                     "name": "Button",
                     "id": "83543654-7833-453c-800c-a265a06c2546",
-                    "path": "<Keyboard>/b",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

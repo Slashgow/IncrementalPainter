@@ -323,6 +323,14 @@ MonoBehaviour:
     m_Localized: Painting
     m_Metadata:
       m_Items: []
+  - m_Id: 29372778820268032
+    m_Localized: Camera
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29373937924567040
+    m_Localized: Game
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

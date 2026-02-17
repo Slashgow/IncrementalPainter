@@ -319,6 +319,14 @@ MonoBehaviour:
     m_Key: PAINTING
     m_Metadata:
       m_Items: []
+  - m_Id: 29372778820268032
+    m_Key: CAMERA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29373937924567040
+    m_Key: Game
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
