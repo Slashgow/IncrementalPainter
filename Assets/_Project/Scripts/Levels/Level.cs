@@ -16,6 +16,7 @@ public class Level : MonoBehaviour, ISavable, ILoadable<LevelSaveData>
     [SerializeField] private CwPaintableSpriteTexture paintableSprite;
     [SerializeField] private Draggable draggable;
     [SerializeField] private BoxCollider2D draggableBoxCollider2D;
+    [SerializeField] private TransformController transformController;
 
     private LevelData levelData;
     private LevelSaveData saveData;
@@ -70,6 +71,7 @@ public class Level : MonoBehaviour, ISavable, ILoadable<LevelSaveData>
         {
             draggable.enabled = false;
             draggableBoxCollider2D.enabled = false;
+            transformController.enabled = false;
         }
     }
 
@@ -78,7 +80,7 @@ public class Level : MonoBehaviour, ISavable, ILoadable<LevelSaveData>
         if(isArtGallery)
             return;
 
-        Debug.Log($"Color change ratio: {colorChangeCounter.Ratio:P2}");
+        //Debug.Log($"Color change ratio: {colorChangeCounter.Ratio:P2}");
 
         if (!isMidConditionRaised && IsMidCondition)
         {

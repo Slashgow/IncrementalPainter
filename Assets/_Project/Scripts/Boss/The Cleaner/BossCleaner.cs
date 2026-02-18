@@ -131,7 +131,7 @@ public class BossCleaner : BossPhased
 
         if (waterInstance.TryGetComponent<WaterProjectile>(out var waterProjectile))
         {
-            waterProjectile.Initialize(pool, this, targetPosition);
+            waterProjectile.Initialize(pool, targetPosition, this);
             activeWaterProjectiles.Add(waterInstance);
         }
     }

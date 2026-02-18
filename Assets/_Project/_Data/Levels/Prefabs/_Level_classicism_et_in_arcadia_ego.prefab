@@ -363,7 +363,7 @@ MonoBehaviour:
   readAtStart: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 7729110937390697375}
-  cooldown: -4097.634
+  cooldown: -4098.063
   maskMesh: {fileID: 0}
   maskSubmesh: 0
   maskTexture: {fileID: 0}
@@ -514,6 +514,7 @@ MonoBehaviour:
   paintableSprite: {fileID: 7729110937390697375}
   draggable: {fileID: 5638968758485684152}
   draggableBoxCollider2D: {fileID: 1977903004180645578}
+  transformController: {fileID: 398913788558316177}
 --- !u!114 &1120519318142985437
 MonoBehaviour:
   m_ObjectHideFlags: 0

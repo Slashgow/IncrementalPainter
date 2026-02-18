@@ -56,6 +56,10 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
     [SerializeField, Range(0.1f, 3f)] private float sigmoidSteepness = 1.0f;
     [SerializeField, Range(0f,10f)] private float upgradeGlobalCoefficient= 0.5f;
 
+    [Header("Cleaner ennemies")]
+    [SerializeField] private CleanerEnemyData cleanerEnemyData;
+    [SerializeField] private PoolingSystem cleanerEnemyPoolingSystem;
+
     [Header("Runtime Settings")]
     [SerializeField] private bool autoStart = true;
     [SerializeField] private float zOffset = 0f;
@@ -148,6 +152,10 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
             SpawnPaintBlob(spawnPosition, paintType);
             OnSpawnPaint?.Invoke();
         }
+
+        Vector3 spawnPositionCleaner = SpriteUtility.GetRandomPositionInSprite(spriteRenderer.transform, spriteRenderer, true);
+        spawnPositionCleaner.z += zOffset;
+        TrySpawnEnemyCleaner(spawnPositionCleaner);
     }
 
     public GameObject SpawnPaintBlob(Vector3 position, PaintType paintType, int splitGeneration = 0, float? customScale = null)
@@ -227,6 +235,39 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
             {
                 SpawnObject(overrideCountPerSpawn);
                 OnAdditionalSpawn?.Invoke();
+            }
+        }
+    }
+
+    private void TrySpawnEnemyCleaner(Vector3 position)
+    {
+        //CleanerEnemyData cleanerEnemyData = ChooseCleanerEnemyData();
+
+        if (LevelManager.CurrentLevelIndex > cleanerEnemyData.MinLevelToSpawn)
+            return;
+
+        if (LuckUtility.RollLuck(cleanerEnemyData.ChanceToSpawn))
+        {
+            GameObject spawned = cleanerEnemyPoolingSystem.GetPrefabFromPool(position, spawnParent, true);
+
+            if (spawned.TryGetComponent<SimpleCostable>(out var costable))
+                costable.Initalize(cleanerEnemyData.Cost);
+
+            if (spawned.TryGetComponent<SimpleDamageable>(out var damageable))
+                damageable.Initialize(pool, cleanerEnemyData.MaxHealth);
+
+            if (spawned.TryGetComponent<SimpleShieldable>(out var shieldable))
+            {
+                if (LuckUtility.RollLuck(cleanerEnemyData.ChancePercentageToHaveShield))
+                    shieldable.Initialize(cleanerEnemyData.MaxShield, cleanerEnemyData.ShieldArmor,
+                        cleanerEnemyData.CanRegenerateShield, cleanerEnemyData.ShieldRegenerationRate, cleanerEnemyData.ShieldRegenerationDelay);
+                else
+                    shieldable.enabled = false;
+            }
+
+            if(spawned.TryGetComponent<WaterProjectile>(out var waterProjectile))
+            {
+                waterProjectile.Initialize(pool, position);
             }
         }
     }

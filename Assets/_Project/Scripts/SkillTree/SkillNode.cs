@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Coffee.UIEffects;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -32,6 +33,8 @@ public class SkillNode : MonoBehaviour, IColorChanger
     private bool isDiscovered;
     public bool IsDiscovered => isDiscovered;
 
+    private UIEffect uiEffect;
+
     public enum SkillState
     {
         Locked,
@@ -42,6 +45,7 @@ public class SkillNode : MonoBehaviour, IColorChanger
     private void Awake()
     {
         treeManager = GetComponentInParent<SkillTreeManager>();
+        uiEffect = button.GetComponent<UIEffect>();
     }
     private void Start()
     {
@@ -148,6 +152,8 @@ public class SkillNode : MonoBehaviour, IColorChanger
         switch (currentState)
         {
             case SkillState.Locked:
+                if(uiEffect != null)
+                    uiEffect.enabled = false;
                 if (backgroundImage) 
                     backgroundImage.sprite = treeManager.SkillTreeVisualData.BackgroundSpriteLocked;
                     backgroundImage.color = treeManager.SkillTreeVisualData.LockedColor;
@@ -156,6 +162,8 @@ public class SkillNode : MonoBehaviour, IColorChanger
                 break;
 
             case SkillState.Available:
+                if (uiEffect != null)
+                    uiEffect.enabled = true;
                 if (backgroundImage) 
                     backgroundImage.color = treeManager.SkillTreeVisualData.AvailableColor;
                 if (button) 
@@ -163,6 +171,8 @@ public class SkillNode : MonoBehaviour, IColorChanger
                 break;
 
             case SkillState.Unlocked:
+                if (uiEffect != null)
+                    uiEffect.enabled = false;
                 if (backgroundImage)
                     backgroundImage.sprite = treeManager.SkillTreeVisualData.BackgroundSpriteUnlocked;
                 backgroundImage.color = treeManager.SkillTreeVisualData.UnlockedColor;

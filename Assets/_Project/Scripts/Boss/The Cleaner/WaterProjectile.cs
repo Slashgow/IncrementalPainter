@@ -16,14 +16,17 @@ public class WaterProjectile : MonoBehaviour
     private PoolingSystem pool;
     private Timer flightErasureTimer;
 
-    public void Initialize(PoolingSystem pool, BossCleaner boss, Vector3 targetPosition)
+    public void Initialize(PoolingSystem pool, Vector3 targetPosition, BossCleaner boss = null)
     {
         this.pool = pool;
         this.boss = boss;
         this.targetPosition = targetPosition;
 
-        flightMover.OnReachTarget += OnReachTargetPosition;
-        flightMover.StartFlight(targetPosition);
+        if(flightMover != null)
+        {
+            flightMover.OnReachTarget += OnReachTargetPosition;
+            flightMover.StartFlight(targetPosition);
+        }
 
         if(eraseOnlyOnImpact)
             return;
@@ -33,7 +36,9 @@ public class WaterProjectile : MonoBehaviour
 
     private void OnDisable()
     {
-        flightMover.OnReachTarget -= OnReachTargetPosition;
+        if(flightMover != null)
+            flightMover.OnReachTarget -= OnReachTargetPosition;
+
         flightErasureTimer?.Cancel();
     }
 

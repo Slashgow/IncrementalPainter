@@ -49,11 +49,11 @@ MonoBehaviour:
     bRankDays: 12
     cRankDays: 18
   rankRewards:
-    sRankSkillPoints: 5
-    aRankSkillPoints: 3
-    bRankSkillPoints: 2
-    cRankSkillPoints: 1
-    dRankSkillPoints: 0
+    sRankSkillPoints: 0
+    aRankSkillPoints: 0
+    bRankSkillPoints: 0
+    cRankSkillPoints: 0
+    dRankSkillPoints: 1
     sRankCurrency: 100000
     aRankCurrency: 50000
     bRankCurrency: 30000

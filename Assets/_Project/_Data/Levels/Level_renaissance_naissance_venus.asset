@@ -21,19 +21,44 @@ MonoBehaviour:
   levelPrefab: {fileID: 8944416080909895153, guid: fabab887389b34c4e96d1d900d098822, type: 3}
   cameraPaintZoom: 9
   spawnOffset: {x: 0, y: 0, z: 0}
+  isBossLevel: 0
+  bossLevelPrefab: {fileID: 0}
+  bossName:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  bossDescription:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  bossUISprite: {fileID: 0}
+  bossAnouncementAudioClip: {fileID: 0}
   rankThresholds:
     sRankDays: 2
     aRankDays: 6
     bRankDays: 12
     cRankDays: 18
   rankRewards:
-    sRankSkillPoints: 5
-    aRankSkillPoints: 3
-    bRankSkillPoints: 2
-    cRankSkillPoints: 1
-    dRankSkillPoints: 0
+    sRankSkillPoints: 0
+    aRankSkillPoints: 0
+    bRankSkillPoints: 0
+    cRankSkillPoints: 0
+    dRankSkillPoints: 1
     sRankCurrency: 100000
     aRankCurrency: 50000
     bRankCurrency: 30000
     cRankCurrency: 10000
     dRankCurrency: 5000
+  references:
+    version: 2
+    RefIds: []

@@ -514,6 +514,7 @@ MonoBehaviour:
   paintableSprite: {fileID: 7729110937390697375}
   draggable: {fileID: 5657815421016555731}
   draggableBoxCollider2D: {fileID: 3562884662057284279}
+  transformController: {fileID: 8074174606465065039}
 --- !u!114 &1120519318142985437
 MonoBehaviour:
   m_ObjectHideFlags: 0
