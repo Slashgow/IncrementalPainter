@@ -6503,7 +6503,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &7678508477733156737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6550,6 +6550,7 @@ MonoBehaviour:
   vacuumer: {fileID: 0}
   poisonDamageor: {fileID: 0}
   turretDamageor: {fileID: 0}
+  turretManager: {fileID: 0}
   allSkillNodes:
   - {fileID: 296690059080495454}
   - {fileID: 1545419217589032824}
@@ -6624,7 +6625,7 @@ MonoBehaviour:
   - {fileID: 4255419226042586188}
   detailPrefab: {fileID: 7721927385872348188, guid: 1a0e3d5a70956364ea885d17d2143431, type: 3}
   detailCanvas: {fileID: 0}
-  detailOffset: {x: 0, y: -330}
+  detailOffset: {x: 0, y: 200}
   skillTreeVisualData:
     lockedColorID: 15
     lockedColorDarkerID: 16

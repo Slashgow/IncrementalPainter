@@ -79,10 +79,22 @@ public class SkillNode : MonoBehaviour, IColorChanger
 
         if (treeManager.DetailPrefab != null && treeManager.DetailCanvas != null)
         {
-            activeDetailInstance = Instantiate(treeManager.DetailPrefab, 
-                (Vector2)treeManager.GetScreenPosition(this.transform.position) + treeManager.DetailOffset, 
-                Quaternion.identity, 
-                treeManager.DetailCanvas);
+            //activeDetailInstance = Instantiate(treeManager.DetailPrefab, 
+            //    (Vector2)treeManager.GetScreenPosition(this.transform.position) + treeManager.DetailOffset, 
+            //    Quaternion.identity, 
+            //    treeManager.DetailCanvas);
+            //activeDetailInstance.Initialize(this);
+
+            activeDetailInstance = Instantiate(treeManager.DetailPrefab,Vector3.zero,Quaternion.identity,treeManager.DetailCanvas.transform);
+
+            Vector2 safePos = Helper.GetSafeUIPosition(
+                this.transform.position,
+                activeDetailInstance.GetComponent<RectTransform>(),
+                treeManager.DetailCanvas,
+                treeManager.DetailOffset,
+                avoidanceRadius: 40f);          // tune to roughly match the object's screen size
+
+            activeDetailInstance.GetComponent<RectTransform>().anchoredPosition = safePos;
             activeDetailInstance.Initialize(this);
         }
     }

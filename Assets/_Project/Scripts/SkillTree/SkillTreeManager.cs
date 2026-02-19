@@ -31,8 +31,8 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
     [Header("Detail UI")]
     [SerializeField] private SkillNodeDetail detailPrefab;
     public SkillNodeDetail DetailPrefab => detailPrefab;
-    [SerializeField] private Transform detailCanvas;
-    public Transform DetailCanvas => detailCanvas;
+    [SerializeField] private Canvas detailCanvas;
+    public Canvas DetailCanvas => detailCanvas;
 
     [SerializeField] private Vector2 detailOffset = new Vector2(0f, -10f);
     public Vector2 DetailOffset => detailOffset;
