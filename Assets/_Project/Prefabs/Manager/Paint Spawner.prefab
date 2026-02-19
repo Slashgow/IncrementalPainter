@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5769465102157207446}
   - component: {fileID: 5063413813275425916}
   - component: {fileID: 617886660079695949}
+  - component: {fileID: 8161843976420477228}
   m_Layer: 0
   m_Name: Paint Spawner
   m_TagString: Untagged
@@ -134,20 +135,33 @@ MonoBehaviour:
     levelThreshold: 0
   sigmoidSteepness: 0.4
   upgradeGlobalCoefficient: 0.1
-  cleanerEnemyData:
-    difficulty: 0
-    maxHealth: 100
-    cost: 100
-    scale: 0.6
-    chancePercentageToHaveShield: 35
-    maxShield: 70
+  cleanerEnemyDatas:
+  - difficulty: 0
+    maxHealth: 50
+    cost: 50
+    scale: 0.4
+    chancePercentageToHaveShield: 30
+    maxShield: 30
     shieldArmor: 0.5
     canRegenerateShield: 0
     shieldRegenerationRate: 0
     shieldRegenerationDelay: 0
     chanceToSpawn: 1
     minLevelToSpawn: 4
-  cleanerEnemyPoolingSystem: {fileID: 617886660079695949}
+    cleanerEnemyPool: {fileID: 617886660079695949}
+  - difficulty: 0
+    maxHealth: 50
+    cost: 50
+    scale: 0.8
+    chancePercentageToHaveShield: 30
+    maxShield: 30
+    shieldArmor: 0.5
+    canRegenerateShield: 0
+    shieldRegenerationRate: 0
+    shieldRegenerationDelay: 0
+    chanceToSpawn: 10
+    minLevelToSpawn: 8
+    cleanerEnemyPool: {fileID: 8161843976420477228}
   autoStart: 1
   zOffset: 0
   spawnParent: {fileID: 1039041530853263093}
@@ -246,6 +260,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 3907796742143444475, guid: c03e6ce4d19675b4a97f92b3018a5fbf, type: 3}
+  growPoolSize: 10
+--- !u!114 &8161843976420477228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2890733673538930724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6869d1947bdee49a545215e6121ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3907796742143444475, guid: c6d31620594e98e41abccbefb0212d69, type: 3}
   growPoolSize: 10
 --- !u!1 &5442154982494036360
 GameObject:

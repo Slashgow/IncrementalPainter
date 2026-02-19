@@ -29,8 +29,11 @@ public class Painter : MonoSingleton<Painter>
     }
 
     private void UpdateSplatterScale(float enemyScale) => paintDecal.Scale = SplatterScale * enemyScale;
-    private void HandleOnDie(Vector3 worldPos, Color color, float scale)
+    private void HandleOnDie(Vector3 worldPos, Color color, float scale, bool paint)
     {
+        if (!paint)
+            return;
+
         UpdateSplatterScale(scale);
         PaintAt(worldPos, color);
     }
@@ -43,9 +46,12 @@ public class Painter : MonoSingleton<Painter>
 
     private void UpdateSplatterScaleShield(float scale) => paintDecalShield.Scale = SplatterScale * scale;
 
-    private void HandleOnDieShield(Vector3 worldPos, Color color, float scale)
+    private void HandleOnDieShield(Vector3 worldPos, Color color, float scale, bool tryPaint)
     {
-        if(!LuckUtility.RollLuck(ChancePercentageOfPaintingOnShieldBreak))
+        if(!tryPaint)
+            return;
+
+        if (!LuckUtility.RollLuck(ChancePercentageOfPaintingOnShieldBreak))
             return;
 
         UpdateSplatterScaleShield(scale);

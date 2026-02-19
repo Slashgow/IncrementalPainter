@@ -1,4 +1,5 @@
 using System;
+using inkolorgames;
 using UnityEngine;
 
 [Serializable]
@@ -20,6 +21,7 @@ public class CleanerEnemyData
     [Header("Levels")]
     [SerializeField, Range(0f, 100f)] private float chanceToSpawn;
     [SerializeField, Range(0, 50)] private int minLevelToSpawn;
+    [SerializeField] private PoolingSystem cleanerEnemyPool;
 
     public float MaxHealth => maxHealth;
     public int Cost => cost;
@@ -32,4 +34,5 @@ public class CleanerEnemyData
     public float ShieldRegenerationDelay => shieldRegenerationDelay;
     public float ChanceToSpawn => chanceToSpawn;
     public int MinLevelToSpawn => minLevelToSpawn;
+    public PoolingSystem CleanerEnemyPool => cleanerEnemyPool;
 }

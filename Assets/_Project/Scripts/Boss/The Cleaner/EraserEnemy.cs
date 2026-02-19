@@ -1,13 +1,17 @@
-﻿using inkolorgames;
+﻿using System;
+using inkolorgames;
 using UnityEngine;
 using UnityTimer;
-public class WaterProjectile : MonoBehaviour
+
+
+public class EraserEnemy : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private CurvedFlightMover flightMover;
+    [SerializeField] private bool eraseOnImpact = true;
 
     [Header("Erasure Settings")]
-    [SerializeField] private bool eraseOnlyOnImpact = true;
+    [SerializeField] private bool eraseContinuously = false;
     [SerializeField, Range(0f, 0.5f)] private float timeBetweenErasure = 0.1f; 
     [SerializeField, Range(0f,20f)] private float ErasureScale = 2f;
 
@@ -15,26 +19,25 @@ public class WaterProjectile : MonoBehaviour
     private BossCleaner boss;
     private PoolingSystem pool;
     private Timer flightErasureTimer;
-
     public void Initialize(PoolingSystem pool, Vector3 targetPosition, BossCleaner boss = null)
     {
         this.pool = pool;
         this.boss = boss;
         this.targetPosition = targetPosition;
 
-        if(flightMover != null)
+        if(eraseOnImpact && flightMover != null)
         {
             flightMover.OnReachTarget += OnReachTargetPosition;
             flightMover.StartFlight(targetPosition);
         }
 
-        if(eraseOnlyOnImpact)
+        if(!eraseContinuously)
             return;
 
         flightErasureTimer = Timer.Register(timeBetweenErasure, onComplete: () => ErasePaintInArea(), isLooped: true, useRealTime: false);
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         if(flightMover != null)
             flightMover.OnReachTarget -= OnReachTargetPosition;
@@ -50,5 +53,5 @@ public class WaterProjectile : MonoBehaviour
         pool.AddToPool(gameObject);
     }
 
-    private void ErasePaintInArea() => Eraser.Instance.EraseAt(this.transform.position, ErasureScale);
+    protected void ErasePaintInArea() => Eraser.Instance.EraseAt(this.transform.position, ErasureScale);
 }

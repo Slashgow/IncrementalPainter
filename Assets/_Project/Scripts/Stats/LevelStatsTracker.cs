@@ -73,7 +73,7 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
         totalLevelStats = new LevelStats();
     }
 
-    private void RecordEnemyDestroyed(Vector3 worldPosition, Color color, float scale)
+    private void RecordEnemyDestroyed(Vector3 worldPosition, Color color, float scale, bool paint)
     {
         currentDayStats.PaintBlobsDestroyed++;
         OnDayStatsUpdated?.Invoke(currentDayStats);

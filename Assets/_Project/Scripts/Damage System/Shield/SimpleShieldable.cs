@@ -9,6 +9,8 @@ public class SimpleShieldable : MonoBehaviour, IShieldable
     [SerializeField] private SimpleColorable colorable;
     [SerializeField] private ShieldableVisual shieldableVisual;
 
+    [SerializeField] private bool tryPaintOnShieldBreak = true; 
+
     [Header("Shield Configuration")]
     [SerializeField, Range(0f,300f)] private float maxShield = 100f;
     [SerializeField, Range(0f, 1f)] private float shieldArmor = 0.5f; 
@@ -35,7 +37,7 @@ public class SimpleShieldable : MonoBehaviour, IShieldable
     public UnityEvent OnShieldBrokenUnityEvent;
     public UnityEvent<float> OnShieldRegeneratedUnityEvent;
 
-    public static event Action<Vector3, Color, float> OnAnyShieldBroken; // (position, Color, scale)
+    public static event Action<Vector3, Color, float, bool> OnAnyShieldBroken; // (position, Color, scale)
 
     private Timer regenDisableTimer;
 
@@ -128,7 +130,7 @@ public class SimpleShieldable : MonoBehaviour, IShieldable
         {
             OnShieldBroken?.Invoke();
             OnShieldBrokenUnityEvent?.Invoke();
-            OnAnyShieldBroken?.Invoke(transform.position, colorable.Color, this.transform.localScale.x);
+            OnAnyShieldBroken?.Invoke(transform.position, colorable.Color, this.transform.localScale.x, tryPaintOnShieldBreak);
 
             logger.Log($"Shield broken on {gameObject.name}! Overflow damage: {totalOverflowDamage}", this);
         }

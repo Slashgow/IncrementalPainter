@@ -57,8 +57,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
     [SerializeField, Range(0f,10f)] private float upgradeGlobalCoefficient= 0.5f;
 
     [Header("Cleaner ennemies")]
-    [SerializeField] private CleanerEnemyData cleanerEnemyData;
-    [SerializeField] private PoolingSystem cleanerEnemyPoolingSystem;
+    [SerializeField] private CleanerEnemyData[] cleanerEnemyDatas;
 
     [Header("Runtime Settings")]
     [SerializeField] private bool autoStart = true;
@@ -201,7 +200,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
         return spawned;
     }
 
-    private void SimpleDamageable_OnAnyDamageableDie(Vector3 arg1, Color arg2, float scale)
+    private void SimpleDamageable_OnAnyDamageableDie(Vector3 arg1, Color arg2, float scale, bool paint)
     {
         spawnedCount--;
 
@@ -241,20 +240,22 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
 
     private void TrySpawnEnemyCleaner(Vector3 position)
     {
-        //CleanerEnemyData cleanerEnemyData = ChooseCleanerEnemyData();
+        CleanerEnemyData cleanerEnemyData = cleanerEnemyDatas[UnityEngine.Random.Range(0, cleanerEnemyDatas.Length)];
 
-        if (LevelManager.CurrentLevelIndex > cleanerEnemyData.MinLevelToSpawn)
+        if (LevelManager.CurrentLevelIndex < cleanerEnemyData.MinLevelToSpawn)
             return;
 
         if (LuckUtility.RollLuck(cleanerEnemyData.ChanceToSpawn))
         {
-            GameObject spawned = cleanerEnemyPoolingSystem.GetPrefabFromPool(position, spawnParent, true);
+            GameObject spawned = cleanerEnemyData.CleanerEnemyPool.GetPrefabFromPool(position, spawnParent, true);
+
+            spawned.transform.localScale = Vector3.one * cleanerEnemyData.Scale;
 
             if (spawned.TryGetComponent<SimpleCostable>(out var costable))
                 costable.Initalize(cleanerEnemyData.Cost);
 
             if (spawned.TryGetComponent<SimpleDamageable>(out var damageable))
-                damageable.Initialize(pool, cleanerEnemyData.MaxHealth);
+                damageable.Initialize(cleanerEnemyData.CleanerEnemyPool, cleanerEnemyData.MaxHealth);
 
             if (spawned.TryGetComponent<SimpleShieldable>(out var shieldable))
             {
@@ -265,9 +266,9 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
                     shieldable.enabled = false;
             }
 
-            if(spawned.TryGetComponent<WaterProjectile>(out var waterProjectile))
+            if(spawned.TryGetComponent<EraserEnemy>(out var waterProjectile))
             {
-                waterProjectile.Initialize(pool, position);
+                waterProjectile.Initialize(cleanerEnemyData.CleanerEnemyPool, position);
             }
         }
     }

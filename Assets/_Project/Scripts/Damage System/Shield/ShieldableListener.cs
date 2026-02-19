@@ -7,5 +7,5 @@ public class ShieldableListener : MonoBehaviour
     private void OnEnable() => SimpleShieldable.OnAnyShieldBroken += HandleAnyShieldBroken;
     private void OnDisable() => SimpleShieldable.OnAnyShieldBroken -= HandleAnyShieldBroken;
 
-    private void HandleAnyShieldBroken(Vector3 worldPosition, Color color, float scale) => onAnyShieldBroken?.Invoke(worldPosition, color);
+    private void HandleAnyShieldBroken(Vector3 worldPosition, Color color, float scale, bool tryPaint) => onAnyShieldBroken?.Invoke(worldPosition, color);
 }

@@ -7,6 +7,7 @@ public class SimpleDamageable : MonoBehaviour, IDamageable, IHealable
 {
     [Header("Color")]
     [SerializeField] private SimpleColorable colorable;
+    [SerializeField] private bool paintColorOnDie = true;
 
     [Header("Health")]
 
@@ -24,7 +25,7 @@ public class SimpleDamageable : MonoBehaviour, IDamageable, IHealable
     public event Action<float> OnTakeDamage;
     public UnityEvent OnDieUnityEvent;
     public event Action<Vector3, Color> OnDie;
-    public static event Action<Vector3, Color, float> OnAnyDamageableDie;
+    public static event Action<Vector3, Color, float, bool> OnAnyDamageableDie;
 
     public UnityEvent<float> OnHealUnityEvent;
     public event Action<float, float> OnHeal;
@@ -73,7 +74,7 @@ public class SimpleDamageable : MonoBehaviour, IDamageable, IHealable
 
         OnDie?.Invoke(transform.position, colorable.Color);
         OnDieUnityEvent?.Invoke();
-        OnAnyDamageableDie?.Invoke(transform.position, colorable.Color, this.transform.localScale.x);
+        OnAnyDamageableDie?.Invoke(transform.position, colorable.Color, this.transform.localScale.x, paintColorOnDie);
 
         if (destroyOnDeath)
             Destroy(gameObject);

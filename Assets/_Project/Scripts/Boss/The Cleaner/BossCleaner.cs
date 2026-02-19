@@ -129,7 +129,7 @@ public class BossCleaner : BossPhased
     {
         GameObject waterInstance = pool.GetPrefabFromPool(guntipTransform.position,null, true);
 
-        if (waterInstance.TryGetComponent<WaterProjectile>(out var waterProjectile))
+        if (waterInstance.TryGetComponent<EraserEnemy>(out var waterProjectile))
         {
             waterProjectile.Initialize(pool, targetPosition, this);
             activeWaterProjectiles.Add(waterInstance);

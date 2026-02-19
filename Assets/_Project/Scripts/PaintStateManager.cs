@@ -56,7 +56,7 @@ public class PaintStateManager : MonoSingleton<PaintStateManager>
         GameManager.Instance.SwitchState(GameManager.GameState.DAY_SUMMARY);
     }
 
-    private void SimpleDamageable_OnAnyDamageableDie(Vector3 worldPosition, Color color, float scale) => TryIncreasingTimer();
+    private void SimpleDamageable_OnAnyDamageableDie(Vector3 worldPosition, Color color, float scale, bool paint) => TryIncreasingTimer();
     private void TryIncreasingTimer()
     {
         if (countDownPaintState == null)
