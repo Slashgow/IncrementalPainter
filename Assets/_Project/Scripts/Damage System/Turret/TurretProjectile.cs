@@ -56,7 +56,7 @@ public class TurretProjectile : MonoBehaviour
             transform.position += travelDirection * speed * Time.deltaTime;
 
             if (Vector3.Distance(transform.position, spawnPosition) >= damageor.AttackRange)
-                pool.AddToPool(gameObject);
+                OnReachedTarget(transform.position);
 
             return;
         }

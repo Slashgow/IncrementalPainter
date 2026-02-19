@@ -3,7 +3,10 @@ using UnityTimer;
 
 public class Turret : MonoBehaviour
 {
+    [SerializeField] private Animator turretAnimator;
     [SerializeField] private Transform projectileSpawnPoint;
+
+    private readonly int ATTACK_HASH = Animator.StringToHash("attack");
 
     private TurretDamageor damageor;
     private Timer attackTimer;
@@ -23,7 +26,13 @@ public class Turret : MonoBehaviour
     private void StartAttackTimer()
     {
         attackTimer = Timer.Register(damageor.AttackInterval,
-        onComplete: () => damageor.TryAttack(this.transform.position, projectileSpawnPoint.position), isLooped: true, useRealTime: false);
+        onComplete: () => TryAttack(), isLooped: true, useRealTime: false);
+    }
+
+    private void TryAttack()
+    {
+        turretAnimator.SetTrigger(ATTACK_HASH);
+        damageor.TryAttack(this.transform.position, projectileSpawnPoint.position);
     }
 
     private void OnDestroy() => attackTimer?.Cancel();
