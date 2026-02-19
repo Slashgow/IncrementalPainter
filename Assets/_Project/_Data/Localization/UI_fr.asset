@@ -331,6 +331,10 @@ MonoBehaviour:
     m_Localized: Jeu
     m_Metadata:
       m_Items: []
+  - m_Id: 30156650042486784
+    m_Localized: "D\xE9g\xE2t de la tourelle"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

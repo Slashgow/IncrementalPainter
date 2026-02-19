@@ -31,6 +31,7 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
         BrushSwipe.OnAnyBrushSwipeAttack += RecordBrushSwipeDamage;
         PoisonZone.OnAnyPoisonAttack += RecordPoisonDamage;
         NukeDamageor.OnNukeDamage += RecordNukeDamage;
+        TurretDamageor.OnTurretDamage += RecordTurretDamage;
         ItemSpawner.OnSpawnMagnetItem += RecordMagnetItemSpawn;
         ItemSpawner.OnSpawnNukeItem += RecordNukeItemSpawn;
     }
@@ -47,6 +48,7 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
         GameManager.OnStartGameState -= HandleGameStateChange;
         CurrencyManager.OnCurrencyGained -= RecordCurrencyGained;
         NukeDamageor.OnNukeDamage -= RecordNukeDamage;
+        TurretDamageor.OnTurretDamage -= RecordTurretDamage;
         ItemSpawner.OnSpawnMagnetItem -= RecordMagnetItemSpawn;
         ItemSpawner.OnSpawnNukeItem -= RecordNukeItemSpawn;
     }
@@ -118,6 +120,14 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
         currentDayStats.PaintBlobsDestroyedByNuke++;
         OnDayStatsUpdated?.Invoke(currentDayStats);
     }
+
+    private void RecordTurretDamage(float damage)
+    {
+        currentDayStats.TurretDamage += damage;
+        currentDayStats.TotalDamageDealt += damage;
+        OnDayStatsUpdated?.Invoke(currentDayStats);
+    }
+
     private void RecordNukeItemSpawn()
     {
         currentDayStats.NukeItemSpawned++;

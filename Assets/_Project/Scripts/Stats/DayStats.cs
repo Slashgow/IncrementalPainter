@@ -16,6 +16,7 @@ public class DayStats
     public int MagnetItemSpawned;
     public int NukeItemSpawned;
     public int PaintBlobsDestroyedByNuke;
+    public float TurretDamage;
 
     public DayStats()
     {
@@ -32,5 +33,6 @@ public class DayStats
         MagnetItemSpawned = 0;
         NukeItemSpawned = 0;
         PaintBlobsDestroyedByNuke = 0;
+        TurretDamage = 0f;
     }
 }

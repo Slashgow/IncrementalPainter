@@ -327,6 +327,10 @@ MonoBehaviour:
     m_Key: Game
     m_Metadata:
       m_Items: []
+  - m_Id: 30156650042486784
+    m_Key: TURRET_DAMAGE
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

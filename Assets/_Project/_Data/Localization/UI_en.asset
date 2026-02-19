@@ -331,6 +331,10 @@ MonoBehaviour:
     m_Localized: Game
     m_Metadata:
       m_Items: []
+  - m_Id: 30156650042486784
+    m_Localized: Turret Damage
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

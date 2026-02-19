@@ -8,6 +8,7 @@ public class UIDayStatsSummary : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bombDamageValueText;
     [SerializeField] private TextMeshProUGUI brushSwipeDamageValueText;
     [SerializeField] private TextMeshProUGUI poisonDamageValueText;
+    [SerializeField] private TextMeshProUGUI turretDamageValueText;
     [SerializeField] private TextMeshProUGUI timeAddedValueText;
     [SerializeField] private TextMeshProUGUI additionalPaintBlobsSpawnedValueText;
     [SerializeField] private TextMeshProUGUI magnetItemSpawnedValueText;
@@ -37,6 +38,7 @@ public class UIDayStatsSummary : MonoBehaviour
         bombDamageValueText.text = FormatUtility.FormatValue(stats.BombDamage);
         brushSwipeDamageValueText.text = FormatUtility.FormatValue(stats.BrushSwipeDamage);
         poisonDamageValueText.text = FormatUtility.FormatValue(stats.PoisonDamage);
+        turretDamageValueText.text = FormatUtility.FormatValue(stats.TurretDamage);
         timeAddedValueText.text = FormatUtility.FormatTime(stats.TimeAdded);
         additionalPaintBlobsSpawnedValueText.text = FormatUtility.FormatValue(stats.AdditionalPaintBlobsSpawned);
         magnetItemSpawnedValueText.text = FormatUtility.FormatValue(stats.MagnetItemSpawned);
