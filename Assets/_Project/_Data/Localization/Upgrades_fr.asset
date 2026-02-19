@@ -264,6 +264,62 @@ MonoBehaviour:
     m_Localized: "Chance de peindre le bouclier sur la toile lorsqu'il est bris\xE9"
     m_Metadata:
       m_Items: []
+  - m_Id: 30474171933126656
+    m_Localized: "Port\xE9e d'attaque de la tourelle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30474301054775296
+    m_Localized: Vitesse d'attaque de la tourelle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30474408122773504
+    m_Localized: "Chance de faire un d\xE9g\xE2t critique avec la tourelle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30474626490822656
+    m_Localized: "Multiplicateur de d\xE9g\xE2t lors d'un coup critique de la tourelle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30474775791267840
+    m_Localized: "D\xE9g\xE2ts de la tourelle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30474950047821824
+    m_Localized: "Rayon de d\xE9g\xE2t des projectiles de la tourelle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475120923766784
+    m_Localized: Nombre de tourelles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475197914411008
+    m_Localized: Nombre de projectiles par attaque de la tourelle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475398326644736
+    m_Localized: "D\xE9g\xE2ts suppl\xE9mentaires inflig\xE9s uniquement lors d'attaques
+      contre des boucliers par la tourelle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475587489755136
+    m_Localized: "Pourcentage de chance d'ignorer compl\xE8tement le bouclier par
+      la tourelle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475775121944576
+    m_Localized: "Multiplicateur des d\xE9g\xE2ts de d\xE9bordement de la tourelle
+      lorsque le bouclier se brise"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475956450095104
+    m_Localized: "Pourcentage de p\xE9n\xE9tration du bouclier par la tourelle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30476129368666112
+    m_Localized: "R\xE9duit l'armure du bouclier de l'ennemi \xE0 chaque coup port\xE9
+      par la tourelle"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

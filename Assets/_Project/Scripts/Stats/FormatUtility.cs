@@ -23,6 +23,8 @@ public static class FormatUtility
                 return new StringBuilder($"{(value > 0  ? "unlocked" : "locked")}").ToString();
             case UnitValue.PERCENTAGE_0_1:
                 return new StringBuilder($"{Mathf.Round(value * 100)} %").ToString();
+            case UnitValue.ATTACK_PER_SECOND:
+                return new StringBuilder($"{value} Atk/s").ToString();
             default:
                 return FormatValue(value);
         }

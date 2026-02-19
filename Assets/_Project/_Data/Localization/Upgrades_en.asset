@@ -257,6 +257,58 @@ MonoBehaviour:
     m_Localized: Chance of painting the shield on the canvas when broken
     m_Metadata:
       m_Items: []
+  - m_Id: 30474171933126656
+    m_Localized: Turret attack range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30474301054775296
+    m_Localized: Turret attack speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30474408122773504
+    m_Localized: Turret critical chance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30474626490822656
+    m_Localized: Turret critical hit multiplier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30474775791267840
+    m_Localized: Turret damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30474950047821824
+    m_Localized: Damage radius of the turret projectile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475120923766784
+    m_Localized: Number of turrets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475197914411008
+    m_Localized: 'Turret number of projectiles per attack '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475398326644736
+    m_Localized: Turret extra damage added when attacking shields only
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475587489755136
+    m_Localized: Turret chance percentage of completely ignoring shield
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475775121944576
+    m_Localized: Turret overflow damage multiplier when shield breaks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475956450095104
+    m_Localized: Turret percentage of shield penetration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30476129368666112
+    m_Localized: Reduce enemy shield armor with each hit from turret
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

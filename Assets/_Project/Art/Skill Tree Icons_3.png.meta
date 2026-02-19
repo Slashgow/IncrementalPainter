@@ -1,0 +1,625 @@
+fileFormatVersion: 2
+guid: 30e0dffcbea90c84eb08486b76837533
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3310961167853269318
+    second: Skill Tree Icons_3_0
+  - first:
+      213: -3142644214789846289
+    second: Skill Tree Icons_3_1
+  - first:
+      213: 560400955435465875
+    second: Skill Tree Icons_3_2
+  - first:
+      213: 5737850566208916269
+    second: Skill Tree Icons_3_3
+  - first:
+      213: 4669124513655991722
+    second: Skill Tree Icons_3_4
+  - first:
+      213: -3186189952974463248
+    second: Skill Tree Icons_3_5
+  - first:
+      213: -4659162235633872630
+    second: Skill Tree Icons_3_6
+  - first:
+      213: -6617896885222719737
+    second: Skill Tree Icons_3_7
+  - first:
+      213: -7689049842160395505
+    second: Skill Tree Icons_3_8
+  - first:
+      213: -6050270705857797265
+    second: Skill Tree Icons_3_9
+  - first:
+      213: -7384579235782650940
+    second: Skill Tree Icons_3_10
+  - first:
+      213: -6450003186692023621
+    second: Skill Tree Icons_3_11
+  - first:
+      213: 4630259796862884899
+    second: Skill Tree Icons_3_12
+  - first:
+      213: -1814309567065319702
+    second: Skill Tree Icons_3_13
+  - first:
+      213: -3341949283339760584
+    second: Skill Tree Icons_3_14
+  - first:
+      213: -7211435275273158430
+    second: Skill Tree Icons_3_15
+  - first:
+      213: -2298795122920418562
+    second: Skill Tree Icons_3_16
+  - first:
+      213: 2389131570519921281
+    second: Skill Tree Icons_3_17
+  - first:
+      213: 6267221243872370598
+    second: Skill Tree Icons_3_18
+  - first:
+      213: -3878054691698574161
+    second: Skill Tree Icons_3_19
+  - first:
+      213: 8596657609614374952
+    second: Skill Tree Icons_3_20
+  - first:
+      213: -6908629730532490888
+    second: Skill Tree Icons_3_21
+  - first:
+      213: -7211460165505929401
+    second: Skill Tree Icons_3_22
+  - first:
+      213: 8332320906732243329
+    second: Skill Tree Icons_3_23
+  - first:
+      213: 6345498056139012348
+    second: Skill Tree Icons_3_24
+  - first:
+      213: -7657973840228373049
+    second: Skill Tree Icons_3_25
+  - first:
+      213: -5823594971398695380
+    second: Skill Tree Icons_3_26
+  - first:
+      213: 6569538289522917223
+    second: Skill Tree Icons_3_27
+  - first:
+      213: -836602355832778160
+    second: Skill Tree Icons_3_28
+  - first:
+      213: -3789854453190012549
+    second: Skill Tree Icons_3_29
+  - first:
+      213: -7321185019873568210
+    second: Skill Tree Icons_3_30
+  - first:
+      213: 4494491589787563541
+    second: Skill Tree Icons_3_31
+  - first:
+      213: -838107168376325435
+    second: Skill Tree Icons_3_32
+  - first:
+      213: -3336103107979526114
+    second: Skill Tree Icons_3_33
+  - first:
+      213: 7375468959320476359
+    second: Skill Tree Icons_3_34
+  - first:
+      213: -3630186555242052553
+    second: Skill Tree Icons_3_35
+  - first:
+      213: -2423763752744402833
+    second: Skill Tree Icons_3_36
+  - first:
+      213: 3418130886993654459
+    second: Skill Tree Icons_3_37
+  - first:
+      213: -3607981526686807646
+    second: Skill Tree Icons_3_38
+  - first:
+      213: -6428005051714399320
+    second: Skill Tree Icons_3_39
+  - first:
+      213: -8698455791059949071
+    second: Skill Tree Icons_3_40
+  - first:
+      213: -3607573777827288509
+    second: Skill Tree Icons_3_41
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: turret_count
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 641b103d3a5e2fd20800000000000000
+      internalID: 3310961167853269318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_damage
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feac302bcb51364d0800000000000000
+      internalID: -3142644214789846289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_critical multiplier
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39c358823b1f6c700800000000000000
+      internalID: 560400955435465875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_crit_luck
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2b082580b0f0af40800000000000000
+      internalID: 5737850566208916269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_damage_radius
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aada880d1001cc040800000000000000
+      internalID: 4669124513655991722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_number_projectile
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fed9027e1168c3d0800000000000000
+      internalID: -3186189952974463248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_attack_range
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a01d02ac1a4575fb0800000000000000
+      internalID: -4659162235633872630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_attack_speed
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70fb22498d18824a0800000000000000
+      internalID: -6617896885222719737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_shield_penetration
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0b91c928e10b4590800000000000000
+      internalID: -7689049842160395505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_shield_shredder
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f63e46649de190ca0800000000000000
+      internalID: -6050270705857797265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_overload_damage
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c3137b6f44b48990800000000000000
+      internalID: -7384579235782650940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_damag
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bba9519764cfc76a0800000000000000
+      internalID: -6450003186692023621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_shield_bypass_luck
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32cd8c9c0ccf14040800000000000000
+      internalID: 4630259796862884899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_rebind
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae69a76bf0742d6e0800000000000000
+      internalID: -1814309567065319702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83c892d45d20f91d0800000000000000
+      internalID: -3341949283339760584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: douille
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e04f9033d5dbeb90800000000000000
+      internalID: -7211435275273158430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 811ccab1c9088d44f8943b8f1840de9b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      bullet: -3341949283339760584
+      douille: -7211435275273158430
+      icon_rebind: -1814309567065319702
+      turret.Initialize(turretDamageor);: -3142644214789846289
+      turret_attack_range: -4659162235633872630
+      turret_attack_speed: -6617896885222719737
+      turret_count: 3310961167853269318
+      turret_crit_luck: 5737850566208916269
+      turret_critical multiplier: 560400955435465875
+      turret_damag: -6450003186692023621
+      turret_damage: -3142644214789846289
+      turret_damage_radius: 4669124513655991722
+      turret_number_projectile: -3186189952974463248
+      turret_overload_damage: -7384579235782650940
+      turret_shield_bypass_luck: 4630259796862884899
+      turret_shield_penetration: -7689049842160395505
+      turret_shield_shredder: -6050270705857797265
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

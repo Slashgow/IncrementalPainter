@@ -22,6 +22,8 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
     [SerializeField] private Splitter splitter;
     [SerializeField] private Vacuumer vacuumer;
     [SerializeField] private PoisonDamageor poisonDamageor;
+    [SerializeField] private TurretDamageor turretDamageor;
+    [SerializeField] private TurretManager turretManager;
 
     [Header("Skill Nodes")]
     public List<SkillNode> allSkillNodes;
@@ -124,6 +126,19 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[poisonDamageor.DotDurationSkillDataPerLevel.SkillID] = poisonDamageor.DotDurationSkillDataPerLevel;
         leveledSkills[poisonDamageor.DotTickIntervalSkillDataPerLevel.SkillID] = poisonDamageor.DotTickIntervalSkillDataPerLevel;
         leveledSkills[paintSpawner.ChanceOfSpawningPoisonPerLevel.SkillID] = paintSpawner.ChanceOfSpawningPoisonPerLevel;
+        leveledSkills[turretDamageor.DamageSkillDataPerLevel.SkillID] = turretDamageor.DamageSkillDataPerLevel;
+        leveledSkills[turretDamageor.CriticalDamageMultiplierSkillDataPerLevel.SkillID] = turretDamageor.CriticalDamageMultiplierSkillDataPerLevel;
+        leveledSkills[turretDamageor.CriticalHitLuckSkillDataPerLevel.SkillID] = turretDamageor.CriticalHitLuckSkillDataPerLevel;
+        leveledSkills[turretDamageor.DamageRadiusSkillDataPerLevel.SkillID] = turretDamageor.DamageRadiusSkillDataPerLevel;
+        leveledSkills[turretDamageor.ShieldPenetrationSkillDataPerLevel.SkillID] = turretDamageor.ShieldPenetrationSkillDataPerLevel;
+        leveledSkills[turretDamageor.ShieldBreakBonusSkillDataPerLevel.SkillID] = turretDamageor.ShieldBreakBonusSkillDataPerLevel;
+        leveledSkills[turretDamageor.ShieldShredderSkillDataPerLevel.SkillID] = turretDamageor.ShieldShredderSkillDataPerLevel;
+        leveledSkills[turretDamageor.OverloadDamageMultiplierSkillDataPerLevel.SkillID] = turretDamageor.OverloadDamageMultiplierSkillDataPerLevel;
+        leveledSkills[turretDamageor.ShieldBypassLuckSkillDataPerLevel.SkillID] = turretDamageor.ShieldBypassLuckSkillDataPerLevel;
+        leveledSkills[turretDamageor.AttackSpeedSkillDataPerLevel.SkillID] = turretDamageor.AttackSpeedSkillDataPerLevel;
+        leveledSkills[turretDamageor.AttackRangeSkillDataPerLevel.SkillID] = turretDamageor.AttackRangeSkillDataPerLevel;
+        leveledSkills[turretDamageor.ProjectilesPerAttackSkillDataPerLevel.SkillID] = turretDamageor.ProjectilesPerAttackSkillDataPerLevel;
+        leveledSkills[turretManager.TurretCountPerLevel.SkillID] = turretManager.TurretCountPerLevel;
 
         autoClickerDamageor.DamageSkillDataPerLevel.Initialize();
         autoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
@@ -183,6 +198,19 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         paintSpawner.NumberOfBlobsToSpawnOnBurstPerLevel.Initialize();
         paintSpawner.NumberOfBlobsToTryBurstingPerLevel.Initialize();
         paintSpawner.TimeIntervalCheckBurstingPerLevel.Initialize();
+        turretDamageor.DamageSkillDataPerLevel.Initialize();
+        turretDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
+        turretDamageor.CriticalHitLuckSkillDataPerLevel.Initialize();
+        turretDamageor.DamageRadiusSkillDataPerLevel.Initialize();
+        turretDamageor.ShieldPenetrationSkillDataPerLevel.Initialize();
+        turretDamageor.ShieldBreakBonusSkillDataPerLevel.Initialize();
+        turretDamageor.ShieldShredderSkillDataPerLevel.Initialize();
+        turretDamageor.OverloadDamageMultiplierSkillDataPerLevel.Initialize();
+        turretDamageor.ShieldBypassLuckSkillDataPerLevel.Initialize();
+        turretDamageor.AttackSpeedSkillDataPerLevel.Initialize();
+        turretDamageor.AttackRangeSkillDataPerLevel.Initialize();
+        turretDamageor.ProjectilesPerAttackSkillDataPerLevel.Initialize();
+        turretManager.TurretCountPerLevel.Initialize();
     }
 
     void Start()

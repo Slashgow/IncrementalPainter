@@ -1219,9 +1219,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3549089720627338140}
     - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
+      propertyPath: turretManager
+      value: 
+      objectReference: {fileID: 6076513789624267211}
+    - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
       propertyPath: poisonDamageor
       value: 
       objectReference: {fileID: 1125193053}
+    - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
+      propertyPath: turretDamageor
+      value: 
+      objectReference: {fileID: 6051342440726856771}
     - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
       propertyPath: currencyManager
       value: 
@@ -3745,6 +3753,35 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8a32c7c04eb1f249ac236735eff4ba9, type: 3}
+--- !u!4 &1860545339242338242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6076513789624267210}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.43, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2724075560843843054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6076513789624267210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6869d1947bdee49a545215e6121ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8507041354019080554, guid: 1a13681cd44b28e4ab5447950192511e, type: 3}
+  growPoolSize: 10
 --- !u!81 &2783194224663331385
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4096,6 +4133,18 @@ PrefabInstance:
     - target: {fileID: 49307734463992339, guid: 4069eaf74b7af7c4696bb831f59bfaef, type: 3}
       propertyPath: m_fontSize
       value: 34.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 376861275849178357, guid: 4069eaf74b7af7c4696bb831f59bfaef, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 376861275849178357, guid: 4069eaf74b7af7c4696bb831f59bfaef, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 376861275849178357, guid: 4069eaf74b7af7c4696bb831f59bfaef, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 454449680198723856, guid: 4069eaf74b7af7c4696bb831f59bfaef, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8143,6 +8192,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7c5abdb0e20274597d5baf8ee9e7e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6051342440726856771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6076513789624267210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5307fb28920fba46bc3d592cfb4b3b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: feb4b17af7caac446bcab4a194eeef0d, type: 2}
+  criticalDamageMultiplierSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: e557070c046a3c443beed2b2911ff6a5, type: 2}
+  criticalHitLuckSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 90773177e3510234fbf8b1e7209c6d25, type: 2}
+  damageRadiusSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 2e64388814837a647a666e836564d690, type: 2}
+  useShieldBreakingUpgrades: 1
+  shieldPenetrationSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 3f7996ec7b2b29e449bfcf3c486bfb82, type: 2}
+  shieldBreakBonusSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: aa131ce314494604e8300076d468c1f4, type: 2}
+  shieldShredderSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: a5b1356b0f0e62d4f9fb54eebebbcd63, type: 2}
+  overloadDamageMultiplierSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: a22ce4bdfd4d8b743b56caa11f2dfb05, type: 2}
+  shieldBypassLuckSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 3e074ebce0e794a48aa0af8cd65a43cb, type: 2}
+  damageableLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  OnAttackOnce:
+    m_PersistentCalls:
+      m_Calls: []
+  attackRangeSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 6468841e45aa7154787fc7fe85660252, type: 2}
+  attackSpeedSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 6f2f57ed07adcfc419e898240ba0809c, type: 2}
+  projectilesPerAttackSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: e5ff74529f645164daa374c38490ba02, type: 2}
+  projectilePrefabPool: {fileID: 2724075560843843054}
+--- !u!1 &6076513789624267210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1860545339242338242}
+  - component: {fileID: 6076513789624267211}
+  - component: {fileID: 6051342440726856771}
+  - component: {fileID: 2724075560843843054}
+  m_Layer: 6
+  m_Name: Turret Damageor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &6076513789624267211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6076513789624267210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d961d8e76371a4696d6fa443b8833e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretDamageor: {fileID: 6051342440726856771}
+  turretCountPerLevel:
+    skillData: {fileID: 11400000, guid: 1871b305a388c8444b2e4e710c455011, type: 2}
+  turretPrefab: {fileID: 7586863199394471713, guid: d002fcc4ade3cef4e80b9dd6d7c7a645, type: 3}
 --- !u!1001 &6178410207763694249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8540,4 +8668,5 @@ SceneRoots:
   - {fileID: 1988011186}
   - {fileID: 1563423799}
   - {fileID: 836908327}
+  - {fileID: 1860545339242338242}
   - {fileID: 595230175}

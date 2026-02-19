@@ -7,5 +7,6 @@ public enum UnitValue
     METER,
     MULTIPLIER,
     BOOLEAN,
-    PERCENTAGE_0_1
+    PERCENTAGE_0_1,
+    ATTACK_PER_SECOND,
 }

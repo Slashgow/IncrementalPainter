@@ -251,6 +251,58 @@ MonoBehaviour:
     m_Key: SHIELD_CHANCE_PAINT
     m_Metadata:
       m_Items: []
+  - m_Id: 30474171933126656
+    m_Key: TURRET_KILL_ATTACK_RANGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30474301054775296
+    m_Key: TURRET_KILL_ATTACK_SPEED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30474408122773504
+    m_Key: TURRET_KILL_CRITICAL_DAMAGE_CHANCE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30474626490822656
+    m_Key: TURRET_KILL_CRITICAL_DAMAGE_MULTIPLIER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30474775791267840
+    m_Key: "TURRET_KILL_DAMAGE\t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30474950047821824
+    m_Key: "TURRET_KILL_DAMAGE\t_RADIUS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475120923766784
+    m_Key: TURRET_KILL_NUMBER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475197914411008
+    m_Key: TURRET_KILL_PROJECTILE_PER_ATTACK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475398326644736
+    m_Key: TURRET_KILL_SHIELD_BREAK_BONUS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475587489755136
+    m_Key: TURRET_KILL_SHIELD_BYPASS_LUCK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475775121944576
+    m_Key: TURRET_KILL_SHIELD_OVERLOAD_DAMAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30475956450095104
+    m_Key: TURRET_KILL_SHIELD_PENETRATION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30476129368666112
+    m_Key: TURRET_KILL_SHIELD_SHREDDER
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
