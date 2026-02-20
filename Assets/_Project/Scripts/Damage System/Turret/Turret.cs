@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityTimer;
@@ -12,6 +13,7 @@ public class Turret : MonoBehaviour
 
     private TurretDamageor damageor;
     private Timer attackTimer;
+    public float AttackRange => damageor.AttackRange;
 
     public void Initialize(TurretDamageor turretDamageor)
     {
@@ -49,5 +51,17 @@ public class Turret : MonoBehaviour
     {
         attackTimer?.Cancel();
         this.damageor.OnFireOnce -= LaunchAttackAnim;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if(damageor == null)
+            return;
+
+        if (damageor.AttackRangeSkillDataPerLevel == null)
+            return;
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, AttackRange);
     }
 }

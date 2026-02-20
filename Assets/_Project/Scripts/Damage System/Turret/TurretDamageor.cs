@@ -68,12 +68,5 @@ public class TurretDamageor : BaseDamageor
         return targets;
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        if (attackRangeSkillDataPerLevel == null)
-            return;
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, AttackRange);
-    }
+   
 }
