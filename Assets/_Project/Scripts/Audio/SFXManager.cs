@@ -30,4 +30,18 @@ public class SFXManager : BaseSFXManager
         AudioClip randomClip = audioClips[randomIndex];
         PlayAudioClipWithPitch(randomClip, pitch);
     }
+
+    public override void PlayAudioClipWithPitch(AudioClip clip, float pitch)
+    {
+        AudioSource source = audioSources[currentAudioSourceIndex];
+        source.volume = 1f;
+        base.PlayAudioClipWithPitch(clip, pitch);
+    }
+
+    public void PlayAudioClipWithPitch(AudioClip clip, float pitch, float volume)
+    {
+        AudioSource source = audioSources[currentAudioSourceIndex];
+        source.volume = volume;
+        base.PlayAudioClipWithPitch(clip, pitch);
+    }
 }

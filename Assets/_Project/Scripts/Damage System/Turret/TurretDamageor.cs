@@ -24,14 +24,18 @@ public class TurretDamageor : BaseDamageor
     public float AttackInterval => AttackSpeed > 0f ? 1f / AttackSpeed : float.MaxValue;
 
     public static event Action<float> OnTurretDamage;
-
+    public event Action OnFireOnce;
     public override void NotityDamage(float damage) => OnTurretDamage?.Invoke(damage);
 
     public void TryAttack(Vector3 position, Vector3 projectileSpawnPoint)
     {
         List<IDamageable> targets = GetTargetsInRange(position);
         if (targets.Count > 0)
+        {
+            OnFireOnce?.Invoke();
             FireAtTargets(targets, projectileSpawnPoint);
+        }
+            
     }
 
     private void FireAtTargets(List<IDamageable> targets, Vector3 projectileSpawnPoint)

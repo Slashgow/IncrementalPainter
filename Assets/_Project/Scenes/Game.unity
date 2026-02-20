@@ -677,6 +677,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d02e6f9eb8d1cc54d8ee682af1642223, type: 3}
   minPitch: 0.8
   maxPitch: 1.2
+  volume: 1
 --- !u!1 &765440602
 GameObject:
   m_ObjectHideFlags: 0
@@ -3022,6 +3023,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2460663688d6f4b46bc601ad1d0d1dbf, type: 3}
   minPitch: 0.7
   maxPitch: 1.5
+  volume: 1
 --- !u!114 &1562959406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4127,7 +4129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 49307734463992339, guid: 4069eaf74b7af7c4696bb831f59bfaef, type: 3}
       propertyPath: m_fontSize
-      value: 34.55
+      value: 50.4
       objectReference: {fileID: 0}
     - target: {fileID: 376861275849178357, guid: 4069eaf74b7af7c4696bb831f59bfaef, type: 3}
       propertyPath: m_AnchorMax.x
@@ -8292,7 +8294,19 @@ MonoBehaviour:
     m_Bits: 4294967295
   OnAttackOnce:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6076513789624267212}
+        m_TargetAssemblyTypeName: SFXPitchEffect, Assembly-CSharp
+        m_MethodName: DoEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   attackRangeSkillDataPerLevel:
     skillData: {fileID: 11400000, guid: 6468841e45aa7154787fc7fe85660252, type: 2}
   attackSpeedSkillDataPerLevel:
@@ -8312,6 +8326,7 @@ GameObject:
   - component: {fileID: 6076513789624267211}
   - component: {fileID: 6051342440726856771}
   - component: {fileID: 2724075560843843054}
+  - component: {fileID: 6076513789624267212}
   m_Layer: 6
   m_Name: Turret Damageor
   m_TagString: Untagged
@@ -8335,6 +8350,24 @@ MonoBehaviour:
   turretCountPerLevel:
     skillData: {fileID: 11400000, guid: 1871b305a388c8444b2e4e710c455011, type: 2}
   turretPrefab: {fileID: 7586863199394471713, guid: d002fcc4ade3cef4e80b9dd6d7c7a645, type: 3}
+--- !u!114 &6076513789624267212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6076513789624267210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d14a9ba050ce76418688450300a3710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  audioClips:
+  - {fileID: 8300000, guid: afba144d6b5f6884992467a3534c455f, type: 3}
+  minPitch: 0.9
+  maxPitch: 1.3
+  volume: 0.15
 --- !u!1001 &6178410207763694249
 PrefabInstance:
   m_ObjectHideFlags: 0

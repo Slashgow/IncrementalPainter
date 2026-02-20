@@ -6,6 +6,7 @@ public class UIThemeColorManager : MonoBehaviour
 {
     [SerializeField] private TMP_Dropdown themeDropdown;
 
+    private List<string> unlockedThemesID = new List<string>();
     private void Start()
     {
         ThemeColorManager.Instance.UnlockManager.OnItemUnlocked += OnThemeUnlocked;
@@ -23,11 +24,13 @@ public class UIThemeColorManager : MonoBehaviour
     public void PopulateDropdown()
     {
         themeDropdown.ClearOptions();
+        unlockedThemesID.Clear();
         var themeOptions = new List<string>();
         var unlockedThemes = ThemeColorManager.Instance.GetUnlockedThemes();
         foreach (var theme in unlockedThemes)
         {
             themeOptions.Add(theme.Item.ThemeName);
+            unlockedThemesID.Add(theme.Item.ThemeId);
         }
         themeDropdown.AddOptions(themeOptions);
     }
@@ -40,6 +43,13 @@ public class UIThemeColorManager : MonoBehaviour
 
     public void SetTheme(int index)
     {
-        ThemeColorManager.Instance.SetThemeByIndex(index);
+        if(index < 0 || index >= unlockedThemesID.Count)
+        {
+            Debug.LogError($"Invalid theme index: {index}");
+            return;
+        }
+
+        string id = unlockedThemesID[index];
+        ThemeColorManager.Instance.SetThemeById(id);
     }
 }

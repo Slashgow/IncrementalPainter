@@ -587,6 +587,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: muzzle_flash
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e867e9afaced1d545873c521ab544f41
+      internalID: 1700421519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -604,6 +626,7 @@ TextureImporter:
       bullet: -3341949283339760584
       douille: -7211435275273158430
       icon_rebind: -1814309567065319702
+      muzzle_flash: 1700421519
       turret.Initialize(turretDamageor);: -3142644214789846289
       turret_attack_range: -4659162235633872630
       turret_attack_speed: -6617896885222719737

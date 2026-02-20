@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityTimer;
 
 public class Turret : MonoBehaviour
 {
     [SerializeField] private Animator turretAnimator;
     [SerializeField] private Transform projectileSpawnPoint;
+    [SerializeField] private UnityEvent onFireOnce;
 
     private readonly int ATTACK_HASH = Animator.StringToHash("attack");
 
@@ -14,7 +16,16 @@ public class Turret : MonoBehaviour
     public void Initialize(TurretDamageor turretDamageor)
     {
         this.damageor = turretDamageor;
+
+        this.damageor.OnFireOnce += LaunchAttackAnim;
+
         StartAttackTimer();
+    }
+
+    private void LaunchAttackAnim()
+    {
+        onFireOnce?.Invoke();
+        turretAnimator.SetTrigger(ATTACK_HASH);
     }
 
     public void RefreshAttackTimer()
@@ -31,9 +42,12 @@ public class Turret : MonoBehaviour
 
     private void TryAttack()
     {
-        turretAnimator.SetTrigger(ATTACK_HASH);
         damageor.TryAttack(this.transform.position, projectileSpawnPoint.position);
     }
 
-    private void OnDestroy() => attackTimer?.Cancel();
+    private void OnDestroy()
+    {
+        attackTimer?.Cancel();
+        this.damageor.OnFireOnce -= LaunchAttackAnim;
+    }
 }
