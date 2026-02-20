@@ -25,6 +25,8 @@ public static class FormatUtility
                 return new StringBuilder($"{Mathf.Round(value * 100)} %").ToString();
             case UnitValue.ATTACK_PER_SECOND:
                 return new StringBuilder($"{value} Atk/s").ToString();
+            case UnitValue.BLOB_PER_SECOND:
+                return new StringBuilder($"{value} Blob/s").ToString();
             default:
                 return FormatValue(value);
         }

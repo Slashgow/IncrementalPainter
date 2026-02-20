@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33731296d6af78e4d974e1768760d497, type: 3}
+  m_Name: Turret_spawner_boost_rt_multiplier
+  m_EditorClassIdentifier: 
+  skillID: Turret_spawner_boost_rt_multiplier
+  skillName: Turret_spawner_boost_rt_multiplier
+  description:
+    m_TableReference:
+      m_TableCollectionName: GUID:c2cb2738a056b164bb9bace0f5b339ba
+    m_TableEntryReference:
+      m_KeyId: 30802992976752640
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  icon: {fileID: -1594900998, guid: 30e0dffcbea90c84eb08486b76837533, type: 3}
+  costFunction:
+    a: 100
+    b: 10
+  startingLevel: 0
+  maxLevel: 5
+  levelRequirements:
+  - level: 1
+    skillPointCost: 0
+    requiredSkills:
+    - skillData: {fileID: 11400000, guid: 0ed893b331e01ea499007b1f9403b89c, type: 2}
+      requiredLevel: 1
+  unitValue: 5
+  effectValue:
+    a: -0.1
+    b: 1
+  references:
+    version: 2
+    RefIds: []

@@ -9,4 +9,5 @@ public enum UnitValue
     BOOLEAN,
     PERCENTAGE_0_1,
     ATTACK_PER_SECOND,
+    BLOB_PER_SECOND
 }

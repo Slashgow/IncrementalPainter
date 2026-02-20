@@ -303,6 +303,34 @@ MonoBehaviour:
     m_Key: TURRET_KILL_SHIELD_SHREDDER
     m_Metadata:
       m_Items: []
+  - m_Id: 30802121891115008
+    m_Key: TURRET_SPAWNER_PROJECTILE_PER_ATTACK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30802289071878144
+    m_Key: TURRET_SPAWNER_RELOAD_TIME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30802429878857728
+    m_Key: TURRET_SPAWNER_MAGAZINE_CAPACITY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30802589308547072
+    m_Key: TURRET_SPAWNER_BOOST_LUCK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30802717696192512
+    m_Key: TURRET_SPAWNER_BOOST_AS_MULTIPLIER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30802992976752640
+    m_Key: TURRET_SPAWNER_BOOST_RELOAD_TIME_MULTIPLIER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30805861322846208
+    m_Key: TURRET_SPAWNER_NUMBER
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

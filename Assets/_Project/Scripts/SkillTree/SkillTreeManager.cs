@@ -23,7 +23,8 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
     [SerializeField] private Vacuumer vacuumer;
     [SerializeField] private PoisonDamageor poisonDamageor;
     [SerializeField] private TurretDamageor turretDamageor;
-    [SerializeField] private TurretManager turretManager;
+    [SerializeField] private TurretKillManager turretManager;
+    [SerializeField] private TurretSpawner turretSpawner;
 
     [Header("Skill Nodes")]
     public List<SkillNode> allSkillNodes;
@@ -139,6 +140,14 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[turretDamageor.AttackRangeSkillDataPerLevel.SkillID] = turretDamageor.AttackRangeSkillDataPerLevel;
         leveledSkills[turretDamageor.ProjectilesPerAttackSkillDataPerLevel.SkillID] = turretDamageor.ProjectilesPerAttackSkillDataPerLevel;
         leveledSkills[turretManager.TurretCountPerLevel.SkillID] = turretManager.TurretCountPerLevel;
+        leveledSkills[turretSpawner.TurretCountSkillDataPerLevel.SkillID] = turretSpawner.TurretCountSkillDataPerLevel;
+        leveledSkills[turretSpawner.BoostChanceSkillDataPerLevel.SkillID] = turretSpawner.BoostChanceSkillDataPerLevel;
+        leveledSkills[turretSpawner.BoostAttackSpeedMultiplierPerLevel.SkillID] = turretSpawner.BoostAttackSpeedMultiplierPerLevel;
+        leveledSkills[turretSpawner.BoostReloadTimeMultiplierPerLevel.SkillID] = turretSpawner.BoostReloadTimeMultiplierPerLevel;
+        leveledSkills[turretSpawner.AttackSpeedSkillDataPerLevel.SkillID] = turretSpawner.AttackSpeedSkillDataPerLevel;
+        leveledSkills[turretSpawner.PaintBlobsPerFireSkillDataPerLevel.SkillID] = turretSpawner.PaintBlobsPerFireSkillDataPerLevel;
+        leveledSkills[turretSpawner.ReloadTimeSkillDataPerLevel.SkillID] = turretSpawner.ReloadTimeSkillDataPerLevel;
+        leveledSkills[turretSpawner.MagazineCapacitySkillDataPerLevel.SkillID] = turretSpawner.MagazineCapacitySkillDataPerLevel;
 
         autoClickerDamageor.DamageSkillDataPerLevel.Initialize();
         autoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
@@ -211,6 +220,14 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         turretDamageor.AttackRangeSkillDataPerLevel.Initialize();
         turretDamageor.ProjectilesPerAttackSkillDataPerLevel.Initialize();
         turretManager.TurretCountPerLevel.Initialize();
+        turretSpawner.TurretCountSkillDataPerLevel.Initialize();
+        turretSpawner.BoostChanceSkillDataPerLevel.Initialize();
+        turretSpawner.BoostAttackSpeedMultiplierPerLevel.Initialize();
+        turretSpawner.BoostReloadTimeMultiplierPerLevel.Initialize();
+        turretSpawner.AttackSpeedSkillDataPerLevel.Initialize();
+        turretSpawner.PaintBlobsPerFireSkillDataPerLevel.Initialize();
+        turretSpawner.ReloadTimeSkillDataPerLevel.Initialize();
+        turretSpawner.MagazineCapacitySkillDataPerLevel.Initialize();
     }
 
     void Start()

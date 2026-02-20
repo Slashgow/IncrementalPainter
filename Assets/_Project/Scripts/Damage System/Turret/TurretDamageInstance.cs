@@ -1,9 +1,8 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityTimer;
 
-public class Turret : MonoBehaviour
+public class TurretDamageInstance : MonoBehaviour
 {
     [SerializeField] private Animator turretAnimator;
     [SerializeField] private Transform projectileSpawnPoint;

@@ -282,7 +282,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 30475120923766784
-    m_Localized: Number of turrets
+    m_Localized: Number of "attack" turrets
     m_Metadata:
       m_Items: []
   - m_Id: 30475197914411008
@@ -307,6 +307,34 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 30476129368666112
     m_Localized: Reduce enemy shield armor with each hit from turret
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30802121891115008
+    m_Localized: 'Turret number of paint blobs per attack '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30802289071878144
+    m_Localized: Turret reload time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30802429878857728
+    m_Localized: Turret magazine capacity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30802589308547072
+    m_Localized: Chance of boosting the turret
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30802717696192512
+    m_Localized: Turret attack speed multiplier when boosted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30802992976752640
+    m_Localized: Turret reload time multiplier when boosted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30805861322846208
+    m_Localized: Number of "paint blob spawner" turret
     m_Metadata:
       m_Items: []
   references:

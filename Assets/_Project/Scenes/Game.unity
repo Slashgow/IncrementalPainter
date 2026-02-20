@@ -1224,6 +1224,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6076513789624267211}
     - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
+      propertyPath: turretSpawner
+      value: 
+      objectReference: {fileID: 1414661754}
+    - target: {fileID: 937689603728065141, guid: f04866580fb1d3d49bad5e4a7badd159, type: 3}
       propertyPath: poisonDamageor
       value: 
       objectReference: {fileID: 1125193053}
@@ -2658,6 +2662,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2571dbc546015b044a69db77891ab266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1414661753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1414661756}
+  - component: {fileID: 1414661755}
+  - component: {fileID: 1414661754}
+  m_Layer: 0
+  m_Name: Turret Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1414661754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414661753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86fa899f17398842989dce464f190b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeedSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 7d5702d5f04f65e4aa30e6f03531f1d1, type: 2}
+  paintBlobsPerFireSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 99ad0265a53ccad4492559dc31db9d09, type: 2}
+  reloadTimeSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: d011c14ddf8e3c44cab44df619b5a898, type: 2}
+  magazineCapacitySkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 34a8ac2626fc71b4f9917ddcee41d65b, type: 2}
+  turretCountSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 174bee4b49a8d2b43b70ee3cbb0b2361, type: 2}
+  boostChanceSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 0ed893b331e01ea499007b1f9403b89c, type: 2}
+  boostAttackSpeedMultiplierPerLevel:
+    skillData: {fileID: 11400000, guid: f62fdcb15f677b24ea7a25c7618a31b9, type: 2}
+  boostReloadTimeMultiplierPerLevel:
+    skillData: {fileID: 11400000, guid: 6d419cc52617cf54eb97475618655c05, type: 2}
+--- !u!114 &1414661755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414661753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009d7a104cce66a4da4c11854cfee4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretSpawner: {fileID: 1414661754}
+  turretSpawnerPrefab: {fileID: 7612643307465403556, guid: e8b06a6b2a56cef4c8b47bd3b7d1dfde, type: 3}
+--- !u!4 &1414661756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414661753}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1434425231
 GameObject:
   m_ObjectHideFlags: 0
@@ -8343,7 +8422,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6076513789624267210}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30d961d8e76371a4696d6fa443b8833e, type: 3}
+  m_Script: {fileID: 11500000, guid: 426cf4aabc56c714f85d3b5b97ac00ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   turretDamageor: {fileID: 6051342440726856771}
@@ -8766,4 +8845,5 @@ SceneRoots:
   - {fileID: 1563423799}
   - {fileID: 836908327}
   - {fileID: 1860545339242338242}
+  - {fileID: 1414661756}
   - {fileID: 595230175}

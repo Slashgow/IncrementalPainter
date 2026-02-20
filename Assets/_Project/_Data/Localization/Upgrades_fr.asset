@@ -289,7 +289,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 30475120923766784
-    m_Localized: Nombre de tourelles
+    m_Localized: "Nombre de tourelles \xAB d'attaque \xBB"
     m_Metadata:
       m_Items: []
   - m_Id: 30475197914411008
@@ -318,6 +318,35 @@ MonoBehaviour:
   - m_Id: 30476129368666112
     m_Localized: "R\xE9duit l'armure du bouclier de l'ennemi \xE0 chaque coup port\xE9
       par la tourelle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30802121891115008
+    m_Localized: Nombre de gouttes de peinture par attaque de la tourelle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30802289071878144
+    m_Localized: Temps de rechargement de la tourelle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30802429878857728
+    m_Localized: "Capacit\xE9 du chargeur de la tourelle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30802589308547072
+    m_Localized: Chance de booster la tourelle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30802717696192512
+    m_Localized: "Multiplicateur de vitesse d'attaque quand la tourelle est boost\xE9e."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30802992976752640
+    m_Localized: "Multiplicateur du temps de rechargement quand la tourelle est boost\xE9e"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30805861322846208
+    m_Localized: "Nombre de tourelles \xAB g\xE9n\xE9rateurs de gouttes de peinture
+      \xBB"
     m_Metadata:
       m_Items: []
   references:

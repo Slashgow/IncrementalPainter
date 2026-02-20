@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TurretVisual : MonoBehaviour
 {
-    [SerializeField] private Turret turret;
+    [SerializeField] private TurretDamageInstance turret;
     [SerializeField] private ParticleSystem ringParticleSystem;
 
     private void OnEnable() => GameManager.OnStartGameState += GameManager_OnStartGameState;

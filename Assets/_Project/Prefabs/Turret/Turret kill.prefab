@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 3933695111856836516}
   - component: {fileID: 5427263469833548018}
   m_Layer: 6
-  m_Name: Turret
+  m_Name: Turret kill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1257553306693347670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94597571b5c6c2f498cabf6340d6a5e7, type: 3}
+  m_Script: {fileID: 11500000, guid: a6ef2f6e69fb05d41a9f4dbb4c4f99d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   turretAnimator: {fileID: 3933695111856836516}

@@ -157,6 +157,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
         TrySpawnEnemyCleaner(spawnPositionCleaner);
     }
 
+    public Vector3 GetSpawnPosition() => SpriteUtility.GetRandomPositionInSprite(spriteRenderer.transform, spriteRenderer, true);
     public GameObject SpawnPaintBlob(Vector3 position, PaintType paintType, int splitGeneration = 0, float? customScale = null)
     {
         EnemyData enemyData = ChooseEnemyData(SkillTreeManager.TotalUpgradesBought, LevelManager.CurrentLevelIndex);
@@ -273,7 +274,7 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
         }
     }
 
-    private PaintType GetWeightedPaintType()
+    public PaintType GetWeightedPaintType()
     {
         float totalSpecialWeight = ChanceOfSpawningBombPaint + ChanceOfSpawningFreezePaint + ChanceOfSpawningBrushSwipePaint + 
             ChanceOfSpawningSplitPaint + ChanceOfSpawningPoison;

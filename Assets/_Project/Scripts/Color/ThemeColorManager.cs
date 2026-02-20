@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using inkolorgames;
 using UnityEngine;
 
@@ -174,7 +175,13 @@ public class ThemeColorManager : PersistentMonoSingleton<ThemeColorManager>
         }
     }
     public ColorTheme GetThemeById(string themeId) => availableThemes.Find(t => t.ThemeId == themeId);
-    public int GetThemeIndex(ColorTheme theme) => availableThemes.IndexOf(theme);
+    public int GetThemeIndex(ColorTheme theme)
+    {
+        var unlockedThemes = GetUnlockedThemes();
+        Unlockable<ColorTheme> colorTheme = unlockedThemes.FirstOrDefault(item => item.Item == theme);
+        return unlockedThemes.IndexOf(colorTheme);
+    }
+
     public int GetCurrentThemeIndex() => GetThemeIndex(currentTheme);
     public List<ColorTheme> GetAvailableThemes() => new List<ColorTheme>(availableThemes);
     public void OverrideColor(ColorId id, Color color) => OnColorChanged?.Invoke(id, color);

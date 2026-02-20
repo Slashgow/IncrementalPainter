@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 8852713612483524975}
   - component: {fileID: 3603678385722602507}
   - component: {fileID: 6386123658915825104}
+  - component: {fileID: 6544290243054213634}
   m_Layer: 0
   m_Name: Blob Paint
   m_TagString: Untagged
@@ -144,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorable: {fileID: 5512736815637105741}
+  paintColorOnDie: 1
   destroyOnDeath: 0
   returnToPoolOnDeath: 1
   OnTakeDamageUnityEvent:
@@ -204,6 +206,7 @@ MonoBehaviour:
   logger: {fileID: 9026611392134758459}
   colorable: {fileID: 5512736815637105741}
   shieldableVisual: {fileID: 4116394243729175311}
+  tryPaintOnShieldBreak: 1
   maxShield: 100
   shieldArmor: 0.5
   canRegenerate: 1
@@ -454,6 +457,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
+--- !u!114 &6544290243054213634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798080866972570822}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413d1f314de9bd34faf78012f3f601f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomMovement: {fileID: 5813030077171290011}
+  launchSpeed: 10
+  arrivalThreshold: 0.1
 --- !u!1 &3073227398867624966
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,16 +2,16 @@ using System.Collections.Generic;
 using inkolorgames;
 using UnityEngine;
 
-public class TurretManager : MonoSingleton<TurretManager>
+public class TurretKillManager : MonoSingleton<TurretKillManager>
 {
     [SerializeField] private TurretDamageor turretDamageor;
     [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> turretCountPerLevel;
-    [SerializeField] private Turret turretPrefab;
+    [SerializeField] private TurretDamageInstance turretPrefab;
  
     public SkillDataPerLevelOfType<FunctionAffine> TurretCountPerLevel => turretCountPerLevel;
     public int CurrentTurretCount => Mathf.RoundToInt(turretCountPerLevel.GetCurrentLevelData());
 
-    private List<Turret> activeTurrets = new List<Turret>();
+    private List<TurretDamageInstance> activeTurrets = new List<TurretDamageInstance>();
 
     private SpriteRenderer frameRenderer;
     void Start()
@@ -66,9 +66,9 @@ public class TurretManager : MonoSingleton<TurretManager>
             spawnPos.z = 0f;
 
             GameObject turretObj = Instantiate(turretPrefab.gameObject, spawnPos, Quaternion.identity, this.transform);
-            turretObj.name = $"Magneter_{i + 1}";
+            turretObj.name = $"Turret_Kill_{i + 1}";
 
-            Turret turret = turretObj.GetComponent<Turret>();
+            TurretDamageInstance turret = turretObj.GetComponent<TurretDamageInstance>();
             turret.Initialize(turretDamageor);
             activeTurrets.Add(turret);
         }
@@ -83,7 +83,7 @@ public class TurretManager : MonoSingleton<TurretManager>
 
             GameObject turretObj = Instantiate(turretPrefab.gameObject, spawnPos, Quaternion.identity, this.transform);
 
-            Turret turret = turretObj.GetComponent<Turret>();
+            TurretDamageInstance turret = turretObj.GetComponent<TurretDamageInstance>();
             turret.Initialize(turretDamageor);
             activeTurrets.Add(turret);
         }
