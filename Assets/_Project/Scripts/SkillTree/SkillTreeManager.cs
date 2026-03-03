@@ -25,6 +25,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
     [SerializeField] private TurretDamageor turretDamageor;
     [SerializeField] private TurretKillManager turretManager;
     [SerializeField] private TurretSpawner turretSpawner;
+    [SerializeField] private MineDamageor mineDamageor;
 
     [Header("Skill Nodes")]
     public List<SkillNode> allSkillNodes;
@@ -148,6 +149,15 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[turretSpawner.PaintBlobsPerFireSkillDataPerLevel.SkillID] = turretSpawner.PaintBlobsPerFireSkillDataPerLevel;
         leveledSkills[turretSpawner.ReloadTimeSkillDataPerLevel.SkillID] = turretSpawner.ReloadTimeSkillDataPerLevel;
         leveledSkills[turretSpawner.MagazineCapacitySkillDataPerLevel.SkillID] = turretSpawner.MagazineCapacitySkillDataPerLevel;
+        leveledSkills[mineDamageor.SpawnChanceSkillDataPerLevel.SkillID] = mineDamageor.SpawnChanceSkillDataPerLevel;
+        leveledSkills[mineDamageor.DamageSkillDataPerLevel.SkillID] = mineDamageor.DamageSkillDataPerLevel;
+        leveledSkills[mineDamageor.CriticalDamageMultiplierSkillDataPerLevel.SkillID] = mineDamageor.CriticalDamageMultiplierSkillDataPerLevel;
+        leveledSkills[mineDamageor.CriticalHitLuckSkillDataPerLevel.SkillID] = mineDamageor.CriticalHitLuckSkillDataPerLevel;
+        leveledSkills[mineDamageor.DamageRadiusSkillDataPerLevel.SkillID] = mineDamageor.DamageRadiusSkillDataPerLevel;
+        leveledSkills[autoClicker.ChanceOfBoostingRadiusPerLevel.SkillID] = autoClicker.ChanceOfBoostingRadiusPerLevel;
+        leveledSkills[autoClicker.RadiusSizeMultiplierPerLevel.SkillID] = autoClicker.RadiusSizeMultiplierPerLevel;
+        leveledSkills[autoClicker.BoostRadiusDurationPerLevel.SkillID] = autoClicker.BoostRadiusDurationPerLevel;
+        leveledSkills[autoClicker.TimeBetweenTryBoostRadiusPerLevel.SkillID] = autoClicker.TimeBetweenTryBoostRadiusPerLevel;
 
         autoClickerDamageor.DamageSkillDataPerLevel.Initialize();
         autoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
@@ -228,6 +238,15 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         turretSpawner.PaintBlobsPerFireSkillDataPerLevel.Initialize();
         turretSpawner.ReloadTimeSkillDataPerLevel.Initialize();
         turretSpawner.MagazineCapacitySkillDataPerLevel.Initialize();
+        mineDamageor.SpawnChanceSkillDataPerLevel.Initialize();
+        mineDamageor.DamageSkillDataPerLevel.Initialize();
+        mineDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
+        mineDamageor.CriticalHitLuckSkillDataPerLevel.Initialize();
+        mineDamageor.DamageRadiusSkillDataPerLevel.Initialize();
+        autoClicker.ChanceOfBoostingRadiusPerLevel.Initialize();
+        autoClicker.RadiusSizeMultiplierPerLevel.Initialize();
+        autoClicker.BoostRadiusDurationPerLevel.Initialize();
+        autoClicker.TimeBetweenTryBoostRadiusPerLevel.Initialize();
     }
 
     void Start()

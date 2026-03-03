@@ -159,7 +159,7 @@ MonoBehaviour:
     canRegenerateShield: 0
     shieldRegenerationRate: 0
     shieldRegenerationDelay: 0
-    chanceToSpawn: 10
+    chanceToSpawn: 4
     minLevelToSpawn: 8
     cleanerEnemyPool: {fileID: 8161843976420477228}
   autoStart: 1

@@ -335,6 +335,14 @@ MonoBehaviour:
     m_Localized: "D\xE9g\xE2t de la tourelle"
     m_Metadata:
       m_Items: []
+  - m_Id: 31798600000729088
+    m_Localized: 'Objectif : '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34395055618125824
+    m_Localized: "D\xE9g\xE2ts des mines"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

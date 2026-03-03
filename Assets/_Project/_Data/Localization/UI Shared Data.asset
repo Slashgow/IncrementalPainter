@@ -331,6 +331,14 @@ MonoBehaviour:
     m_Key: TURRET_DAMAGE
     m_Metadata:
       m_Items: []
+  - m_Id: 31798600000729088
+    m_Key: TARGET
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34395055618125824
+    m_Key: MINE_DAMAGE
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

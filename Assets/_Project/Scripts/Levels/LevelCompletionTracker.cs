@@ -88,10 +88,11 @@ public class LevelCompletionTracker : MonoBehaviour
             logger.Log($"No new rewards to claim. Already claimed rewards for {previousClaimedRank.GetDisplayName()} rank or better.", this);
             return;
         }
-
+        Debug.Log($"Calculating rewards for improving from {previousClaimedRank.GetDisplayName()} to {newRank.GetDisplayName()} rank...");
+        int baseReward = previousClaimedRank == LevelRank.None ? currentLevelData.GetSkillPointReward(LevelRank.None) : 0;
         int newRankSkillPoints = currentLevelData.GetSkillPointReward(newRank);
-        int previousRankSkillPoints = currentLevelData.GetSkillPointReward(previousClaimedRank);
-        int skillPointDifference = Mathf.Max(0, newRankSkillPoints - previousRankSkillPoints);
+        int previousRankSkillPoints = previousClaimedRank == LevelRank.None ? 0 : currentLevelData.GetSkillPointReward(previousClaimedRank);// currentLevelData.GetSkillPointReward(previousClaimedRank);
+        int skillPointDifference = baseReward + Mathf.Max(0, newRankSkillPoints - previousRankSkillPoints);
 
         int newRankCurrency = currentLevelData.GetCurrencyReward(newRank);
         int previousRankCurrency = currentLevelData.GetCurrencyReward(previousClaimedRank);
@@ -120,4 +121,12 @@ public class LevelCompletionTracker : MonoBehaviour
         OnGiveReward?.Invoke(skillPointDifference, currencyDifference);
     }
 
+    public int GetRemainingSkillReward(LevelRank previousClaimedRank, LevelData levelData)
+    {
+        int baseReward = previousClaimedRank == LevelRank.None ? levelData.GetSkillPointReward(LevelRank.None) : 0;
+        int newRankSkillPoints = levelData.GetSkillPointReward(LevelRank.S);
+        int previousRankSkillPoints = previousClaimedRank == LevelRank.None ? 0 : levelData.GetSkillPointReward(previousClaimedRank);// currentLevelData.GetSkillPointReward(previousClaimedRank);
+        int skillPointDifference = baseReward + Mathf.Max(0, newRankSkillPoints - previousRankSkillPoints);
+        return skillPointDifference;
+    }
 }

@@ -29,10 +29,11 @@ public abstract class BaseDamageor : MonoBehaviour, IDamageor
     public SkillDataPerLevelOfType<FunctionAffine> ShieldBypassLuckSkillDataPerLevel => shieldBypassLuckSkillDataPerLevel;
 
     [SerializeField] protected LayerMask damageableLayers = ~0;
+    public LayerMask DamageableLayers => damageableLayers;
     public float Damage => damageSkillDataPerLevel.GetCurrentLevelData();
     public float CriticalDamageMultiplier => criticalDamageMultiplierSkillDataPerLevel.GetCurrentLevelData();
     public float CriticalHitLuck => criticalHitLuckSkillDataPerLevel.GetCurrentLevelData();
-    public float DamageRadius => damageRadiusSkillDataPerLevel.GetCurrentLevelData();
+    public virtual float DamageRadius => damageRadiusSkillDataPerLevel.GetCurrentLevelData();
     public float ShieldPenetration => shieldPenetrationSkillDataPerLevel.GetCurrentLevelData();
     public float ShieldBreakBonus => shieldBreakBonusSkillDataPerLevel.GetCurrentLevelData();
     public float ShieldShredder => shieldShredderSkillDataPerLevel.GetCurrentLevelData();

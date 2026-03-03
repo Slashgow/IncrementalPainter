@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c926a7a90041f043a2ac341317a066a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalDirection: {x: 1, y: 0, z: 0}
 --- !u!50 &8291472708917448051
 Rigidbody2D:
   serializedVersion: 5
@@ -246,6 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c926a7a90041f043a2ac341317a066a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalDirection: {x: 0, y: -1, z: 0}
 --- !u!50 &9073008080684620596
 Rigidbody2D:
   serializedVersion: 5
@@ -365,6 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c926a7a90041f043a2ac341317a066a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalDirection: {x: -1, y: 0, z: 0}
 --- !u!50 &8826993147851317517
 Rigidbody2D:
   serializedVersion: 5
@@ -484,6 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c926a7a90041f043a2ac341317a066a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalDirection: {x: 0, y: 1, z: 0}
 --- !u!50 &5181795117058618085
 Rigidbody2D:
   serializedVersion: 5

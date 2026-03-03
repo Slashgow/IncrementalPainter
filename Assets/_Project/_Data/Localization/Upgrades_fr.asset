@@ -349,6 +349,43 @@ MonoBehaviour:
       \xBB"
     m_Metadata:
       m_Items: []
+  - m_Id: 34679404582268928
+    m_Localized: "D\xE9g\xE2ts d'une mine"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34679507875393536
+    m_Localized: Rayon d'explosion d'une mine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34679625206853632
+    m_Localized: "Chance de faire un d\xE9g\xE2t critique avec une mine"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34679815791833088
+    m_Localized: "Multiplicateur de d\xE9g\xE2t lors d'un coup critique avec une
+      mine"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34680062848921600
+    m_Localized: "Chance de faire appara\xEEtre une mine"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34714585741520896
+    m_Localized: Chance d'avoir un bonus sur le rayon du cercle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34714819703992320
+    m_Localized: Multiplicateur du rayon du cercle lors du bonus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34715040336965632
+    m_Localized: "Dur\xE9e du bonus du rayon du cercle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34715241273487360
+    m_Localized: Temps entre deux essais d'avoir le bonus sur le rayon du cercle
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

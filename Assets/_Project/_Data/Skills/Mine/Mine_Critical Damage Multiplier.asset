@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33731296d6af78e4d974e1768760d497, type: 3}
+  m_Name: Mine_Critical Damage Multiplier
+  m_EditorClassIdentifier: 
+  skillID: Mine_Critical Damage Multiplier
+  skillName: Mine_Critical Damage Multiplier
+  description:
+    m_TableReference:
+      m_TableCollectionName: GUID:c2cb2738a056b164bb9bace0f5b339ba
+    m_TableEntryReference:
+      m_KeyId: 34679815791833088
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  icon: {fileID: -1413149903257881968, guid: 87a44bbd94b89c84cbcea259b4c408b9, type: 3}
+  costFunction:
+    a: 200
+    b: 10
+  startingLevel: 0
+  maxLevel: 5
+  levelRequirements:
+  - level: 1
+    skillPointCost: 0
+    requiredSkills:
+    - skillData: {fileID: 11400000, guid: c1cb5e62dd2f7ca48b886caa65ab027a, type: 2}
+      requiredLevel: 1
+  unitValue: 5
+  effectValue:
+    a: 0.25
+    b: 1.5
+  references:
+    version: 2
+    RefIds: []

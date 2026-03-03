@@ -337,6 +337,42 @@ MonoBehaviour:
     m_Localized: Number of "paint blob spawner" turret
     m_Metadata:
       m_Items: []
+  - m_Id: 34679404582268928
+    m_Localized: Mine damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34679507875393536
+    m_Localized: Mine explosion radius
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34679625206853632
+    m_Localized: Mine critical chance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34679815791833088
+    m_Localized: Mine critical hit multiplier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34680062848921600
+    m_Localized: Mine spawn chance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34714585741520896
+    m_Localized: Chance of boosting the autoclicker radius
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34714819703992320
+    m_Localized: Radius boost multiplier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34715040336965632
+    m_Localized: Radius boost duration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34715241273487360
+    m_Localized: Time between tries for the radius
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

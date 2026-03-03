@@ -11,6 +11,7 @@ public class ArtGalleryLoader : MonoBehaviour
 
     private void LoadArtGallery()
     {
+        LevelManager.Instance.CleanLevelGameScene();
         LevelManager.Instance.ClearArtGalleryInstances();
 
         Dictionary<string, ArtGalleryPaintingSaveData> layout = GameSaveManager.Instance.LoadArtGalleryLayout();

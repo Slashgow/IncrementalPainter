@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityTimer;
 
-
 public class AutoClicker : MonoBehaviour
 {
     [SerializeField] private AutoClickerInput autoClickerInput;
@@ -17,6 +16,19 @@ public class AutoClicker : MonoBehaviour
     public SkillDataPerLevelOfType<FunctionAffine> ToggleAutoclickerPerLevel => toggleAutoclickerPerLevel;
     public bool IsAutoClickerToggleUnlocked => Mathf.FloorToInt(toggleAutoclickerPerLevel.GetCurrentLevelData()) > 0;
 
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfBoostingRadiusPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> radiusSizeMultiplierPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> boostRadiusDurationPerLevel;
+    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> timeBetweenTryBoostRadiusPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> ChanceOfBoostingRadiusPerLevel => chanceOfBoostingRadiusPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> RadiusSizeMultiplierPerLevel => radiusSizeMultiplierPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> BoostRadiusDurationPerLevel => boostRadiusDurationPerLevel;
+    public SkillDataPerLevelOfType<FunctionAffine> TimeBetweenTryBoostRadiusPerLevel => timeBetweenTryBoostRadiusPerLevel;
+    public float ChanceOfBoostingRadius => chanceOfBoostingRadiusPerLevel.GetCurrentLevelData();
+    public float RadiusSizeMultiplier => radiusSizeMultiplierPerLevel.GetCurrentLevelData();
+    public float BoostRadiusDuration => boostRadiusDurationPerLevel.GetCurrentLevelData();
+    public float TimeBetweenTryBoostRadius => timeBetweenTryBoostRadiusPerLevel.GetCurrentLevelData();
+
     [SerializeField] private bool useRealTime = false;
     public bool UseRealTime => useRealTime;
 
@@ -27,6 +39,11 @@ public class AutoClicker : MonoBehaviour
     public event Action OnDisableAutoClicker;
     private Timer clickTimer;
     private bool isAutoClicking = false;
+    private Timer tryBoostTimer;
+    private Timer boostRadiusTimer;
+    public event Action OnBoostRadiusStart;
+    public event Action OnBoostRadiusEnd;
+    public bool isBoostingRadius { get; private set; } = false;
 
     private void Awake()
     {
@@ -37,11 +54,45 @@ public class AutoClicker : MonoBehaviour
     private void OnEnable() => autoClickerInput.OnToggleAutoclicker += AutoClickerInput_OnToggleAutoclicker;
     private void OnDisable() => autoClickerInput.OnToggleAutoclicker -= AutoClickerInput_OnToggleAutoclicker;
 
-    private void Start() => StartAutoClicking();
+    private void Start()
+    {
+        StartAutoClicking();
+        StartTryBoostRadius();
+    }
+
+    private void StartTryBoostRadius()
+    {
+        tryBoostTimer = Timer.Register(TimeBetweenTryBoostRadius, onComplete: TryBoostRadius, isLooped: true, useRealTime: false);
+    }
+
+    private void TryBoostRadius()
+    {
+        if (LuckUtility.RollLuck(ChanceOfBoostingRadius))
+        {
+            BoostRadius();
+        }
+    }
+
+    private void BoostRadius()
+    {
+        tryBoostTimer?.Cancel();
+        isBoostingRadius = true;
+        OnBoostRadiusStart?.Invoke();
+        boostRadiusTimer = Timer.Register(BoostRadiusDuration, onComplete: OnFinishBoostRadius, isLooped: false, useRealTime: false);
+    }
+
+    private void OnFinishBoostRadius()
+    {
+        isBoostingRadius = false;
+        OnBoostRadiusEnd?.Invoke();
+        StartTryBoostRadius();
+    }
 
     private void OnDestroy()
     {
         StopAutoClicking();
+        tryBoostTimer?.Cancel();
+        boostRadiusTimer?.Cancel();
         clickTimerIntervalPerLevel.OnLevelUp -= HandleLevelUp;
         clickTimerIntervalPerLevel.OnLevelDown -= HandleLevelUp;
     }

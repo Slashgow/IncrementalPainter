@@ -55,6 +55,12 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
         CurrentLevelIndex = currentUnlockableLevel != null ? Array.IndexOf(unlockableSortedLevels, currentUnlockableLevel) : -1;
     }
 
+    public void CleanLevelGameScene()
+    {
+        if (currentLevelInstance != null && !currentLevelInstance.GetComponent<Draggable>().enabled) // destroy level from game
+            Destroy(CurrentLevelInstance.gameObject);
+    }
+
     public Level InstantiateLevelArtGallery()
     {
         string levelID = SavePath.GetLevelID(CurrentLevelData.LevelAuthor, CurrentLevelData.LevelTitle);
@@ -166,9 +172,11 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
         LevelData levelData = unlockableLevel.LevelData;
         LevelSaveData saveData = GameSaveManager.Instance.LoadLevelData(levelData.LevelAuthor, levelData.LevelTitle);
 
-        int maxSkillPointReward = levelData.GetSkillPointReward(LevelRank.S);
-        int claimedSkillPoints = levelData.GetSkillPointReward(saveData.claimedRewardRank);
-        return Mathf.Max(0, maxSkillPointReward - claimedSkillPoints);
+        return completionTracker.GetRemainingSkillReward(saveData.claimedRewardRank, levelData);
+
+        //int maxSkillPointReward = levelData.GetSkillPointReward(LevelRank.S);
+        //int claimedSkillPoints = levelData.GetSkillPointReward(saveData.claimedRewardRank);
+        //return Mathf.Max(0, maxSkillPointReward - claimedSkillPoints);
     }
 
     public LevelData GetLevelDataByAuthorAndTitle(string author, string title)

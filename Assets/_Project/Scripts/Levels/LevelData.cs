@@ -12,7 +12,7 @@ public class LevelData : ScriptableObject
     [SerializeField, Range(0f,1f)] private float percentCompletionCondition;
     [SerializeField, ShowAssetPreview(128, 128)] private Sprite levelDrawing;
     [SerializeField] private GameObject levelPrefab;
-    [SerializeField, Range(0f, 20f)] private float cameraPaintZoom;
+    [SerializeField, Range(0f, 25f)] private float cameraPaintZoom;
     [SerializeField] private Vector3 spawnOffset;
     [SerializeField] private bool isBossLevel = false;
     [SerializeField, ShowIf("isBossLevel")] private GameObject bossLevelPrefab;

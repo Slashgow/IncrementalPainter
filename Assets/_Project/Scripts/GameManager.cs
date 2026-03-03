@@ -50,7 +50,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void SwitchState(GameState targetGameState)
     {
-        Debug.Log($"{targetGameState}");
+        //Debug.Log($"{targetGameState}");
         OnEndGameState?.Invoke(CurrentGameState);
         CurrentGameState = targetGameState;
         OnStartGameState?.Invoke(CurrentGameState);

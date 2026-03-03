@@ -331,6 +331,42 @@ MonoBehaviour:
     m_Key: TURRET_SPAWNER_NUMBER
     m_Metadata:
       m_Items: []
+  - m_Id: 34679404582268928
+    m_Key: MINE_DAMAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34679507875393536
+    m_Key: MINE_EXPLOSION_RADIUS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34679625206853632
+    m_Key: MINE_CRITICAL_LUCK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34679815791833088
+    m_Key: MINE_CRITICAL_MULTIPLIER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34680062848921600
+    m_Key: MINE_SPAWN_CHANCE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34714585741520896
+    m_Key: AUTOCLICKER_BOOST_RADIUS_CHANCE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34714819703992320
+    m_Key: AUTOCLICKER_BOOST_RADIUS_MULTIPLIER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34715040336965632
+    m_Key: AUTOCLICKER_BOOST_RADIUS_DURATION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34715241273487360
+    m_Key: AUTOCLICKER_BOOST_RADIUS_TIME_BETWEEN_TRY
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -28,6 +28,7 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
         PaintSpawner.OnAdditionalSpawn += RecordAdditionalPaintBlobSpawned;
         AutoClickerDamageor.OnAutoClickerDamage += RecordAutoClickerDamage;
         BombDamageor.OnBombDamage += RecordBombDamage;
+        MineDamageor.OnMineDamage += RecordMineDamage;
         BrushSwipe.OnAnyBrushSwipeAttack += RecordBrushSwipeDamage;
         PoisonZone.OnAnyPoisonAttack += RecordPoisonDamage;
         NukeDamageor.OnNukeDamage += RecordNukeDamage;
@@ -36,6 +37,8 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
         ItemSpawner.OnSpawnNukeItem += RecordNukeItemSpawn;
     }
 
+
+
     private void OnDestroy()
     {
         SimpleDamageable.OnAnyDamageableDie -= RecordEnemyDestroyed;
@@ -43,6 +46,7 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
         PaintSpawner.OnAdditionalSpawn -= RecordAdditionalPaintBlobSpawned;
         AutoClickerDamageor.OnAutoClickerDamage -= RecordAutoClickerDamage;
         BombDamageor.OnBombDamage -= RecordBombDamage;
+        MineDamageor.OnMineDamage -= RecordMineDamage;
         BrushSwipe.OnAnyBrushSwipeAttack -= RecordBrushSwipeDamage;
         PoisonZone.OnAnyPoisonAttack -= RecordPoisonDamage;
         GameManager.OnStartGameState -= HandleGameStateChange;
@@ -98,6 +102,13 @@ public class LevelStatsTracker : MonoSingleton<LevelStatsTracker>, ISavable, ILo
     public void RecordBombDamage(float damage)
     {
         currentDayStats.BombDamage += damage;
+        currentDayStats.TotalDamageDealt += damage;
+        OnDayStatsUpdated?.Invoke(currentDayStats);
+    }
+
+    private void RecordMineDamage(float damage)
+    {
+        currentDayStats.MineDamage += damage;
         currentDayStats.TotalDamageDealt += damage;
         OnDayStatsUpdated?.Invoke(currentDayStats);
     }

@@ -30,6 +30,7 @@ MonoBehaviour:
   startingLevel: 0
   maxLevel: 5
   levelRequirements: []
+  unitValue: 0
   effectValue:
     a: 4
     b: 3

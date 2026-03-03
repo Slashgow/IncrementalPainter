@@ -12,7 +12,7 @@ public class UIInGamePageController : UIPageController
 
     private void GameManager_OnStartGameState(GameManager.GameState state)
     {
-        Debug.Log($"UIInGamePageController - GameManager_OnStartGameState: {state}");
+        //Debug.Log($"UIInGamePageController - GameManager_OnStartGameState: {state}");
         switch (state)
         {
             case GameManager.GameState.BOSS_INTRODUCTION:

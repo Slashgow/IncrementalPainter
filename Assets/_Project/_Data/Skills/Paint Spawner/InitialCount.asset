@@ -38,7 +38,7 @@ MonoBehaviour:
   unitValue: 0
   effectValue:
     a: 20
-    b: 50
+    b: 20
   references:
     version: 2
     RefIds: []

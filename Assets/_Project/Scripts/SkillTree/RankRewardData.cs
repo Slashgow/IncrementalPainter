@@ -20,21 +20,25 @@ public class RankRewardData
     [Tooltip("Skill points awarded for D rank")]
     [SerializeField, Range(0, 10)] private int dRankSkillPoints = 0;
 
+    [SerializeField, Range(0, 10)] private int defaultSkillPointReward = 1;
+
     [Header("Currency Rewards (Optional)")]
     [Tooltip("Bonus currency for S rank")]
-    [SerializeField, Range(0, 100000)] private int sRankCurrency = 1000;
+    [SerializeField, Range(0, 1000000)] private int sRankCurrency = 1000;
 
     [Tooltip("Bonus currency for A rank")]
-    [SerializeField, Range(0, 100000)] private int aRankCurrency = 500;
+    [SerializeField, Range(0, 1000000)] private int aRankCurrency = 500;
 
     [Tooltip("Bonus currency for B rank")]
-    [SerializeField, Range(0, 100000)] private int bRankCurrency = 250;
+    [SerializeField, Range(0, 1000000)] private int bRankCurrency = 250;
 
     [Tooltip("Bonus currency for C rank")]
-    [SerializeField, Range(0, 100000)] private int cRankCurrency = 100;
+    [SerializeField, Range(0, 1000000)] private int cRankCurrency = 100;
 
     [Tooltip("Bonus currency for D rank")]
-    [SerializeField, Range(0, 100000)] private int dRankCurrency = 0;
+    [SerializeField, Range(0, 1000000)] private int dRankCurrency = 0;
+
+    [SerializeField, Range(0, 1000000)] private int defaultCurrencyReward = 0;
 
     public int GetSkillPointReward(LevelRank rank)
     {
@@ -45,6 +49,7 @@ public class RankRewardData
             LevelRank.B => bRankSkillPoints,
             LevelRank.C => cRankSkillPoints,
             LevelRank.D => dRankSkillPoints,
+            LevelRank.None => defaultSkillPointReward,
             _ => 0
         };
     }
@@ -58,6 +63,7 @@ public class RankRewardData
             LevelRank.B => bRankCurrency,
             LevelRank.C => cRankCurrency,
             LevelRank.D => dRankCurrency,
+            LevelRank.None => defaultCurrencyReward,
             _ => 0
         };
     }

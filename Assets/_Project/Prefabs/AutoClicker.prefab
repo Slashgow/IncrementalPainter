@@ -76,6 +76,14 @@ MonoBehaviour:
     skillData: {fileID: 11400000, guid: b57d95ae9b45fe74dba77d0acf4b2987, type: 2}
   toggleAutoclickerPerLevel:
     skillData: {fileID: 11400000, guid: 7e66a97787e60114182c95d756d05c34, type: 2}
+  chanceOfBoostingRadiusPerLevel:
+    skillData: {fileID: 11400000, guid: 387550fa3c74eff41b97d9ae1ea77284, type: 2}
+  radiusSizeMultiplierPerLevel:
+    skillData: {fileID: 11400000, guid: 2283de260d16b7f4c85a727db9206269, type: 2}
+  boostRadiusDurationPerLevel:
+    skillData: {fileID: 11400000, guid: 236747ea6e2773c48a84350db6e31a2d, type: 2}
+  timeBetweenTryBoostRadiusPerLevel:
+    skillData: {fileID: 11400000, guid: 97207f769b1472b4e928a4774d2eb4d5, type: 2}
   useRealTime: 0
 --- !u!114 &8811257036007215974
 MonoBehaviour:

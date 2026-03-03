@@ -1,0 +1,561 @@
+fileFormatVersion: 2
+guid: 87a44bbd94b89c84cbcea259b4c408b9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5786461160452202791
+    second: Skill Tree Icons_4_0
+  - first:
+      213: 6888195239720507512
+    second: Skill Tree Icons_4_1
+  - first:
+      213: 8971482700797845822
+    second: Skill Tree Icons_4_2
+  - first:
+      213: -1413149903257881968
+    second: Skill Tree Icons_4_3
+  - first:
+      213: 5380091018874687607
+    second: Skill Tree Icons_4_4
+  - first:
+      213: -3696285200486970661
+    second: Skill Tree Icons_4_5
+  - first:
+      213: -3685484480028746247
+    second: Skill Tree Icons_4_6
+  - first:
+      213: 7407554786155078600
+    second: Skill Tree Icons_4_7
+  - first:
+      213: -7349567839478300185
+    second: Skill Tree Icons_4_8
+  - first:
+      213: -7348896469690549656
+    second: Skill Tree Icons_4_9
+  - first:
+      213: -9222698517193453393
+    second: Skill Tree Icons_4_10
+  - first:
+      213: 2006341334678451872
+    second: Skill Tree Icons_4_11
+  - first:
+      213: 8747313346513574650
+    second: Skill Tree Icons_4_12
+  - first:
+      213: 2985672035305045425
+    second: Skill Tree Icons_4_13
+  - first:
+      213: 3279092034340334731
+    second: Skill Tree Icons_4_14
+  - first:
+      213: -7225316866832353998
+    second: Skill Tree Icons_4_15
+  - first:
+      213: 7881279082608779944
+    second: Skill Tree Icons_4_16
+  - first:
+      213: 9102784156941002025
+    second: Skill Tree Icons_4_17
+  - first:
+      213: -1913109553665822374
+    second: Skill Tree Icons_4_18
+  - first:
+      213: -5798364134738811800
+    second: Skill Tree Icons_4_19
+  - first:
+      213: 3223926682366375714
+    second: Skill Tree Icons_4_20
+  - first:
+      213: -7076839376794761688
+    second: Skill Tree Icons_4_21
+  - first:
+      213: 444316124415507673
+    second: Skill Tree Icons_4_22
+  - first:
+      213: -475568509727569660
+    second: Skill Tree Icons_4_23
+  - first:
+      213: -1706559066920985545
+    second: Skill Tree Icons_4_24
+  - first:
+      213: 2357913689646116106
+    second: Skill Tree Icons_4_25
+  - first:
+      213: -1871742124898711597
+    second: Skill Tree Icons_4_26
+  - first:
+      213: 3774049168054441124
+    second: Skill Tree Icons_4_27
+  - first:
+      213: -1133598473826699837
+    second: Skill Tree Icons_4_28
+  - first:
+      213: -8010497663116753636
+    second: Skill Tree Icons_4_29
+  - first:
+      213: 5961465411112628755
+    second: Skill Tree Icons_4_30
+  - first:
+      213: -7770577511018182148
+    second: Skill Tree Icons_4_31
+  - first:
+      213: -1061167252607281910
+    second: Skill Tree Icons_4_32
+  - first:
+      213: 735852511496219514
+    second: Skill Tree Icons_4_33
+  - first:
+      213: -7723311351972970208
+    second: Skill Tree Icons_4_34
+  - first:
+      213: 7267466114546902147
+    second: Skill Tree Icons_4_35
+  - first:
+      213: 6851568400092449383
+    second: Skill Tree Icons_4_36
+  - first:
+      213: -6864039499813025425
+    second: Skill Tree Icons_4_37
+  - first:
+      213: 2866353963941095860
+    second: Skill Tree Icons_4_38
+  - first:
+      213: -8154383202755701640
+    second: Skill Tree Icons_4_39
+  - first:
+      213: 4287949872571248937
+    second: Skill Tree Icons_4_40
+  - first:
+      213: -5339808007562700256
+    second: Skill Tree Icons_4_41
+  - first:
+      213: 5209220623673807124
+    second: Skill Tree Icons_4_42
+  - first:
+      213: -8622217614211861009
+    second: Skill Tree Icons_4_43
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mine
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ded6a88b3c52bfa0800000000000000
+      internalID: -5786461160452202791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mine_damage
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 878d3174319c79f50800000000000000
+      internalID: 6888195239720507512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mine_spawn_luck
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e312e91cbfb118c70800000000000000
+      internalID: 8971482700797845822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mine_crit_multiplier
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 092bfe176ab736ce0800000000000000
+      internalID: -1413149903257881968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mine_crit_luck
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7709b47d64ce9aa40800000000000000
+      internalID: 5380091018874687607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mine_radius
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdac074a13824bcc0800000000000000
+      internalID: -3696285200486970661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: autoclicker_boost_luck
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fddba654678adcc0800000000000000
+      internalID: -3685484480028746247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: autoclicker_boost_radius_multplier
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c3a403c4dbecc660800000000000000
+      internalID: 7407554786155078600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: autoclicker_boost_time
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e1c24b5df6110a90800000000000000
+      internalID: -7349567839478300185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill Tree Icons_4_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86af8f0d899730a90800000000000000
+      internalID: -7348896469690549656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eater_0
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa099240094620080800000000000000
+      internalID: -9222698517193453393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eater_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a631b750d4f7db10800000000000000
+      internalID: 2006341334678451872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eater_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afa99f5b423b46970800000000000000
+      internalID: 8747313346513574650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6041fb88bc677a344a188ee38e5dc75d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Skill Tree Icons_4_9: -7348896469690549656
+      autoclicker_boost_luck: -3685484480028746247
+      autoclicker_boost_radius_multplier: 7407554786155078600
+      autoclicker_boost_time: -7349567839478300185
+      eater_0: -9222698517193453393
+      eater_1: 2006341334678451872
+      eater_2: 8747313346513574650
+      mine: -5786461160452202791
+      mine_crit_luck: 5380091018874687607
+      mine_crit_multiplier: -1413149903257881968
+      mine_damage: 6888195239720507512
+      mine_radius: -3696285200486970661
+      mine_spawn_luck: 8971482700797845822
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

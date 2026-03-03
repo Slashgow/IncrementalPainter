@@ -716,6 +716,12 @@ MonoBehaviour:
     dRankColorID: 27
   defaultLevel: {fileID: 11400000, guid: 86fce4b65d45868428db4499ba673069, type: 2}
   unlockableSortedLevels:
+  - levelData: {fileID: 11400000, guid: 3aacf6f635fc20d46af3b024ddb83548, type: 2}
+    unlockConditions:
+    - {fileID: 2430276174761575609}
+  - levelData: {fileID: 11400000, guid: 080c4f110e0496647ac26b85f563f84e, type: 2}
+    unlockConditions:
+    - {fileID: 2430276174761575609}
   - levelData: {fileID: 11400000, guid: df35e19a92a782e4f8624824bd041a86, type: 2}
     unlockConditions:
     - {fileID: 2430276174761575609}
@@ -761,6 +767,9 @@ MonoBehaviour:
   - levelData: {fileID: 11400000, guid: 9eccc5ec7a854fb4881c94a6157a1c39, type: 2}
     unlockConditions:
     - {fileID: 7203275309890544889}
+  - levelData: {fileID: 11400000, guid: 4f06d056ae8289047bace57821ce9ff4, type: 2}
+    unlockConditions:
+    - {fileID: 2430276174761575609}
 --- !u!114 &1037331632690210968
 MonoBehaviour:
   m_ObjectHideFlags: 0

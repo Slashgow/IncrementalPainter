@@ -45,6 +45,14 @@ public class EraserEnemy : MonoBehaviour
         flightErasureTimer?.Cancel();
     }
 
+    private void OnDestroy()
+    {
+        if (flightMover != null)
+            flightMover.OnReachTarget -= OnReachTargetPosition;
+
+        flightErasureTimer?.Cancel();
+    }
+
     private void OnReachTargetPosition()
     {
         //Debug.Log("WaterProjectile reached target position, erasing paint.");

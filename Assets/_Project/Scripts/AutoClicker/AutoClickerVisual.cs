@@ -30,6 +30,8 @@ public class AutoClickerVisual : MonoBehaviour
         autoClicker.OnDisableAutoClicker += AutoClicker_OnDisableAutoClicker;
         damageor.DamageRadiusSkillDataPerLevel.OnLevelUp += MatchAutoClickerRadius;
         damageor.DamageRadiusSkillDataPerLevel.OnLevelDown += MatchAutoClickerRadius;
+        autoClicker.OnBoostRadiusStart += MatchAutoClickerRadius;
+        autoClicker.OnBoostRadiusEnd += MatchAutoClickerRadius;
     }
 
     private void OnDestroy()
@@ -41,6 +43,8 @@ public class AutoClickerVisual : MonoBehaviour
         autoClicker.OnDisableAutoClicker -= AutoClicker_OnDisableAutoClicker;
         damageor.DamageRadiusSkillDataPerLevel.OnLevelUp -= MatchAutoClickerRadius;
         damageor.DamageRadiusSkillDataPerLevel.OnLevelDown -= MatchAutoClickerRadius;
+        autoClicker.OnBoostRadiusStart -= MatchAutoClickerRadius;
+        autoClicker.OnBoostRadiusEnd -= MatchAutoClickerRadius;
 
         scaleTween?.Kill();
     }

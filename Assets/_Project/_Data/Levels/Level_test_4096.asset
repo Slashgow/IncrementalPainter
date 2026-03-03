@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2548ba85b01887e4a935903037baf7cd, type: 3}
+  m_Name: Level_test_4096
+  m_EditorClassIdentifier: 
+  levelTitle: test
+  levelAuthor: 4096
+  levelDate: 1550
+  artMovement: 0
+  percentCompletionCondition: 0.99
+  levelDrawing: {fileID: 21300000, guid: 1c09a467bbedb914ebcfe6cd46bab0e5, type: 3}
+  levelPrefab: {fileID: 8944416080909895153, guid: 8a61b94f21d6b564d83ace4ed8cd4932, type: 3}
+  cameraPaintZoom: 24.5
+  spawnOffset: {x: 0, y: 0, z: 0}
+  isBossLevel: 0
+  bossLevelPrefab: {fileID: 1878125376689745335, guid: 9e5409085d436e540b7f229b1e117223, type: 3}
+  bossName:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  bossDescription:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  bossUISprite: {fileID: 0}
+  bossAnouncementAudioClip: {fileID: 0}
+  rankThresholds:
+    sRankDays: 2
+    aRankDays: 6
+    bRankDays: 12
+    cRankDays: 18
+  rankRewards:
+    sRankSkillPoints: 1
+    aRankSkillPoints: 0
+    bRankSkillPoints: 0
+    cRankSkillPoints: 0
+    dRankSkillPoints: 0
+    defaultSkillPointReward: 1
+    sRankCurrency: 500000
+    aRankCurrency: 350000
+    bRankCurrency: 250000
+    cRankCurrency: 200000
+    dRankCurrency: 100000
+    defaultCurrencyReward: 0
+  references:
+    version: 2
+    RefIds: []
