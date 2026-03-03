@@ -3509,6 +3509,135 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1861622604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1861622609}
+  - component: {fileID: 1861622608}
+  - component: {fileID: 1861622607}
+  - component: {fileID: 1861622606}
+  - component: {fileID: 1861622605}
+  m_Layer: 0
+  m_Name: Eater Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1861622605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861622604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5eda5c5002d44f43b2f2ddcf6544eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  audioClips:
+  - {fileID: 8300000, guid: 334cd34efae3cda4f9c94e9d974334f8, type: 3}
+  - {fileID: 8300000, guid: b4ce3a2f3d1d3f341ab69161734d7d53, type: 3}
+  - {fileID: 8300000, guid: 02f90017b58dbfb4ca965c666b19f36c, type: 3}
+  - {fileID: 8300000, guid: 40579d0fa1c4c7c4baea423cb92af475, type: 3}
+  - {fileID: 8300000, guid: f7c9a1c32482e6e47b190f22e76b1217, type: 3}
+  - {fileID: 8300000, guid: 53e2a9039fcd82d4b82bd3a1d61e6c09, type: 3}
+  - {fileID: 8300000, guid: 8d094c53051c7ba41accb42076d6d4c4, type: 3}
+  luckPercentage: 100
+--- !u!114 &1861622606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861622604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6869d1947bdee49a545215e6121ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8791802859087666345, guid: 54833bcb1af33a247a6beb541c18ce9b, type: 3}
+  growPoolSize: 10
+--- !u!114 &1861622607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861622604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2afd04775eaa049bffaa83641e90e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  poolSystems:
+  - {fileID: 1861622606}
+  numberOfEffectToSpawn: 1
+  instantiateFirstOnExactPosition: 1
+  spawnMinOffset: {x: 0, y: 0, z: 0}
+  spawnMaxOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &1861622608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861622604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f388a4beb82d8294a90981fccf143d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEatBlob:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1861622605}
+        m_TargetAssemblyTypeName: SFXRandomEffect, Assembly-CSharp
+        m_MethodName: DoEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1861622607}
+        m_TargetAssemblyTypeName: PoolInstantiatedEffect, Assembly-CSharp
+        m_MethodName: DoEffect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &1861622609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861622604}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1974870282
 GameObject:
   m_ObjectHideFlags: 0
@@ -9066,3 +9195,4 @@ SceneRoots:
   - {fileID: 1414661756}
   - {fileID: 1623996255}
   - {fileID: 595230175}
+  - {fileID: 1861622609}

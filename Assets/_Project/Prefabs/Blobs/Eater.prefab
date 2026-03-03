@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7012489346659689575}
   - component: {fileID: 6793928984915961861}
-  - component: {fileID: 1472892669458429281}
   - component: {fileID: 6528623873140419268}
+  - component: {fileID: 3109100674001286042}
   - component: {fileID: 8101859658892543347}
   - component: {fileID: 5934672111827519364}
   - component: {fileID: 2900831819380317405}
@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 810379346885423772}
   - component: {fileID: 585463754623886151}
   - component: {fileID: 6808216044358998952}
+  - component: {fileID: 240878429300902549}
   m_Layer: 0
   m_Name: Eater
   m_TagString: Untagged
@@ -104,23 +105,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1472892669458429281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3907796742143444475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d03a6f2be65b4c54bb0d24d90d851c9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flightMover: {fileID: 0}
-  eraseOnImpact: 0
-  eraseContinuously: 1
-  timeBetweenErasure: 0.1
-  ErasureScale: 2
 --- !u!58 &6528623873140419268
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -151,12 +135,24 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1.17
+--- !u!114 &3109100674001286042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3907796742143444475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0e8a010583ae144b0ba24d76bf7830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8101859658892543347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,6 +536,33 @@ MonoBehaviour:
     - minPercentage: 0
       sprite: {fileID: 8747313346513574650, guid: 87a44bbd94b89c84cbcea259b4c408b9, type: 3}
   damageable: {fileID: 8101859658892543347}
+--- !u!50 &240878429300902549
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3907796742143444475}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5826940084441062052
 GameObject:
   m_ObjectHideFlags: 0

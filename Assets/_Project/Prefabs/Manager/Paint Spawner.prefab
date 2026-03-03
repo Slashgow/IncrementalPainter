@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5063413813275425916}
   - component: {fileID: 617886660079695949}
   - component: {fileID: 8161843976420477228}
+  - component: {fileID: 1451123639691221230}
   m_Layer: 0
   m_Name: Paint Spawner
   m_TagString: Untagged
@@ -162,6 +163,19 @@ MonoBehaviour:
     chanceToSpawn: 4
     minLevelToSpawn: 8
     cleanerEnemyPool: {fileID: 8161843976420477228}
+  - difficulty: 0
+    maxHealth: 80
+    cost: 100
+    scale: 1.1
+    chancePercentageToHaveShield: 30
+    maxShield: 100
+    shieldArmor: 0.8
+    canRegenerateShield: 0
+    shieldRegenerationRate: 0
+    shieldRegenerationDelay: 0
+    chanceToSpawn: 4
+    minLevelToSpawn: 12
+    cleanerEnemyPool: {fileID: 1451123639691221230}
   autoStart: 1
   zOffset: 0
   spawnParent: {fileID: 1039041530853263093}
@@ -274,6 +288,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 3907796742143444475, guid: c6d31620594e98e41abccbefb0212d69, type: 3}
+  growPoolSize: 10
+--- !u!114 &1451123639691221230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2890733673538930724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6869d1947bdee49a545215e6121ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3907796742143444475, guid: 2b1b210ba3a53d143a036f0dd96ddc3b, type: 3}
   growPoolSize: 10
 --- !u!1 &5442154982494036360
 GameObject:
