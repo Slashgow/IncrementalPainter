@@ -373,6 +373,10 @@ MonoBehaviour:
     m_Localized: Time between tries for the radius
     m_Metadata:
       m_Items: []
+  - m_Id: 34746164119465984
+    m_Localized: Number of autonomous circle
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

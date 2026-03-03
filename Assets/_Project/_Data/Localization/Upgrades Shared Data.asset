@@ -367,6 +367,10 @@ MonoBehaviour:
     m_Key: AUTOCLICKER_BOOST_RADIUS_TIME_BETWEEN_TRY
     m_Metadata:
       m_Items: []
+  - m_Id: 34746164119465984
+    m_Key: AUTOCLICKER_AUTO_COUNT
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

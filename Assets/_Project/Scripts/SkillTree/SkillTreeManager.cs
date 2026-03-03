@@ -26,6 +26,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
     [SerializeField] private TurretKillManager turretManager;
     [SerializeField] private TurretSpawner turretSpawner;
     [SerializeField] private MineDamageor mineDamageor;
+    [SerializeField] private AutoClickerAutonomousManager autoClickerAutonomousManager;
 
     [Header("Skill Nodes")]
     public List<SkillNode> allSkillNodes;
@@ -158,6 +159,17 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         leveledSkills[autoClicker.RadiusSizeMultiplierPerLevel.SkillID] = autoClicker.RadiusSizeMultiplierPerLevel;
         leveledSkills[autoClicker.BoostRadiusDurationPerLevel.SkillID] = autoClicker.BoostRadiusDurationPerLevel;
         leveledSkills[autoClicker.TimeBetweenTryBoostRadiusPerLevel.SkillID] = autoClicker.TimeBetweenTryBoostRadiusPerLevel;
+        leveledSkills[autoClickerAutonomousManager.AutonomousClickerCountPerLevel.SkillID] = autoClickerAutonomousManager.AutonomousClickerCountPerLevel;
+        leveledSkills[autoClickerAutonomousManager.ClickTimerIntervalPerLevel.SkillID] = autoClickerAutonomousManager.ClickTimerIntervalPerLevel;
+        leveledSkills[autoClickerAutonomousManager.AutoClickerDamageor.DamageSkillDataPerLevel.SkillID] = autoClickerAutonomousManager.AutoClickerDamageor.DamageSkillDataPerLevel;
+        leveledSkills[autoClickerAutonomousManager.AutoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel.SkillID] = autoClickerAutonomousManager.AutoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel;
+        leveledSkills[autoClickerAutonomousManager.AutoClickerDamageor.CriticalHitLuckSkillDataPerLevel.SkillID] = autoClickerAutonomousManager.AutoClickerDamageor.CriticalHitLuckSkillDataPerLevel;
+        leveledSkills[autoClickerAutonomousManager.AutoClickerDamageor.DamageRadiusSkillDataPerLevel.SkillID] = autoClickerAutonomousManager.AutoClickerDamageor.DamageRadiusSkillDataPerLevel;
+        leveledSkills[autoClickerAutonomousManager.AutoClickerDamageor.ShieldPenetrationSkillDataPerLevel.SkillID] = autoClickerAutonomousManager.AutoClickerDamageor.ShieldPenetrationSkillDataPerLevel;
+        leveledSkills[autoClickerAutonomousManager.AutoClickerDamageor.ShieldBreakBonusSkillDataPerLevel.SkillID] = autoClickerAutonomousManager.AutoClickerDamageor.ShieldBreakBonusSkillDataPerLevel;
+        leveledSkills[autoClickerAutonomousManager.AutoClickerDamageor.ShieldShredderSkillDataPerLevel.SkillID] = autoClickerAutonomousManager.AutoClickerDamageor.ShieldShredderSkillDataPerLevel;
+        leveledSkills[autoClickerAutonomousManager.AutoClickerDamageor.OverloadDamageMultiplierSkillDataPerLevel.SkillID] = autoClickerAutonomousManager.AutoClickerDamageor.OverloadDamageMultiplierSkillDataPerLevel;
+        leveledSkills[autoClickerAutonomousManager.AutoClickerDamageor.ShieldBypassLuckSkillDataPerLevel.SkillID] = autoClickerAutonomousManager.AutoClickerDamageor.ShieldBypassLuckSkillDataPerLevel;
 
         autoClickerDamageor.DamageSkillDataPerLevel.Initialize();
         autoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
@@ -247,6 +259,17 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
         autoClicker.RadiusSizeMultiplierPerLevel.Initialize();
         autoClicker.BoostRadiusDurationPerLevel.Initialize();
         autoClicker.TimeBetweenTryBoostRadiusPerLevel.Initialize();
+        autoClickerAutonomousManager.AutonomousClickerCountPerLevel.Initialize();
+        autoClickerAutonomousManager.ClickTimerIntervalPerLevel.Initialize();
+        autoClickerAutonomousManager.AutoClickerDamageor.DamageSkillDataPerLevel.Initialize();
+        autoClickerAutonomousManager.AutoClickerDamageor.CriticalDamageMultiplierSkillDataPerLevel.Initialize();
+        autoClickerAutonomousManager.AutoClickerDamageor.CriticalHitLuckSkillDataPerLevel.Initialize();
+        autoClickerAutonomousManager.AutoClickerDamageor.DamageRadiusSkillDataPerLevel.Initialize();
+        autoClickerAutonomousManager.AutoClickerDamageor.ShieldPenetrationSkillDataPerLevel.Initialize();
+        autoClickerAutonomousManager.AutoClickerDamageor.ShieldBreakBonusSkillDataPerLevel.Initialize();
+        autoClickerAutonomousManager.AutoClickerDamageor.ShieldShredderSkillDataPerLevel.Initialize();
+        autoClickerAutonomousManager.AutoClickerDamageor.OverloadDamageMultiplierSkillDataPerLevel.Initialize();
+        autoClickerAutonomousManager.AutoClickerDamageor.ShieldBypassLuckSkillDataPerLevel.Initialize();
     }
 
     void Start()

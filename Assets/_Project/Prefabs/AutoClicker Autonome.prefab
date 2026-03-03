@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &882197496587690495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6779132991299214879}
+  - component: {fileID: 5629675367317359243}
+  - component: {fileID: 8811257036007215974}
+  - component: {fileID: 8718529933243821730}
+  m_Layer: 0
+  m_Name: AutoClicker Autonome
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6779132991299214879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882197496587690495}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5629675367317359243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882197496587690495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8a02d1d3dc3a24c90fdf49c7a21397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoClickerDamageor: {fileID: 8811257036007215974}
+  autonomousClickerPrefab: {fileID: 4939580586733938990, guid: a643415e2ef473f449645cea172c7749, type: 3}
+  autonomousClickerParent: {fileID: 6779132991299214879}
+  autonomousClickerCountPerLevel:
+    skillData: {fileID: 11400000, guid: 4bc3b36f1a0c2b54387f269696c53c25, type: 2}
+  clickTimerIntervalPerLevel:
+    skillData: {fileID: 11400000, guid: 84bbe96a71ccabc4181c32365d48a2c9, type: 2}
+--- !u!114 &8811257036007215974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882197496587690495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55a8ce8b968764d4a944053bb1ab8bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: ef86bc6b2f11e6c4c8499654c698dfdc, type: 2}
+  criticalDamageMultiplierSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: d217f501077e42e4a9c2baced950b211, type: 2}
+  criticalHitLuckSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 91cea86c98233c64c8910917916f4bd1, type: 2}
+  damageRadiusSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: e6ae9d68f9fc9c043b564d5fb368f240, type: 2}
+  useShieldBreakingUpgrades: 1
+  shieldPenetrationSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 941772319e0cba0419ef97e29c1eaa60, type: 2}
+  shieldBreakBonusSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: d4bd863261a54d94d827f9d75767e7ff, type: 2}
+  shieldShredderSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 8843de75b10dcf24e9b7994fbfc1e085, type: 2}
+  overloadDamageMultiplierSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: dda0c4ae3f3fe7f41ad1c776ae307b2a, type: 2}
+  shieldBypassLuckSkillDataPerLevel:
+    skillData: {fileID: 11400000, guid: 69989406973b542479bbe0f6a4a6e814, type: 2}
+  damageableLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  OnAttackOnce:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8718529933243821730}
+        m_TargetAssemblyTypeName: SFXRandomEffect, Assembly-CSharp
+        m_MethodName: DoEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  autoClicker: {fileID: 0}
+--- !u!114 &8718529933243821730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882197496587690495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5eda5c5002d44f43b2f2ddcf6544eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doEffectOnEnable: 0
+  audioClips:
+  - {fileID: 8300000, guid: 0af42544d0896b8419549693670495d5, type: 3}
+  - {fileID: 8300000, guid: b1cf0dc7e0c5a654780849101602adc9, type: 3}
+  - {fileID: 8300000, guid: 3c099d0884c9ec5469561853b80d7e66, type: 3}
+  - {fileID: 8300000, guid: a6a3188a3408da14780b0544bb49f5ee, type: 3}
+  - {fileID: 8300000, guid: cdd85414f26f83a40b4b09fa3935e44f, type: 3}
+  - {fileID: 8300000, guid: c6b16792de387544897f611ed9b96e4f, type: 3}
+  - {fileID: 8300000, guid: 2bf334d87702349479d03272f07b8d5d, type: 3}
+  luckPercentage: 70

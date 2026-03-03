@@ -6,7 +6,9 @@ public class AutoClickerDamageor : BaseDamageor
     [Header("Références")]
     [SerializeField] private AutoClicker autoClicker;
 
-    public override float DamageRadius => autoClicker.isBoostingRadius ? base.DamageRadius * autoClicker.RadiusSizeMultiplier : base.DamageRadius;
+    public override float DamageRadius => autoClicker != null && autoClicker.isBoostingRadius ? 
+        base.DamageRadius * autoClicker.RadiusSizeMultiplier : 
+        base.DamageRadius;
 
     public static event Action<float> OnAutoClickerDamage;
 
@@ -22,6 +24,6 @@ public class AutoClickerDamageor : BaseDamageor
             autoClicker.OnClick -= HandleClick;
     }
 
-    private void HandleClick(Vector3 clickPosition) => TryDamage(clickPosition);
+    public void HandleClick(Vector3 clickPosition) => TryDamage(clickPosition);
     public override void NotityDamage(float damage) => OnAutoClickerDamage?.Invoke(damage);
 }

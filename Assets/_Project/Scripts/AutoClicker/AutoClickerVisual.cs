@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class AutoClickerVisual : MonoBehaviour
 {
     [SerializeField] private List<SpriteRenderer> circleVisuals;
     [SerializeField] private Collider2D circleVisualCollider;
-    [SerializeField] private AutoClicker autoClicker;
+    [SerializeField] private bool useAutoClickerValue = true;
+    [SerializeField, ShowIf("useAutoClickerValue")] private AutoClicker autoClicker;
     [SerializeField] private AutoClickerDamageor damageor;
 
     [SerializeField, Range(0f, 1f)] private float endScaleBonus;
@@ -28,8 +30,18 @@ public class AutoClickerVisual : MonoBehaviour
         autoClicker.OnAutoClickFinished += HandleAutoClickFinished;
         autoClicker.OnEnableAutoClicker += AutoClicker_OnEnableAutoClicker;
         autoClicker.OnDisableAutoClicker += AutoClicker_OnDisableAutoClicker;
-        damageor.DamageRadiusSkillDataPerLevel.OnLevelUp += MatchAutoClickerRadius;
-        damageor.DamageRadiusSkillDataPerLevel.OnLevelDown += MatchAutoClickerRadius;
+
+        if(damageor != null)
+        {
+            damageor.DamageRadiusSkillDataPerLevel.OnLevelUp += MatchAutoClickerRadius;
+            damageor.DamageRadiusSkillDataPerLevel.OnLevelDown += MatchAutoClickerRadius;
+        }
+        else
+        {
+            AutoClickerAutonomousManager.Instance.AutoClickerDamageor.DamageRadiusSkillDataPerLevel.OnLevelUp += MatchAutoClickerRadius;
+            AutoClickerAutonomousManager.Instance.AutoClickerDamageor.DamageRadiusSkillDataPerLevel.OnLevelDown += MatchAutoClickerRadius;
+        }
+
         autoClicker.OnBoostRadiusStart += MatchAutoClickerRadius;
         autoClicker.OnBoostRadiusEnd += MatchAutoClickerRadius;
     }
@@ -41,8 +53,16 @@ public class AutoClickerVisual : MonoBehaviour
         autoClicker.OnAutoClickFinished -= HandleAutoClickFinished;
         autoClicker.OnEnableAutoClicker -= AutoClicker_OnEnableAutoClicker;
         autoClicker.OnDisableAutoClicker -= AutoClicker_OnDisableAutoClicker;
-        damageor.DamageRadiusSkillDataPerLevel.OnLevelUp -= MatchAutoClickerRadius;
-        damageor.DamageRadiusSkillDataPerLevel.OnLevelDown -= MatchAutoClickerRadius;
+        if (damageor != null)
+        {
+            damageor.DamageRadiusSkillDataPerLevel.OnLevelUp -= MatchAutoClickerRadius;
+            damageor.DamageRadiusSkillDataPerLevel.OnLevelDown -= MatchAutoClickerRadius;
+        }
+        else
+        {
+            AutoClickerAutonomousManager.Instance.AutoClickerDamageor.DamageRadiusSkillDataPerLevel.OnLevelUp -= MatchAutoClickerRadius;
+            AutoClickerAutonomousManager.Instance.AutoClickerDamageor.DamageRadiusSkillDataPerLevel.OnLevelDown -= MatchAutoClickerRadius;
+        }
         autoClicker.OnBoostRadiusStart -= MatchAutoClickerRadius;
         autoClicker.OnBoostRadiusEnd -= MatchAutoClickerRadius;
 
@@ -60,7 +80,8 @@ public class AutoClickerVisual : MonoBehaviour
 
         this.transform.localScale = Vector3.one * targetScale;
 
-        scaleTween = this.transform.DOScale(targetScale - endScaleBonus, autoClicker.ClickTimerInterval)
+        float duration = useAutoClickerValue ? autoClicker.ClickTimerInterval : AutoClickerAutonomousManager.Instance.ClickTimerInterval;
+        scaleTween = this.transform.DOScale(targetScale - endScaleBonus, duration)
             .SetEase(curve)
             .SetUpdate(autoClicker.UseRealTime)
             .SetRecyclable(true);
@@ -68,7 +89,9 @@ public class AutoClickerVisual : MonoBehaviour
     private void MatchAutoClickerRadius()
     {
         scaleTween?.Kill();
-        targetScale = damageor.DamageRadius / baseRadiusSpriteCircle;
+        targetScale = damageor != null ? 
+            damageor.DamageRadius / baseRadiusSpriteCircle : 
+            AutoClickerAutonomousManager.Instance.AutoClickerDamageor.DamageRadius / baseRadiusSpriteCircle;
         this.transform.localScale = Vector3.one * targetScale;
     }
 

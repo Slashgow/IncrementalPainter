@@ -386,6 +386,10 @@ MonoBehaviour:
     m_Localized: Temps entre deux essais d'avoir le bonus sur le rayon du cercle
     m_Metadata:
       m_Items: []
+  - m_Id: 34746164119465984
+    m_Localized: Nombre de cercle autonome
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

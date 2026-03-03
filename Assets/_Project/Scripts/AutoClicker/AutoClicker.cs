@@ -1,4 +1,5 @@
 ﻿using System;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityTimer;
 
@@ -16,10 +17,11 @@ public class AutoClicker : MonoBehaviour
     public SkillDataPerLevelOfType<FunctionAffine> ToggleAutoclickerPerLevel => toggleAutoclickerPerLevel;
     public bool IsAutoClickerToggleUnlocked => Mathf.FloorToInt(toggleAutoclickerPerLevel.GetCurrentLevelData()) > 0;
 
-    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> chanceOfBoostingRadiusPerLevel;
-    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> radiusSizeMultiplierPerLevel;
-    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> boostRadiusDurationPerLevel;
-    [SerializeField] private SkillDataPerLevelOfType<FunctionAffine> timeBetweenTryBoostRadiusPerLevel;
+    [SerializeField] private bool useBoostRadius = true;
+    [SerializeField, ShowIf("useBoostRadius")] private SkillDataPerLevelOfType<FunctionAffine> chanceOfBoostingRadiusPerLevel;
+    [SerializeField, ShowIf("useBoostRadius")] private SkillDataPerLevelOfType<FunctionAffine> radiusSizeMultiplierPerLevel;
+    [SerializeField, ShowIf("useBoostRadius")] private SkillDataPerLevelOfType<FunctionAffine> boostRadiusDurationPerLevel;
+    [SerializeField, ShowIf("useBoostRadius")] private SkillDataPerLevelOfType<FunctionAffine> timeBetweenTryBoostRadiusPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> ChanceOfBoostingRadiusPerLevel => chanceOfBoostingRadiusPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> RadiusSizeMultiplierPerLevel => radiusSizeMultiplierPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> BoostRadiusDurationPerLevel => boostRadiusDurationPerLevel;
@@ -33,31 +35,47 @@ public class AutoClicker : MonoBehaviour
     public bool UseRealTime => useRealTime;
 
     public event Action<Vector3> OnClick;
+    public void NotifyClick(Vector3 clickPosition) => OnClick?.Invoke(clickPosition);
     public event Action OnAutoClickStarted;
+    public void NotifyAutoClickStarted() => OnAutoClickStarted?.Invoke();
     public event Action OnAutoClickFinished;
     public event Action OnEnableAutoClicker;
     public event Action OnDisableAutoClicker;
-    private Timer clickTimer;
-    private bool isAutoClicking = false;
+    protected Timer clickTimer;
+    protected bool isAutoClicking = false;
     private Timer tryBoostTimer;
     private Timer boostRadiusTimer;
     public event Action OnBoostRadiusStart;
     public event Action OnBoostRadiusEnd;
     public bool isBoostingRadius { get; private set; } = false;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         clickTimerIntervalPerLevel.OnLevelUp += HandleLevelUp;
         clickTimerIntervalPerLevel.OnLevelDown += HandleLevelUp;
     }
 
-    private void OnEnable() => autoClickerInput.OnToggleAutoclicker += AutoClickerInput_OnToggleAutoclicker;
-    private void OnDisable() => autoClickerInput.OnToggleAutoclicker -= AutoClickerInput_OnToggleAutoclicker;
+    private void OnEnable()
+    {
+        if (targetCamera == null)
+            targetCamera = Camera.main;
+
+        if (autoClickerInput != null)
+            autoClickerInput.OnToggleAutoclicker += AutoClickerInput_OnToggleAutoclicker;
+    }
+
+    private void OnDisable()
+    {
+        if(autoClickerInput != null)
+            autoClickerInput.OnToggleAutoclicker -= AutoClickerInput_OnToggleAutoclicker;
+    }
 
     private void Start()
     {
         StartAutoClicking();
-        StartTryBoostRadius();
+
+        if(useBoostRadius)
+            StartTryBoostRadius();
     }
 
     private void StartTryBoostRadius()
@@ -88,7 +106,7 @@ public class AutoClicker : MonoBehaviour
         StartTryBoostRadius();
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         StopAutoClicking();
         tryBoostTimer?.Cancel();
@@ -97,7 +115,7 @@ public class AutoClicker : MonoBehaviour
         clickTimerIntervalPerLevel.OnLevelDown -= HandleLevelUp;
     }
 
-    private void HandleLevelUp()
+    protected virtual void HandleLevelUp()
     {
         if (clickTimer != null && !clickTimer.isDone)
         {
@@ -106,7 +124,7 @@ public class AutoClicker : MonoBehaviour
         }
     }
 
-    public void StartAutoClicking()
+    public virtual void StartAutoClicking()
     {
         clickTimer?.Cancel();
         isAutoClicking = true;
@@ -121,7 +139,7 @@ public class AutoClicker : MonoBehaviour
         OnAutoClickFinished?.Invoke();
     }
 
-    private void SimulateClick()
+    protected virtual void SimulateClick()
     {
         logger.Log($"AutoClicker: SimulateClick at {Input.mousePosition}", this);
         OnClick?.Invoke(targetCamera.ScreenToWorldPoint(Input.mousePosition));
