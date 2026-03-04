@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d973afdea3cb3343894d7e2ee6fc8e0, type: 3}
-  m_Name: Test Tampon
+  m_Name: Tampon_gamer
   m_EditorClassIdentifier: 
-  tamponName: test 1
-  tamponId: test_1
-  tamponTexture: {fileID: 2800000, guid: ebc7ba6394d1e8d4aaaef221744eaeca, type: 3}
-  tamponSprite: {fileID: 21300000, guid: ebc7ba6394d1e8d4aaaef221744eaeca, type: 3}
+  tamponName: DJ
+  tamponId: dj
+  tamponTexture: {fileID: 2800000, guid: e9a05fc9ccc22774a9e097465705c100, type: 3}
+  tamponSprite: {fileID: 21300000, guid: e9a05fc9ccc22774a9e097465705c100, type: 3}

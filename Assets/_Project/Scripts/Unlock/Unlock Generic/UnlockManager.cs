@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using inkolorgames;
 using UnityEngine;
 /// <summary>
 /// Generic base class for unlock managers. Inherit from this to create managers for specific item types.
 /// </summary>
-/// <typeparam name="T">Type of unlockable item (must be ScriptableObject and IUnlockableItem)</typeparam>
-public abstract class UnlockManager<T> : MonoBehaviour, IUnlockManager<T>
-    where T : ScriptableObject, IUnlockableItem
+/// <typeparam name="TItem">Type of unlockable item (must be ScriptableObject and IUnlockableItem)</typeparam>
+/// <typeparam name="TSelf">The concrete derived class itself (CRTP pattern, for singleton support)</typeparam>
+public abstract class UnlockManager<TItem, TSelf> : PersistentMonoSingleton<TSelf>, IUnlockManager<TItem>
+    where TItem : ScriptableObject, IUnlockableItem
+    where TSelf : MonoSingleton<TSelf>
 {
-    [SerializeField] protected List<Unlockable<T>> unlockableItems = new List<Unlockable<T>>();
+    [SerializeField] protected List<Unlockable<TItem>> unlockableItems = new List<Unlockable<TItem>>();
     [SerializeField] protected bool checkUnlocksOnStart = true;
     [SerializeField] protected bool autoUnlockItems = true;
 
@@ -21,8 +24,9 @@ public abstract class UnlockManager<T> : MonoBehaviour, IUnlockManager<T>
     protected abstract UnlockableSaveData LoadSaveData();
     protected abstract void SaveData(UnlockableSaveData saveData);
 
-    protected virtual void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         InitializeUnlockables();
     }
 
@@ -67,14 +71,14 @@ public abstract class UnlockManager<T> : MonoBehaviour, IUnlockManager<T>
 
     public void CheckItemUnlock(string itemId)
     {
-        Unlockable<T> unlockable = GetUnlockable(itemId);
+        Unlockable<TItem> unlockable = GetUnlockable(itemId);
         if (unlockable != null)
         {
             unlockable.CheckUnlockCondition();
         }
     }
 
-    public void CheckItemUnlock(T item)
+    public void CheckItemUnlock(TItem item)
     {
         if (item != null && !string.IsNullOrEmpty(item.ItemId))
         {
@@ -82,12 +86,12 @@ public abstract class UnlockManager<T> : MonoBehaviour, IUnlockManager<T>
         }
     }
 
-    public Unlockable<T> GetUnlockable(string itemId)
+    public Unlockable<TItem> GetUnlockable(string itemId)
     {
         return unlockableItems.Find(u => u.Item != null && u.Item.ItemId == itemId);
     }
 
-    public Unlockable<T> GetUnlockable(T item)
+    public Unlockable<TItem> GetUnlockable(TItem item)
     {
         if (item == null)
             return null;
@@ -95,14 +99,14 @@ public abstract class UnlockManager<T> : MonoBehaviour, IUnlockManager<T>
         return GetUnlockable(item.ItemId);
     }
 
-    public List<Unlockable<T>> GetAllUnlockables()
+    public List<Unlockable<TItem>> GetAllUnlockables()
     {
-        return new List<Unlockable<T>>(unlockableItems);
+        return new List<Unlockable<TItem>>(unlockableItems);
     }
 
-    public List<Unlockable<T>> GetLockedUnlockables()
+    public List<Unlockable<TItem>> GetLockedUnlockables()
     {
-        List<Unlockable<T>> locked = new List<Unlockable<T>>();
+        List<Unlockable<TItem>> locked = new List<Unlockable<TItem>>();
 
         foreach (var unlockable in unlockableItems)
         {
@@ -115,9 +119,9 @@ public abstract class UnlockManager<T> : MonoBehaviour, IUnlockManager<T>
         return locked;
     }
 
-    public List<Unlockable<T>> GetUnlockedUnlockables()
+    public List<Unlockable<TItem>> GetUnlockedUnlockables()
     {
-        List<Unlockable<T>> unlocked = new List<Unlockable<T>>();
+        List<Unlockable<TItem>> unlocked = new List<Unlockable<TItem>>();
 
         foreach (var unlockable in unlockableItems)
         {
@@ -132,11 +136,11 @@ public abstract class UnlockManager<T> : MonoBehaviour, IUnlockManager<T>
 
     public bool IsItemUnlockable(string itemId)
     {
-        Unlockable<T> unlockable = GetUnlockable(itemId);
+        Unlockable<TItem> unlockable = GetUnlockable(itemId);
         return unlockable != null;
     }
 
-    public bool IsItemUnlockable(T item)
+    public bool IsItemUnlockable(TItem item)
     {
         if (item == null)
             return false;
@@ -146,7 +150,7 @@ public abstract class UnlockManager<T> : MonoBehaviour, IUnlockManager<T>
 
     public string GetUnlockDescription(string itemId)
     {
-        Unlockable<T> unlockable = GetUnlockable(itemId);
+        Unlockable<TItem> unlockable = GetUnlockable(itemId);
 
         if (unlockable != null)
         {
@@ -156,7 +160,7 @@ public abstract class UnlockManager<T> : MonoBehaviour, IUnlockManager<T>
         return "Item not found";
     }
 
-    public string GetUnlockDescription(T item)
+    public string GetUnlockDescription(TItem item)
     {
         if (item == null)
             return "Item is null";
@@ -203,7 +207,7 @@ public abstract class UnlockManager<T> : MonoBehaviour, IUnlockManager<T>
         // Override in derived class for custom behavior when item is locked
     }
 
-    public void UnlockItem(T item)
+    public void UnlockItem(TItem item)
     {
         if (item != null && !string.IsNullOrEmpty(item.ItemId))
         {
@@ -211,7 +215,7 @@ public abstract class UnlockManager<T> : MonoBehaviour, IUnlockManager<T>
         }
     }
 
-    public void LockItem(T item)
+    public void LockItem(TItem item)
     {
         if (item != null && !string.IsNullOrEmpty(item.ItemId))
         {
@@ -219,16 +223,16 @@ public abstract class UnlockManager<T> : MonoBehaviour, IUnlockManager<T>
         }
     }
 
-    public T GetItemById(string itemId)
+    public TItem GetItemById(string itemId)
     {
-        Unlockable<T> unlockable = GetUnlockable(itemId);
+        Unlockable<TItem> unlockable = GetUnlockable(itemId);
         return unlockable?.Item;
     }
 
-    public List<T> GetUnlockedItems()
+    public List<TItem> GetUnlockedItems()
     {
         UnlockableSaveData saveData = LoadSaveData();
-        List<T> unlockedItems = new List<T>();
+        List<TItem> unlockedItems = new List<TItem>();
 
         foreach (var unlockable in unlockableItems)
         {
@@ -241,10 +245,10 @@ public abstract class UnlockManager<T> : MonoBehaviour, IUnlockManager<T>
         return unlockedItems;
     }
 
-    public List<T> GetLockedItems()
+    public List<TItem> GetLockedItems()
     {
         UnlockableSaveData saveData = LoadSaveData();
-        List<T> lockedItems = new List<T>();
+        List<TItem> lockedItems = new List<TItem>();
 
         foreach (var unlockable in unlockableItems)
         {
@@ -259,14 +263,14 @@ public abstract class UnlockManager<T> : MonoBehaviour, IUnlockManager<T>
 
     public void ForceUnlock(string itemId)
     {
-        Unlockable<T> unlockable = GetUnlockable(itemId);
+        Unlockable<TItem> unlockable = GetUnlockable(itemId);
         if (unlockable != null)
         {
             unlockable.Unlock();
         }
     }
 
-    public void ForceUnlock(T item)
+    public void ForceUnlock(TItem item)
     {
         if (item != null)
         {

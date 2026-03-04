@@ -671,8 +671,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f81a1cc87048cd43bb8bbc0bac35bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorThemeUnlockManager: {fileID: 9083568608195226659}
-  unlockThemePopupPrefab: {fileID: 2161673071065035522, guid: 14f4f7b9adaab7f429cbc4862366992c, type: 3}
+  unlockManager: {fileID: 9083568608195226659}
+  popupPrefab: {fileID: 2161673071065035522, guid: 14f4f7b9adaab7f429cbc4862366992c, type: 3}
   popupParent: {fileID: 3553634817349462288}
 --- !u!1 &7796465828335806171
 GameObject:

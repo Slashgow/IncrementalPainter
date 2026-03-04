@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using inkolorgames;
+using UnityEngine;
 /// <summary>
 /// Brush unlock manager - inherits from generic UnlockManager
 /// </summary>
-public class BrushUnlockManager : UnlockManager<BrushData>
+public class BrushUnlockManager : UnlockManager<BrushData, BrushUnlockManager>
 {
     private const string SAVE_KEY = "Brushes";
 

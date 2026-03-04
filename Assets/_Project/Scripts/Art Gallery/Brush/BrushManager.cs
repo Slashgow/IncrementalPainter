@@ -4,10 +4,10 @@ using inkolorgames;
 using PaintCore;
 using PaintIn2D;
 using UnityEngine;
-public class BrushManager : PersistentMonoSingleton<BrushManager>
+public class BrushManager : MonoSingleton<BrushManager>
 {
     [Header("References")]
-    [SerializeField] private BrushUnlockManager unlockManager;
+  
     [SerializeField] private CwPaintDecal2D paintDecal2D;
 
     [Header("Default Brush")]
@@ -21,6 +21,7 @@ public class BrushManager : PersistentMonoSingleton<BrushManager>
     public static event Action<float> OnBrushSizeChanged;
     public static event Action<float> OnBrushOpacityChanged;
 
+    private BrushUnlockManager unlockManager;
     private float currentSize = 10f;
     private float currentOpacity = 1f;
     private BrushData currentBrush;
@@ -37,6 +38,7 @@ public class BrushManager : PersistentMonoSingleton<BrushManager>
     protected override void Awake()
     {
         base.Awake();
+        unlockManager = BrushUnlockManager.Instance;
         SetSize(defaultSize, false);
         ArtGalleryColorManager.OnColorChanged += SetColor;
         ArtGalleryColorManager.OnApplyColorRandomModifier += SetColorModifier;

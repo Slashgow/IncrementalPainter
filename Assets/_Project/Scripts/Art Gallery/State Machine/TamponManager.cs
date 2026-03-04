@@ -9,7 +9,6 @@ public class TamponManager : MonoSingleton<TamponManager>
 {
     [Header("References")]
     [SerializeField] private ArtGaleryInput artGaleryInput;
-    [SerializeField] private TamponUnlockManager unlockManager;
     [SerializeField] private CwPaintDecal2D paintDecal2D;
 
     [Header("Default Brush")]
@@ -25,6 +24,8 @@ public class TamponManager : MonoSingleton<TamponManager>
     public static event Action<Texture> OnTamponTextureChanged;
     public static event Action<float> OnTamponSizeChanged;
     public static event Action<float> OnTamponOpacityChanged;
+
+    private TamponUnlockManager unlockManager;
 
     private float currentSize = 10f;
     private float currentOpacity = 1f;
@@ -42,6 +43,7 @@ public class TamponManager : MonoSingleton<TamponManager>
     protected override void Awake()
     {
         base.Awake();
+        unlockManager = TamponUnlockManager.Instance;
         SetSize(defaultSize, false);
         ArtGalleryColorManager.OnColorChanged += SetColor;
         ArtGalleryColorManager.OnApplyColorRandomModifier += SetColorModifier;
@@ -226,4 +228,5 @@ public class TamponManager : MonoSingleton<TamponManager>
     }
 
     public Sprite GetCurrentTamponSprite() => currentTampon?.TamponSprite;
+    public TamponData GetTamponById(string tamponId) => unlockManager.GetItemById(tamponId);
 }

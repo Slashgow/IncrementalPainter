@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using inkolorgames;
 
-public class TamponUnlockManager : UnlockManager<TamponData>
+public class TamponUnlockManager : UnlockManager<TamponData, TamponUnlockManager>
 {
     private const string SAVE_KEY = "Tampon";
 

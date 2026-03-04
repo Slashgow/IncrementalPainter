@@ -3,7 +3,7 @@
 /// <summary>
 /// Color Theme specific unlock manager - inherits from generic UnlockManager
 /// </summary>
-public class ColorThemeUnlockManager : UnlockManager<ColorTheme>
+public class ColorThemeUnlockManager : UnlockManager<ColorTheme, ColorThemeUnlockManager>
 {
     private const string SAVE_KEY = "ColorThemes";
 

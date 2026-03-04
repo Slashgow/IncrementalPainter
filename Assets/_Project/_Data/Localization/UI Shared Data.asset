@@ -339,6 +339,10 @@ MonoBehaviour:
     m_Key: MINE_DAMAGE
     m_Metadata:
       m_Items: []
+  - m_Id: 34695677479350272
+    m_Key: UNLOCK_STICKER
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
