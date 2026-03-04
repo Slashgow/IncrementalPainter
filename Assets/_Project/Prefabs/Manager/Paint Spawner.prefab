@@ -96,10 +96,10 @@ MonoBehaviour:
     upgradeInfluenceCoefficient: 0
     levelThreshold: 10
   - difficulty: 1
-    maxHealth: 19
+    maxHealth: 30
     cost: 20
     scale: 0.4
-    chancePercentageToHaveShield: 20
+    chancePercentageToHaveShield: 25
     maxShield: 40
     shieldArmor: 0.25
     canRegenerateShield: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
     upgradeInfluenceCoefficient: 0.1
     levelThreshold: 15
   - difficulty: 2
-    maxHealth: 29
+    maxHealth: 60
     cost: 30
     scale: 0.6
     chancePercentageToHaveShield: 35
@@ -122,12 +122,12 @@ MonoBehaviour:
     upgradeInfluenceCoefficient: 0.2
     levelThreshold: 20
   - difficulty: 3
-    maxHealth: 39
+    maxHealth: 100
     cost: 40
     scale: 0.8
     chancePercentageToHaveShield: 50
     maxShield: 100
-    shieldArmor: 1
+    shieldArmor: 0.8
     canRegenerateShield: 1
     shieldRegenerationRate: 5
     shieldRegenerationDelay: 15

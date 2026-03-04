@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using inkolorgames;
 
 public class TamponUnlockManager : UnlockManager<TamponData, TamponUnlockManager>
 {

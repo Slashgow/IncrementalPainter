@@ -20,63 +20,58 @@ public class UnlockThemePopup : PopUp
         unlockedTheme = theme;
         parentCanvas = parent;
 
-
 #if !UNITY_WEBGL
         themeNameText.text = $"{theme.ThemeName} {unlockLocalizedString.GetLocalizedString()}";
-#endif
-
-#if UNITY_WEBGL
-
+#else
         unlockLocalizedString.GetLocalizedStringAsync().Completed += (handle) =>
         {
             if (handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
-            {
-                     themeNameText.text = $"{theme.ThemeName} {handle.Result}";
-            }
+                themeNameText.text = $"{theme.ThemeName} {handle.Result}";
         };
 #endif
 
         previewImage.color = theme.GetColor(ColorId.PRIMARY);
-
         GenerateColorPalette(theme);
-
-        if (unlockedTheme != null)
-        {
-            ThemeColorManager.Instance.SetTheme(unlockedTheme);
-            Debug.Log($"Switched to theme: {unlockedTheme.ThemeName}");
-        }
+        ThemeColorManager.Instance.SetTheme(unlockedTheme);
 
         parentCanvas.gameObject.SetActive(true);
         gameObject.SetActive(true);
 
-        if(GameManager.HasInstance)
+        if (GameManager.HasInstance)
             GameManager.Instance.Pause();
     }
 
     protected override void OnClickDoActionButton()
     {
-        base.OnClickDoActionButton();
-
-        if (unlockedTheme != null)
-        {
-            ThemeColorManager.Instance.SetTheme(unlockedTheme);
-            Debug.Log($"Switched to theme: {unlockedTheme.ThemeName}");
-        }
-
-        gameObject.SetActive(false);
-        parentCanvas.gameObject.SetActive(false);
-
-        if(GameManager.HasInstance )
-            GameManager.Instance.Resume();
+        ThemeColorManager.Instance.SetTheme(unlockedTheme);
+        Dismiss();
     }
 
     protected override void OnClickCancelButton()
     {
-        base.OnClickCancelButton();
-        parentCanvas.gameObject.SetActive(false);
+        Dismiss();
+    }
 
-        if(GameManager.HasInstance)
+    private void Dismiss()
+    {
+        gameObject.SetActive(false);
+
+        // Only hide the canvas if no more sibling popups are active
+        if (parentCanvas != null && !HasActivePopupSibling())
+            parentCanvas.gameObject.SetActive(false);
+
+        if (GameManager.HasInstance)
             GameManager.Instance.Resume();
+
+        Close(); // notifies the spawner queue
+    }
+
+    private bool HasActivePopupSibling()
+    {
+        foreach (Transform child in parentCanvas.transform)
+            if (child.gameObject != gameObject && child.gameObject.activeSelf && child.GetComponent<PopUp>() != null)
+                return true;
+        return false;
     }
 
     private void GenerateColorPalette(ColorTheme theme)

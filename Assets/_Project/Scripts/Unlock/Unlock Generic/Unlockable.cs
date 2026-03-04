@@ -1,7 +1,7 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+
 /// <summary>
 /// Generic wrapper that makes any ScriptableObject unlockable
 /// </summary>
@@ -17,11 +17,18 @@ public class Unlockable<T> : IUnlockable where T : ScriptableObject, IUnlockable
 
     private IUnlockManager<T> unlockManager;
 
-    public bool IsUnlocked => CheckUnlockCondition();
+    // Cached state to detect the locked→unlocked transition
+    // so we only fire OnItemUnlocked once, and not on every CheckAllUnlocks call
+    private bool _wasUnlockedLastCheck = false;
+    private bool _initialized = false;
+
+    public bool IsUnlocked => unlockManager != null && unlockManager.IsItemUnlocked(item.ItemId);
 
     public void Initialize(IUnlockManager<T> manager)
     {
         unlockManager = manager;
+        // Do NOT call IsUnlocked here — GameSaveManager may not be ready yet.
+        // _wasUnlockedLastCheck is seeded lazily on the first CheckUnlockCondition call.
     }
 
     public bool CheckUnlockCondition()
@@ -32,15 +39,27 @@ public class Unlockable<T> : IUnlockable where T : ScriptableObject, IUnlockable
             return false;
         }
 
-        // If no conditions, it's unlocked by default
+        // Lazy seed: first call after save system is ready
+        if (!_initialized)
+        {
+            _wasUnlockedLastCheck = IsUnlocked;
+            _initialized = true;
+        }
+
+        // Already unlocked in save — no need to re-evaluate conditions
+        if (IsUnlocked)
+        {
+            _wasUnlockedLastCheck = true;
+            return true;
+        }
+
+        // No conditions = unlocked by default
         if (unlockConditions == null || unlockConditions.Count == 0)
+        {
+            Unlock();
             return true;
+        }
 
-        // Check if already unlocked in save data
-        if (unlockManager != null && unlockManager.IsItemUnlocked(item.ItemId))
-            return true;
-
-        // Check if all conditions are met
         bool allMet = true;
         foreach (var condition in unlockConditions)
         {
@@ -51,12 +70,13 @@ public class Unlockable<T> : IUnlockable where T : ScriptableObject, IUnlockable
             }
         }
 
-        // Auto-unlock if all conditions met
-        if (allMet && unlockManager != null)
+        // Only unlock (and fire the event) if this is a new transition
+        if (allMet && !_wasUnlockedLastCheck)
         {
             Unlock();
         }
 
+        _wasUnlockedLastCheck = allMet;
         return allMet;
     }
 
@@ -74,10 +94,11 @@ public class Unlockable<T> : IUnlockable where T : ScriptableObject, IUnlockable
             return;
         }
 
-        if (unlockManager.IsItemUnlocked(item.ItemId))
+        if (IsUnlocked)
             return;
 
         unlockManager.UnlockItem(item.ItemId);
+        _wasUnlockedLastCheck = true;
         Debug.Log($"{item.ItemType} '{item.ItemName}' unlocked!");
     }
 
@@ -87,6 +108,7 @@ public class Unlockable<T> : IUnlockable where T : ScriptableObject, IUnlockable
             return;
 
         unlockManager.LockItem(item.ItemId);
+        _wasUnlockedLastCheck = false;
     }
 
     public string GetUnlockDescription()

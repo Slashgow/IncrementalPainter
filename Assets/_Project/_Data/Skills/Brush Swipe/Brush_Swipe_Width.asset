@@ -37,7 +37,7 @@ MonoBehaviour:
       requiredLevel: 1
   unitValue: 4
   effectValue:
-    a: 1
+    a: 2
     b: 1
   references:
     version: 2

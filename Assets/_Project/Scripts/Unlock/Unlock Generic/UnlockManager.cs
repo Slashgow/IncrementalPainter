@@ -33,13 +33,13 @@ public abstract class UnlockManager<TItem, TSelf> : PersistentMonoSingleton<TSel
     protected virtual void OnEnable()
     {
         // Override in derived class to subscribe to game events
-        // Example: LevelManager.OnEndLevel += CheckAllUnlocks;
+        LevelManager.OnEndLevel += CheckAllUnlocks;
     }
 
     protected virtual void OnDisable()
     {
         // Override in derived class to unsubscribe from game events
-        // Example: LevelManager.OnEndLevel -= CheckAllUnlocks;
+        LevelManager.OnEndLevel -= CheckAllUnlocks;
     }
 
     protected virtual void Start()

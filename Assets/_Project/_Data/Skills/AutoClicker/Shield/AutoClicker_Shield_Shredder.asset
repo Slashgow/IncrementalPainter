@@ -38,7 +38,7 @@ MonoBehaviour:
   unitValue: 7
   effectValue:
     a: 0.08
-    b: 0.02
+    b: 0
   references:
     version: 2
     RefIds: []

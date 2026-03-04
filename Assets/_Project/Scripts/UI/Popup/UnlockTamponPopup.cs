@@ -10,34 +10,23 @@ public class UnlockTamponPopup : PopUp
     [SerializeField] private LocalizedString unlockLocalizedString;
 
     private Canvas parentCanvas;
-    private TamponData tamponData;
 
     public void Initialize(TamponData tamponData, Canvas parent)
     {
-        this.tamponData = tamponData;
         parentCanvas = parent;
-
 
 #if !UNITY_WEBGL
         themeNameText.text = $"{tamponData.ItemName} {unlockLocalizedString.GetLocalizedString()}";
-#endif
-
-#if UNITY_WEBGL
-
+#else
         unlockLocalizedString.GetLocalizedStringAsync().Completed += (handle) =>
         {
             if (handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
-            {
-                     themeNameText.text = $"{tamponData.ItemName} {handle.Result}";
-            }
+                themeNameText.text = $"{tamponData.ItemName} {handle.Result}";
         };
 #endif
 
         if (tamponData != null)
-        {
             previewImage.sprite = tamponData.TamponSprite;
-            Debug.Log($"unlocked tampon: {tamponData.ItemName}");
-        }
 
         parentCanvas.gameObject.SetActive(true);
         gameObject.SetActive(true);
@@ -48,22 +37,33 @@ public class UnlockTamponPopup : PopUp
 
     protected override void OnClickDoActionButton()
     {
-        base.OnClickDoActionButton();
-
-        gameObject.SetActive(false);
-        parentCanvas.gameObject.SetActive(false);
-
-        if (GameManager.HasInstance)
-            GameManager.Instance.Resume();
+        Dismiss();
     }
-
 
     protected override void OnClickCancelButton()
     {
-        base.OnClickCancelButton();
-        parentCanvas.gameObject.SetActive(false);
+        Dismiss();
+    }
+
+    private void Dismiss()
+    {
+        gameObject.SetActive(false);
+
+        // Only hide the canvas if no more sibling popups are active
+        if (parentCanvas != null && !HasActivePopupSibling())
+            parentCanvas.gameObject.SetActive(false);
 
         if (GameManager.HasInstance)
             GameManager.Instance.Resume();
+
+        Close(); // notifies the spawner queue
+    }
+
+    private bool HasActivePopupSibling()
+    {
+        foreach (Transform child in parentCanvas.transform)
+            if (child.gameObject != gameObject && child.gameObject.activeSelf && child.GetComponent<PopUp>() != null)
+                return true;
+        return false;
     }
 }
