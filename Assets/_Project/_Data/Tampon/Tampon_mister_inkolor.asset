@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d973afdea3cb3343894d7e2ee6fc8e0, type: 3}
   m_Name: Tampon_mister_inkolor
   m_EditorClassIdentifier: 
-  tamponName: Painter
-  tamponId: painter
-  tamponTexture: {fileID: 2800000, guid: 78ddf4b8693df6241904bee4c0b59a5b, type: 3}
-  tamponSprite: {fileID: 21300000, guid: 78ddf4b8693df6241904bee4c0b59a5b, type: 3}
+  tamponName: Mister Inkolor
+  tamponId: mister_inkolor
+  tamponTexture: {fileID: 2800000, guid: 4996672cf5a60b040b1c5c26137867b2, type: 3}
+  tamponSprite: {fileID: 21300000, guid: 4996672cf5a60b040b1c5c26137867b2, type: 3}

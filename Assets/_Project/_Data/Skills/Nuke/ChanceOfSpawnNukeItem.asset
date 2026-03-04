@@ -25,13 +25,13 @@ MonoBehaviour:
     m_LocalVariables: []
   icon: {fileID: -1084543492, guid: e5d32b0d3af324541b2ccb2fc3aa7fb4, type: 3}
   costFunction:
-    a: 100
-    b: 10
+    a: 400
+    b: 20
   startingLevel: 0
   maxLevel: 5
   levelRequirements:
   - level: 1
-    skillPointCost: 1
+    skillPointCost: 3
     requiredSkills:
     - skillData: {fileID: 11400000, guid: 174bee4b49a8d2b43b70ee3cbb0b2361, type: 2}
       requiredLevel: 1
