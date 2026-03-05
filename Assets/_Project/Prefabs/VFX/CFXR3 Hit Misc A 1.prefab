@@ -44,7 +44,7 @@ ParticleSystem:
   lengthInSec: 0.5
   simulationSpeed: 1
   stopAction: 0
-  cullingMode: 0
+  cullingMode: 1
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 0
@@ -5026,7 +5026,7 @@ ParticleSystem:
   lengthInSec: 0.5
   simulationSpeed: 1
   stopAction: 0
-  cullingMode: 0
+  cullingMode: 1
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 0
@@ -5586,7 +5586,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 50
+    maxNumParticles: 30
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -9820,4 +9820,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf8c94231b1496f45b57e1fa4ff87ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  returnToPoolAutomatically: 1
   returnToPoolAfter: 1.5

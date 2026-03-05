@@ -109,6 +109,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   detectionInterval: 0.2
+  detectionBufferSize: 512
+  updateSlices: 8
   isActive: 1
   useCustomMagnetData: 0
   customMagnetData:

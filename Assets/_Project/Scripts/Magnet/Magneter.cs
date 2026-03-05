@@ -9,6 +9,10 @@ public class Magneter : MonoBehaviour, IMagneter
     [Header("Detection")]
     [SerializeField] private LayerMask magnetableLayers = ~0;
     [SerializeField] private float detectionInterval = 0.2f;
+    [SerializeField] private int detectionBufferSize = 512;
+
+    [Header("Performance")]
+    [SerializeField, Range(1, 8)] private int updateSlices = 4;
 
     [Header("Settings")]
     [SerializeField] private bool isActive = true;
@@ -32,10 +36,18 @@ public class Magneter : MonoBehaviour, IMagneter
     public float OrbitSpeed => useCustomMagnetData && customMagnetData != null
         ? customMagnetData.OrbitSpeed
         : MagneterManager.Instance.OrbitSpeedPerLevel.GetCurrentLevelData();
+
     public bool IsActive => isActive;
 
-    private HashSet<IMagnetable> magnetedObjects = new HashSet<IMagnetable>();
-    private Dictionary<IMagnetable, float> orbitAngles = new Dictionary<IMagnetable, float>();
+    // ── Cached collections — no per-frame allocations ────────────────────────
+    private readonly HashSet<IMagnetable> magnetedObjects = new();
+    private readonly Dictionary<IMagnetable, float> orbitAngles = new();
+    private readonly HashSet<IMagnetable> _objectsInRangeBuffer = new();
+    private readonly List<IMagnetable> _magnetablesCopy = new();
+    private readonly Dictionary<Collider2D, IMagnetable> _componentCache = new();
+    private Collider2D[] _overlapBuffer;
+    private int _updateSlice = 0;
+
     private Timer detectionTimer;
 
     public UnityEvent OnMagnetActivated;
@@ -45,6 +57,7 @@ public class Magneter : MonoBehaviour, IMagneter
 
     private void Start()
     {
+        _overlapBuffer = new Collider2D[detectionBufferSize];
         StartDetectionTimer();
     }
 
@@ -55,37 +68,38 @@ public class Magneter : MonoBehaviour, IMagneter
 
     private void Update()
     {
-        if (!isActive)
-            return;
-
+        if (!isActive) return;
         ApplyMagneticMovement();
     }
 
     private void DetectMagnetableObjects()
     {
-        if (!isActive)
-            return;
+        if (!isActive) return;
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, AttractionRadius, magnetableLayers);
-
-        HashSet<IMagnetable> objectsInRange = new HashSet<IMagnetable>();
-        foreach (var collider in colliders)
+        // NonAlloc + auto-resize if buffer was too small
+        int count = Physics2D.OverlapCircleNonAlloc(transform.position, AttractionRadius, _overlapBuffer, magnetableLayers);
+        while (count == _overlapBuffer.Length)
         {
-            var magnetable = collider.GetComponentInParent<IMagnetable>();
+            _overlapBuffer = new Collider2D[_overlapBuffer.Length * 2];
+            count = Physics2D.OverlapCircleNonAlloc(transform.position, AttractionRadius, _overlapBuffer, magnetableLayers);
+        }
+
+        _objectsInRangeBuffer.Clear();
+
+        for (int i = 0; i < count; i++)
+        {
+            IMagnetable magnetable = GetCachedMagnetable(_overlapBuffer[i]);
             if (magnetable != null && MagnetUtility.IsValidMagnetable(magnetable))
             {
-                objectsInRange.Add(magnetable);
-
+                _objectsInRangeBuffer.Add(magnetable);
                 if (!magnetedObjects.Contains(magnetable))
-                {
                     AddMagnetableObject(magnetable);
-                }
             }
         }
 
         magnetedObjects.RemoveWhere(magnetable =>
         {
-            if (!MagnetUtility.IsValidMagnetable(magnetable) || !objectsInRange.Contains(magnetable))
+            if (!MagnetUtility.IsValidMagnetable(magnetable) || !_objectsInRangeBuffer.Contains(magnetable))
             {
                 RemoveMagnetableObject(magnetable);
                 return true;
@@ -96,46 +110,71 @@ public class Magneter : MonoBehaviour, IMagneter
 
     private void ApplyMagneticMovement()
     {
-        List<IMagnetable> magnetablesCopy = new List<IMagnetable>(magnetedObjects);
+        // Cache properties once — avoids calling GetCurrentLevelData() for every object
+        float attractionForce = AttractionForce;
+        float orbitRadius = OrbitRadius;
+        float orbitRadiusSqr = orbitRadius * orbitRadius;
+        float orbitSpeed = OrbitSpeed;
+        Vector3 myPos = transform.position;
+        float dt = Time.deltaTime;
 
-        foreach (var magnetable in magnetablesCopy)
+        _magnetablesCopy.Clear();
+        _magnetablesCopy.AddRange(magnetedObjects);
+
+        for (int i = 0; i < _magnetablesCopy.Count; i++)
         {
-            if (!MagnetUtility.IsValidMagnetable(magnetable))
+            IMagnetable magnetable = _magnetablesCopy[i];
+
+            // Spread: validity check seulement sur 1/updateSlices des objets par frame
+            if (i % updateSlices == _updateSlice && !MagnetUtility.IsValidMagnetable(magnetable))
             {
                 RemoveMagnetableObject(magnetable);
                 continue;
             }
 
             Vector3 currentPos = magnetable.Transform.position;
-            float distance = Vector3.Distance(currentPos, transform.position);
+            float sqrDist = (currentPos - myPos).sqrMagnitude;
 
-            if (distance < 0.01f)
+            if (sqrDist < 0.0001f) // 0.01f squared
                 continue;
 
             Vector3 movement;
 
-            if (distance > OrbitRadius)
-                movement = MagnetUtility.CalculatePullMovement(currentPos,transform.position,AttractionForce,magnetable.MagnetResistance,Time.deltaTime);
+            if (sqrDist > orbitRadiusSqr)
+                movement = MagnetUtility.CalculatePullMovement(currentPos, myPos, attractionForce, magnetable.MagnetResistance, dt);
             else
-                movement = CalculateOrbitMovement(magnetable, distance);
+                movement = CalculateOrbitMovement(magnetable, Mathf.Sqrt(sqrDist), orbitRadius, orbitSpeed, attractionForce, myPos, dt);
 
             magnetable.ApplyMagneticMovement(movement);
         }
+
+        _updateSlice = (_updateSlice + 1) % updateSlices;
     }
 
-    private Vector3 CalculateOrbitMovement(IMagnetable magnetable, float currentDistance)
+    private Vector3 CalculateOrbitMovement(IMagnetable magnetable, float currentDistance, float orbitRadius, float orbitSpeed, float attractionForce, Vector3 myPos, float dt)
     {
-        if (!orbitAngles.ContainsKey(magnetable))
+        // TryGetValue = single lookup instead of ContainsKey + indexer (two lookups)
+        if (!orbitAngles.TryGetValue(magnetable, out float angle))
         {
-            Vector3 relativePos = magnetable.Transform.position - transform.position;
-            orbitAngles[magnetable] = MagnetUtility.CalculateAngleFromPosition(relativePos);
+            Vector3 relativePos = magnetable.Transform.position - myPos;
+            angle = MagnetUtility.CalculateAngleFromPosition(relativePos);
         }
 
-        float angleIncrement = MagnetUtility.CalculateOrbitAngleIncrement(OrbitSpeed, Time.deltaTime);
-        orbitAngles[magnetable] += angleIncrement;
+        angle += MagnetUtility.CalculateOrbitAngleIncrement(orbitSpeed, dt);
+        orbitAngles[magnetable] = angle;
 
-        return MagnetUtility.CalculateOrbitMovement(magnetable.Transform.position, transform.position, orbitAngles[magnetable], OrbitRadius, OrbitSpeed,
-            AttractionForce, magnetable.MagnetResistance, Time.deltaTime);
+        return MagnetUtility.CalculateOrbitMovement(magnetable.Transform.position, myPos, angle, orbitRadius, orbitSpeed,
+            attractionForce, magnetable.MagnetResistance, dt);
+    }
+
+    private IMagnetable GetCachedMagnetable(Collider2D col)
+    {
+        if (!_componentCache.TryGetValue(col, out IMagnetable m))
+        {
+            m = col.GetComponentInParent<IMagnetable>();
+            _componentCache[col] = m; // cache null too, to avoid re-searching
+        }
+        return m;
     }
 
     public void AddMagnetableObject(IMagnetable magnetable)
@@ -152,9 +191,19 @@ public class Magneter : MonoBehaviour, IMagneter
         if (magnetedObjects.Remove(magnetable))
         {
             orbitAngles.Remove(magnetable);
+            RemoveFromCache(magnetable);
             magnetable.OnMagnetExit(this);
             OnAnyMagnetRelease?.Invoke(this, magnetable);
         }
+    }
+
+    private void RemoveFromCache(IMagnetable magnetable)
+    {
+        var toRemove = new List<Collider2D>();
+        foreach (var kvp in _componentCache)
+            if (kvp.Value == magnetable) toRemove.Add(kvp.Key);
+        foreach (var key in toRemove)
+            _componentCache.Remove(key);
     }
 
     public void SetActive(bool active)
@@ -169,12 +218,8 @@ public class Magneter : MonoBehaviour, IMagneter
         else if (!isActive && wasActive)
         {
             OnMagnetDeactivated?.Invoke();
-
-            // Release all magneted objects
             foreach (var magnetable in new List<IMagnetable>(magnetedObjects))
-            {
                 RemoveMagnetableObject(magnetable);
-            }
             magnetedObjects.Clear();
             orbitAngles.Clear();
         }
@@ -185,10 +230,8 @@ public class Magneter : MonoBehaviour, IMagneter
         customMagnetData = data;
         useCustomMagnetData = data != null;
 
-        if(this.TryGetComponent(out MagneterVisual magneterVisual))
-        {
+        if (this.TryGetComponent(out MagneterVisual magneterVisual))
             magneterVisual.UpdateSizeRing();
-        }
     }
 
     public void UseMagneterManagerData() => useCustomMagnetData = false;
@@ -198,39 +241,30 @@ public class Magneter : MonoBehaviour, IMagneter
         if (detectionTimer != null && !detectionTimer.isDone)
             detectionTimer.Cancel();
 
-        // Clean up all magneted objects
         foreach (var magnetable in new List<IMagnetable>(magnetedObjects))
-        {
             RemoveMagnetableObject(magnetable);
-        }
+
         magnetedObjects.Clear();
         orbitAngles.Clear();
+        _componentCache.Clear();
     }
 
     private void OnDrawGizmos()
     {
-        if (!Application.isPlaying)
-            return;
+        if (!Application.isPlaying) return;
 
-        // Draw attraction radius
         Gizmos.color = isActive ? Color.cyan : Color.gray;
         Gizmos.DrawWireSphere(transform.position, AttractionRadius);
 
-        // Draw orbit radius
         Gizmos.color = isActive ? Color.yellow : Color.gray;
         Gizmos.DrawWireSphere(transform.position, OrbitRadius);
 
-        // Draw lines to magneted objects
         if (isActive)
         {
             Gizmos.color = Color.green;
             foreach (var magnetable in magnetedObjects)
-            {
                 if (MagnetUtility.IsValidMagnetable(magnetable))
-                {
                     Gizmos.DrawLine(transform.position, magnetable.Transform.position);
-                }
-            }
         }
     }
 }

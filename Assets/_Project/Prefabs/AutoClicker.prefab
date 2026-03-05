@@ -76,6 +76,7 @@ MonoBehaviour:
     skillData: {fileID: 11400000, guid: b57d95ae9b45fe74dba77d0acf4b2987, type: 2}
   toggleAutoclickerPerLevel:
     skillData: {fileID: 11400000, guid: 7e66a97787e60114182c95d756d05c34, type: 2}
+  useBoostRadius: 1
   chanceOfBoostingRadiusPerLevel:
     skillData: {fileID: 11400000, guid: 387550fa3c74eff41b97d9ae1ea77284, type: 2}
   radiusSizeMultiplierPerLevel:
@@ -151,6 +152,7 @@ MonoBehaviour:
   - {fileID: 1721848700406742428}
   - {fileID: 6600467794673684648}
   circleVisualCollider: {fileID: 2020888545691585024}
+  useAutoClickerValue: 1
   autoClicker: {fileID: 4199983495212388051}
   damageor: {fileID: 8811257036007215974}
   endScaleBonus: 0.4
@@ -562,8 +564,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   detectionInterval: 0.1
+  detectionBufferSize: 512
   collectDistance: 0.5
   isActive: 1
+  updateSlices: 8
   OnVacuumerActivated:
     m_PersistentCalls:
       m_Calls: []

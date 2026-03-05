@@ -28,7 +28,7 @@ MonoBehaviour:
     a: 10
     b: 10
   startingLevel: 0
-  maxLevel: 5
+  maxLevel: 6
   levelRequirements: []
   unitValue: 0
   effectValue:

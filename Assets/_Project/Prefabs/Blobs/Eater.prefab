@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0e8a010583ae144b0ba24d76bf7830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minTimeBetweenEat: 0.5
 --- !u!114 &8101859658892543347
 MonoBehaviour:
   m_ObjectHideFlags: 0

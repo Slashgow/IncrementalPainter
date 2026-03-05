@@ -4,7 +4,8 @@
     "references": [
         "Unity.InputSystem",
         "CW.Common",
-        "SaveUtility"
+        "SaveUtility",
+        "Unity.Burst"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

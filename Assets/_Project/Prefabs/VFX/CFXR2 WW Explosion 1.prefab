@@ -582,7 +582,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 7
+    maxNumParticles: 3
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -5363,7 +5363,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0.5
     gravitySource: 0
-    maxNumParticles: 20
+    maxNumParticles: 10
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -10284,7 +10284,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0.5
     gravitySource: 0
-    maxNumParticles: 20
+    maxNumParticles: 10
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -15213,7 +15213,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0.5
     gravitySource: 0
-    maxNumParticles: 30
+    maxNumParticles: 10
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -19533,6 +19533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf8c94231b1496f45b57e1fa4ff87ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  returnToPoolAutomatically: 1
   returnToPoolAfter: 4
 --- !u!1 &4593184484999142886
 GameObject:
@@ -20138,7 +20139,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 15
+    maxNumParticles: 10
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -25041,7 +25042,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0.5
     gravitySource: 0
-    maxNumParticles: 20
+    maxNumParticles: 10
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -29962,7 +29963,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0.5
     gravitySource: 0
-    maxNumParticles: 20
+    maxNumParticles: 10
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -34861,7 +34862,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 7
+    maxNumParticles: 3
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0

@@ -614,6 +614,7 @@ MonoBehaviour:
   damageableLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+  damageablesPerFrame: 5
   OnAttackOnce:
     m_PersistentCalls:
       m_Calls:
@@ -741,7 +742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 2646645282290464020, guid: 8e7367d7347fdfa4696011b939777325, type: 3}
-  growPoolSize: 200
+  growPoolSize: 500
 --- !u!114 &825538549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -855,6 +856,7 @@ MonoBehaviour:
   damageableLayers:
     serializedVersion: 2
     m_Bits: 1
+  damageablesPerFrame: 15
   OnAttackOnce:
     m_PersistentCalls:
       m_Calls: []
@@ -2328,6 +2330,7 @@ MonoBehaviour:
   damageableLayers:
     serializedVersion: 2
     m_Bits: 1
+  damageablesPerFrame: 5
   OnAttackOnce:
     m_PersistentCalls:
       m_Calls: []
@@ -2681,6 +2684,10 @@ PrefabInstance:
     - target: {fileID: 6779132991299214879, guid: e90eaadc35165c048bf591752161ebba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8811257036007215974, guid: e90eaadc35165c048bf591752161ebba, type: 3}
+      propertyPath: damageablesPerFrame
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3116,6 +3123,7 @@ MonoBehaviour:
   damageableLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+  damageablesPerFrame: 15
   OnAttackOnce:
     m_PersistentCalls:
       m_Calls: []
@@ -3443,6 +3451,7 @@ MonoBehaviour:
   damageableLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+  damageablesPerFrame: 15
   OnAttackOnce:
     m_PersistentCalls:
       m_Calls: []
@@ -4178,6 +4187,10 @@ PrefabInstance:
     - target: {fileID: 6779132991299214879, guid: b8a32c7c04eb1f249ac236735eff4ba9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8811257036007215974, guid: b8a32c7c04eb1f249ac236735eff4ba9, type: 3}
+      propertyPath: damageablesPerFrame
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8790,6 +8803,7 @@ MonoBehaviour:
   damageableLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+  damageablesPerFrame: 5
   OnAttackOnce:
     m_PersistentCalls:
       m_Calls:

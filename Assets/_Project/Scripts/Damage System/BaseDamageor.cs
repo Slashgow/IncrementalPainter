@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,11 +14,12 @@ public abstract class BaseDamageor : MonoBehaviour, IDamageor
 
     [Header("Shield Breaking Upgrades")]
     [SerializeField] private bool useShieldBreakingUpgrades = false;
-    [SerializeField, ShowIf("useShieldBreakingUpgrades")] private SkillDataPerLevelOfType<FunctionAffine> shieldPenetrationSkillDataPerLevel; // 0-1 (0-100%)
-    [SerializeField, ShowIf("useShieldBreakingUpgrades")] private SkillDataPerLevelOfType<FunctionAffine> shieldBreakBonusSkillDataPerLevel; // Flat bonus damage vs shields
-    [SerializeField, ShowIf("useShieldBreakingUpgrades")] private SkillDataPerLevelOfType<FunctionAffine> shieldShredderSkillDataPerLevel; // 0-1 armor reduction
-    [SerializeField, ShowIf("useShieldBreakingUpgrades")] private SkillDataPerLevelOfType<FunctionAffine> overloadDamageMultiplierSkillDataPerLevel; // x1.2
-    [SerializeField, ShowIf("useShieldBreakingUpgrades")] private SkillDataPerLevelOfType<FunctionAffine> shieldBypassLuckSkillDataPerLevel; // 0-1 chance to ignore shield
+    [SerializeField, ShowIf("useShieldBreakingUpgrades")] private SkillDataPerLevelOfType<FunctionAffine> shieldPenetrationSkillDataPerLevel;
+    [SerializeField, ShowIf("useShieldBreakingUpgrades")] private SkillDataPerLevelOfType<FunctionAffine> shieldBreakBonusSkillDataPerLevel;
+    [SerializeField, ShowIf("useShieldBreakingUpgrades")] private SkillDataPerLevelOfType<FunctionAffine> shieldShredderSkillDataPerLevel;
+    [SerializeField, ShowIf("useShieldBreakingUpgrades")] private SkillDataPerLevelOfType<FunctionAffine> overloadDamageMultiplierSkillDataPerLevel;
+    [SerializeField, ShowIf("useShieldBreakingUpgrades")] private SkillDataPerLevelOfType<FunctionAffine> shieldBypassLuckSkillDataPerLevel;
+
     public SkillDataPerLevelOfType<FunctionAffine> DamageSkillDataPerLevel => damageSkillDataPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> CriticalDamageMultiplierSkillDataPerLevel => criticalDamageMultiplierSkillDataPerLevel;
     public SkillDataPerLevelOfType<FunctionAffine> CriticalHitLuckSkillDataPerLevel => criticalHitLuckSkillDataPerLevel;
@@ -29,6 +31,10 @@ public abstract class BaseDamageor : MonoBehaviour, IDamageor
     public SkillDataPerLevelOfType<FunctionAffine> ShieldBypassLuckSkillDataPerLevel => shieldBypassLuckSkillDataPerLevel;
 
     [SerializeField] protected LayerMask damageableLayers = ~0;
+
+    [Header("Performance")]
+    [SerializeField, Min(1)] private int damageablesPerFrame = 15;
+
     public LayerMask DamageableLayers => damageableLayers;
     public float Damage => damageSkillDataPerLevel.GetCurrentLevelData();
     public float CriticalDamageMultiplier => criticalDamageMultiplierSkillDataPerLevel.GetCurrentLevelData();
@@ -43,65 +49,126 @@ public abstract class BaseDamageor : MonoBehaviour, IDamageor
     public UnityEvent OnAttackOnce;
     public static event Action<float, Vector3, bool> OnAnyDamageorAttack;
 
+    // ?? Damage queue ?????????????????????????????????????????????????????????
+
+    private struct PendingDamage
+    {
+        public Collider2D Collider;
+        public float DamageAmount;
+        public bool IsCritical;
+    }
+
+    private readonly Queue<PendingDamage> _pendingDamages = new();
+    private bool _hasPendingAttack; // tracks whether OnAttackOnce should fire
+
+    // ?? Public API ???????????????????????????????????????????????????????????
+
     public void TryDamage(Vector3 clickPosition)
     {
         TryDamageFromWorldPoint(clickPosition);
     }
 
+    // ?? Detection — runs immediately, enqueues results ???????????????????????
+
     private void TryDamageFromWorldPoint(Vector3 worldPos)
     {
         Vector2 worldPosition2D = new Vector2(worldPos.x, worldPos.y);
         Collider2D[] colliders2D = Physics2D.OverlapCircleAll(worldPosition2D, DamageRadius, damageableLayers.value);
-        bool anyDamageDealt = false;
 
         foreach (var collider in colliders2D)
         {
-            var damageable = collider.GetComponentInParent<IDamageable>();
-            if (damageable == null)
+            // Quick null check before enqueuing — skip if no damageable at all
+            if (collider.GetComponentInParent<IDamageable>() == null)
                 continue;
 
             float damageAmount = CalculateDamage(out bool isCritical);
 
-            bool bypassedShield = useShieldBreakingUpgrades ? LuckUtility.RollLuck01(ShieldBypassLuck) : false;
-
-            var shieldable = collider.GetComponentInParent<IShieldable>();
-            float remainingDamage = damageAmount;
-
-            if (shieldable != null && shieldable.IsShieldActive && !bypassedShield)
+            _pendingDamages.Enqueue(new PendingDamage
             {
-                float overflowDamage = useShieldBreakingUpgrades ? 
-                    shieldable.DamageShield(damageAmount, ShieldPenetration, ShieldBreakBonus, ShieldShredder) :
-                    shieldable.DamageShield(damageAmount);
-
-                remainingDamage = overflowDamage * (useShieldBreakingUpgrades ? OverloadDamageMultiplier : 1f);
-
-                anyDamageDealt = true;
-                OnAnyDamageorAttack?.Invoke(damageAmount, collider.transform.position, isCritical);
-                NotityDamage(damageAmount);
-            }
-            else
-            {
-                remainingDamage = damageAmount;
-            }
-
-            if (remainingDamage > 0f)
-            {
-                anyDamageDealt = true;
-
-                // Only invoke attack event if we didn't already (from shield damage)
-                if (shieldable == null || !shieldable.IsShieldActive || bypassedShield)
-                {
-                    OnAnyDamageorAttack?.Invoke(remainingDamage, collider.transform.position, isCritical);
-                    NotityDamage(remainingDamage);
-                }
-
-                damageable.TakeDamage(remainingDamage);
-                
-            }
+                Collider = collider,
+                DamageAmount = damageAmount,
+                IsCritical = isCritical,
+            });
         }
-        if (anyDamageDealt)
-            OnAttackOnce?.Invoke();
     }
+
+    // ?? Processing — spread over frames ??????????????????????????????????????
+
+    private void Update()
+    {
+        if (_pendingDamages.Count == 0) return;
+
+        int toProcess = Mathf.Min(damageablesPerFrame, _pendingDamages.Count);
+
+        for (int i = 0; i < toProcess; i++)
+        {
+            ProcessDamage(_pendingDamages.Dequeue());
+        }
+
+        // Fire OnAttackOnce after the last batch of this attack wave
+        if (_hasPendingAttack && _pendingDamages.Count == 0)
+        {
+            OnAttackOnce?.Invoke();
+            _hasPendingAttack = false;
+        }
+    }
+
+    private void ProcessDamage(PendingDamage pending)
+    {
+        Collider2D collider = pending.Collider;
+
+        // Object may have been destroyed between enqueue and processing
+        if (collider == null) return;
+
+        var damageable = collider.GetComponentInParent<IDamageable>();
+        if (damageable == null) return;
+
+        float damageAmount = pending.DamageAmount;
+        bool isCritical = pending.IsCritical;
+
+        bool bypassedShield = useShieldBreakingUpgrades && LuckUtility.RollLuck01(ShieldBypassLuck);
+
+        var shieldable = collider.GetComponentInParent<IShieldable>();
+        float remainingDamage = damageAmount;
+
+        if (shieldable != null && shieldable.IsShieldActive && !bypassedShield)
+        {
+            float overflowDamage = useShieldBreakingUpgrades
+                ? shieldable.DamageShield(damageAmount, ShieldPenetration, ShieldBreakBonus, ShieldShredder)
+                : shieldable.DamageShield(damageAmount);
+
+            remainingDamage = overflowDamage * (useShieldBreakingUpgrades ? OverloadDamageMultiplier : 1f);
+
+            OnAnyDamageorAttack?.Invoke(damageAmount, collider.transform.position, isCritical);
+            NotityDamage(damageAmount);
+        }
+        else
+        {
+            remainingDamage = damageAmount;
+        }
+
+        if (remainingDamage > 0f)
+        {
+            if (shieldable == null || !shieldable.IsShieldActive || bypassedShield)
+            {
+                OnAnyDamageorAttack?.Invoke(remainingDamage, collider.transform.position, isCritical);
+                NotityDamage(remainingDamage);
+            }
+
+            damageable.TakeDamage(remainingDamage);
+        }
+
+        _hasPendingAttack = true;
+    }
+
+    private void OnDisable()
+    {
+        _pendingDamages.Clear();
+        _hasPendingAttack = false;
+    }
+
+    // ?? Helpers ??????????????????????????????????????????????????????????????
+
     private float CalculateDamage(out bool isCritical)
     {
         isCritical = LuckUtility.RollLuck(CriticalHitLuck);

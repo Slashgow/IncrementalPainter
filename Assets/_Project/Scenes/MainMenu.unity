@@ -313,6 +313,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateTimings: []
+  _mainMenuTime:
+    seconds: 0
+  _levelTimings: []
 --- !u!1 &282578928
 GameObject:
   m_ObjectHideFlags: 0
