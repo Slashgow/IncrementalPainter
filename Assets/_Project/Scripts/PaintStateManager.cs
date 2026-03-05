@@ -19,6 +19,7 @@ public class PaintStateManager : MonoSingleton<PaintStateManager>
     public Countdown CountdownPaintState => countDownPaintState;
 
     public static event Action OnStartPaintState;
+    public static event Action OnEndPaintState;
     public static event Action<float> OnAddedTimeToCountdown;
     public static event Action<float> OnRemovedTimeFromCountdown;
     protected override void Awake()
@@ -53,6 +54,7 @@ public class PaintStateManager : MonoSingleton<PaintStateManager>
     public void SwitchStateToDaySummary()
     {
         countDownPaintState.Cancel();
+        OnEndPaintState?.Invoke();
         GameManager.Instance.SwitchState(GameManager.GameState.DAY_SUMMARY);
     }
 

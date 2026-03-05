@@ -80,6 +80,8 @@ public class PaintSpawner : MonoSingleton<PaintSpawner>
     public static event Action OnAdditionalSpawn;
     public static event Action OnSpawnPaint;
 
+    public int SpawnedCount => spawnedCount;
+
     protected override void Awake()
     {
         base.Awake();

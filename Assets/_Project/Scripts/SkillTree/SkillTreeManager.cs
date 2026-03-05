@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -47,6 +48,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
 
     private static int totalUpgradesBought = 0;
     public static int TotalUpgradesBought => totalUpgradesBought;
+    public static event Action<int, string> OnUpgradesBought;
 
     private void Awake()
     {
@@ -376,6 +378,7 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
 
         skillLevelData.LevelUp();
         totalUpgradesBought++;
+        OnUpgradesBought?.Invoke(totalUpgradesBought, skillData.SkillID);
 
         RefreshAllNodes();
 

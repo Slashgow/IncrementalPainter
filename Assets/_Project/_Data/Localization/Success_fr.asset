@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Success_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: 602f30422047f554e9026eeb26311daf, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 371198390272
+    m_Localized: "Termine ta premi\xE8re journ\xE9e de peinture"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9817157632
+    m_Localized: "Peintre D\xE9butant"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 941162360832
+    m_Localized: Amoureux de Peinture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 955385245696
+    m_Localized: "Commence une journ\xE9e avec 300 gouttes de peinture"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1366166990848
+    m_Localized: Peintacrator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1548967342080
+    m_Localized: "Inflige 1000 d\xE9g\xE2t en un seul coup."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2139831529472
+    m_Localized: "Richement V\xF4tre"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2156793294848
+    m_Localized: "Obtiens 100k $ en une journ\xE9e"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3598144892928
+    m_Localized: Technologia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3824981241856
+    m_Localized: "Ach\xE8te un total de 300 am\xE9liorations"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4361558552576
+    m_Localized: Couleurctionneur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4377937309696
+    m_Localized: "D\xE9bloque 7 palettes de couleurs"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4706590388224
+    m_Localized: Stiiiiickers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4808390340608
+    m_Localized: "D\xE9bloque 10 stickers"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5529328283648
+    m_Localized: Mister Leonardo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5544092233728
+    m_Localized: Termine toutes les peintures avec le rang S
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5997303558144
+    m_Localized: L'Exterminateur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6018845503488
+    m_Localized: "Inflige 50k d\xE9g\xE2ts en une seule journ\xE9e"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6944087994368
+    m_Localized: Paradoxe de Fermi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6959304929280
+    m_Localized: "D\xE9bloque la bombe nucl\xE9aire"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

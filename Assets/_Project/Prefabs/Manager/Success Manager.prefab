@@ -1,0 +1,322 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8586871650721155598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3043187553424345017}
+  - component: {fileID: 8117104123857190929}
+  - component: {fileID: 3857129381737242106}
+  - component: {fileID: 5056105980918163461}
+  m_Layer: 0
+  m_Name: Success Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3043187553424345017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8586871650721155598}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8117104123857190929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8586871650721155598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122c64cd5300c08499ac88f78cc3b621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listenToSuccessCompletion: 1
+  nukeSkillDataBase: {fileID: 11400000, guid: 6a63afd92dc7a644086924a3c4d5fa4d, type: 2}
+  finishASessionSuccessData:
+    steamId: SUCCESS_FINISH_SESSION
+    title:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 9817157632
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    description:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 371198390272
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    spriteLocked: {fileID: 0}
+    spriteUnlocked: {fileID: 0}
+    value: 0
+    isDone: 0
+  startSessionWithXAmountOfPaintSuccessData:
+    steamId: SUCCESS_START_WITH_X_AMOUNT_PAINT
+    title:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 941162360832
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    description:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 955385245696
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    spriteLocked: {fileID: 0}
+    spriteUnlocked: {fileID: 0}
+    value: 300
+    isDone: 0
+  inflictXAmountOfDamageInOneHit:
+    steamId: SUCCESS_DEAL_X_DAMAGE_ONE_HIT
+    title:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 1366166990848
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    description:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 1548967342080
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    spriteLocked: {fileID: 0}
+    spriteUnlocked: {fileID: 0}
+    value: 1000
+    isDone: 0
+  getXCurrencyInOneSessionSuccessData:
+    steamId: SUCCESS_GET_X_CURRENCY_ONE_SESSION
+    title:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 2139831529472
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    description:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 2156793294848
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    spriteLocked: {fileID: 0}
+    spriteUnlocked: {fileID: 0}
+    value: 100000
+    isDone: 0
+  buyXUpgradeSuccessData:
+    steamId: SUCCESS_BUY_X_UPGRADES
+    title:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 3598144892928
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    description:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 3824981241856
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    spriteLocked: {fileID: 0}
+    spriteUnlocked: {fileID: 0}
+    value: 300
+    isDone: 0
+  unlockXColorPaletteSuccessData:
+    steamId: SUCCESS_UNLOCK_X_COLOR_PALETTE
+    title:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 4361558552576
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    description:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 4377937309696
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    spriteLocked: {fileID: 0}
+    spriteUnlocked: {fileID: 0}
+    value: 7
+    isDone: 0
+  unlockXTamponSuccessData:
+    steamId: SUCCESS_UNLOCK_X_TAMPON
+    title:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 4706590388224
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    description:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 4808390340608
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    spriteLocked: {fileID: 0}
+    spriteUnlocked: {fileID: 0}
+    value: 10
+    isDone: 0
+  finishRankSAllPaintings:
+    steamId: SUCCESS_FINISH_ALL_RANK_S
+    title:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 5529328283648
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    description:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 5544092233728
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    spriteLocked: {fileID: 0}
+    spriteUnlocked: {fileID: 0}
+    value: 0
+    isDone: 0
+  doXDamageInOneSessionSuccessData:
+    steamId: SUCCESS_DO_X_DAMAGE_ONE_SESSION
+    title:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 5997303558144
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    description:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 6018845503488
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    spriteLocked: {fileID: 0}
+    spriteUnlocked: {fileID: 0}
+    value: 50000
+    isDone: 0
+  unlockNukeSuccessData:
+    steamId: SUCCESS_UNLOCK_NUKE
+    title:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 6944087994368
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    description:
+      m_TableReference:
+        m_TableCollectionName: GUID:602f30422047f554e9026eeb26311daf
+      m_TableEntryReference:
+        m_KeyId: 6959304929280
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    spriteLocked: {fileID: 0}
+    spriteUnlocked: {fileID: 0}
+    value: 0
+    isDone: 0
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &3857129381737242106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8586871650721155598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d31f3891cdc6f804bb2f124e21bfbf6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  successManager: {fileID: 8117104123857190929}
+  logger: {fileID: 5056105980918163461}
+--- !u!114 &5056105980918163461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8586871650721155598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca978659736ab349b473f6f3aa6bb1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showLogs: 1
+  prefix: Success Manager
+  prefixColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}

@@ -1,0 +1,43 @@
+﻿using System;
+using NaughtyAttributes;
+using UnityEngine;
+using UnityEngine.Localization;
+
+[Serializable]
+public class SuccessData
+{
+    [SerializeField] private string steamId;
+    public string SteamId => steamId;
+
+    [SerializeField] private LocalizedString title;
+    public LocalizedString Title => title;
+
+    [SerializeField] private LocalizedString description;
+    public LocalizedString Description => description;
+
+    [SerializeField, ShowAssetPreview] private Sprite spriteLocked;
+    public Sprite SpriteLocked => spriteLocked;
+
+    [SerializeField, ShowAssetPreview] private Sprite spriteUnlocked;
+    public Sprite SpriteUnlocked => spriteUnlocked;
+
+    [SerializeField] private int value;
+    public int Value => value;
+
+    public bool isDone;
+    public Action<SuccessData> OnComplete;
+
+    public void Complete()
+    {
+        if(isDone) 
+            return;
+
+        isDone = true;
+        OnComplete?.Invoke(this);
+    }
+
+    public void Reset()
+    {
+        isDone = false;
+    }   
+}

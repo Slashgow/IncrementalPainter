@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Success_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 602f30422047f554e9026eeb26311daf, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 9817157632
+    m_Localized: Newbie Painter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371198390272
+    m_Localized: Finish your first day of painting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 941162360832
+    m_Localized: Painter Lover
+    m_Metadata:
+      m_Items: []
+  - m_Id: 955385245696
+    m_Localized: 'Start a day with 300 blobs of paint '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1366166990848
+    m_Localized: Painterator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1548967342080
+    m_Localized: Deal 1000 damage in one hit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2139831529472
+    m_Localized: Richly Yours
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2156793294848
+    m_Localized: Get a 100k $ in a day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3598144892928
+    m_Localized: Technologia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3824981241856
+    m_Localized: Buy a total of 300 upgrades
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4361558552576
+    m_Localized: Colorctionner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4377937309696
+    m_Localized: Unlock 7 color palettes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4706590388224
+    m_Localized: Stiiiiickers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4808390340608
+    m_Localized: Unlock 10 stickers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5529328283648
+    m_Localized: Mister Leonardo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5544092233728
+    m_Localized: Finish all paintings with the rank S
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5997303558144
+    m_Localized: The Devastator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6018845503488
+    m_Localized: Deal 50k damage in a day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6944087994368
+    m_Localized: Fermi Paradox
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6959304929280
+    m_Localized: Unlock the nuke
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

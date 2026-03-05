@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using inkolorgames;
 using UnityEngine;
+using System.Linq;
 /// <summary>
 /// Generic base class for unlock managers. Inherit from this to create managers for specific item types.
 /// </summary>
@@ -133,6 +134,8 @@ public abstract class UnlockManager<TItem, TSelf> : PersistentMonoSingleton<TSel
 
         return unlocked;
     }
+
+    public int GetUnlockedItemCount() => unlockableItems.Count(unlockable => unlockable.IsUnlocked);
 
     public bool IsItemUnlockable(string itemId)
     {

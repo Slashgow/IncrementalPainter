@@ -48,7 +48,9 @@ public abstract class BaseDamageor : MonoBehaviour, IDamageor
 
     public UnityEvent OnAttackOnce;
     public static event Action<float, Vector3, bool> OnAnyDamageorAttack;
+    public static event Action<float> OnAnyDamageaorAttackOnce;
 
+    private float cumulateRawDamageOneHit;
     // ?? Damage queue ?????????????????????????????????????????????????????????
 
     private struct PendingDamage
@@ -72,6 +74,7 @@ public abstract class BaseDamageor : MonoBehaviour, IDamageor
 
     private void TryDamageFromWorldPoint(Vector3 worldPos)
     {
+        cumulateRawDamageOneHit = 0;
         Vector2 worldPosition2D = new Vector2(worldPos.x, worldPos.y);
         Collider2D[] colliders2D = Physics2D.OverlapCircleAll(worldPosition2D, DamageRadius, damageableLayers.value);
 
@@ -82,6 +85,7 @@ public abstract class BaseDamageor : MonoBehaviour, IDamageor
                 continue;
 
             float damageAmount = CalculateDamage(out bool isCritical);
+            cumulateRawDamageOneHit += damageAmount;
 
             _pendingDamages.Enqueue(new PendingDamage
             {
@@ -109,6 +113,7 @@ public abstract class BaseDamageor : MonoBehaviour, IDamageor
         if (_hasPendingAttack && _pendingDamages.Count == 0)
         {
             OnAttackOnce?.Invoke();
+            OnAnyDamageaorAttackOnce?.Invoke(cumulateRawDamageOneHit);
             _hasPendingAttack = false;
         }
     }

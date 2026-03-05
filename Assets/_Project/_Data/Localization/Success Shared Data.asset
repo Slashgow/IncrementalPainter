@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Success Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Success
+  m_TableCollectionNameGuidString: 602f30422047f554e9026eeb26311daf
+  m_Entries:
+  - m_Id: 9817157632
+    m_Key: SUCCESS_FINISH_SESSION_T
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371198390272
+    m_Key: SUCCESS_FINISH_SESSION_D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 941162360832
+    m_Key: SUCCESS_START_WITH_X_AMOUNT_PAINT_T
+    m_Metadata:
+      m_Items: []
+  - m_Id: 955385245696
+    m_Key: SUCCESS_START_WITH_X_AMOUNT_PAINT_D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1366166990848
+    m_Key: SUCCESS_DEAL_X_DAMAGE_ONE_HIT_T
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1548967342080
+    m_Key: SUCCESS_DEAL_X_DAMAGE_ONE_HIT_D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2139831529472
+    m_Key: SUCCESS_GET_X_CURRENCY_ONE_SESSION_T
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2156793294848
+    m_Key: SUCCESS_GET_X_CURRENCY_ONE_SESSION_D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3598144892928
+    m_Key: SUCCESS_BUY_X_UPGRADES_T
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3824981241856
+    m_Key: SUCCESS_BUY_X_UPGRADES_D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4361558552576
+    m_Key: SUCCESS_UNLOCK_X_COLOR_PALETTE_T
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4377937309696
+    m_Key: SUCCESS_UNLOCK_X_COLOR_PALETTE_D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4706590388224
+    m_Key: SUCCESS_UNLOCK_X_TAMPON_T
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4808390340608
+    m_Key: SUCCESS_UNLOCK_X_TAMPON_D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5529328283648
+    m_Key: SUCCESS_FINISH_ALL_RANK_S_T
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5544092233728
+    m_Key: SUCCESS_FINISH_ALL_RANK_S_D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5997303558144
+    m_Key: SUCCESS_DO_X_DAMAGE_ONE_SESSION_T
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6018845503488
+    m_Key: SUCCESS_DO_X_DAMAGE_ONE_SESSION_D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6944087994368
+    m_Key: SUCCESS_UNLOCK_NUKE_T
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6959304929280
+    m_Key: SUCCESS_UNLOCK_NUKE_D
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 893912971020337306
+  references:
+    version: 2
+    RefIds:
+    - rid: 893912971020337306
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1772728917064
