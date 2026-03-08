@@ -13,8 +13,9 @@ public class SuccessSaveData
         successStatData = new SuccessStatData();
     }
 
-    public SuccessSaveData(List<SuccessData> allSuccessData)
+    public SuccessSaveData(SuccessStatData successStatData, List<SuccessData> allSuccessData)
     {
+        this.successStatData = successStatData;
 
         successCompletionStates = new List<bool>();
         foreach (SuccessData success in allSuccessData)

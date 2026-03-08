@@ -4,7 +4,7 @@ using System.Linq;
 using inkolorgames;
 using UnityEngine;
 
-public class SuccessManager : MonoSingleton<SuccessManager>
+public class SuccessManager : PersistentMonoSingleton<SuccessManager>
 {
     [SerializeField] private bool listenToSuccessCompletion = true;
 
@@ -23,7 +23,11 @@ public class SuccessManager : MonoSingleton<SuccessManager>
     [SerializeField] private SuccessData finishRankSAllPaintings;  
     [SerializeField] private SuccessData doXDamageInOneSessionSuccessData;
     [SerializeField] private SuccessData unlockNukeSuccessData;
- 
+
+
+    private SuccessStatData successStatData;
+    public SuccessStatData SuccessStatData => successStatData;
+
     private List<SuccessData> allSuccessData;
     public List<SuccessData > AllSuccessData => allSuccessData;
 
@@ -52,15 +56,23 @@ public class SuccessManager : MonoSingleton<SuccessManager>
             }
         }
 
-        //successStatData = new SuccessStatData(successSaveData.successStatData.boosterOpenedCounterAllTime,
-        //        successSaveData.successStatData.boosterOpenedCounterInGame, successSaveData.successStatData.craftedCardCounterAllTime,
-        //        successSaveData.successStatData.soldCardCounterAllTime,
-        //        successSaveData.successStatData.factoriesIDThisGame,
-        //        successSaveData.successStatData.defenseIDThisGame);
-        
+        successStatData = new SuccessStatData(successSaveData.successStatData);
     }
 
-    private void InitializeSuccessStatData() => throw new NotImplementedException();
+    private void CheckStat()
+    {
+        LevelManager_OnEndLevel();
+        OnUnlockTampon(null);
+        OnUnlockColorPalette(null);
+    }
+
+    public void ResetSuccess()
+    {
+        InitializeSuccessStatData();
+        allSuccessData.ForEach(successData => successData.isDone = false);
+    }
+
+    private void InitializeSuccessStatData() => successStatData = new SuccessStatData();
 
     private void InitializeSuccessList()
     {
@@ -117,11 +129,13 @@ public class SuccessManager : MonoSingleton<SuccessManager>
 
     private void Start()
     {
+        CheckStat();
+
         if (!listenToSuccessCompletion)
             return;
 
         PaintStateManager.OnEndPaintState += PaintStateManager_OnEndPaintState;
-        PaintStateManager.OnStartPaintState += PaintStateManager_OnStartPaintState;
+        PaintSpawner.OnFinishInitializeSpawning += PaintSpawner_OnFinishInitializeSpawning;
         SkillTreeManager.OnUpgradesBought += SkillTreeManager_OnUpgradesBought;
         ColorThemeUnlockManager.Instance.OnItemUnlocked += OnUnlockColorPalette;
         TamponUnlockManager.Instance.OnItemUnlocked += OnUnlockTampon;
@@ -129,13 +143,15 @@ public class SuccessManager : MonoSingleton<SuccessManager>
         BaseDamageor.OnAnyDamageaorAttackOnce += BaseDamageor_OnAnyDamageaorAttackOnce;
     }
 
+  
+
     private void OnDestroy()
     {
         if (!listenToSuccessCompletion)
             return;
 
         PaintStateManager.OnEndPaintState -= PaintStateManager_OnEndPaintState;
-        PaintStateManager.OnStartPaintState -= PaintStateManager_OnStartPaintState;
+        PaintSpawner.OnFinishInitializeSpawning -= PaintSpawner_OnFinishInitializeSpawning;
         SkillTreeManager.OnUpgradesBought -= SkillTreeManager_OnUpgradesBought;
 
         if(ColorThemeUnlockManager.HasInstance)
@@ -150,24 +166,38 @@ public class SuccessManager : MonoSingleton<SuccessManager>
 
     private void PaintStateManager_OnEndPaintState()
     {
+        int currencyGainedThisDay = LevelStatsTracker.Instance.CurrentDayStats.CurrencyGained;
+        float totalDamageDealtThisDay = LevelStatsTracker.Instance.CurrentDayStats.TotalDamageDealt;
+
+        if (currencyGainedThisDay > successStatData.bestCurrencyGainedOneSession)
+            successStatData.bestCurrencyGainedOneSession = currencyGainedThisDay;
+
+        if (totalDamageDealtThisDay > successStatData.bestDamageOneSession)
+            successStatData.bestDamageOneSession = Mathf.FloorToInt(totalDamageDealtThisDay);
+
         finishASessionSuccessData.Complete();
 
-        if (LevelStatsTracker.Instance.CurrentDayStats.CurrencyGained >= getXCurrencyInOneSessionSuccessData.Value)
+        if (currencyGainedThisDay >= getXCurrencyInOneSessionSuccessData.Value)
             getXCurrencyInOneSessionSuccessData.Complete();
 
-        if (LevelStatsTracker.Instance.CurrentDayStats.TotalDamageDealt >= doXDamageInOneSessionSuccessData.Value)
+        if (totalDamageDealtThisDay >= doXDamageInOneSessionSuccessData.Value)
             doXDamageInOneSessionSuccessData.Complete();
     }
 
-    private void PaintStateManager_OnStartPaintState()
+    private void PaintSpawner_OnFinishInitializeSpawning(int spawnCount)
     {
-        if (startSessionWithXAmountOfPaintSuccessData.Value >= PaintSpawner.Instance.SpawnedCount)
+        if (spawnCount > successStatData.bestNumberOfBlobAtSessionStart)
+            successStatData.bestNumberOfBlobAtSessionStart = spawnCount;
+
+        if (spawnCount >= startSessionWithXAmountOfPaintSuccessData.Value)
             startSessionWithXAmountOfPaintSuccessData.Complete();
     }
 
     private void SkillTreeManager_OnUpgradesBought(int totalUpgradesBought, string skillID)
     {
-        if(buyXUpgradeSuccessData.Value >= totalUpgradesBought)
+        successStatData.upgradeBought = totalUpgradesBought;
+
+        if(totalUpgradesBought >= buyXUpgradeSuccessData.Value)
             buyXUpgradeSuccessData.Complete();
 
         if(nukeSkillDataBase.SkillID == skillID)
@@ -176,19 +206,30 @@ public class SuccessManager : MonoSingleton<SuccessManager>
 
     private void OnUnlockColorPalette(string id)
     {
-        if(unlockXColorPaletteSuccessData.Value <= ColorThemeUnlockManager.Instance.GetUnlockedItemCount())
+        int unlockColorPaletteCount = ColorThemeUnlockManager.Instance.GetUnlockedItemCount();
+
+        successStatData.countColorPaletteUnlocked = unlockColorPaletteCount;
+
+        if (unlockXColorPaletteSuccessData.Value <= unlockColorPaletteCount)
             unlockXColorPaletteSuccessData.Complete();
     }
 
     private void OnUnlockTampon(string id)
     {
-        if(unlockXTamponSuccessData.Value <= TamponUnlockManager.Instance.GetUnlockedItemCount())
+        int unlockTamponCount = TamponUnlockManager.Instance.GetUnlockedItemCount();
+
+        successStatData.countTamponUnlocked = unlockTamponCount;
+
+        if (unlockXTamponSuccessData.Value <= unlockTamponCount)
             unlockXTamponSuccessData.Complete();
     }
 
     private void LevelManager_OnEndLevel()
     {
         var levelsSaveData = GameSaveManager.Instance.GetAllLevelSaves();
+
+        int rankSCount = levelsSaveData.Count(level => level.Value.bestRank == LevelRank.S);
+        successStatData.paintRankSFinish = rankSCount;
 
         if (levelsSaveData.Any(levelSaveData => levelSaveData.Value.bestRank != LevelRank.S))
             return;
@@ -198,6 +239,9 @@ public class SuccessManager : MonoSingleton<SuccessManager>
 
     private void BaseDamageor_OnAnyDamageaorAttackOnce(float cummulateRawDamage)
     {
+        if (cummulateRawDamage > successStatData.bestDamageSingleHit)
+            successStatData.bestDamageSingleHit = Mathf.FloorToInt(cummulateRawDamage);
+
         if(cummulateRawDamage >= inflictXAmountOfDamageInOneHit.Value)
             inflictXAmountOfDamageInOneHit.Complete();
     }

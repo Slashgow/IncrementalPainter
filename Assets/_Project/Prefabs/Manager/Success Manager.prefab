@@ -68,8 +68,8 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    spriteLocked: {fileID: 0}
-    spriteUnlocked: {fileID: 0}
+    spriteLocked: {fileID: 309586814, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
+    spriteUnlocked: {fileID: 1839392470, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
     value: 0
     isDone: 0
   startSessionWithXAmountOfPaintSuccessData:
@@ -92,9 +92,9 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    spriteLocked: {fileID: 0}
-    spriteUnlocked: {fileID: 0}
-    value: 300
+    spriteLocked: {fileID: 1196628488, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
+    spriteUnlocked: {fileID: 1943000962, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
+    value: 350
     isDone: 0
   inflictXAmountOfDamageInOneHit:
     steamId: SUCCESS_DEAL_X_DAMAGE_ONE_HIT
@@ -116,8 +116,8 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    spriteLocked: {fileID: 0}
-    spriteUnlocked: {fileID: 0}
+    spriteLocked: {fileID: -1534823904, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
+    spriteUnlocked: {fileID: -1268695508, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
     value: 1000
     isDone: 0
   getXCurrencyInOneSessionSuccessData:
@@ -140,8 +140,8 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    spriteLocked: {fileID: 0}
-    spriteUnlocked: {fileID: 0}
+    spriteLocked: {fileID: 771823062, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
+    spriteUnlocked: {fileID: 1308402565, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
     value: 100000
     isDone: 0
   buyXUpgradeSuccessData:
@@ -164,8 +164,8 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    spriteLocked: {fileID: 0}
-    spriteUnlocked: {fileID: 0}
+    spriteLocked: {fileID: -1358646558, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
+    spriteUnlocked: {fileID: -1815359169, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
     value: 300
     isDone: 0
   unlockXColorPaletteSuccessData:
@@ -188,8 +188,8 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    spriteLocked: {fileID: 0}
-    spriteUnlocked: {fileID: 0}
+    spriteLocked: {fileID: 99065178, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
+    spriteUnlocked: {fileID: 855277391, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
     value: 7
     isDone: 0
   unlockXTamponSuccessData:
@@ -212,8 +212,8 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    spriteLocked: {fileID: 0}
-    spriteUnlocked: {fileID: 0}
+    spriteLocked: {fileID: -303313448, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
+    spriteUnlocked: {fileID: -1896259093, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
     value: 10
     isDone: 0
   finishRankSAllPaintings:
@@ -236,8 +236,8 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    spriteLocked: {fileID: 0}
-    spriteUnlocked: {fileID: 0}
+    spriteLocked: {fileID: -1153451830, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
+    spriteUnlocked: {fileID: 47130010, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
     value: 0
     isDone: 0
   doXDamageInOneSessionSuccessData:
@@ -260,8 +260,8 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    spriteLocked: {fileID: 0}
-    spriteUnlocked: {fileID: 0}
+    spriteLocked: {fileID: 2111203094, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
+    spriteUnlocked: {fileID: -1679220090, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
     value: 50000
     isDone: 0
   unlockNukeSuccessData:
@@ -284,8 +284,8 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    spriteLocked: {fileID: 0}
-    spriteUnlocked: {fileID: 0}
+    spriteLocked: {fileID: -802839716, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
+    spriteUnlocked: {fileID: 323699617, guid: 5cc9c336ccc252b4dac55c4f52f45208, type: 3}
     value: 0
     isDone: 0
   references:

@@ -135,6 +135,7 @@ public abstract class UnlockManager<TItem, TSelf> : PersistentMonoSingleton<TSel
         return unlocked;
     }
 
+    public int GetTotalItemCount() => unlockableItems.Count;
     public int GetUnlockedItemCount() => unlockableItems.Count(unlockable => unlockable.IsUnlocked);
 
     public bool IsItemUnlockable(string itemId)

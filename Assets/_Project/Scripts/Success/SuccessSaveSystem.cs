@@ -1,11 +1,12 @@
 ﻿using System;
 using System.IO;
 using inkolorgames;
+using Newtonsoft.Json;
 using SaveUtility;
 using Steamworks;
 using UnityEngine;
 
-public class SuccessSaveSystem : MonoSingleton<SuccessSaveSystem>
+public class SuccessSaveSystem : PersistentMonoSingleton<SuccessSaveSystem>
 {
     [SerializeField] private SuccessManager successManager;
     [SerializeField] private inkolorgames.Logger logger;
@@ -49,17 +50,17 @@ public class SuccessSaveSystem : MonoSingleton<SuccessSaveSystem>
 
         try
         {
-            //SuccessStatData currentStats = successManager.SuccessStatData;
+            SuccessStatData currentStats = successManager.SuccessStatData;
 
 #if !UNITY_WEBGL
-            //if(SteamClient.IsValid)
-            //    SteamIntegration.Instance.SetStats(currentStats);
+            if(SteamClient.IsValid)
+                SteamIntegration.Instance.SetStats(currentStats);
             //SteamIntegration.Instance.StoreStats();
 #endif
 
-            SuccessSaveData saveData = new SuccessSaveData(successManager.AllSuccessData);
+            SuccessSaveData saveData = new SuccessSaveData(currentStats, successManager.AllSuccessData);
 
-            string json = JsonUtility.ToJson(saveData, true);
+            string json = JsonConvert.SerializeObject(saveData);
 
             string fullPath = SavePath.FullPathSuccessSaveFile;
             File.WriteAllText(fullPath, json);
@@ -81,7 +82,7 @@ public class SuccessSaveSystem : MonoSingleton<SuccessSaveSystem>
             if (SavePath.SaveSuccessExists)
             {
                 string json = File.ReadAllText(fullPath);
-                SuccessSaveData saveData = JsonUtility.FromJson<SuccessSaveData>(json);
+                SuccessSaveData saveData = JsonConvert.DeserializeObject<SuccessSaveData>(json);
             
                 if (saveData != null)
                 {
@@ -111,37 +112,10 @@ public class SuccessSaveSystem : MonoSingleton<SuccessSaveSystem>
         Save();
     }
 
-    public static void ResetSaveStatsByGame()
+    public void ClearSave()
     {
-        try
-        {
-            //if (SavePath.SaveSuccessExists)
-            //{
-            //    string json = File.ReadAllText(SavePath.SavePathSuccess);
-            //    SuccessSaveData saveData = JsonUtility.FromJson<SuccessSaveData>(json);
-            //
-            //    if (saveData != null)
-            //    {
-            //       saveData.successStatData.ResetGameSpecificData();
-            //
-            //        string jsonModified = JsonUtility.ToJson(saveData, true);
-            //        File.WriteAllText(SavePath.SavePathSuccess, jsonModified);
-            //
-            //        Debug.Log($"Reset Game specific data {SavePath.SavePathSuccess}");
-            //    }
-            //    else
-            //    {
-            //        Debug.LogWarning("Success save data is corrupted");
-            //    }
-            //}
-            //else
-            //{
-            //    Debug.Log("No success save file found, cant reset game specific data");
-            //}
-        }
-        catch (Exception e)
-        {
-            Debug.LogError($"Failed to Reset Game specific data: {e.Message}");
-        }
+        SuccessSaveData successSaveData = new SuccessSaveData();
+        successManager.ResetSuccess();
+        Save();
     }
 }

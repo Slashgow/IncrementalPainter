@@ -196,6 +196,7 @@ public class GameSaveManager : PersistentMonoSingleton<GameSaveManager>
                 file.Delete();
             }
         }
+        SuccessSaveSystem.Instance.ClearSave();
     }
 }
 

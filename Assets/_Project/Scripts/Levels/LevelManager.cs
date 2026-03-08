@@ -36,7 +36,7 @@ public class LevelManager : PersistentMonoSingleton<LevelManager>
 
     public bool IsNextLevelUnlocked => CurrentLevelIndex < unlockableSortedLevels.Length - 1 && 
         unlockableSortedLevels[CurrentLevelIndex + 1].IsUnlocked;
-
+    public int TotalLevelCount => unlockableSortedLevels.Length;
     protected override void Awake()
     {
         base.Awake();
