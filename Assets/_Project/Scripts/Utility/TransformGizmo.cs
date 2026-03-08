@@ -17,6 +17,10 @@ public class TransformGizmo : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     [SerializeField] private ColorId hoverColor;
     [SerializeField] private ColorId dragColor;
 
+    [Header("Scale Settings")]
+    [SerializeField] private bool scaleWithCamera = true;
+    [SerializeField] private float screenSizeScale = 0.3f;
+
     private Transform targetTransform;
     private TransformController controller;
     private Camera mainCamera;
@@ -37,6 +41,22 @@ public class TransformGizmo : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         mainCamera = Camera.main;
 
         gizmoRenderer.color = ThemeColorManager.Instance.GetColor(normalColor);
+    }
+    private void LateUpdate()
+    {
+        if (targetTransform == null) return;
+
+        Vector3 parentScale = targetTransform.lossyScale;
+
+        float cameraFactor = scaleWithCamera ? mainCamera.orthographicSize : 1f;
+
+        float uniformScale = cameraFactor * screenSizeScale;
+
+        transform.localScale = new Vector3(
+            uniformScale / parentScale.x,
+            uniformScale / parentScale.y,
+            uniformScale / parentScale.z
+        );
     }
 
     public void Initialize(Transform target, TransformController transformController, GizmoType type)

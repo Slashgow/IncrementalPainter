@@ -106,6 +106,8 @@ MonoBehaviour:
   normalColor: 7
   hoverColor: 8
   dragColor: 9
+  scaleWithCamera: 1
+  screenSizeScale: 0.04
 --- !u!61 &7483036825996426315
 BoxCollider2D:
   m_ObjectHideFlags: 0
