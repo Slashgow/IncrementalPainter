@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 1159433950065946572}
   - component: {fileID: 399271235094532410}
   - component: {fileID: 139937370120092854}
+  - component: {fileID: 7945880884679631037}
   m_Layer: 0
   m_Name: Preview UI Painting
   m_TagString: Untagged
@@ -182,3 +183,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawingImage: {fileID: 462171558683574749}
+--- !u!114 &7945880884679631037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473621472355243964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82dc2d1848c8de24099465476a01b6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

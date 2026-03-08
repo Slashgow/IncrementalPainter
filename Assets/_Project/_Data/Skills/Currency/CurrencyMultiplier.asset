@@ -39,13 +39,13 @@ MonoBehaviour:
     skillPointCost: 2
     requiredSkills: []
   - level: 3
-    skillPointCost: 1
+    skillPointCost: 2
     requiredSkills: []
   - level: 4
-    skillPointCost: 1
+    skillPointCost: 3
     requiredSkills: []
   - level: 5
-    skillPointCost: 1
+    skillPointCost: 3
     requiredSkills: []
   unitValue: 5
   effectValue:

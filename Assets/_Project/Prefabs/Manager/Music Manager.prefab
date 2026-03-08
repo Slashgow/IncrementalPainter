@@ -50,20 +50,17 @@ MonoBehaviour:
   logger: {fileID: 1013739130802327411}
   audioSource: {fileID: 5132351609284430872}
   secondaryAudioSource: {fileID: 3050609410862781334}
-  musics:
-  - {fileID: 8300000, guid: 1aa6cfe02d5f7c2498082bf7da444118, type: 3}
-  - {fileID: 8300000, guid: b009abf1c3533c64cbce94dfb375afbb, type: 3}
-  crossfadeDuration: 2
-  fadeDuration: 1
-  fadeEase: 7
-  pausePitch: 0.3
-  resumePitch: 1
   paintMusic: {fileID: 8300000, guid: 1aa6cfe02d5f7c2498082bf7da444118, type: 3}
+  paintMusicPitch: 0.8
   paintMusicCrossfadeDuration: 2
   upgradeMusic: {fileID: 8300000, guid: 729a3975bcaad0a4ab3c3421b13fa73b, type: 3}
+  upgradeMusicPitch: 0.8
   upgradeMusicCrossfadeDuration: 2
   bossMusic: {fileID: 8300000, guid: b009abf1c3533c64cbce94dfb375afbb, type: 3}
   bossUpgradeMusic: {fileID: 8300000, guid: 4f2923e9e44c517439e37fab3a48bb6f, type: 3}
+  bossMusicPitch: 1
+  bossUpgradeMusicPitch: 1
+  fadeEase: 7
 --- !u!114 &1013739130802327411
 MonoBehaviour:
   m_ObjectHideFlags: 0

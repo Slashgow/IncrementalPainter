@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6345590102337772309}
   - component: {fileID: 2214305528703898351}
   - component: {fileID: 3979649825554733948}
+  - component: {fileID: 8336036758956903277}
   m_Layer: 0
   m_Name: Preview UI Tampon
   m_TagString: Untagged
@@ -106,3 +107,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imagePreview: {fileID: 6345590102337772309}
+--- !u!114 &8336036758956903277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6762368827959588230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82dc2d1848c8de24099465476a01b6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

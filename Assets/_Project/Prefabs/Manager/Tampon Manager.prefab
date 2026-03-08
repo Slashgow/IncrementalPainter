@@ -48,9 +48,9 @@ MonoBehaviour:
   artGaleryInput: {fileID: 0}
   paintDecal2D: {fileID: 6926884263290788235}
   defaultTampon: {fileID: 11400000, guid: 799f39194f9c4c64bbfb4f1bb5f1123d, type: 2}
-  defaultSize: 1
+  defaultSize: 20
   minSize: 10
-  maxSize: 50
+  maxSize: 100
   rotationIncrement: 10
 --- !u!1001 &1531297574308436788
 PrefabInstance:

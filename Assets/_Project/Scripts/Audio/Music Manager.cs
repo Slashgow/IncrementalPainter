@@ -1,8 +1,6 @@
 using DG.Tweening;
 using inkolorgames;
-using NUnit.Framework.Internal;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class MusicManager : MonoSingleton<MusicManager>
 {
@@ -14,13 +12,16 @@ public class MusicManager : MonoSingleton<MusicManager>
 
     [Header("Paint Music")]
     [SerializeField] private AudioClip paintMusic;
+    [SerializeField, Range(0f, 2f)] private float paintMusicPitch;
     [SerializeField, Range(0f, 2f)] private float paintMusicCrossfadeDuration = 1f;
 
     [Header("Upgrade Music")]
     [SerializeField] private AudioClip upgradeMusic;
+    [SerializeField, Range(0f, 2f)] private float upgradeMusicPitch;
     [SerializeField, Range(0f,2f)] private float upgradeMusicCrossfadeDuration = 1f;
 
     [SerializeField] private AudioClip bossMusic, bossUpgradeMusic;
+    [SerializeField, Range(0f, 2f)] private float bossMusicPitch, bossUpgradeMusicPitch;
     [SerializeField] private Ease fadeEase = Ease.InOutQuad;
 
     private Tween volumeFadeOutTween;
@@ -37,15 +38,15 @@ public class MusicManager : MonoSingleton<MusicManager>
         {
             case GameManager.GameState.PAINT:
                 if(LevelManager.Instance.CurrentLevelData.IsBossLevel)
-                    CrossfadeToClip(bossMusic, paintMusicCrossfadeDuration, true);
+                    CrossfadeToClip(bossMusic, paintMusicCrossfadeDuration, true, bossMusicPitch);
                 else
-                    CrossfadeToClip(paintMusic, paintMusicCrossfadeDuration, true);
+                    CrossfadeToClip(paintMusic, paintMusicCrossfadeDuration, true, paintMusicPitch);
                 break;
             case GameManager.GameState.DAY_SUMMARY:
                 if (LevelManager.Instance.CurrentLevelData.IsBossLevel)
-                    CrossfadeToClip(bossUpgradeMusic, upgradeMusicCrossfadeDuration, true);
+                    CrossfadeToClip(bossUpgradeMusic, upgradeMusicCrossfadeDuration, true, bossUpgradeMusicPitch);
                 else
-                    CrossfadeToClip(upgradeMusic, upgradeMusicCrossfadeDuration, true);
+                    CrossfadeToClip(upgradeMusic, upgradeMusicCrossfadeDuration, true, upgradeMusicPitch);
                 break;
             case GameManager.GameState.UPGRADE:
                 break;
@@ -54,7 +55,7 @@ public class MusicManager : MonoSingleton<MusicManager>
         }
     }
 
-    public void CrossfadeToClip(AudioClip newClip, float duration, bool loopNext)
+    public void CrossfadeToClip(AudioClip newClip, float duration, bool loopNext, float pitch)
     {
         if (newClip == null)
         {
@@ -68,7 +69,7 @@ public class MusicManager : MonoSingleton<MusicManager>
             CurrentAudioSource = audioSource;
             CurrentAudioSource.clip = newClip;
             CurrentAudioSource.volume = 1f;
-            CurrentAudioSource.pitch = 1f;
+            CurrentAudioSource.pitch = pitch;
             CurrentAudioSource.Play();
             logger.Log($"Started playing music: {newClip.name}", this);
             return;

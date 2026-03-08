@@ -3631,7 +3631,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f7c9a1c32482e6e47b190f22e76b1217, type: 3}
   - {fileID: 8300000, guid: 53e2a9039fcd82d4b82bd3a1d61e6c09, type: 3}
   - {fileID: 8300000, guid: 8d094c53051c7ba41accb42076d6d4c4, type: 3}
-  luckPercentage: 100
+  luckPercentage: 30
 --- !u!114 &1861622606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4576,7 +4576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 49307734463992339, guid: 4069eaf74b7af7c4696bb831f59bfaef, type: 3}
       propertyPath: m_fontSize
-      value: 50.4
+      value: 34.55
       objectReference: {fileID: 0}
     - target: {fileID: 376861275849178357, guid: 4069eaf74b7af7c4696bb831f59bfaef, type: 3}
       propertyPath: m_AnchorMax.x
@@ -9170,6 +9170,8 @@ MonoBehaviour:
   zoomSpeed: 2
   minZoom: 5
   maxZoom: 50
+  scaleMovementWithZoom: 1
+  zoomMovementInfluence: 1
   smoothTime: 0.1
   minBounds: {x: -300, y: -200}
   maxBounds: {x: -100, y: 100}
