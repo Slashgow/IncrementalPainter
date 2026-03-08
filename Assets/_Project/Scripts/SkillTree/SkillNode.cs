@@ -250,8 +250,8 @@ public class SkillNode : MonoBehaviour, IColorChanger
         {
             if (line != null)
             {
-                Color lineColor = currentState == SkillState.Unlocked ? treeManager.SkillTreeVisualData.UnlockedColorDarker : 
-                    treeManager.SkillTreeVisualData.LockedColorDarker;
+                Color lineColor = currentState == SkillState.Unlocked ? treeManager.SkillTreeVisualData.UnlockedColor : 
+                    treeManager.SkillTreeVisualData.LockedColor;
                 line.startColor = lineColor;
                 line.endColor = lineColor;
             }

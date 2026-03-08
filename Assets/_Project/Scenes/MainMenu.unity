@@ -251,6 +251,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165620803}
   m_CullTransparentMesh: 1
+--- !u!114 &182767386 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2758095886516879583, guid: 922a26ec9e515b74f89b7d358735be7c, type: 3}
+  m_PrefabInstance: {fileID: 474787104}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf02fcda8823c274289f9771c321e7a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &193302217
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,6 +604,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2654980859804579901, guid: 922a26ec9e515b74f89b7d358735be7c, type: 3}
+      propertyPath: 'unlockableItems.Array.data[1].unlockConditions.Array.data[0]'
+      value: 
+      objectReference: {fileID: 182767386}
+    - target: {fileID: 2654980859804579901, guid: 922a26ec9e515b74f89b7d358735be7c, type: 3}
+      propertyPath: 'unlockableItems.Array.data[2].unlockConditions.Array.data[0]'
+      value: 
+      objectReference: {fileID: 182767386}
+    - target: {fileID: 2654980859804579901, guid: 922a26ec9e515b74f89b7d358735be7c, type: 3}
+      propertyPath: 'unlockableItems.Array.data[3].unlockConditions.Array.data[0]'
+      value: 
+      objectReference: {fileID: 182767386}
+    - target: {fileID: 2654980859804579901, guid: 922a26ec9e515b74f89b7d358735be7c, type: 3}
+      propertyPath: 'unlockableItems.Array.data[4].unlockConditions.Array.data[0]'
+      value: 
+      objectReference: {fileID: 182767386}
+    - target: {fileID: 2654980859804579901, guid: 922a26ec9e515b74f89b7d358735be7c, type: 3}
+      propertyPath: 'unlockableItems.Array.data[5].unlockConditions.Array.data[0]'
+      value: 
+      objectReference: {fileID: 182767386}
+    - target: {fileID: 2654980859804579901, guid: 922a26ec9e515b74f89b7d358735be7c, type: 3}
+      propertyPath: 'unlockableItems.Array.data[6].unlockConditions.Array.data[0]'
+      value: 
+      objectReference: {fileID: 182767386}
     - target: {fileID: 4691788264613330045, guid: 922a26ec9e515b74f89b7d358735be7c, type: 3}
       propertyPath: m_Name
       value: Unlock Managers
