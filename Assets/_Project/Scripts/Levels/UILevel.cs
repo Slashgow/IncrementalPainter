@@ -99,10 +99,19 @@ public class UILevel : MonoBehaviour, IUISelectable<LevelData>, IColorChanger
         string rewardRight = rewardRightLocalizedString.GetLocalizedString();
 #endif
 
-        textRewardLeftToGet.text = $"{rewardLeft} " +
-            $"{(remainingCurrencyReward > 0 ? $"<color=#{currencyColorHex}>{FormatUtility.FormatValue(remainingCurrencyReward)} $</color>" : "")} & " +
-            $"{(remainingSPReward > 0 ? $"<color=#{skillPointHex}>{remainingSPReward} SP</color>" : "")} " +
-            $"{rewardRight}";
+        string currencyPart = remainingCurrencyReward > 0
+                                ? $"<color=#{currencyColorHex}>{FormatUtility.FormatValue(remainingCurrencyReward)} $</color>"
+                                : "";
+
+        string spPart = remainingSPReward > 0
+            ? $"<color=#{skillPointHex}>{remainingSPReward} SP</color>"
+            : "";
+
+        string rewardMiddle = (currencyPart.Length > 0 && spPart.Length > 0)
+            ? $"{currencyPart} & {spPart}"
+            : $"{currencyPart}{spPart}";
+
+        textRewardLeftToGet.text = $"{rewardLeft} {rewardMiddle} {rewardRight}";
     }
 
 

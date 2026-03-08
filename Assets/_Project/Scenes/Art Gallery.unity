@@ -554,32 +554,52 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7057549730272054440, guid: 43d2cc642d246d04bbd574b0a6e07894, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 656448912}
+    - target: {fileID: 7057549730272054440, guid: 43d2cc642d246d04bbd574b0a6e07894, type: 3}
       propertyPath: maxZoom
-      value: 35
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 7057549730272054440, guid: 43d2cc642d246d04bbd574b0a6e07894, type: 3}
       propertyPath: minZoom
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057549730272054440, guid: 43d2cc642d246d04bbd574b0a6e07894, type: 3}
+      propertyPath: zoomSpeed
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7057549730272054440, guid: 43d2cc642d246d04bbd574b0a6e07894, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057549730272054440, guid: 43d2cc642d246d04bbd574b0a6e07894, type: 3}
+      propertyPath: smoothTime
+      value: 0.026
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057549730272054440, guid: 43d2cc642d246d04bbd574b0a6e07894, type: 3}
       propertyPath: maxBounds.x
-      value: 15
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7057549730272054440, guid: 43d2cc642d246d04bbd574b0a6e07894, type: 3}
       propertyPath: maxBounds.y
-      value: 30
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 7057549730272054440, guid: 43d2cc642d246d04bbd574b0a6e07894, type: 3}
       propertyPath: minBounds.x
-      value: -15
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 7057549730272054440, guid: 43d2cc642d246d04bbd574b0a6e07894, type: 3}
       propertyPath: minBounds.y
-      value: -30
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 7057549730272054440, guid: 43d2cc642d246d04bbd574b0a6e07894, type: 3}
       propertyPath: lockMovementOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057549730272054440, guid: 43d2cc642d246d04bbd574b0a6e07894, type: 3}
+      propertyPath: zoomMovementInfluence
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7663163867639010230, guid: 43d2cc642d246d04bbd574b0a6e07894, type: 3}
       propertyPath: m_Name
@@ -594,6 +614,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43d2cc642d246d04bbd574b0a6e07894, type: 3}
+--- !u!20 &656448912 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3663920691165433722, guid: 43d2cc642d246d04bbd574b0a6e07894, type: 3}
+  m_PrefabInstance: {fileID: 656448911}
+  m_PrefabAsset: {fileID: 0}
 --- !u!225 &673509680 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 6574241717752047870, guid: 642d74f473f9f904bafc7b17527ed334, type: 3}
@@ -805,7 +830,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -5
-  m_Sprite: {fileID: 21300000, guid: aded24aa411d9fd43acfa0cb0b44919c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4729ed9376b2c954ca49adb3a918504f, type: 3}
   m_Color: {r: 1, g: 0.9693855, b: 0.9292453, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -865,7 +890,7 @@ MonoBehaviour:
   wrapV: -1
   existing: 2
   conversion: 0
-  localMaskTexture: {fileID: 0}
+  localMaskTexture: {fileID: 2800000, guid: aded24aa411d9fd43acfa0cb0b44919c, type: 3}
   localMaskChannel: 0
   shaderKeyword: 
   hash:

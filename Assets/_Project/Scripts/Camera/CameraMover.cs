@@ -12,7 +12,9 @@ public class CameraMover : MonoBehaviour
     [SerializeField, Range(0f, 100f)] private float keyMoveSpeed = 5f;
     [SerializeField, Range(0f, 10f)] private float zoomSpeed = 2f;
     [SerializeField, Range(0f, 10f)] private float minZoom = 2f;
-    [SerializeField, Range(0f, 50f)] private float maxZoom = 10f;
+    [SerializeField, Range(0f, 150f)] private float maxZoom = 10f;
+    [SerializeField] private bool scaleMovementWithZoom = true;
+    [SerializeField, Range(0f, 1f)] private float zoomMovementInfluence = 1f;
     [SerializeField, Range(0f, 0.5f)] private float smoothTime = 0.1f;
     [SerializeField] private Vector2 minBounds = new Vector2(-10f, -5f);
     [SerializeField] private Vector2 maxBounds = new Vector2(10f, 5f);
@@ -96,7 +98,9 @@ public class CameraMover : MonoBehaviour
         Vector2 moveInput = inputHandler.MoveInput;
         if (moveInput.magnitude > 0)
         {
-            Vector3 moveDirection = new Vector3(moveInput.x, moveInput.y, 0) * keyMoveSpeed * Time.unscaledDeltaTime;
+            float zoomFactor = Mathf.Lerp(1f, cam.orthographicSize / maxZoom, zoomMovementInfluence);
+            Vector3 moveDirection = new Vector3(moveInput.x, moveInput.y, 0) * keyMoveSpeed * zoomFactor * Time.unscaledDeltaTime;
+            //Vector3 moveDirection = new Vector3(moveInput.x, moveInput.y, 0) * keyMoveSpeed * Time.unscaledDeltaTime;
             targetPosition += moveDirection;
             targetPosition.x = Mathf.Clamp(targetPosition.x, minBounds.x, maxBounds.x);
             targetPosition.y = Mathf.Clamp(targetPosition.y, minBounds.y, maxBounds.y);
@@ -119,8 +123,26 @@ public class CameraMover : MonoBehaviour
         if (inputHandler.ZoomInput == 0f)
             return;
 
+        //targetZoom -= inputHandler.ZoomInput * zoomSpeed;
+        //targetZoom = Mathf.Clamp(targetZoom, minZoom, maxZoom);
+
+        Vector3 mouseWorldPositionBefore = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+
         targetZoom -= inputHandler.ZoomInput * zoomSpeed;
         targetZoom = Mathf.Clamp(targetZoom, minZoom, maxZoom);
+
+        // Apply zoom instantly to sample the new world position, then revert
+        float previousSize = cam.orthographicSize;
+        cam.orthographicSize = targetZoom;
+
+        Vector3 mouseWorldPositionAfter = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        cam.orthographicSize = previousSize;
+
+        // Offset the target position by the difference to follow the mouse
+        Vector3 offset = mouseWorldPositionBefore - mouseWorldPositionAfter;
+        targetPosition += offset;
+        targetPosition.x = Mathf.Clamp(targetPosition.x, minBounds.x, maxBounds.x);
+        targetPosition.y = Mathf.Clamp(targetPosition.y, minBounds.y, maxBounds.y);
     }
 
     private void SmoothZooming()
