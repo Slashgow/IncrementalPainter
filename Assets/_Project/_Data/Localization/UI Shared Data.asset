@@ -347,6 +347,10 @@ MonoBehaviour:
     m_Key: SUCCESS_UNLOCKED
     m_Metadata:
       m_Items: []
+  - m_Id: 36158259767668736
+    m_Key: WARNING_SAVE_LEVEL
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

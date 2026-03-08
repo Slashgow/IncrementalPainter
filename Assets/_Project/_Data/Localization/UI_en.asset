@@ -351,6 +351,10 @@ MonoBehaviour:
     m_Localized: Achievements completed
     m_Metadata:
       m_Items: []
+  - m_Id: 36158259767668736
+    m_Localized: Any unsaved progress will be lost. Return to the main menu?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

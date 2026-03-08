@@ -351,6 +351,11 @@ MonoBehaviour:
     m_Localized: "Succ\xE8s compl\xE9t\xE9s"
     m_Metadata:
       m_Items: []
+  - m_Id: 36158259767668736
+    m_Localized: "Toute progression non sauvegard\xE9 sera perdu. Voulez-vous retourner
+      au menu principal ?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
