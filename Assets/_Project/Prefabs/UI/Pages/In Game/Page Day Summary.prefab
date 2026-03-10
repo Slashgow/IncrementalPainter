@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorId: 19
   updateOnStart: 1
+  updateOnEnable: 0
   listenToThemeChanges: 1
 --- !u!1 &299948219497019172
 GameObject:
@@ -330,6 +331,9 @@ MonoBehaviour:
   nukeItemSpawnedValueText: {fileID: 4388426801710705212}
   paintBlobsDestroyedByNukeValueText: {fileID: 1884223697070714683}
   currencyGainedValueText: {fileID: 8765780485450429746}
+  onDayEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3525648136742240568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorId: 19
   updateOnStart: 1
+  updateOnEnable: 0
   listenToThemeChanges: 1
 --- !u!1 &914608790248626318
 GameObject:
@@ -2522,6 +2527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorId: 12
   updateOnStart: 1
+  updateOnEnable: 0
   listenToThemeChanges: 1
 --- !u!1001 &167030644624684534
 PrefabInstance:
@@ -3262,6 +3268,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 817782639217105955, guid: f21d1ea4bca41ed46b22481fdd7b223d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8263047190237077162}
+    - targetCorrespondingSourceObject: {fileID: 817782639217105955, guid: f21d1ea4bca41ed46b22481fdd7b223d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7462766982583289894}
   m_SourcePrefab: {fileID: 100100000, guid: f21d1ea4bca41ed46b22481fdd7b223d, type: 3}
 --- !u!1 &1396954694993440564 stripped
 GameObject:
@@ -3291,9 +3300,42 @@ MonoBehaviour:
     m_LocalVariables: []
   dayElapsedText: {fileID: 1616419281870293392}
   showCurrentDay: 0
+  onUpdatedDay:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7462766982583289894}
+        m_TargetAssemblyTypeName: TextMeshProWaveEffect, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   references:
     version: 2
     RefIds: []
+--- !u!114 &7462766982583289894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396954694993440564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b52d7911fc0e34bbb6f00225f7d1ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveAmplitude: 10
+  waveFrequency: 0.1
+  waveDuration: 1.5
+  easeType: 4
+  playOnStart: 1
+  loopCount: -1
 --- !u!114 &1616419281870293392 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1032748024513247879, guid: f21d1ea4bca41ed46b22481fdd7b223d, type: 3}
@@ -3324,6 +3366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorId: 12
   updateOnStart: 1
+  updateOnEnable: 0
   listenToThemeChanges: 1
 --- !u!224 &5131458749105435487 stripped
 RectTransform:
@@ -4103,6 +4146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorId: 12
   updateOnStart: 1
+  updateOnEnable: 0
   listenToThemeChanges: 1
 --- !u!114 &3081391836120763093 stripped
 MonoBehaviour:
@@ -4143,6 +4187,9 @@ MonoBehaviour:
     m_LocalVariables: []
   dayElapsedText: {fileID: 3081391836120763093}
   showCurrentDay: 0
+  onUpdatedDay:
+    m_PersistentCalls:
+      m_Calls: []
   references:
     version: 2
     RefIds: []

@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Localization;
 
 public class UICurrentDay : MonoBehaviour, IColorChanger
@@ -8,6 +9,7 @@ public class UICurrentDay : MonoBehaviour, IColorChanger
     [SerializeField] private TextMeshProUGUI dayElapsedText;
     [SerializeField] private bool showCurrentDay = false;
 
+    [SerializeField] private UnityEvent onUpdatedDay;
 
     private void OnEnable() => ThemeColorManager.OnThemeChanged += OnThemeChanged;
     private void OnDisable() => ThemeColorManager.OnThemeChanged -= OnThemeChanged;
@@ -38,7 +40,7 @@ public class UICurrentDay : MonoBehaviour, IColorChanger
             }
         };
 #endif
-
+        onUpdatedDay.Invoke();
     }
 
     public void OnThemeChanged(ColorTheme newTheme) => UpdateColor();

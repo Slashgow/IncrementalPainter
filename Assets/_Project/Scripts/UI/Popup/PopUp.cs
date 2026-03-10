@@ -1,8 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
-
-
 public class PopUp : MonoBehaviour
 {
     [SerializeField] private Button doActionButton, cancelButton;

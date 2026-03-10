@@ -288,15 +288,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 26801144007618560
-    m_Localized: Add to your wishlist
+    m_Localized: Add to your wishlist!
     m_Metadata:
       m_Items: []
   - m_Id: 26801510573010944
-    m_Localized: Join the discord
+    m_Localized: Join the discord!
     m_Metadata:
       m_Items: []
   - m_Id: 26801567481327616
-    m_Localized: Give a feedback
+    m_Localized: Give a feedback!
     m_Metadata:
       m_Items: []
   - m_Id: 26807469051604992
@@ -353,6 +353,20 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 36158259767668736
     m_Localized: Any unsaved progress will be lost. Return to the main menu?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36952760316719104
+    m_Localized: Thank you for trying the demo!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36952913182322688
+    m_Localized: 'I''m open to feedback, so don''t hesitate to tell me what you think
+      and leave a review! I invite you to try the campaign and the art gallery mode
+      and then fill in the quick form.
+
+
+      <color="black">This doesn''t represent
+      the final state of the game and everything is subject to change.</color>'
     m_Metadata:
       m_Items: []
   references:

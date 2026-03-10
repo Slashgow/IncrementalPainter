@@ -20,10 +20,15 @@ public class RotateEffect : Effect
     private Tween rotationTween;
     private Vector3 originRotation;
 
+    private void Awake()
+    {
+        originRotation = transform.localEulerAngles;
+    }
+
     protected override void OnEnable()
     {
         base.OnEnable();
-        originRotation = transform.localEulerAngles;
+        //originRotation = transform.localEulerAngles;
     }
     public void Rotate()
     {

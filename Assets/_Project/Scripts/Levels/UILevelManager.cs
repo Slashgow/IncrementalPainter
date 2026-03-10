@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class UILevelManager : MonoBehaviour
@@ -11,6 +12,8 @@ public class UILevelManager : MonoBehaviour
     [SerializeField] private Transform contentParent;
     [SerializeField] private GameObject uiLevelPrefab;
     [SerializeField] private Button playButton;
+
+    [SerializeField] private UnityEvent onUpdateLevelDisplay;
 
     private void Start()
     {
@@ -72,5 +75,6 @@ public class UILevelManager : MonoBehaviour
         textCurrentLevelTitle.text = currentLevel.LevelTitle;
         textCurrentLevelAuthor.text = $"{currentLevel.LevelAuthor} - {currentLevel.LevelDate}";
         textCurrentLevelArtMovement.text = currentLevel.ArtMovement.ToString();
+        onUpdateLevelDisplay?.Invoke();
     }
 }

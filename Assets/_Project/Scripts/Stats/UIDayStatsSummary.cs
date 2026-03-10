@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class UIDayStatsSummary : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class UIDayStatsSummary : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nukeItemSpawnedValueText;
     [SerializeField] private TextMeshProUGUI paintBlobsDestroyedByNukeValueText;
     [SerializeField] private TextMeshProUGUI currencyGainedValueText;
+
+    [SerializeField] private UnityEvent onDayEnd;
 
 
     private DayStats currentDayStats;

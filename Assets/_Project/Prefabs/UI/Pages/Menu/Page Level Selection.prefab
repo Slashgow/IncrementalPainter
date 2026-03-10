@@ -90,6 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorId: 13
   updateOnStart: 1
+  updateOnEnable: 0
   listenToThemeChanges: 1
 --- !u!1 &746266825178356317
 GameObject:
@@ -198,6 +199,21 @@ MonoBehaviour:
   contentParent: {fileID: 3274210425872191078}
   uiLevelPrefab: {fileID: 137137882036057232, guid: 76d4a07ed772a2a4cbd7edcb84627f4a, type: 3}
   playButton: {fileID: 4751534904492939477}
+  onUpdateLevelDisplay:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 442110823238864785}
+        m_TargetAssemblyTypeName: TextMeshProWaveEffect, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8497297711211331635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,6 +447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorId: 12
   updateOnStart: 1
+  updateOnEnable: 0
   listenToThemeChanges: 1
 --- !u!1 &3323911958946281204
 GameObject:
@@ -522,6 +539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorId: 14
   updateOnStart: 1
+  updateOnEnable: 0
   listenToThemeChanges: 1
 --- !u!1 &4505134026426428143
 GameObject:
@@ -1210,6 +1228,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2470107951091909965, guid: 3b8b73088b16fb34e91487a15205d264, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6018442224429177086}
+    - targetCorrespondingSourceObject: {fileID: 2470107951091909965, guid: 3b8b73088b16fb34e91487a15205d264, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 442110823238864785}
   m_SourcePrefab: {fileID: 100100000, guid: 3b8b73088b16fb34e91487a15205d264, type: 3}
 --- !u!114 &1956510126184332037 stripped
 MonoBehaviour:
@@ -1239,9 +1260,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79293b8335e45524296381367f122aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorId: 12
+  colorId: 14
   updateOnStart: 1
   listenToThemeChanges: 1
+--- !u!114 &442110823238864785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2173758363756043681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b52d7911fc0e34bbb6f00225f7d1ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveAmplitude: 10
+  waveFrequency: 0.1
+  waveDuration: 1.5
+  easeType: 4
+  playOnStart: 1
+  loopCount: -1
 --- !u!224 &9164587592826456821 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4846449836290642457, guid: 3b8b73088b16fb34e91487a15205d264, type: 3}

@@ -6,6 +6,7 @@ public class ImageColorChanger : MonoBehaviour, IColorChanger
 {
     [SerializeField] private ColorId colorId = ColorId.PRIMARY;
     [SerializeField] private bool updateOnStart = true;
+    [SerializeField] private bool updateOnEnable = false;
     [SerializeField] private bool listenToThemeChanges = true;
 
     private Image targetImage;
@@ -29,6 +30,9 @@ public class ImageColorChanger : MonoBehaviour, IColorChanger
             ThemeColorManager.OnThemeChanged += OnThemeChanged;
             ThemeColorManager.OnColorChanged += OnSpecificColorChanged;
         }
+
+        if(updateOnEnable)
+            UpdateColor();
     }
 
     private void OnDisable()

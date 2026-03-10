@@ -288,15 +288,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 26801144007618560
-    m_Localized: "Ajouter \xE0 votre liste de souhait"
+    m_Localized: "Ajouter \xE0 votre liste de souhait !"
     m_Metadata:
       m_Items: []
   - m_Id: 26801510573010944
-    m_Localized: Rejoigner le Discord
+    m_Localized: Rejoindre le Discord !
     m_Metadata:
       m_Items: []
   - m_Id: 26801567481327616
-    m_Localized: Donner votre avis
+    m_Localized: Donner votre avis !
     m_Metadata:
       m_Items: []
   - m_Id: 26807469051604992
@@ -354,6 +354,18 @@ MonoBehaviour:
   - m_Id: 36158259767668736
     m_Localized: "Toute progression non sauvegard\xE9 sera perdu. Voulez-vous retourner
       au menu principal ?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36952760316719104
+    m_Localized: "Merci de tester la d\xE9mo !"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36952913182322688
+    m_Localized: "Je suis preneur de tous vos retours, alors n\u2019h\xE9sitez pas
+      \xE0 me dire ce que vous en pensez et \xE0 laisser un avis. Je vous invite
+      \xE0 essayer la campagne ainsi que le mode galerie d\u2019art, puis \xE0 remplir
+      le formulaire avec vos retours.\r\n\n<color=\"black\">Ce jeu ne repr\xE9sente
+      pas encore son \xE9tat final et tout est susceptible d\u2019\xE9voluer.</color>\r\n"
     m_Metadata:
       m_Items: []
   references:
