@@ -14,8 +14,9 @@ public class UIDoneCondition : MonoBehaviour
 
     private void InitializeText()
     {
-#if !UNITY_WEBGL
         float percentCondition = Mathf.RoundToInt(LevelManager.Instance.CurrentLevelData.PercentCompletionCondition * 100f);
+#if !UNITY_WEBGL
+  
         textDoneCondition.text = $"({localizedDoneCondition.GetLocalizedString()} {percentCondition}%)";
 #else
         localizedDoneCondition.GetLocalizedStringAsync().Completed += (handle) =>

@@ -131,18 +131,23 @@ public class CameraMover : MonoBehaviour
         targetZoom -= inputHandler.ZoomInput * zoomSpeed;
         targetZoom = Mathf.Clamp(targetZoom, minZoom, maxZoom);
 
-        // Apply zoom instantly to sample the new world position, then revert
-        float previousSize = cam.orthographicSize;
-        cam.orthographicSize = targetZoom;
 
-        Vector3 mouseWorldPositionAfter = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        cam.orthographicSize = previousSize;
+        if(inputHandler.ZoomInput > 0f)
+        {
+            // Apply zoom instantly to sample the new world position, then revert
+            float previousSize = cam.orthographicSize;
+            cam.orthographicSize = targetZoom;
 
-        // Offset the target position by the difference to follow the mouse
-        Vector3 offset = mouseWorldPositionBefore - mouseWorldPositionAfter;
-        targetPosition += offset;
-        targetPosition.x = Mathf.Clamp(targetPosition.x, minBounds.x, maxBounds.x);
-        targetPosition.y = Mathf.Clamp(targetPosition.y, minBounds.y, maxBounds.y);
+            Vector3 mouseWorldPositionAfter = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            cam.orthographicSize = previousSize;
+
+            // Offset the target position by the difference to follow the mouse
+            Vector3 offset = mouseWorldPositionBefore - mouseWorldPositionAfter;
+            targetPosition += offset;
+            targetPosition.x = Mathf.Clamp(targetPosition.x, minBounds.x, maxBounds.x);
+            targetPosition.y = Mathf.Clamp(targetPosition.y, minBounds.y, maxBounds.y);
+        }
+        
     }
 
     private void SmoothZooming()

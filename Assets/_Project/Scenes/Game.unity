@@ -9008,7 +9008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInputActionAsset: {fileID: -944628639613478452, guid: 36a53b2e84799364fbb83b6ebfc8ceac, type: 3}
   dragInputActionReference: {fileID: 6814598847643389212, guid: 36a53b2e84799364fbb83b6ebfc8ceac, type: 3}
-  dragStartInputActionReference: {fileID: 226765524523410501, guid: 36a53b2e84799364fbb83b6ebfc8ceac, type: 3}
+  dragStartInputActionReference: {fileID: 7746691301929236310, guid: 36a53b2e84799364fbb83b6ebfc8ceac, type: 3}
   zoomInputActionReference: {fileID: -9167047619287190586, guid: 36a53b2e84799364fbb83b6ebfc8ceac, type: 3}
   recenterInputActionReference: {fileID: 2923873171297851534, guid: 36a53b2e84799364fbb83b6ebfc8ceac, type: 3}
   moveInputActionReference: {fileID: -6767220001962312860, guid: 36a53b2e84799364fbb83b6ebfc8ceac, type: 3}

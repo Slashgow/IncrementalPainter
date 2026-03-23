@@ -284,7 +284,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!1 &4793230443857433341
+--- !u!1 &3770386988808901555
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,22 +292,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2913424452330401025}
-  - component: {fileID: 7140427302284050702}
+  - component: {fileID: 5765477181997619787}
+  - component: {fileID: 1931865395515512319}
   m_Layer: 0
-  m_Name: Demo unlock
+  m_Name: Demo lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2913424452330401025
+--- !u!4 &5765477181997619787
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4793230443857433341}
+  m_GameObject: {fileID: 3770386988808901555}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -316,13 +316,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7576727699297752358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7140427302284050702
+--- !u!114 &1931865395515512319
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4793230443857433341}
+  m_GameObject: {fileID: 3770386988808901555}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e38bfb0180ca5b4488f34570d47f87fc, type: 3}
@@ -700,7 +700,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3818680118330074719}
-  - {fileID: 2913424452330401025}
   - {fileID: 5839454198262654968}
   - {fileID: 8397993576467656878}
   - {fileID: 3159133429003349188}
@@ -715,6 +714,7 @@ Transform:
   - {fileID: 3976652537910490287}
   - {fileID: 7669254934211141081}
   - {fileID: 3821447749279538954}
+  - {fileID: 5765477181997619787}
   m_Father: {fileID: 623909872397918200}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6587097264052769181
@@ -730,7 +730,7 @@ GameObject:
   - component: {fileID: 1037331632690210968}
   - component: {fileID: 4751924089947127750}
   m_Layer: 0
-  m_Name: Level Manager  Demo
+  m_Name: Level Manager Demo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -773,6 +773,12 @@ MonoBehaviour:
     dRankColorID: 27
   defaultLevel: {fileID: 11400000, guid: 86fce4b65d45868428db4499ba673069, type: 2}
   unlockableSortedLevels:
+  - levelData: {fileID: 11400000, guid: 3aacf6f635fc20d46af3b024ddb83548, type: 2}
+    unlockConditions:
+    - {fileID: 2430276174761575609}
+  - levelData: {fileID: 11400000, guid: 080c4f110e0496647ac26b85f563f84e, type: 2}
+    unlockConditions:
+    - {fileID: 2430276174761575609}
   - levelData: {fileID: 11400000, guid: df35e19a92a782e4f8624824bd041a86, type: 2}
     unlockConditions:
     - {fileID: 2430276174761575609}
@@ -787,37 +793,37 @@ MonoBehaviour:
     - {fileID: 2274426972533820372}
   - levelData: {fileID: 11400000, guid: 6247094ae030dc440be92b91b834c788, type: 2}
     unlockConditions:
-    - {fileID: 4527245175444610771}
+    - {fileID: 1931865395515512319}
   - levelData: {fileID: 11400000, guid: 92b1b188162eedf49bd18c0d7d46e24e, type: 2}
     unlockConditions:
-    - {fileID: 7140427302284050702}
+    - {fileID: 1931865395515512319}
   - levelData: {fileID: 11400000, guid: c36088f641f3e9d48b3739d7cb54ce87, type: 2}
     unlockConditions:
-    - {fileID: 7140427302284050702}
+    - {fileID: 1931865395515512319}
   - levelData: {fileID: 11400000, guid: 0558e7614117fd24a91122c1834d40ea, type: 2}
     unlockConditions:
-    - {fileID: 7140427302284050702}
+    - {fileID: 1931865395515512319}
   - levelData: {fileID: 11400000, guid: 1302c7acea24ce94293d4237d982bb02, type: 2}
     unlockConditions:
-    - {fileID: 7140427302284050702}
+    - {fileID: 1931865395515512319}
   - levelData: {fileID: 11400000, guid: a89c2a8f7e9469f40afe301ec75ed656, type: 2}
     unlockConditions:
-    - {fileID: 7140427302284050702}
+    - {fileID: 1931865395515512319}
   - levelData: {fileID: 11400000, guid: 86fce4b65d45868428db4499ba673069, type: 2}
     unlockConditions:
-    - {fileID: 7140427302284050702}
+    - {fileID: 1931865395515512319}
   - levelData: {fileID: 11400000, guid: 0414937677068004490a3a0aebe465dd, type: 2}
     unlockConditions:
-    - {fileID: 7140427302284050702}
+    - {fileID: 1931865395515512319}
   - levelData: {fileID: 11400000, guid: bb8d1afe9d670174ea1ba625215eb77f, type: 2}
     unlockConditions:
-    - {fileID: 7140427302284050702}
+    - {fileID: 1931865395515512319}
   - levelData: {fileID: 11400000, guid: 001bd8940486aa34bb2f46c8b36ed9d9, type: 2}
     unlockConditions:
-    - {fileID: 7140427302284050702}
+    - {fileID: 1931865395515512319}
   - levelData: {fileID: 11400000, guid: 9eccc5ec7a854fb4881c94a6157a1c39, type: 2}
     unlockConditions:
-    - {fileID: 7140427302284050702}
+    - {fileID: 1931865395515512319}
 --- !u!114 &1037331632690210968
 MonoBehaviour:
   m_ObjectHideFlags: 0

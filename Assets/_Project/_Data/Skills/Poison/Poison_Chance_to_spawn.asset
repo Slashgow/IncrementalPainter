@@ -48,6 +48,7 @@ MonoBehaviour:
     skillPointCost: 0
     requiredSkills: []
   unitValue: 1
+  isDemoLocked: 1
   effectValue:
     a: 5
     b: 0

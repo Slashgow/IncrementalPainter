@@ -311,6 +311,12 @@ public class SkillTreeManager : MonoBehaviour, ISavable, ILoadable<SkillTreeSave
             return false;
         }
 
+        if(skillData.IsDemoLocked && DemoManager.Instance.IsDemo)
+        {
+            logger.Log("Cannot level up Because it's demo locked", this);
+            return false;
+        }
+
         if (skillLevelData.CurrentLevel >= targetLevel)
             return false;
 

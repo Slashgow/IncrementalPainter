@@ -3,7 +3,7 @@ using inkolorgames;
 using PaintIn2D;
 using UnityEngine;
 
-public class ErasureManager : PersistentMonoSingleton<ErasureManager>
+public class ErasureManager : MonoSingleton<ErasureManager>
 {
     [SerializeField] private CwPaintDecal2D paintDecal2D;
 

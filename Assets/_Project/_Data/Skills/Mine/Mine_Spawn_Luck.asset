@@ -36,6 +36,7 @@ MonoBehaviour:
     - skillData: {fileID: 11400000, guid: 63779a04f72e40c439ca587909201bb8, type: 2}
       requiredLevel: 1
   unitValue: 1
+  isDemoLocked: 1
   effectValue:
     a: 0.5
     b: 0

@@ -10,6 +10,7 @@ public class SkillNodeDetail : MonoBehaviour, IColorChanger
     [SerializeField] private TextMeshProUGUI currentLevelText;
     [SerializeField] private TextMeshProUGUI costText;
     [SerializeField] private TextMeshProUGUI statValueDescriptionText;
+    [SerializeField] private GameObject lockImage;
 
     private SkillNode skillNode;
     private SkillTreeManager treeManager;
@@ -125,6 +126,18 @@ public class SkillNodeDetail : MonoBehaviour, IColorChanger
 
         backgroundImage.color = currentColorBackground;
         backgroundTitleImage.color = currentColorBackgroundDarker;
+
+        if(DemoManager.Instance.IsDemo && skillNode.SkillDataBase.IsDemoLocked)
+        {
+            lockImage.gameObject.SetActive(true);
+            var color = backgroundImage.color;
+            color.a = 0.4f;
+            backgroundImage.color = color;
+        }
+        else
+        {
+            lockImage.gameObject.SetActive(false);
+        }
     }
 
     private void UpdateCurrentColor()

@@ -31,6 +31,11 @@ public abstract class SkillDataBase : ScriptableObject
     [Header("Unit Value")]
     [SerializeField] private UnitValue unitValue;
     public UnitValue UnitValue => unitValue;
+
+    [Header("Demo")]
+    [SerializeField] private bool isDemoLocked;
+    public bool IsDemoLocked => isDemoLocked;
+
     public abstract float GetEffectValueAtLevel(int level);
     public SkillLevelRequirement GetRequirementsForLevel(int level) => levelRequirements.Find(req => req.Level == level);
     public int GetCostForLevel(int level) => Mathf.RoundToInt(costFunction.Evaluate(level));
