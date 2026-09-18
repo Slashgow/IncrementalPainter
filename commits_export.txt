@@ -1,0 +1,143 @@
+2026-03-23 | 3560f57 | demo 0.
+2026-03-10 | fb33c69 | change call to action and polish
+2026-03-08 | 02fb498 | add credit music
+2026-03-08 | 8442d24 | sfx art gallery / sprite / music /
+2026-03-08 | 5c93065 | adjust color upgrades
+2026-03-08 | 62474c3 | scale gizmo remain same screen size
+2026-03-08 | ea6cdb6 | change sprite art gallery & improve camera
+2026-03-08 | 461c25f | warning art gallery load main menu
+2026-03-08 | 0730892 | add success
+2026-03-05 | 7955bbf | start implementing success
+2026-03-05 | f9b1bcc | optimization
+2026-03-04 | 8c684ed | balance
+2026-03-04 | 9d7737a | fix pop tampon / balance jusqu'à mona lisa
+2026-03-04 | 27597d7 | stickers reward & refactor unlock manager
+2026-03-03 | 444517b | upgrade autonomous clicker
+2026-03-03 | 6c3a1dc | eater ennemy
+2026-03-03 | 50be180 | up
+2026-02-20 | 1276e73 | turret spawner & fix bug color theme
+2026-02-20 | 9bbce91 | range turret
+2026-02-20 | fadfa45 | turret and fix bug theme
+2026-02-19 | f25e3e9 | fix asset turret kill skill
+2026-02-19 | b38ab66 | skill node detail se place bien
+2026-02-19 | 4cb32f5 | turret projectile
+2026-02-19 | e25adf0 | animation idle/attack turret
+2026-02-19 | e5517af | add turret stat to day summary
+2026-02-19 | 053b182 | integrate turret
+2026-02-19 | db96a2e | added kamikaze ennemy
+2026-02-18 | c690441 | rebalance sp & distingue big upgrade / enemy type cleaner
+2026-02-17 | 59687e2 | added rebinding
+2026-02-17 | 796fe5b | add shortcuts
+2026-02-17 | 7aac9a8 | add menu settings in art gallery / scene loading
+2026-02-17 | 31a19c3 | save art gallery
+2026-02-16 | 296264a | destroy tableau. undo/redo still bugging
+2026-02-16 | 3105add | undo redo / finish painting
+2026-02-16 | 44b2a42 | import painting & scale / rotate undo redo
+2026-02-16 | ef7dfd7 | load painting in UI
+2026-02-13 | d5e484f | add rotation tampon
+2026-02-13 | c955d3e | added tampon
+2026-02-13 | 53c5743 | Finish Color selection
+2026-02-13 | b9f1fd2 | finish preview brush / eraser
+2026-02-12 | 984d677 | continue brush / eraser
+2026-02-12 | eb581f9 | started integrating brush
+2026-02-12 | 9b2fc5e | refactor to get unlockable item
+2026-02-12 | 5cc331c | fix bug music and color nuke
+2026-02-11 | cb393cc | finish shield integration
+2026-02-11 | 621dca8 | add enemy shield and visual for damage
+2026-02-11 | 61ef363 | integrate upgrades for shield breaking
+2026-02-11 | 013f5fe | fix localized string async
+2026-02-10 | daf92eb | add button discorfd / wishlist / feedback and level manager demo
+2026-02-10 | 78095b4 | add webgl support
+2026-02-10 | 409e387 | improved cleaner
+2026-01-17 | 908f515 | add music for boss
+2026-01-17 | 14ce3a0 | add missing credits
+2026-01-17 | f0b6dfb | make nuke react to color theme
+2026-01-17 | 210b6ab | make boss introduction
+2026-01-17 | e2f82cf | start boss time thief
+2026-01-17 | afbd8e9 | update magneter
+2026-01-17 | 9004f00 | fix bug conflict magneter manager & boss & balance & change color futuristic color theme
+2026-01-16 | ee69768 | add futuristic color theme & the magneter boss logic
+2026-01-16 | 90342fc | add cosy and futuristic color theme
+2026-01-16 | 6e907bf | clear save button & ko effet boss
+2026-01-16 | d00a2c2 | make spawn burst use color palette & uioutline also
+2026-01-16 | a2aacc1 | add color theme & improve main menu & change small canvas 2 border
+2026-01-15 | 211859e | splash and healing vfx boss cleaner
+2026-01-15 | fe7920f | add color palette classicism & spawn burst vfx
+2026-01-15 | 1ff3986 | paint spawner burst vfx
+2026-01-15 | ae5a5dd | level classicism & unlock condition translations
+2026-01-15 | 650b83e | add bursting to paint spawner
+2026-01-15 | 14adcfb | add credit page
+2026-01-15 | 3aa8318 | add refund one node / fix bug color changer
+2026-01-13 | bcb8abd | fix color rank
+2026-01-13 | 7d4a450 | finish color theme
+2026-01-12 | beb122e | start color theme
+2026-01-12 | 7fa72b7 | add option font size damage/currency
+2026-01-05 | 56233cb | add effect on enable skill node detail
+2026-01-05 | a5affc7 | polish hp bar boss
+2026-01-05 | 1994295 | added preview water fall
+2026-01-05 | a222399 | optimize cleaner boss with pool
+2026-01-05 | 3cf0418 | continue cleaning boss
+2025-12-31 | 81376d4 | start cleaning boss
+2025-12-30 | cb5365f | Polish nuke effect
+2025-12-30 | 2096930 | poison upgrade
+2025-12-30 | b633a81 | add reward left to get on menu ui
+2025-12-30 | 802b2ef | day color with projected rank
+2025-12-30 | 355db98 | add scene transition
+2025-12-30 | 24599b9 | add some stats to day stat
+2025-12-30 | 79b3431 | add nuke item
+2025-12-30 | 98db222 | magnet item
+2025-12-29 | 68542d2 | add upgrade toggle autoclicker
+2025-12-23 | e655fc6 | line reveal effect
+2025-12-23 | 180d6eb | increase reward
+2025-12-23 | 2da276f | fix level stats save bugs
+2025-12-23 | 759a3d0 | format unit for skillnode details
+2025-12-19 | 0f90d7d | fix wrong init skill node
+2025-12-19 | 3a66a78 | add languages / screenshake / quit button / cursor / music / fix brush swipe damage
+2025-12-18 | 56ff439 | save currency only on day summary & fix time added animation
+2025-12-18 | 066ea6c | try optimize a bit
+2025-12-18 | 7298be8 | integrate 10 levels
+2025-12-18 | f824ebe | started balancing an level integration
+2025-12-17 | b49c696 | show reward
+2025-12-17 | a3d9c9f | polish ui reward / fix has claimed reward
+2025-12-17 | 957635d | polish UI
+2025-12-16 | 59e7e67 | fix bug radius time interval & add refund all
+2025-12-16 | df08a0b | fix static event leak
+2025-12-16 | cb4e186 | save current days
+2025-12-16 | 9e4609d | format
+2025-12-15 | eda46a7 | équilibrage jeu
+2025-12-15 | 309ccf1 | polish freezer
+2025-12-13 | e555c20 | integrate magnet polish & import asset cartoon
+2025-12-12 | f8e6812 | polish timer & paint bomb
+2025-12-12 | 74263f8 | started level integration
+2025-12-11 | 35f5860 | stats day summary
+2025-12-11 | 7cf982f | change skill tree behaviour & ui level rank
+2025-12-10 | 21c6590 | integrated logic skill points
+2025-12-10 | 8c3cbb8 | level ranking system
+2025-12-09 | 02aaf49 | integrated skill tree / vacuum currency
+2025-12-08 | c533cd3 | random colors
+2025-12-08 | dd116c3 | splatter scale match enemy scale / different scale for enemis with different cost / hp
+2025-12-08 | ff1985c | split logic
+2025-12-08 | 3e678cc | add magneter
+2025-12-05 | a607f2d | polish
+2025-12-04 | ef06f30 | chance of spawning blob with specific caracteristics
+2025-12-04 | 66c0210 | updated icons & level requirements upgrades
+2025-12-03 | fd56292 | paint bomb upgrade & freeze upgrade
+2025-12-03 | 5ad0caa | save skill tree
+2025-12-03 | 20defaa | lock description/visuals
+2025-12-03 | 95cd33b | unlock condition
+2025-12-02 | 83f403c | started unlock system
+2025-12-02 | b0cfdca | level save
+2025-12-01 | a1fce5b | level loading
+2025-12-01 | a1ac1ba | start campaign mode
+2025-11-28 | 4f157e3 | created main menu
+2025-11-28 | ce475c6 | fix upgrade & add cost function
+2025-11-27 | c65a9f8 | started basic skill tree
+2025-11-27 | b226282 | feedback kill polish
+2025-11-27 | 5528ff4 | visuel autoclicker
+2025-11-26 | 9b17130 | up
+2025-11-26 | d1844c8 | integrated ui & basic upgrades
+2025-11-25 | c00e588 | game state & currency system / minimal loop
+2025-11-25 | 52232d8 | skill tree system
+2025-11-24 | e86ba95 | death painter
+2025-11-24 | e9175b6 | up
+2025-11-20 | 6ca3c11 | Initial commit

@@ -359,6 +359,10 @@ MonoBehaviour:
     m_Key: DISCLAIMER_DEMO
     m_Metadata:
       m_Items: []
+  - m_Id: 42146352144445440
+    m_Key: DISCLAIMER_DEMO_STEAM
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
